@@ -10,6 +10,7 @@ import (
 	"io"
 	"mime/multipart"
 	"net/http"
+	"sort"
 
 	"golang.org/x/net/context"
 )
@@ -102,7 +103,18 @@ func (a *App) processUpload(ctx context.Context, mr *multipart.Reader) (*uploadS
 			return nil, err
 		}
 
-		// TODO(quentin): Write metadata at top of file
+		var keys []string
+		for k := range meta {
+			keys = append(keys, k)
+		}
+		sort.Strings(keys)
+		for _, k := range keys {
+			if _, err := fmt.Fprintf(fw, "%s: %s\n", k, meta[k]); err != nil {
+				fw.CloseWithError(err)
+				return nil, err
+			}
+		}
+
 		if _, err := io.Copy(fw, p); err != nil {
 			fw.CloseWithError(err)
 			return nil, err
