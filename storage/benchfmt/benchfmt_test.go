@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-package app
+package benchfmt
 
 import (
 	"bytes"
@@ -16,7 +16,7 @@ import (
 	"testing"
 )
 
-func readAllResults(t *testing.T, r *BenchmarkReader) []*Result {
+func readAllResults(t *testing.T, r *Reader) []*Result {
 	var out []*Result
 	for {
 		result, err := r.Next()
@@ -32,7 +32,6 @@ func readAllResults(t *testing.T, r *BenchmarkReader) []*Result {
 }
 
 func TestBenchmarkReader(t *testing.T) {
-	type kv map[string]string
 	tests := []struct {
 		name, input string
 		want        []*Result
@@ -43,8 +42,8 @@ func TestBenchmarkReader(t *testing.T) {
 BenchmarkOne 1 ns/sec
 `,
 			[]*Result{{
-				kv{"key": "value"},
-				kv{"name": "One"},
+				Labels{"key": "value"},
+				Labels{"name": "One"},
 				2,
 				"BenchmarkOne 1 ns/sec",
 			}},
@@ -57,14 +56,14 @@ BenchmarkTwo 2 ns/sec
 `,
 			[]*Result{
 				{
-					kv{"key": "value"},
-					kv{"name": "One", "sub1": "foo", "bar": "1", "GOMAXPROCS": "2"},
+					Labels{"key": "value"},
+					Labels{"name": "One", "sub1": "foo", "bar": "1", "GOMAXPROCS": "2"},
 					2,
 					"BenchmarkOne/foo/bar=1-2 1 ns/sec",
 				},
 				{
-					kv{"key": "value"},
-					kv{"name": "Two"},
+					Labels{"key": "value"},
+					Labels{"name": "Two"},
 					3,
 					"BenchmarkTwo 2 ns/sec",
 				},
@@ -78,8 +77,8 @@ BenchmarkOne 1 ns/sec
 `,
 			[]*Result{
 				{
-					kv{},
-					kv{"name": "One"},
+					Labels{},
+					Labels{"name": "One"},
 					3,
 					"BenchmarkOne 1 ns/sec",
 				},
@@ -88,7 +87,7 @@ BenchmarkOne 1 ns/sec
 	}
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			r := NewBenchmarkReader(strings.NewReader(test.input))
+			r := NewReader(strings.NewReader(test.input))
 			have := readAllResults(t, r)
 			want := test.want
 			diff := ""
@@ -157,10 +156,10 @@ BenchmarkOne 1 ns/sec
 	}
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			r := NewBenchmarkReader(strings.NewReader(test.input))
+			r := NewReader(strings.NewReader(test.input))
 			results := readAllResults(t, r)
 			var have bytes.Buffer
-			bp := NewBenchmarkPrinter(&have)
+			bp := NewPrinter(&have)
 			for _, result := range results {
 				if err := bp.Print(result); err != nil {
 					t.Errorf("Print returned %v", err)

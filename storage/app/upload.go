@@ -14,6 +14,8 @@ import (
 	"sort"
 
 	"golang.org/x/net/context"
+	"golang.org/x/perf/storage/benchfmt"
+	"golang.org/x/perf/storage/db"
 )
 
 // upload is the handler for the /upload endpoint. It serves a form on
@@ -67,7 +69,7 @@ type uploadStatus struct {
 // processUpload takes one or more files from a multipart.Reader,
 // writes them to the filesystem, and indexes their content.
 func (a *App) processUpload(ctx context.Context, mr *multipart.Reader) (*uploadStatus, error) {
-	var uploadid string
+	var upload *db.Upload
 	var fileids []string
 
 	for i := 0; ; i++ {
@@ -81,9 +83,9 @@ func (a *App) processUpload(ctx context.Context, mr *multipart.Reader) (*uploadS
 			return nil, fmt.Errorf("unexpected field %q", name)
 		}
 
-		if uploadid == "" {
+		if upload == nil {
 			var err error
-			uploadid, err = a.DB.ReserveUploadID(ctx)
+			upload, err = a.DB.NewUpload(ctx)
 			if err != nil {
 				return nil, err
 			}
@@ -94,7 +96,7 @@ func (a *App) processUpload(ctx context.Context, mr *multipart.Reader) (*uploadS
 		// is invalid (contains no valid records) it needs to
 		// be rejected and the Cloud Storage upload aborted.
 
-		meta := fileMetadata(ctx, uploadid, i)
+		meta := fileMetadata(ctx, upload.ID, i)
 
 		// We need to do two things with the incoming data:
 		// - Write it to permanent storage via a.FS
@@ -102,17 +104,17 @@ func (a *App) processUpload(ctx context.Context, mr *multipart.Reader) (*uploadS
 		// AND if anything fails, attempt to clean up both the
 		// FS and the index records.
 
-		if err := a.indexFile(ctx, p, meta); err != nil {
+		if err := a.indexFile(ctx, upload, p, meta); err != nil {
 			return nil, err
 		}
 
 		fileids = append(fileids, meta["fileid"])
 	}
 
-	return &uploadStatus{uploadid, fileids}, nil
+	return &uploadStatus{upload.ID, fileids}, nil
 }
 
-func (a *App) indexFile(ctx context.Context, p io.Reader, meta map[string]string) (err error) {
+func (a *App) indexFile(ctx context.Context, upload *db.Upload, p io.Reader, meta map[string]string) (err error) {
 	fw, err := a.FS.NewWriter(ctx, fmt.Sprintf("uploads/%s.txt", meta["fileid"]), meta)
 	if err != nil {
 		return err
@@ -137,7 +139,7 @@ func (a *App) indexFile(ctx context.Context, p io.Reader, meta map[string]string
 
 	// TODO(quentin): Add a separate goroutine and buffer for writes to fw?
 	tr := io.TeeReader(p, fw)
-	br := NewBenchmarkReader(tr)
+	br := benchfmt.NewReader(tr)
 	br.AddLabels(meta)
 	i := 0
 	for {
@@ -152,8 +154,9 @@ func (a *App) indexFile(ctx context.Context, p io.Reader, meta map[string]string
 			return nil
 		}
 		i++
-		// TODO(quentin): Write records to database
-		_ = result
+		if err := upload.InsertRecord(result); err != nil {
+			return err
+		}
 	}
 }
 

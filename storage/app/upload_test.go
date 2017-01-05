@@ -13,8 +13,8 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	_ "github.com/mattn/go-sqlite3"
 	"golang.org/x/perf/storage/db"
+	_ "golang.org/x/perf/storage/db/sqlite3"
 	"golang.org/x/perf/storage/fs"
 )
 
@@ -41,7 +41,7 @@ func TestUpload(t *testing.T) {
 		if err != nil {
 			t.Errorf("CreateFormFile: %v", err)
 		}
-		fmt.Fprintf(w, "key: value\nBenchmarkOne 5 ns/op\n")
+		fmt.Fprintf(w, "key: value\nBenchmarkOne 5 ns/op\nkey:value2\nBenchmarkTwo 10 ns/op\n")
 	}()
 	resp, err := http.Post(srv.URL, mpw.FormDataContentType(), pr)
 	if err != nil {

@@ -2,7 +2,10 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-package app
+// Package benchfmt provides readers and writers for the Go benchmark format.
+//
+// The format is documented at https://golang.org/design/14313-benchmark-format
+package benchfmt
 
 import (
 	"bufio"
@@ -14,97 +17,111 @@ import (
 	"unicode"
 )
 
-// BenchmarkReader reads benchmark results from an io.Reader.
-type BenchmarkReader struct {
+// Reader reads benchmark results from an io.Reader.
+type Reader struct {
 	s       *bufio.Scanner
-	labels  map[string]string
+	labels  Labels
 	lineNum int
 }
 
-// NewBenchmarkReader creates a BenchmarkReader that reads from r.
-func NewBenchmarkReader(r io.Reader) *BenchmarkReader {
-	return &BenchmarkReader{
+// TODO(quentin): Make Reader have a Scanner-style interface instead, to match db.Query.
+
+// NewReader creates a BenchmarkReader that reads from r.
+func NewReader(r io.Reader) *Reader {
+	return &Reader{
 		s:      bufio.NewScanner(r),
-		labels: make(map[string]string),
+		labels: make(Labels),
 	}
 }
 
 // AddLabels adds additional labels as if they had been read from the file.
 // It must be called before the first call to r.Next.
-func (r *BenchmarkReader) AddLabels(labels map[string]string) {
+func (r *Reader) AddLabels(labels Labels) {
 	for k, v := range labels {
 		r.labels[k] = v
 	}
 }
-
-// TODO: It would probably be helpful to add a named type for
-// map[string]string with String(), Keys(), and Equal() methods.
 
 // Result represents a single line from a benchmark file.
 // All information about that line is self-contained in the Result.
 type Result struct {
 	// Labels is the set of persistent labels that apply to the result.
 	// Labels must not be modified.
-	Labels map[string]string
+	Labels Labels
 	// NameLabels is the set of ephemeral labels that were parsed
 	// from the benchmark name/line.
 	// NameLabels must not be modified.
-	NameLabels map[string]string
+	NameLabels Labels
 	// LineNum is the line number on which the result was found
 	LineNum int
 	// Content is the verbatim input line of the benchmark file, beginning with the string "Benchmark".
 	Content string
 }
 
-// A BenchmarkPrinter prints a sequence of benchmark results.
-type BenchmarkPrinter struct {
-	w      io.Writer
-	labels map[string]string
+// Labels is a set of key-value strings.
+type Labels map[string]string
+
+// TODO(quentin): Add String and Equal methods to Labels?
+
+// Keys returns a sorted list of the keys in l.
+func (l Labels) Keys() []string {
+	var out []string
+	for k := range l {
+		out = append(out, k)
+	}
+	sort.Strings(out)
+	return out
 }
 
-// NewBenchmarkPrinter constructs a BenchmarkPrinter writing to w.
-func NewBenchmarkPrinter(w io.Writer) *BenchmarkPrinter {
-	return &BenchmarkPrinter{w: w}
+// A Printer prints a sequence of benchmark results.
+type Printer struct {
+	w      io.Writer
+	labels Labels
+}
+
+// NewPrinter constructs a BenchmarkPrinter writing to w.
+func NewPrinter(w io.Writer) *Printer {
+	return &Printer{w: w}
 }
 
 // Print writes the lines necessary to recreate r.
-func (bp *BenchmarkPrinter) Print(r *Result) error {
+func (p *Printer) Print(r *Result) error {
 	var keys []string
 	// Print removed keys first.
-	for k := range bp.labels {
+	for k := range p.labels {
 		if r.Labels[k] == "" {
 			keys = append(keys, k)
 		}
 	}
 	sort.Strings(keys)
 	for _, k := range keys {
-		if _, err := fmt.Fprintf(bp.w, "%s:\n", k); err != nil {
+		if _, err := fmt.Fprintf(p.w, "%s:\n", k); err != nil {
 			return err
 		}
 	}
 	// Then print new or changed keys.
 	keys = keys[:0]
 	for k, v := range r.Labels {
-		if v != "" && bp.labels[k] != v {
+		if v != "" && p.labels[k] != v {
 			keys = append(keys, k)
 		}
 	}
 	sort.Strings(keys)
 	for _, k := range keys {
-		if _, err := fmt.Fprintf(bp.w, "%s: %s\n", k, r.Labels[k]); err != nil {
+		if _, err := fmt.Fprintf(p.w, "%s: %s\n", k, r.Labels[k]); err != nil {
 			return err
 		}
 	}
 	// Finally print the actual line itself.
-	if _, err := fmt.Fprintf(bp.w, "%s\n", r.Content); err != nil {
+	if _, err := fmt.Fprintf(p.w, "%s\n", r.Content); err != nil {
 		return err
 	}
-	bp.labels = r.Labels
+	p.labels = r.Labels
 	return nil
 }
 
 // parseNameLabels extracts extra labels from a benchmark name and sets them in labels.
-func parseNameLabels(name string, labels map[string]string) {
+func parseNameLabels(name string, labels Labels) {
 	dash := strings.LastIndex(name, "-")
 	if dash >= 0 {
 		// Accept -N as an alias for /GOMAXPROCS=N
@@ -129,10 +146,10 @@ func parseNameLabels(name string, labels map[string]string) {
 }
 
 // newResult parses a line and returns a Result object for the line.
-func newResult(labels map[string]string, lineNum int, name, content string) *Result {
+func newResult(labels Labels, lineNum int, name, content string) *Result {
 	r := &Result{
 		Labels:     labels,
-		NameLabels: make(map[string]string),
+		NameLabels: make(Labels),
 		LineNum:    lineNum,
 		Content:    content,
 	}
@@ -140,11 +157,11 @@ func newResult(labels map[string]string, lineNum int, name, content string) *Res
 	return r
 }
 
-// copyLabels makes a new copy of the labels map, to protect against
+// copy returns a new copy of the labels map, to protect against
 // future modifications to labels.
-func copyLabels(labels map[string]string) map[string]string {
-	new := make(map[string]string)
-	for k, v := range labels {
+func (l Labels) copy() Labels {
+	new := make(Labels)
+	for k, v := range l {
 		new[k] = v
 	}
 	return new
@@ -154,7 +171,7 @@ func copyLabels(labels map[string]string) map[string]string {
 
 // Next returns the next benchmark result from the file. If there are
 // no further results, it returns nil, io.EOF.
-func (r *BenchmarkReader) Next() (*Result, error) {
+func (r *Reader) Next() (*Result, error) {
 	copied := false
 	for r.s.Scan() {
 		r.lineNum++
@@ -162,7 +179,7 @@ func (r *BenchmarkReader) Next() (*Result, error) {
 		if key, value, ok := parseKeyValueLine(line); ok {
 			if !copied {
 				copied = true
-				r.labels = copyLabels(r.labels)
+				r.labels = r.labels.copy()
 			}
 			// TODO(quentin): Spec says empty value is valid, but
 			// we need a way to cancel previous labels, so we'll

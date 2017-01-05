@@ -9,9 +9,9 @@ import (
 	"log"
 	"net/http"
 
-	_ "github.com/mattn/go-sqlite3"
 	"golang.org/x/perf/storage/app"
 	"golang.org/x/perf/storage/db"
+	_ "golang.org/x/perf/storage/db/sqlite3"
 	"golang.org/x/perf/storage/fs"
 )
 
