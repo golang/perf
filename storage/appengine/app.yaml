@@ -12,7 +12,7 @@ api_version: go1
 handlers:
 - url: /_ah/remote_api
   script: _go_app
-- url: /upload
+- url: /
   script: _go_app
   secure: always
 env_variables:

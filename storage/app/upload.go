@@ -51,6 +51,7 @@ func (a *App) upload(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	w.Header().Set("Content-Type", "application/json")
 	if err := json.NewEncoder(w).Encode(result); err != nil {
 		errorf(ctx, "%v", err)
 		http.Error(w, err.Error(), 500)

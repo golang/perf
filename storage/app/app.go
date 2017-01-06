@@ -25,4 +25,5 @@ type App struct {
 func (a *App) RegisterOnMux(mux *http.ServeMux) {
 	// TODO(quentin): Should we just make the App itself be an http.Handler?
 	mux.HandleFunc("/upload", a.upload)
+	mux.HandleFunc("/search", a.search)
 }
