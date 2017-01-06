@@ -57,7 +57,7 @@ BenchmarkTwo 2 ns/sec
 			[]*Result{
 				{
 					Labels{"key": "value"},
-					Labels{"name": "One", "sub1": "foo", "bar": "1", "GOMAXPROCS": "2"},
+					Labels{"name": "One", "sub1": "foo", "bar": "1", "gomaxprocs": "2"},
 					2,
 					"BenchmarkOne/foo/bar=1-2 1 ns/sec",
 				},

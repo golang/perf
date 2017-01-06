@@ -124,10 +124,10 @@ func (p *Printer) Print(r *Result) error {
 func parseNameLabels(name string, labels Labels) {
 	dash := strings.LastIndex(name, "-")
 	if dash >= 0 {
-		// Accept -N as an alias for /GOMAXPROCS=N
+		// Accept -N as an alias for /gomaxprocs=N
 		_, err := strconv.Atoi(name[dash+1:])
 		if err == nil {
-			labels["GOMAXPROCS"] = name[dash+1:]
+			labels["gomaxprocs"] = name[dash+1:]
 			name = name[:dash]
 		}
 	}
