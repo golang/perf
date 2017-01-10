@@ -15,19 +15,21 @@ import (
 	"testing"
 
 	"golang.org/x/perf/storage/db"
+	"golang.org/x/perf/storage/db/dbtest"
 	_ "golang.org/x/perf/storage/db/sqlite3"
 	"golang.org/x/perf/storage/fs"
 )
 
 type testApp struct {
-	db  *db.DB
-	fs  *fs.MemFS
-	app *App
-	srv *httptest.Server
+	db        *db.DB
+	dbCleanup func()
+	fs        *fs.MemFS
+	app       *App
+	srv       *httptest.Server
 }
 
 func (app *testApp) Close() {
-	app.db.Close()
+	app.dbCleanup()
 	app.srv.Close()
 }
 
@@ -37,10 +39,7 @@ func (app *testApp) Close() {
 //
 // When finished with app, the caller must call app.Close().
 func createTestApp(t *testing.T) *testApp {
-	db, err := db.OpenSQL("sqlite3", ":memory:")
-	if err != nil {
-		t.Fatalf("open database: %v", err)
-	}
+	db, cleanup := dbtest.NewDB(t)
 
 	fs := fs.NewMemFS()
 
@@ -51,7 +50,7 @@ func createTestApp(t *testing.T) *testApp {
 
 	srv := httptest.NewServer(mux)
 
-	return &testApp{db, fs, app, srv}
+	return &testApp{db, cleanup, fs, app, srv}
 }
 
 // uploadFiles calls the /upload endpoint and executes f in a new

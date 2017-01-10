@@ -13,7 +13,7 @@ import (
 
 	"golang.org/x/perf/storage/benchfmt"
 	. "golang.org/x/perf/storage/db"
-	_ "golang.org/x/perf/storage/db/sqlite3"
+	"golang.org/x/perf/storage/db/dbtest"
 )
 
 // Most of the db package is tested via the end-to-end-tests in perf/storage/app.
@@ -38,11 +38,8 @@ func TestSplitQueryWords(t *testing.T) {
 
 // TestNewUpload verifies that NewUpload and InsertRecord wrote the correct rows to the database.
 func TestNewUpload(t *testing.T) {
-	db, err := OpenSQL("sqlite3", ":memory:")
-	if err != nil {
-		t.Fatalf("open database: %v", err)
-	}
-	defer db.Close()
+	db, cleanup := dbtest.NewDB(t)
+	defer cleanup()
 
 	u, err := db.NewUpload(context.Background())
 	if err != nil {
@@ -104,11 +101,8 @@ BenchmarkName 1 ns/op
 }
 
 func TestQuery(t *testing.T) {
-	db, err := OpenSQL("sqlite3", ":memory:")
-	if err != nil {
-		t.Fatalf("open database: %v", err)
-	}
-	defer db.Close()
+	db, cleanup := dbtest.NewDB(t)
+	defer cleanup()
 
 	u, err := db.NewUpload(context.Background())
 	if err != nil {

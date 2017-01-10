@@ -358,6 +358,13 @@ func (q *Query) Close() error {
 	return q.err
 }
 
+// CountUploads returns the number of uploads in the database.
+func (db *DB) CountUploads() (int, error) {
+	var uploads int
+	err := db.sql.QueryRow("SELECT COUNT(*) FROM Uploads").Scan(&uploads)
+	return uploads, err
+}
+
 // Close closes the database connections, releasing any open resources.
 func (db *DB) Close() error {
 	if err := db.insertUpload.Close(); err != nil {
