@@ -7,6 +7,7 @@
 package app
 
 import (
+	"errors"
 	"net/http"
 
 	"golang.org/x/perf/storage/db"
@@ -19,7 +20,15 @@ import (
 type App struct {
 	DB *db.DB
 	FS fs.FS
+
+	// Auth obtains the username for the request.
+	// If necessary, it can write its own response (e.g. a
+	// redirect) and return ErrResponseWritten.
+	Auth func(http.ResponseWriter, *http.Request) (string, error)
 }
+
+// ErrResponseWritten can be returned by App.Auth to abort the normal /upload handling.
+var ErrResponseWritten = errors.New("response written")
 
 // RegisterOnMux registers the app's URLs on mux.
 func (a *App) RegisterOnMux(mux *http.ServeMux) {

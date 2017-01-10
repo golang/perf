@@ -75,6 +75,9 @@ func TestQuery(t *testing.T) {
 				if r.NameLabels["name"] != "Name" {
 					t.Errorf("#%d: name = %q, want %q", i, r.NameLabels["name"], "Name")
 				}
+				if r.Labels["by"] != "user" {
+					t.Errorf("#%d: by = %q, want %q", i, r.Labels["uploader"], "user")
+				}
 			}
 			_, err = br.Next()
 			if err != io.EOF {

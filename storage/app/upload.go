@@ -24,7 +24,13 @@ import (
 func (a *App) upload(w http.ResponseWriter, r *http.Request) {
 	ctx := requestContext(r)
 
-	// TODO(quentin): Authentication
+	user, err := a.Auth(w, r)
+	switch {
+	case err == ErrResponseWritten:
+		return
+	case err != nil:
+		http.Error(w, err.Error(), 500)
+	}
 
 	if r.Method == http.MethodGet {
 		http.ServeFile(w, r, "static/upload.html")
@@ -44,7 +50,7 @@ func (a *App) upload(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	result, err := a.processUpload(ctx, mr)
+	result, err := a.processUpload(ctx, user, mr)
 	if err != nil {
 		errorf(ctx, "%v", err)
 		http.Error(w, err.Error(), 500)
@@ -69,7 +75,7 @@ type uploadStatus struct {
 
 // processUpload takes one or more files from a multipart.Reader,
 // writes them to the filesystem, and indexes their content.
-func (a *App) processUpload(ctx context.Context, mr *multipart.Reader) (*uploadStatus, error) {
+func (a *App) processUpload(ctx context.Context, user string, mr *multipart.Reader) (*uploadStatus, error) {
 	var upload *db.Upload
 	var fileids []string
 
@@ -97,7 +103,7 @@ func (a *App) processUpload(ctx context.Context, mr *multipart.Reader) (*uploadS
 		// is invalid (contains no valid records) it needs to
 		// be rejected and the Cloud Storage upload aborted.
 
-		meta := fileMetadata(ctx, upload.ID, i)
+		meta := fileMetadata(user, upload.ID, i)
 
 		// We need to do two things with the incoming data:
 		// - Write it to permanent storage via a.FS
@@ -162,14 +168,16 @@ func (a *App) indexFile(ctx context.Context, upload *db.Upload, p io.Reader, met
 }
 
 // fileMetadata returns the extra metadata fields associated with an
-// uploaded file. It obtains the uploader's e-mail address from the
-// Context.
-func fileMetadata(_ context.Context, uploadid string, filenum int) map[string]string {
-	// TODO(quentin): Add the name of the uploader.
+// uploaded file.
+func fileMetadata(user string, uploadid string, filenum int) map[string]string {
 	// TODO(quentin): Add the upload time.
 	// TODO(quentin): Add other fields?
-	return map[string]string{
+	m := map[string]string{
 		"uploadid": uploadid,
 		"fileid":   fmt.Sprintf("%s/%d", uploadid, filenum),
 	}
+	if user != "" {
+		m["by"] = user
+	}
+	return m
 }

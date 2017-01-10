@@ -43,7 +43,11 @@ func createTestApp(t *testing.T) *testApp {
 
 	fs := fs.NewMemFS()
 
-	app := &App{DB: db, FS: fs}
+	app := &App{
+		DB:   db,
+		FS:   fs,
+		Auth: func(http.ResponseWriter, *http.Request) (string, error) { return "user", nil },
+	}
 
 	mux := http.NewServeMux()
 	app.RegisterOnMux(mux)

@@ -17,6 +17,7 @@ import (
 	"golang.org/x/perf/storage/fs/gcs"
 	"google.golang.org/appengine"
 	aelog "google.golang.org/appengine/log"
+	"google.golang.org/appengine/user"
 )
 
 // connectDB returns a DB initialized from the environment variables set in app.yaml. CLOUDSQL_CONNECTION_NAME, CLOUDSQL_USER, and CLOUDSQL_DATABASE must be set to point to the Cloud SQL instance. CLOUDSQL_PASSWORD can be set if needed.
@@ -37,6 +38,27 @@ func mustGetenv(k string) string {
 		log.Panicf("%s environment variable not set.", k)
 	}
 	return v
+}
+
+func auth(w http.ResponseWriter, r *http.Request) (string, error) {
+	ctx := appengine.NewContext(r)
+	u := user.Current(ctx)
+	if u == nil && r.Header.Get("Authorization") != "" {
+		var err error
+		u, err = user.CurrentOAuth(ctx, "https://www.googleapis.com/auth/userinfo.email")
+		if err != nil {
+			return "", err
+		}
+	}
+	if u == nil {
+		url, err := user.LoginURL(ctx, r.URL.String())
+		if err != nil {
+			return "", err
+		}
+		http.Redirect(w, r, url, http.StatusFound)
+		return "", app.ErrResponseWritten
+	}
+	return u.Email, nil
 }
 
 // appHandler is the default handler, registered to serve "/".
@@ -66,7 +88,7 @@ func appHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	mux := http.NewServeMux()
-	app := &app.App{DB: db, FS: fs}
+	app := &app.App{DB: db, FS: fs, Auth: auth}
 	app.RegisterOnMux(mux)
 	mux.ServeHTTP(w, r)
 }

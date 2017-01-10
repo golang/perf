@@ -26,7 +26,7 @@ func main() {
 	}
 	fs := fs.NewMemFS()
 
-	app := &app.App{DB: db, FS: fs}
+	app := &app.App{DB: db, FS: fs, Auth: func(http.ResponseWriter, *http.Request) (string, error) { return "", nil }}
 	app.RegisterOnMux(http.DefaultServeMux)
 
 	log.Printf("Listening on %s", *host)
