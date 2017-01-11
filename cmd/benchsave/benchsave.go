@@ -16,16 +16,18 @@
 package main
 
 import (
+	"context"
 	"encoding/json"
 	"flag"
 	"fmt"
 	"io"
 	"log"
 	"mime/multipart"
-	"net/http"
 	"os"
 	"path/filepath"
 	"time"
+
+	"golang.org/x/oauth2"
 )
 
 var (
@@ -78,12 +80,15 @@ func main() {
 	flag.Usage = usage
 	flag.Parse()
 
-	// TODO(quentin): Authentication
-
 	files := flag.Args()
 	if len(files) == 0 {
 		log.Fatal("no files to upload")
 	}
+
+	// TODO(quentin): Some servers might not need authentication.
+	// We should somehow detect this and not force the user to get a token.
+	// Or they might need non-Google authentication.
+	hc := oauth2.NewClient(context.Background(), newTokenSource())
 
 	pr, pw := io.Pipe()
 	mpw := multipart.NewWriter(pw)
@@ -99,7 +104,7 @@ func main() {
 
 	start := time.Now()
 
-	resp, err := http.Post(*server+"/upload", mpw.FormDataContentType(), pr)
+	resp, err := hc.Post(*server+"/upload", mpw.FormDataContentType(), pr)
 	if err != nil {
 		log.Fatalf("upload failed: %v\n", err)
 	}
