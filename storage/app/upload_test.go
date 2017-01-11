@@ -12,6 +12,7 @@ import (
 	"mime/multipart"
 	"net/http"
 	"net/http/httptest"
+	"reflect"
 	"testing"
 
 	"golang.org/x/perf/storage/db"
@@ -44,9 +45,10 @@ func createTestApp(t *testing.T) *testApp {
 	fs := fs.NewMemFS()
 
 	app := &App{
-		DB:   db,
-		FS:   fs,
-		Auth: func(http.ResponseWriter, *http.Request) (string, error) { return "user", nil },
+		DB:          db,
+		FS:          fs,
+		Auth:        func(http.ResponseWriter, *http.Request) (string, error) { return "user", nil },
+		ViewURLBase: "view:",
 	}
 
 	mux := http.NewServeMux()
@@ -94,13 +96,23 @@ func TestUpload(t *testing.T) {
 	app := createTestApp(t)
 	defer app.Close()
 
-	app.uploadFiles(t, func(mpw *multipart.Writer) {
+	status := app.uploadFiles(t, func(mpw *multipart.Writer) {
 		w, err := mpw.CreateFormFile("file", "1.txt")
 		if err != nil {
 			t.Errorf("CreateFormFile: %v", err)
 		}
 		fmt.Fprintf(w, "key: value\nBenchmarkOne 5 ns/op\nkey:value2\nBenchmarkTwo 10 ns/op\n")
 	})
+
+	if status.UploadID != "1" {
+		t.Errorf("uploadid = %q, want %q", status.UploadID, "1")
+	}
+	if have, want := status.FileIDs, []string{"1/0"}; !reflect.DeepEqual(have, want) {
+		t.Errorf("fileids = %v, want %v", have, want)
+	}
+	if status.ViewURL != "view:1" {
+		t.Errorf("viewurl = %q, want %q", status.ViewURL, "view:1")
+	}
 
 	if len(app.fs.Files()) != 1 {
 		t.Errorf("/upload wrote %d files, want 1", len(app.fs.Files()))

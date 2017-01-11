@@ -25,6 +25,11 @@ type App struct {
 	// If necessary, it can write its own response (e.g. a
 	// redirect) and return ErrResponseWritten.
 	Auth func(http.ResponseWriter, *http.Request) (string, error)
+
+	// ViewURLBase will be used to construct a URL to return as
+	// "viewurl" in the response from /upload. If it is non-empty,
+	// the upload ID will be appended to ViewURLBase.
+	ViewURLBase string
 }
 
 // ErrResponseWritten can be returned by App.Auth to abort the normal /upload handling.

@@ -11,6 +11,7 @@ import (
 	"io"
 	"mime/multipart"
 	"net/http"
+	"net/url"
 	"sort"
 
 	"golang.org/x/net/context"
@@ -71,6 +72,8 @@ type uploadStatus struct {
 	UploadID string `json:"uploadid"`
 	// FileIDs is the list of file IDs assigned to the files in the upload.
 	FileIDs []string `json:"fileids"`
+	// ViewURL is a URL that can be used to interactively view the upload.
+	ViewURL string `json:"viewurl,omitempty"`
 }
 
 // processUpload takes one or more files from a multipart.Reader,
@@ -118,7 +121,12 @@ func (a *App) processUpload(ctx context.Context, user string, mr *multipart.Read
 		fileids = append(fileids, meta["fileid"])
 	}
 
-	return &uploadStatus{upload.ID, fileids}, nil
+	status := &uploadStatus{UploadID: upload.ID, FileIDs: fileids}
+	if a.ViewURLBase != "" {
+		status.ViewURL = a.ViewURLBase + url.QueryEscape(upload.ID)
+	}
+
+	return status, nil
 }
 
 func (a *App) indexFile(ctx context.Context, upload *db.Upload, p io.Reader, meta map[string]string) (err error) {

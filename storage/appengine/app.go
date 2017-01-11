@@ -65,7 +65,8 @@ func auth(w http.ResponseWriter, r *http.Request) (string, error) {
 // It creates a new App instance using the appengine Context and then
 // dispatches the request to the App. The environment variable
 // GCS_BUCKET must be set in app.yaml with the name of the bucket to
-// write to.
+// write to. PERFDATA_VIEW_URL_BASE may be set to the URL that should
+// be supplied in /upload responses.
 func appHandler(w http.ResponseWriter, r *http.Request) {
 	ctx := appengine.NewContext(r)
 	// GCS clients need to be constructed with an AppEngine
@@ -88,7 +89,7 @@ func appHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	mux := http.NewServeMux()
-	app := &app.App{DB: db, FS: fs, Auth: auth}
+	app := &app.App{DB: db, FS: fs, Auth: auth, ViewURLBase: os.Getenv("PERFDATA_VIEW_URL_BASE")}
 	app.RegisterOnMux(mux)
 	mux.ServeHTTP(w, r)
 }
