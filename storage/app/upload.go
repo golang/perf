@@ -99,6 +99,11 @@ func (a *App) processUpload(ctx context.Context, user string, mr *multipart.Read
 			if err != nil {
 				return nil, err
 			}
+			defer func() {
+				if upload != nil {
+					upload.Abort()
+				}
+			}()
 		}
 
 		// The incoming file needs to be stored in Cloud
@@ -121,10 +126,19 @@ func (a *App) processUpload(ctx context.Context, user string, mr *multipart.Read
 		fileids = append(fileids, meta["fileid"])
 	}
 
+	if upload == nil {
+		return nil, errors.New("no files processed")
+	}
+	if err := upload.Commit(); err != nil {
+		return nil, err
+	}
+
 	status := &uploadStatus{UploadID: upload.ID, FileIDs: fileids}
 	if a.ViewURLBase != "" {
 		status.ViewURL = a.ViewURLBase + url.QueryEscape(upload.ID)
 	}
+
+	upload = nil
 
 	return status, nil
 }

@@ -60,6 +60,10 @@ BenchmarkName 1 ns/op
 		t.Fatalf("InsertRecord: %v", err)
 	}
 
+	if err := u.Commit(); err != nil {
+		t.Fatalf("Commit: %v", err)
+	}
+
 	rows, err := DBSQL(db).Query("SELECT UploadId, RecordId, Name, Value FROM RecordLabels")
 	if err != nil {
 		t.Fatalf("sql.Query: %v", err)
@@ -118,6 +122,9 @@ func TestQuery(t *testing.T) {
 		if err := u.InsertRecord(r); err != nil {
 			t.Fatalf("InsertRecord: %v", err)
 		}
+	}
+	if err := u.Commit(); err != nil {
+		t.Fatalf("Commit: %v", err)
 	}
 
 	tests := []struct {

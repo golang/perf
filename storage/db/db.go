@@ -145,12 +145,14 @@ type Upload struct {
 	recordid int64
 	// db is the underlying database that this upload is going to.
 	db *DB
+	// tx is the transaction used by the upload.
+	tx *sql.Tx
 }
 
 // NewUpload returns an upload for storing new files.
 // All records written to the Upload will have the same upload ID.
 func (db *DB) NewUpload(ctx context.Context) (*Upload, error) {
-	// TODO(quentin): Use a transaction?
+	// TODO(quentin): Use the same transaction as the rest of the upload?
 	res, err := db.insertUpload.Exec()
 	if err != nil {
 		return nil, err
@@ -160,33 +162,27 @@ func (db *DB) NewUpload(ctx context.Context) (*Upload, error) {
 	if err != nil {
 		return nil, err
 	}
+	tx, err := db.sql.Begin()
+	if err != nil {
+		return nil, err
+	}
 	return &Upload{
 		ID: fmt.Sprint(i),
 		id: i,
 		db: db,
+		tx: tx,
 	}, nil
 }
 
 // InsertRecord inserts a single record in an existing upload.
-func (u *Upload) InsertRecord(r *benchfmt.Result) (err error) {
-	// TODO(quentin): Use a single transaction for the whole upload?
-	tx, err := u.db.sql.Begin()
-	if err != nil {
-		return err
-	}
-	defer func() {
-		if err != nil {
-			tx.Rollback()
-		} else {
-			err = tx.Commit()
-		}
-	}()
+// If InsertRecord returns a non-nil error, the Upload has failed and u.Abort() must be called.
+func (u *Upload) InsertRecord(r *benchfmt.Result) error {
 	// TODO(quentin): Support multiple lines (slice of results?)
 	var buf bytes.Buffer
 	if err := benchfmt.NewPrinter(&buf).Print(r); err != nil {
 		return err
 	}
-	if _, err = tx.Stmt(u.db.insertRecord).Exec(u.id, u.recordid, buf.Bytes()); err != nil {
+	if _, err := u.tx.Stmt(u.db.insertRecord).Exec(u.id, u.recordid, buf.Bytes()); err != nil {
 		return err
 	}
 	var args []interface{}
@@ -199,12 +195,23 @@ func (u *Upload) InsertRecord(r *benchfmt.Result) (err error) {
 	if len(args) > 0 {
 		query := "INSERT INTO RecordLabels VALUES " + strings.Repeat("(?, ?, ?, ?), ", len(args)/4)
 		query = strings.TrimSuffix(query, ", ")
-		if _, err := tx.Exec(query, args...); err != nil {
+		if _, err := u.tx.Exec(query, args...); err != nil {
 			return err
 		}
 	}
 	u.recordid++
 	return nil
+}
+
+// Commit finishes processing the upload.
+func (u *Upload) Commit() error {
+	return u.tx.Commit()
+}
+
+// Abort cleans up resources associated with the upload.
+// It does not attempt to clean up partial database state.
+func (u *Upload) Abort() error {
+	return u.tx.Rollback()
 }
 
 // Query searches for results matching the given query string.
