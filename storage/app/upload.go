@@ -13,6 +13,8 @@ import (
 	"net/http"
 	"net/url"
 	"sort"
+	"strings"
+	"time"
 
 	"golang.org/x/net/context"
 	"golang.org/x/perf/storage/benchfmt"
@@ -82,6 +84,8 @@ func (a *App) processUpload(ctx context.Context, user string, mr *multipart.Read
 	var upload *db.Upload
 	var fileids []string
 
+	uploadtime := time.Now().UTC().Format(time.RFC3339)
+
 	for i := 0; ; i++ {
 		p, err := mr.NextPart()
 		if err == io.EOF {
@@ -111,7 +115,21 @@ func (a *App) processUpload(ctx context.Context, user string, mr *multipart.Read
 		// is invalid (contains no valid records) it needs to
 		// be rejected and the Cloud Storage upload aborted.
 
-		meta := fileMetadata(user, upload.ID, i)
+		meta := map[string]string{
+			"uploadid":   upload.ID,
+			"fileid":     fmt.Sprintf("%s/%d", upload.ID, filenum),
+			"uploadtime": uploadtime,
+		}
+		name := p.FileName()
+		if slash := strings.LastIndexAny(name, `/\`); slash >= 0 {
+			name = name[slash+1:]
+		}
+		if name != "" {
+			m["uploadfile"] = name
+		}
+		if user != "" {
+			m["by"] = user
+		}
 
 		// We need to do two things with the incoming data:
 		// - Write it to permanent storage via a.FS
@@ -165,6 +183,8 @@ func (a *App) indexFile(ctx context.Context, upload *db.Upload, p io.Reader, met
 			return err
 		}
 	}
+	// Write a blank line to separate metadata from user-generated content.
+	fmt.Fprintf(fw, "\n")
 
 	// TODO(quentin): Add a separate goroutine and buffer for writes to fw?
 	tr := io.TeeReader(p, fw)
@@ -187,19 +207,4 @@ func (a *App) indexFile(ctx context.Context, upload *db.Upload, p io.Reader, met
 			return err
 		}
 	}
-}
-
-// fileMetadata returns the extra metadata fields associated with an
-// uploaded file.
-func fileMetadata(user string, uploadid string, filenum int) map[string]string {
-	// TODO(quentin): Add the upload time.
-	// TODO(quentin): Add other fields?
-	m := map[string]string{
-		"uploadid": uploadid,
-		"fileid":   fmt.Sprintf("%s/%d", uploadid, filenum),
-	}
-	if user != "" {
-		m["by"] = user
-	}
-	return m
 }
