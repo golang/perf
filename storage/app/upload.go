@@ -117,18 +117,18 @@ func (a *App) processUpload(ctx context.Context, user string, mr *multipart.Read
 
 		meta := map[string]string{
 			"uploadid":   upload.ID,
-			"fileid":     fmt.Sprintf("%s/%d", upload.ID, filenum),
+			"fileid":     fmt.Sprintf("%s/%d", upload.ID, i),
 			"uploadtime": uploadtime,
 		}
-		name := p.FileName()
+		name = p.FileName()
 		if slash := strings.LastIndexAny(name, `/\`); slash >= 0 {
 			name = name[slash+1:]
 		}
 		if name != "" {
-			m["uploadfile"] = name
+			meta["uploadfile"] = name
 		}
 		if user != "" {
-			m["by"] = user
+			meta["by"] = user
 		}
 
 		// We need to do two things with the incoming data:
