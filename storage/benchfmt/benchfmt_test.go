@@ -84,6 +84,22 @@ BenchmarkOne 1 ns/sec
 				},
 			},
 		},
+		{
+			"parse file headers",
+			`key: fixed
+
+key: haha
+BenchmarkOne 1 ns/sec
+`,
+			[]*Result{
+				{
+					Labels{"key": "fixed"},
+					Labels{"name": "One"},
+					4,
+					"BenchmarkOne 1 ns/sec",
+				},
+			},
+		},
 	}
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {

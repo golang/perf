@@ -19,9 +19,12 @@ import (
 
 // Reader reads benchmark results from an io.Reader.
 type Reader struct {
-	s       *bufio.Scanner
-	labels  Labels
-	lineNum int
+	s      *bufio.Scanner
+	labels Labels
+	// permLabels are permanent labels read from the start of the
+	// file or provided by AddLabels. They cannot be overridden.
+	permLabels Labels
+	lineNum    int
 }
 
 // TODO(quentin): Make Reader have a Scanner-style interface instead, to match db.Query.
@@ -34,9 +37,10 @@ func NewReader(r io.Reader) *Reader {
 	}
 }
 
-// AddLabels adds additional labels as if they had been read from the file.
+// AddLabels adds additional labels as if they had been read from the header of a file.
 // It must be called before the first call to r.Next.
 func (r *Reader) AddLabels(labels Labels) {
+	r.permLabels = labels.copy()
 	for k, v := range labels {
 		r.labels[k] = v
 	}
@@ -173,10 +177,14 @@ func (l Labels) copy() Labels {
 // no further results, it returns nil, io.EOF.
 func (r *Reader) Next() (*Result, error) {
 	copied := false
+	havePerm := r.permLabels != nil
 	for r.s.Scan() {
 		r.lineNum++
 		line := r.s.Text()
 		if key, value, ok := parseKeyValueLine(line); ok {
+			if _, ok := r.permLabels[key]; ok {
+				continue
+			}
 			if !copied {
 				copied = true
 				r.labels = r.labels.copy()
@@ -190,6 +198,14 @@ func (r *Reader) Next() (*Result, error) {
 				r.labels[key] = value
 			}
 			continue
+		}
+		// Blank line delimits the header. If we find anything else, the file must not have a header.
+		if !havePerm {
+			if line == "" {
+				r.permLabels = r.labels.copy()
+			} else {
+				r.permLabels = Labels{}
+			}
 		}
 		if fullName, ok := parseBenchmarkLine(line); ok {
 			return newResult(r.labels, r.lineNum, fullName, line), nil
@@ -216,6 +232,9 @@ func parseKeyValueLine(line string) (key, val string, ok bool) {
 			val = line[i+1:]
 			break
 		}
+	}
+	if key == "" {
+		return
 	}
 	if val == "" {
 		ok = true
