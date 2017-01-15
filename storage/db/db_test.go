@@ -10,6 +10,7 @@ import (
 	"reflect"
 	"strings"
 	"testing"
+	"time"
 
 	"golang.org/x/perf/storage/benchfmt"
 	. "golang.org/x/perf/storage/db"
@@ -36,8 +37,52 @@ func TestSplitQueryWords(t *testing.T) {
 	}
 }
 
+// TestUploadIDs verifies that NewUpload generates the correct sequence of upload IDs.
+func TestUploadIDs(t *testing.T) {
+	ctx := context.Background()
+
+	db, cleanup := dbtest.NewDB(t)
+	defer cleanup()
+
+	defer SetNow(time.Time{})
+
+	tests := []struct {
+		sec int64
+		id  string
+	}{
+		{0, "19700101.1"},
+		{0, "19700101.2"},
+		{86400, "19700102.1"},
+		{86400, "19700102.2"},
+		{86400, "19700102.3"},
+		{86400, "19700102.4"},
+		{86400, "19700102.5"},
+		{86400, "19700102.6"},
+		{86400, "19700102.7"},
+		{86400, "19700102.8"},
+		{86400, "19700102.9"},
+		{86400, "19700102.10"},
+		{86400, "19700102.11"},
+	}
+	for _, test := range tests {
+		SetNow(time.Unix(test.sec, 0))
+		u, err := db.NewUpload(ctx)
+		if err != nil {
+			t.Fatalf("NewUpload: %v", err)
+		}
+		if err := u.Commit(); err != nil {
+			t.Fatalf("Commit: %v", err)
+		}
+		if u.ID != test.id {
+			t.Fatalf("u.ID = %q, want %q", u.ID, test.id)
+		}
+	}
+}
+
 // TestNewUpload verifies that NewUpload and InsertRecord wrote the correct rows to the database.
 func TestNewUpload(t *testing.T) {
+	SetNow(time.Unix(0, 0))
+	defer SetNow(time.Time{})
 	db, cleanup := dbtest.NewDB(t)
 	defer cleanup()
 
@@ -78,14 +123,15 @@ BenchmarkName 1 ns/op
 	i := 0
 
 	for rows.Next() {
-		var uploadid, recordid int64
+		var uploadid string
+		var recordid int64
 		var name, value string
 
 		if err := rows.Scan(&uploadid, &recordid, &name, &value); err != nil {
-			t.Fatalf("rows.Scan: %v")
+			t.Fatalf("rows.Scan: %v", err)
 		}
-		if uploadid != 1 {
-			t.Errorf("uploadid = %d, want 1", uploadid)
+		if uploadid != "19700101.1" {
+			t.Errorf("uploadid = %q, want %q", uploadid, "19700101.1")
 		}
 		if recordid != 0 {
 			t.Errorf("recordid = %d, want 0", recordid)

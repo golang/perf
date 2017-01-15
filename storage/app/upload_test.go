@@ -14,6 +14,7 @@ import (
 	"net/http/httptest"
 	"reflect"
 	"testing"
+	"time"
 
 	"golang.org/x/perf/storage/db"
 	"golang.org/x/perf/storage/db/dbtest"
@@ -96,6 +97,8 @@ func TestUpload(t *testing.T) {
 	app := createTestApp(t)
 	defer app.Close()
 
+	wantID := time.Now().UTC().Format("20060102.") + "1"
+
 	status := app.uploadFiles(t, func(mpw *multipart.Writer) {
 		w, err := mpw.CreateFormFile("file", "1.txt")
 		if err != nil {
@@ -104,14 +107,14 @@ func TestUpload(t *testing.T) {
 		fmt.Fprintf(w, "key: value\nBenchmarkOne 5 ns/op\nkey:value2\nBenchmarkTwo 10 ns/op\n")
 	})
 
-	if status.UploadID != "1" {
-		t.Errorf("uploadid = %q, want %q", status.UploadID, "1")
+	if status.UploadID != wantID {
+		t.Errorf("uploadid = %q, want %q", status.UploadID, wantID)
 	}
-	if have, want := status.FileIDs, []string{"1/0"}; !reflect.DeepEqual(have, want) {
+	if have, want := status.FileIDs, []string{wantID + "/0"}; !reflect.DeepEqual(have, want) {
 		t.Errorf("fileids = %v, want %v", have, want)
 	}
-	if status.ViewURL != "view:1" {
-		t.Errorf("viewurl = %q, want %q", status.ViewURL, "view:1")
+	if want := "view:" + wantID; status.ViewURL != want {
+		t.Errorf("viewurl = %q, want %q", status.ViewURL, want)
 	}
 
 	if len(app.fs.Files()) != 1 {

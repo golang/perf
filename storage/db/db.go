@@ -12,8 +12,10 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"strconv"
 	"strings"
 	"text/template"
+	"time"
 	"unicode"
 
 	"golang.org/x/net/context"
@@ -27,6 +29,7 @@ import (
 type DB struct {
 	sql *sql.DB // underlying database connection
 	// prepared statements
+	lastUpload   *sql.Stmt
 	insertUpload *sql.Stmt
 	insertRecord *sql.Stmt
 }
@@ -69,17 +72,25 @@ func RegisterOpenHook(driverName string, hook func(*sql.DB) error) {
 // entry whose key is the driver name.
 var createTmpl = template.Must(template.New("create").Parse(`
 CREATE TABLE IF NOT EXISTS Uploads (
-	UploadID {{if .sqlite3}}INTEGER PRIMARY KEY AUTOINCREMENT{{else}}SERIAL PRIMARY KEY AUTO_INCREMENT{{end}}
+	UploadID VARCHAR(20) PRIMARY KEY,
+	Day VARCHAR(8),
+	Seq BIGINT UNSIGNED
+{{if not .sqlite3}}
+	, Index (Day, Seq)
+{{end}}
 );
+{{if .sqlite3}}
+CREATE INDEX IF NOT EXISTS UploadDaySeq ON Uploads(Day, Seq);
+{{end}}
 CREATE TABLE IF NOT EXISTS Records (
-	UploadID BIGINT UNSIGNED,
+	UploadID VARCHAR(20),
 	RecordID BIGINT UNSIGNED,
 	Content BLOB,
 	PRIMARY KEY (UploadID, RecordID),
 	FOREIGN KEY (UploadID) REFERENCES Uploads(UploadID) ON UPDATE CASCADE ON DELETE CASCADE
 );
 CREATE TABLE IF NOT EXISTS RecordLabels (
-	UploadID BIGINT UNSIGNED,
+	UploadID VARCHAR(20),
 	RecordID BIGINT UNSIGNED,
 	Name VARCHAR(255),
 	Value VARCHAR(8192),
@@ -115,11 +126,15 @@ func (db *DB) createTables(driverName string) error {
 // prepareStatements calls db.sql.Prepare on reusable SQL statements.
 func (db *DB) prepareStatements(driverName string) error {
 	var err error
-	q := "INSERT INTO Uploads() VALUES ()"
-	if driverName == "sqlite3" {
-		q = "INSERT INTO Uploads DEFAULT VALUES"
+	query := "SELECT UploadID FROM Uploads ORDER BY Day DESC, Seq DESC LIMIT 1"
+	if driverName != "sqlite3" {
+		query += " FOR UPDATE"
 	}
-	db.insertUpload, err = db.sql.Prepare(q)
+	db.lastUpload, err = db.sql.Prepare(query)
+	if err != nil {
+		return err
+	}
+	db.insertUpload, err = db.sql.Prepare("INSERT INTO Uploads(UploadID, Day, Seq) VALUES (?, ?, ?)")
 	if err != nil {
 		return err
 	}
@@ -136,11 +151,6 @@ type Upload struct {
 	// associated with every record in this upload.
 	ID string
 
-	// id is the numeric value used as the primary key. ID is a
-	// string for the public API; the underlying table actually
-	// uses an integer key. To avoid repeated calls to
-	// strconv.Atoi, the int64 is cached here.
-	id int64
 	// recordid is the index of the next record to insert.
 	recordid int64
 	// db is the underlying database that this upload is going to.
@@ -149,28 +159,61 @@ type Upload struct {
 	tx *sql.Tx
 }
 
+// now is a hook for testing
+var now = time.Now
+
 // NewUpload returns an upload for storing new files.
 // All records written to the Upload will have the same upload ID.
 func (db *DB) NewUpload(ctx context.Context) (*Upload, error) {
-	// TODO(quentin): Use the same transaction as the rest of the upload?
-	res, err := db.insertUpload.Exec()
-	if err != nil {
-		return nil, err
-	}
-	// TODO(quentin): Use a date-based upload ID (YYYYMMDDnnn)
-	i, err := res.LastInsertId()
-	if err != nil {
-		return nil, err
-	}
+	day := now().UTC().Format("20060102")
+
+	num := 0
+
 	tx, err := db.sql.Begin()
 	if err != nil {
 		return nil, err
 	}
+	defer func() {
+		if tx != nil {
+			tx.Rollback()
+		}
+	}()
+	var lastID string
+	err = tx.Stmt(db.lastUpload).QueryRow().Scan(&lastID)
+	switch err {
+	case sql.ErrNoRows:
+	case nil:
+		if strings.HasPrefix(lastID, day) {
+			num, err = strconv.Atoi(lastID[len(day)+1:])
+			if err != nil {
+				return nil, err
+			}
+		}
+	default:
+		return nil, err
+	}
+
+	num++
+
+	id := fmt.Sprintf("%s.%d", day, num)
+
+	_, err = tx.Stmt(db.insertUpload).Exec(id, day, num)
+	if err != nil {
+		return nil, err
+	}
+	if err := tx.Commit(); err != nil {
+		return nil, err
+	}
+	tx = nil
+
+	utx, err := db.sql.Begin()
+	if err != nil {
+		return nil, err
+	}
 	return &Upload{
-		ID: fmt.Sprint(i),
-		id: i,
+		ID: id,
 		db: db,
-		tx: tx,
+		tx: utx,
 	}, nil
 }
 
@@ -182,15 +225,15 @@ func (u *Upload) InsertRecord(r *benchfmt.Result) error {
 	if err := benchfmt.NewPrinter(&buf).Print(r); err != nil {
 		return err
 	}
-	if _, err := u.tx.Stmt(u.db.insertRecord).Exec(u.id, u.recordid, buf.Bytes()); err != nil {
+	if _, err := u.tx.Stmt(u.db.insertRecord).Exec(u.ID, u.recordid, buf.Bytes()); err != nil {
 		return err
 	}
 	var args []interface{}
 	for _, k := range r.Labels.Keys() {
-		args = append(args, u.id, u.recordid, k, r.Labels[k])
+		args = append(args, u.ID, u.recordid, k, r.Labels[k])
 	}
 	for _, k := range r.NameLabels.Keys() {
-		args = append(args, u.id, u.recordid, k, r.NameLabels[k])
+		args = append(args, u.ID, u.recordid, k, r.NameLabels[k])
 	}
 	if len(args) > 0 {
 		query := "INSERT INTO RecordLabels VALUES " + strings.Repeat("(?, ?, ?, ?), ", len(args)/4)

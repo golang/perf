@@ -4,10 +4,21 @@
 
 package db
 
-import "database/sql"
+import (
+	"database/sql"
+	"time"
+)
 
 var SplitQueryWords = splitQueryWords
 
 func DBSQL(db *DB) *sql.DB {
 	return db.sql
+}
+
+func SetNow(t time.Time) {
+	if t.IsZero() {
+		now = time.Now
+		return
+	}
+	now = func() time.Time { return t }
 }
