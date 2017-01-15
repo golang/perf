@@ -5,8 +5,12 @@
 package db_test
 
 import (
+	"bytes"
 	"context"
 	"fmt"
+	"io/ioutil"
+	"os"
+	"os/exec"
 	"reflect"
 	"strings"
 	"testing"
@@ -77,6 +81,95 @@ func TestUploadIDs(t *testing.T) {
 			t.Fatalf("u.ID = %q, want %q", u.ID, test.id)
 		}
 	}
+}
+
+// checkQueryResults performs a query on db and verifies that the
+// results as printed by BenchmarkPrinter are equal to results.
+func checkQueryResults(t *testing.T, db *DB, query, results string) {
+	q := db.Query(query)
+	defer q.Close()
+
+	var buf bytes.Buffer
+	bp := benchfmt.NewPrinter(&buf)
+
+	for q.Next() {
+		if err := bp.Print(q.Result()); err != nil {
+			t.Fatalf("Print: %v", err)
+		}
+	}
+	if err := q.Err(); err != nil {
+		t.Fatalf("Err: %v", err)
+	}
+	if diff := diff(buf.String(), results); diff != "" {
+		t.Errorf("wrong results: (- have/+ want)\n%s", diff)
+	}
+}
+
+// TestReplaceUpload verifies that the expected number of rows exist after replacing an upload.
+func TestReplaceUpload(t *testing.T) {
+	SetNow(time.Unix(0, 0))
+	defer SetNow(time.Time{})
+	db, cleanup := dbtest.NewDB(t)
+	defer cleanup()
+
+	ctx := context.Background()
+
+	r := &benchfmt.Result{
+		benchfmt.Labels{"key": "value"},
+		nil,
+		1,
+		"BenchmarkName 1 ns/op",
+	}
+	u, err := db.NewUpload(ctx)
+	if err != nil {
+		t.Fatalf("NewUpload: %v", err)
+	}
+	r.Labels["uploadid"] = u.ID
+	for _, num := range []string{"1", "2"} {
+		r.Labels["num"] = num
+		if err := u.InsertRecord(r); err != nil {
+			t.Fatalf("InsertRecord: %v", err)
+		}
+	}
+
+	if err := u.Commit(); err != nil {
+		t.Fatalf("Commit: %v", err)
+	}
+
+	checkQueryResults(t, db, "key:value",
+		`key: value
+num: 1
+uploadid: 19700101.1
+BenchmarkName 1 ns/op
+num: 2
+BenchmarkName 1 ns/op
+`)
+
+	r.Labels["num"] = "3"
+
+	for _, uploadid := range []string{u.ID, "new"} {
+		u, err := db.ReplaceUpload(uploadid)
+		if err != nil {
+			t.Fatalf("ReplaceUpload: %v", err)
+		}
+		r.Labels["uploadid"] = u.ID
+		if err := u.InsertRecord(r); err != nil {
+			t.Fatalf("InsertRecord: %v", err)
+		}
+
+		if err := u.Commit(); err != nil {
+			t.Fatalf("Commit: %v", err)
+		}
+	}
+
+	checkQueryResults(t, db, "key:value",
+		`key: value
+num: 3
+uploadid: 19700101.1
+BenchmarkName 1 ns/op
+uploadid: new
+BenchmarkName 1 ns/op
+`)
 }
 
 // TestNewUpload verifies that NewUpload and InsertRecord wrote the correct rows to the database.
@@ -217,4 +310,37 @@ func TestQuery(t *testing.T) {
 			}
 		})
 	}
+}
+
+// diff returns the output of unified diff on s1 and s2. If the result
+// is non-empty, the strings differ or the diff command failed.
+func diff(s1, s2 string) string {
+	f1, err := ioutil.TempFile("", "benchfmt_test")
+	if err != nil {
+		return err.Error()
+	}
+	defer os.Remove(f1.Name())
+	defer f1.Close()
+
+	f2, err := ioutil.TempFile("", "benchfmt_test")
+	if err != nil {
+		return err.Error()
+	}
+	defer os.Remove(f2.Name())
+	defer f2.Close()
+
+	f1.Write([]byte(s1))
+	f2.Write([]byte(s2))
+
+	data, err := exec.Command("diff", "-u", f1.Name(), f2.Name()).CombinedOutput()
+	if len(data) > 0 {
+		// diff exits with a non-zero status when the files don't match.
+		// Ignore that failure as long as we get output.
+		err = nil
+	}
+	if err != nil {
+		data = append(data, []byte(err.Error())...)
+	}
+	return string(data)
+
 }

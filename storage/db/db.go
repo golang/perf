@@ -12,6 +12,7 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"regexp"
 	"strconv"
 	"strings"
 	"text/template"
@@ -29,9 +30,11 @@ import (
 type DB struct {
 	sql *sql.DB // underlying database connection
 	// prepared statements
-	lastUpload   *sql.Stmt
-	insertUpload *sql.Stmt
-	insertRecord *sql.Stmt
+	lastUpload    *sql.Stmt
+	insertUpload  *sql.Stmt
+	insertRecord  *sql.Stmt
+	checkUpload   *sql.Stmt
+	deleteRecords *sql.Stmt
 }
 
 // OpenSQL creates a DB backed by a SQL database. The parameters are
@@ -142,6 +145,14 @@ func (db *DB) prepareStatements(driverName string) error {
 	if err != nil {
 		return err
 	}
+	db.checkUpload, err = db.sql.Prepare("SELECT 1 FROM Uploads WHERE UploadID = ?")
+	if err != nil {
+		return err
+	}
+	db.deleteRecords, err = db.sql.Prepare("DELETE FROM Records WHERE UploadID = ?")
+	if err != nil {
+		return err
+	}
 	return nil
 }
 
@@ -161,6 +172,42 @@ type Upload struct {
 
 // now is a hook for testing
 var now = time.Now
+
+// ReplaceUpload removes the records associated with id if any and
+// allows insertion of new records.
+func (db *DB) ReplaceUpload(id string) (*Upload, error) {
+	if _, err := db.deleteRecords.Exec(id); err != nil {
+		return nil, err
+	}
+	var found bool
+	err := db.checkUpload.QueryRow(id).Scan(&found)
+	switch err {
+	case sql.ErrNoRows:
+		var day sql.NullString
+		var num sql.NullInt64
+		if m := regexp.MustCompile(`^(\d+)\.(\d+)$`).FindStringSubmatch(id); m != nil {
+			day.Valid, num.Valid = true, true
+			day.String = m[1]
+			num.Int64, _ = strconv.ParseInt(m[2], 10, 64)
+		}
+		if _, err := db.insertUpload.Exec(id, day, num); err != nil {
+			return nil, err
+		}
+	case nil:
+	default:
+		return nil, err
+	}
+	tx, err := db.sql.Begin()
+	if err != nil {
+		return nil, err
+	}
+	u := &Upload{
+		ID: id,
+		db: db,
+		tx: tx,
+	}
+	return u, nil
+}
 
 // NewUpload returns an upload for storing new files.
 // All records written to the Upload will have the same upload ID.
@@ -210,11 +257,12 @@ func (db *DB) NewUpload(ctx context.Context) (*Upload, error) {
 	if err != nil {
 		return nil, err
 	}
-	return &Upload{
+	u := &Upload{
 		ID: id,
 		db: db,
 		tx: utx,
-	}, nil
+	}
+	return u, nil
 }
 
 // InsertRecord inserts a single record in an existing upload.
@@ -352,7 +400,7 @@ func splitQueryWords(q string) []string {
 // Query is the result of a query.
 // Use Next to advance through the rows, making sure to call Close when done:
 //
-//   q, err := db.Query("key:value")
+//   q := db.Query("key:value")
 //   defer q.Close()
 //   for q.Next() {
 //     res := q.Result()
