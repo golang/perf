@@ -67,9 +67,9 @@ func writeOneFile(mpw *multipart.Writer, name string) {
 }
 
 func usage() {
-	fmt.Fprintf(os.Stderr, `Usage of %s:
-%s [flags] file...
-`, os.Args[0], os.Args[0])
+	fmt.Fprintf(os.Stderr, `Usage of benchsave:
+	benchsave [flags] file...
+`)
 	flag.PrintDefaults()
 	os.Exit(2)
 }
