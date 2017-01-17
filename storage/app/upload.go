@@ -93,6 +93,9 @@ func (a *App) processUpload(ctx context.Context, user string, mr *multipart.Read
 		}
 
 		name := p.FormName()
+		if name == "commit" {
+			continue
+		}
 		if name != "file" {
 			return nil, fmt.Errorf("unexpected field %q", name)
 		}
