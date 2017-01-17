@@ -43,7 +43,7 @@ func createEmptyCloudDB(t *testing.T) (dsn string, cleanup func()) {
 
 	t.Logf("Using database %q", name)
 
-	return prefix + name, func() {
+	return prefix + name + "?interpolateParams=true", func() {
 		if _, err := db.Exec(fmt.Sprintf("DROP DATABASE `%s`", name)); err != nil {
 			t.Error(err)
 		}

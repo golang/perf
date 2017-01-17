@@ -29,7 +29,7 @@ import (
 )
 
 var (
-	dbName  = flag.String("db", "root:@cloudsql(golang-org:us-central1:golang-org)/perfdata", "connect to MySQL `database`")
+	dbName  = flag.String("db", "root:@cloudsql(golang-org:us-central1:golang-org)/perfdata?interpolateParams=true", "connect to MySQL `database`")
 	bucket  = flag.String("bucket", "golang-perfdata", "read from Google Cloud Storage `bucket`")
 	verbose = flag.Bool("v", false, "verbose")
 )

@@ -29,7 +29,7 @@ func connectDB() (*db.DB, error) {
 		dbName         = mustGetenv("CLOUDSQL_DATABASE")
 	)
 
-	return db.OpenSQL("mysql", fmt.Sprintf("%s:%s@cloudsql(%s)/%s", user, password, connectionName, dbName))
+	return db.OpenSQL("mysql", fmt.Sprintf("%s:%s@cloudsql(%s)/%s?interpolateParams=true", user, password, connectionName, dbName))
 }
 
 func mustGetenv(k string) string {
