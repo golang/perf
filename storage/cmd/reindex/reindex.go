@@ -16,7 +16,6 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"io"
 	"log"
 	"os"
 	"strings"
@@ -131,17 +130,13 @@ func reindexOne(ctx context.Context, u *db.Upload, bucket *storage.BucketHandle,
 	}
 	defer r.Close()
 	br := benchfmt.NewReader(r)
-	for {
-		res, err := br.Next()
-		if err == io.EOF {
-			break
-		}
-		if err != nil {
+	for br.Next() {
+		if err := u.InsertRecord(br.Result()); err != nil {
 			return err
 		}
-		if err := u.InsertRecord(res); err != nil {
-			return err
-		}
+	}
+	if err := br.Err(); err != nil {
+		return err
 	}
 	return nil
 }

@@ -194,20 +194,17 @@ func (a *App) indexFile(ctx context.Context, upload *db.Upload, p io.Reader, met
 	br := benchfmt.NewReader(tr)
 	br.AddLabels(meta)
 	i := 0
-	for {
-		result, err := br.Next()
-		if err != nil {
-			if err != io.EOF {
-				return err
-			}
-			if i == 0 {
-				return errors.New("no valid benchmark lines found")
-			}
-			return nil
-		}
+	for br.Next() {
 		i++
-		if err := upload.InsertRecord(result); err != nil {
+		if err := upload.InsertRecord(br.Result()); err != nil {
 			return err
 		}
 	}
+	if err := br.Err(); err != nil {
+		return err
+	}
+	if i == 0 {
+		return errors.New("no valid benchmark lines found")
+	}
+	return nil
 }

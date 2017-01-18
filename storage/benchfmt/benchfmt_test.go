@@ -7,7 +7,6 @@ package benchfmt
 import (
 	"bytes"
 	"fmt"
-	"io"
 	"io/ioutil"
 	"os"
 	"os/exec"
@@ -18,17 +17,13 @@ import (
 
 func readAllResults(t *testing.T, r *Reader) []*Result {
 	var out []*Result
-	for {
-		result, err := r.Next()
-		switch err {
-		case io.EOF:
-			return out
-		case nil:
-			out = append(out, result)
-		default:
-			t.Fatal(err)
-		}
+	for r.Next() {
+		out = append(out, r.Result())
 	}
+	if err := r.Err(); err != nil {
+		t.Fatal(err)
+	}
+	return out
 }
 
 func TestBenchmarkReader(t *testing.T) {

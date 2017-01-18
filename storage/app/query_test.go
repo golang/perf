@@ -6,7 +6,6 @@ package app
 
 import (
 	"fmt"
-	"io"
 	"mime/multipart"
 	"net/http"
 	"net/url"
@@ -65,10 +64,10 @@ func TestQuery(t *testing.T) {
 			}
 			br := benchfmt.NewReader(resp.Body)
 			for i, num := range test.want {
-				r, err := br.Next()
-				if err != nil {
-					t.Fatalf("#%d: Next() = %v, want nil", i, err)
+				if !br.Next() {
+					t.Fatalf("#%d: Next() = false, want true (Err() = %v)", i, br.Err())
 				}
+				r := br.Result()
 				if r.Labels["label0"] != fmt.Sprintf("%d", num) {
 					t.Errorf("#%d: label0 = %q, want %d", i, r.Labels["label0"], num)
 				}
@@ -79,9 +78,11 @@ func TestQuery(t *testing.T) {
 					t.Errorf("#%d: by = %q, want %q", i, r.Labels["uploader"], "user")
 				}
 			}
-			_, err = br.Next()
-			if err != io.EOF {
-				t.Errorf("Next() = %v, want EOF", err)
+			if br.Next() {
+				t.Fatalf("Next() = true, want false")
+			}
+			if err := br.Err(); err != nil {
+				t.Errorf("Err() = %v, want nil", err)
 			}
 		})
 	}

@@ -474,7 +474,15 @@ func (q *Query) Next() bool {
 		return false
 	}
 	// TODO(quentin): Needs to change when one row contains multiple Results.
-	q.result, q.err = benchfmt.NewReader(bytes.NewReader(content)).Next()
+	br := benchfmt.NewReader(bytes.NewReader(content))
+	if !br.Next() {
+		q.err = br.Err()
+		if q.err == nil {
+			q.err = io.ErrUnexpectedEOF
+		}
+		return false
+	}
+	q.result = br.Result()
 	return q.err == nil
 }
 

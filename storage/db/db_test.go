@@ -188,13 +188,11 @@ func TestNewUpload(t *testing.T) {
 key: value
 BenchmarkName 1 ns/op
 `))
-
-	r, err := br.Next()
-	if err != nil {
-		t.Fatalf("BenchmarkReader.Next: %v", err)
+	if !br.Next() {
+		t.Fatalf("unable to read test string: %v", br.Err())
 	}
 
-	if err := u.InsertRecord(r); err != nil {
+	if err := u.InsertRecord(br.Result()); err != nil {
 		t.Fatalf("InsertRecord: %v", err)
 	}
 
