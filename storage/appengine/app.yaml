@@ -21,4 +21,4 @@ env_variables:
   CLOUDSQL_PASSWORD: ""
   CLOUDSQL_DATABASE: "perfdata"
   GCS_BUCKET: "golang-perfdata"
-  PERFDATA_VIEW_URL_BASE: "https://perf.golang.org/search?q=uploadid:"
+  PERFDATA_VIEW_URL_BASE: "https://perf.golang.org/search?q=upload:"

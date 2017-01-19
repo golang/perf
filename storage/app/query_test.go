@@ -24,8 +24,8 @@ func TestQuery(t *testing.T) {
 	// number).  So 1 record has each value of label0, 2 records
 	// have each value of label1, 4 records have each value of
 	// label2, etc. This allows writing queries that match 2^n records.
-	app.uploadFiles(t, func(mpw *multipart.Writer) {
-		w, err := mpw.CreateFormFile("file", "1.txt")
+	status := app.uploadFiles(t, func(mpw *multipart.Writer) {
+		w, err := mpw.CreateFormFile("file", "path/1.txt")
 		if err != nil {
 			t.Errorf("CreateFormFile: %v", err)
 		}
@@ -68,6 +68,15 @@ func TestQuery(t *testing.T) {
 					t.Fatalf("#%d: Next() = false, want true (Err() = %v)", i, br.Err())
 				}
 				r := br.Result()
+				if r.Labels["upload"] != status.UploadID {
+					t.Errorf("#%d: upload = %q, want %q", r.Labels["upload"], status.UploadID)
+				}
+				if r.Labels["upload-part"] != status.FileIDs[0] {
+					t.Errorf("#%d: upload-part = %q, want %q", r.Labels["upload-part"], status.FileIDs[0])
+				}
+				if r.Labels["upload-file"] != "1.txt" {
+					t.Errorf("#%d: upload-file = %q, want %q", r.Labels["upload-file"], "1.txt")
+				}
 				if r.Labels["label0"] != fmt.Sprintf("%d", num) {
 					t.Errorf("#%d: label0 = %q, want %d", i, r.Labels["label0"], num)
 				}

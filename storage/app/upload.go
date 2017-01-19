@@ -119,16 +119,16 @@ func (a *App) processUpload(ctx context.Context, user string, mr *multipart.Read
 		// be rejected and the Cloud Storage upload aborted.
 
 		meta := map[string]string{
-			"uploadid":   upload.ID,
-			"fileid":     fmt.Sprintf("%s/%d", upload.ID, i),
-			"uploadtime": uploadtime,
+			"upload":      upload.ID,
+			"upload-part": fmt.Sprintf("%s/%d", upload.ID, i),
+			"upload-time": uploadtime,
 		}
 		name = p.FileName()
 		if slash := strings.LastIndexAny(name, `/\`); slash >= 0 {
 			name = name[slash+1:]
 		}
 		if name != "" {
-			meta["uploadfile"] = name
+			meta["upload-file"] = name
 		}
 		if user != "" {
 			meta["by"] = user
@@ -144,7 +144,7 @@ func (a *App) processUpload(ctx context.Context, user string, mr *multipart.Read
 			return nil, err
 		}
 
-		fileids = append(fileids, meta["fileid"])
+		fileids = append(fileids, meta["upload-part"])
 	}
 
 	if upload == nil {
@@ -165,7 +165,7 @@ func (a *App) processUpload(ctx context.Context, user string, mr *multipart.Read
 }
 
 func (a *App) indexFile(ctx context.Context, upload *db.Upload, p io.Reader, meta map[string]string) (err error) {
-	fw, err := a.FS.NewWriter(ctx, fmt.Sprintf("uploads/%s.txt", meta["fileid"]), meta)
+	fw, err := a.FS.NewWriter(ctx, fmt.Sprintf("uploads/%s.txt", meta["upload-part"]), meta)
 	if err != nil {
 		return err
 	}
