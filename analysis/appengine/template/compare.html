@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Performance Result Comparison</title>
+  </head>
+  <body>
+    <div>
+      <form action="/search">
+        <input type="text" name="q" value="{{.Q}}" size="120">
+        <input type="submit" value="Search">
+      </form>
+    </div>
+    <div>
+      {{.Benchstat}}
+    </div>
+    <table>
+      <tr>
+        <th>label</th>
+        {{range $index, $group := .Groups}}
+        <th>
+          #{{$index}}
+        </th>
+        {{end}}
+      </tr>
+      {{range $label, $exists := .Labels}}
+      <tr>
+        <th>{{$label}}</th>
+        {{range $.Groups}}
+        <td>
+          {{with index .LabelValues $label}}
+            [
+            {{range $value, $exists := .}}
+              {{printf "%q" $value}}
+            {{end}}
+            ]
+          {{end}}
+        </td>
+        {{end}}
+      </tr>
+      {{end}}
+    </table>
+  </body>
+</html>

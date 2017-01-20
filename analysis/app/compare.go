@@ -5,10 +5,13 @@
 package app
 
 import (
-	"fmt"
+	"bytes"
+	"html/template"
+	"io/ioutil"
 	"net/http"
 	"sort"
 
+	"golang.org/x/perf/analysis/internal/benchstat"
 	"golang.org/x/perf/storage/benchfmt"
 )
 
@@ -64,6 +67,39 @@ func (a *App) compare(w http.ResponseWriter, r *http.Request) {
 
 	q := r.Form.Get("q")
 
+	tmpl, err := ioutil.ReadFile("template/compare.html")
+	if err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+
+	t, err := template.New("main").Parse(string(tmpl))
+	if err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+
+	data, err := a.compareQuery(q)
+	if err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	if err := t.Execute(w, data); err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+}
+
+type compareData struct {
+	Q         string
+	Benchstat template.HTML
+	Groups    []*resultGroup
+	Labels    map[string]bool
+}
+
+func (a *App) compareQuery(q string) (*compareData, error) {
 	// Parse query
 	queries := parseQueryString(q)
 
@@ -79,8 +115,7 @@ func (a *App) compare(w http.ResponseWriter, r *http.Request) {
 		}
 		if err := res.Err(); err != nil {
 			// TODO: If the query is invalid, surface that to the user.
-			http.Error(w, err.Error(), 500)
-			return
+			return nil, err
 		}
 		groups = append(groups, group)
 	}
@@ -94,15 +129,28 @@ func (a *App) compare(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	// TODO: Compute benchstat
-
-	// TODO: Render template. This is just temporary output to confirm the above works.
-	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
-	for i, g := range groups {
-		fmt.Fprintf(w, "Group #%d: %d results\n", i, len(g.results))
-		for k, vs := range g.labelValues {
-			fmt.Fprintf(w, "\t%s: %#v\n", k, vs)
-		}
-		fmt.Fprintf(w, "\n")
+	// Compute benchstat
+	var buf bytes.Buffer
+	var results [][]*benchfmt.Result
+	for _, g := range groups {
+		results = append(results, g.results)
 	}
+	benchstat.Run(&buf, results, &benchstat.Options{
+		HTML: true,
+	})
+
+	// Render template.
+	labels := make(map[string]bool)
+	for _, g := range groups {
+		for k := range g.LabelValues {
+			labels[k] = true
+		}
+	}
+	data := &compareData{
+		Q:         q,
+		Benchstat: template.HTML(buf.String()),
+		Groups:    groups,
+		Labels:    labels,
+	}
+	return data, nil
 }
