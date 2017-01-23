@@ -10,34 +10,38 @@
         <input type="submit" value="Search">
       </form>
     </div>
-    <div>
-      {{.Benchstat}}
-    </div>
-    <table>
-      <tr>
-        <th>label</th>
-        {{range $index, $group := .Groups}}
-        <th>
-          #{{$index}}
-        </th>
-        {{end}}
-      </tr>
-      {{range $label, $exists := .Labels}}
-      <tr>
-        <th>{{$label}}</th>
-        {{range $.Groups}}
-        <td>
-          {{with index .LabelValues $label}}
-            [
-            {{range $value, $exists := .}}
-              {{printf "%q" $value}}
-            {{end}}
-            ]
+    {{with .Error}}
+    <p>{{.}}</p>
+    {{else}}
+      <div>
+        {{.Benchstat}}
+      </div>
+      <table>
+        <tr>
+          <th>label</th>
+          {{range $index, $group := .Groups}}
+          <th>
+            #{{$index}}
+          </th>
           {{end}}
-        </td>
+        </tr>
+        {{range $label, $exists := .Labels}}
+        <tr>
+          <th>{{$label}}</th>
+          {{range $.Groups}}
+          <td>
+            {{with index .LabelValues $label}}
+              [
+              {{range $value, $exists := .}}
+                {{printf "%q" $value}}
+              {{end}}
+              ]
+            {{end}}
+          </td>
+          {{end}}
+        </tr>
         {{end}}
-      </tr>
-      {{end}}
-    </table>
+      </table>
+    {{end}}
   </body>
 </html>

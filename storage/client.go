@@ -6,7 +6,9 @@
 package storage
 
 import (
+	"fmt"
 	"io"
+	"io/ioutil"
 	"net/http"
 	"net/url"
 
@@ -43,6 +45,15 @@ func (c *Client) Query(q string) *Query {
 	resp, err := hc.Get(c.BaseURL + "/search?" + url.Values{"q": []string{q}}.Encode())
 	if err != nil {
 		return &Query{err: err}
+	}
+
+	if resp.StatusCode != 200 {
+		defer resp.Body.Close()
+		body, err := ioutil.ReadAll(resp.Body)
+		if err != nil {
+			return &Query{err: err}
+		}
+		return &Query{err: fmt.Errorf("%s", body)}
 	}
 
 	br := benchfmt.NewReader(resp.Body)
@@ -93,7 +104,10 @@ func (q *Query) Err() error {
 
 // Close frees resources associated with the query.
 func (q *Query) Close() error {
-	q.body.Close()
+	if q.body != nil {
+		q.body.Close()
+		q.body = nil
+	}
 	return q.err
 }
 

@@ -79,11 +79,7 @@ func (a *App) compare(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	data, err := a.compareQuery(q)
-	if err != nil {
-		http.Error(w, err.Error(), 500)
-		return
-	}
+	data := a.compareQuery(q)
 
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	if err := t.Execute(w, data); err != nil {
@@ -94,30 +90,45 @@ func (a *App) compare(w http.ResponseWriter, r *http.Request) {
 
 type compareData struct {
 	Q         string
+	Error     string
 	Benchstat template.HTML
 	Groups    []*resultGroup
 	Labels    map[string]bool
 }
 
-func (a *App) compareQuery(q string) (*compareData, error) {
+func (a *App) compareQuery(q string) *compareData {
 	// Parse query
 	queries := parseQueryString(q)
 
 	// Send requests
 	// TODO(quentin): Issue requests in parallel?
 	var groups []*resultGroup
-	for _, q := range queries {
+	var found int
+	for _, qPart := range queries {
 		group := &resultGroup{}
-		res := a.StorageClient.Query(q)
+		res := a.StorageClient.Query(qPart)
 		defer res.Close() // TODO: Should happen each time through the loop
 		for res.Next() {
 			group.add(res.Result())
+			found++
 		}
-		if err := res.Err(); err != nil {
+		err := res.Err()
+		res.Close()
+		if err != nil {
 			// TODO: If the query is invalid, surface that to the user.
-			return nil, err
+			return &compareData{
+				Q:     q,
+				Error: err.Error(),
+			}
 		}
 		groups = append(groups, group)
+	}
+
+	if found == 0 {
+		return &compareData{
+			Q:     q,
+			Error: "No results matched the query string.",
+		}, nil
 	}
 
 	// Attempt to automatically split results.
@@ -152,5 +163,5 @@ func (a *App) compareQuery(q string) (*compareData, error) {
 		Groups:    groups,
 		Labels:    labels,
 	}
-	return data, nil
+	return data
 }

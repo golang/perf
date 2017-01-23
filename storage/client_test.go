@@ -17,6 +17,25 @@ import (
 	"golang.org/x/perf/storage/benchfmt"
 )
 
+func TestQueryError(t *testing.T) {
+	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		http.Error(w, "invalid query", 500)
+	}))
+	defer ts.Close()
+
+	c := &Client{BaseURL: ts.URL}
+
+	q := c.Query("invalid query")
+	defer q.Close()
+
+	if q.Next() {
+		t.Error("Next = true, want false")
+	}
+	if q.Err() == nil {
+		t.Error("Err = nil, want error")
+	}
+}
+
 func TestQuery(t *testing.T) {
 	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if have, want := r.URL.RequestURI(), "/search?q=key1%3Avalue+key2%3Avalue"; have != want {
