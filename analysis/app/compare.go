@@ -10,6 +10,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"sort"
+	"strings"
 
 	"golang.org/x/perf/analysis/internal/benchstat"
 	"golang.org/x/perf/storage/benchfmt"
@@ -20,20 +21,29 @@ type resultGroup struct {
 	// Raw list of results.
 	results []*benchfmt.Result
 	// LabelValues is the count of results found with each distinct (key, value) pair found in labels.
-	LabelValues map[string]map[string]int
+	// A value of "" counts results missing that key.
+	LabelValues map[string]valueSet
 }
 
 // add adds res to the resultGroup.
 func (g *resultGroup) add(res *benchfmt.Result) {
 	g.results = append(g.results, res)
 	if g.LabelValues == nil {
-		g.LabelValues = make(map[string]map[string]int)
+		g.LabelValues = make(map[string]valueSet)
 	}
 	for k, v := range res.Labels {
 		if g.LabelValues[k] == nil {
-			g.LabelValues[k] = make(map[string]int)
+			g.LabelValues[k] = make(valueSet)
+			if len(g.results) > 1 {
+				g.LabelValues[k][""] = len(g.results) - 1
+			}
 		}
 		g.LabelValues[k][v]++
+	}
+	for k := range g.LabelValues {
+		if res.Labels[k] == "" {
+			g.LabelValues[k][""]++
+		}
 	}
 }
 
@@ -58,6 +68,57 @@ func (g *resultGroup) splitOn(key string) []*resultGroup {
 	return out
 }
 
+// valueSet is a set of values and the number of results with each value.
+type valueSet map[string]int
+
+// valueCount and byCount are used for sorting a valueSet
+type valueCount struct {
+	Value string
+	Count int
+}
+type byCount []valueCount
+
+func (s byCount) Len() int      { return len(s) }
+func (s byCount) Swap(i, j int) { s[i], s[j] = s[j], s[i] }
+
+func (s byCount) Less(i, j int) bool {
+	if s[i].Count != s[j].Count {
+		return s[i].Count > s[j].Count
+	}
+	return s[i].Value < s[j].Value
+}
+
+// TopN returns a slice containing n valueCount entries, and if any labels were omitted, an extra entry with value "…".
+func (vs valueSet) TopN(n int) []valueCount {
+	var s []valueCount
+	var total int
+	for v, count := range vs {
+		s = append(s, valueCount{v, count})
+		total += count
+	}
+	sort.Sort(byCount(s))
+	out := s
+	if len(out) > n {
+		out = s[:n]
+	}
+	if len(out) < len(s) {
+		var outTotal int
+		for _, vc := range out {
+			outTotal += vc.Count
+		}
+		out = append(out, valueCount{"…", total - outTotal})
+	}
+	return out
+}
+
+// addToQuery returns a new query string with add applied as a filter.
+func addToQuery(query, add string) string {
+	if strings.Contains(query, "|") {
+		return add + " " + query
+	}
+	return add + " | " + query
+}
+
 // compare handles queries that require comparison of the groups in the query.
 func (a *App) compare(w http.ResponseWriter, r *http.Request) {
 	if err := r.ParseForm(); err != nil {
@@ -73,7 +134,9 @@ func (a *App) compare(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	t, err := template.New("main").Parse(string(tmpl))
+	t, err := template.New("main").Funcs(template.FuncMap{
+		"addToQuery": addToQuery,
+	}).Parse(string(tmpl))
 	if err != nil {
 		http.Error(w, err.Error(), 500)
 		return
@@ -89,11 +152,12 @@ func (a *App) compare(w http.ResponseWriter, r *http.Request) {
 }
 
 type compareData struct {
-	Q         string
-	Error     string
-	Benchstat template.HTML
-	Groups    []*resultGroup
-	Labels    map[string]bool
+	Q            string
+	Error        string
+	Benchstat    template.HTML
+	Groups       []*resultGroup
+	Labels       map[string]bool
+	CommonLabels benchfmt.Labels
 }
 
 func (a *App) compareQuery(q string) *compareData {
@@ -107,7 +171,6 @@ func (a *App) compareQuery(q string) *compareData {
 	for _, qPart := range queries {
 		group := &resultGroup{}
 		res := a.StorageClient.Query(qPart)
-		defer res.Close() // TODO: Should happen each time through the loop
 		for res.Next() {
 			group.add(res.Result())
 			found++
@@ -128,7 +191,7 @@ func (a *App) compareQuery(q string) *compareData {
 		return &compareData{
 			Q:     q,
 			Error: "No results matched the query string.",
-		}, nil
+		}
 	}
 
 	// Attempt to automatically split results.
@@ -150,18 +213,42 @@ func (a *App) compareQuery(q string) *compareData {
 		HTML: true,
 	})
 
-	// Render template.
+	// Prepare struct for template.
 	labels := make(map[string]bool)
+	// commonLabels are the key: value of every label that has an
+	// identical value on every result.
+	commonLabels := make(benchfmt.Labels)
+	// Scan the first group for common labels.
+	for k, vs := range groups[0].LabelValues {
+		if len(vs) == 1 {
+			for v := range vs {
+				commonLabels[k] = v
+			}
+		}
+	}
+	// Remove any labels not common in later groups.
+	for _, g := range groups[1:] {
+		for k, v := range commonLabels {
+			if len(g.LabelValues[k]) != 1 || g.LabelValues[k][v] == 0 {
+				delete(commonLabels, k)
+			}
+		}
+	}
+	// List all labels present and not in commonLabels.
 	for _, g := range groups {
 		for k := range g.LabelValues {
+			if commonLabels[k] != "" {
+				continue
+			}
 			labels[k] = true
 		}
 	}
 	data := &compareData{
-		Q:         q,
-		Benchstat: template.HTML(buf.String()),
-		Groups:    groups,
-		Labels:    labels,
+		Q:            q,
+		Benchstat:    template.HTML(buf.String()),
+		Groups:       groups,
+		Labels:       labels,
+		CommonLabels: commonLabels,
 	}
 	return data
 }

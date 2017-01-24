@@ -2,46 +2,137 @@
 <html>
   <head>
     <title>Performance Result Comparison</title>
+    <style type="text/css">
+#header h1 {
+  display: inline;
+}
+#search {
+  padding: 1em .5em;
+  width: 100%;
+}
+input[type="text"] {
+  font-size: 100%;
+}
+#results {
+  border-top: 1px solid black;
+}
+tr.diff td {
+  font-size: 80%;
+  font-family: sans-serif;
+  vertical-align: top;
+}
+th.label {
+  text-align: left;
+  vertical-align: top;
+}
+td.count {
+  text-align: right;
+}
+#labels {
+  float: left;
+  margin-right: 1em;
+  border-right: 1px solid black;
+  border-collapse: collapse;
+  vertical-align: top;
+}
+#labels tbody {
+  border-collapse: collapse;
+  border-bottom: 1px solid black;
+}
+table.benchstat {
+  border-collapse: collapse;
+}
+table.benchstat td, table.benchstat th {
+  padding-right: 2px;
+  padding-bottom: 2px;
+}
+#labels > tbody > tr:last-child th, #labels > tbody > tr:last-child td {
+  padding-bottom: 1em;
+}
+#labels tbody tr:first-child th, #benchstat {
+  padding-top: 1em;
+}
+#labels tbody.diff tr:first-child th {
+  padding-top: 1em;
+  border-collapse: collapse;
+  border-top: 1px solid black;
+}
+#labels .diff {
+  padding-bottom: 1em;
+}
+    </style>
   </head>
   <body>
-    <div>
+    <div id="header">
+      <h1>Go Performance Dashboard</h1>
+      <a href="/">about</a>
+    </div>
+    <div id="search">
       <form action="/search">
         <input type="text" name="q" value="{{.Q}}" size="120">
         <input type="submit" value="Search">
       </form>
     </div>
-    {{with .Error}}
-    <p>{{.}}</p>
-    {{else}}
-      <div>
-        {{.Benchstat}}
-      </div>
-      <table>
-        <tr>
-          <th>label</th>
-          {{range $index, $group := .Groups}}
-          <th>
-            #{{$index}}
-          </th>
-          {{end}}
-        </tr>
-        {{range $label, $exists := .Labels}}
-        <tr>
-          <th>{{$label}}</th>
-          {{range $.Groups}}
-          <td>
-            {{with index .LabelValues $label}}
-              [
-              {{range $value, $exists := .}}
-                {{printf "%q" $value}}
+    <div id="results">
+      {{with .Error}}
+      <p>{{.}}</p>
+      {{else}}
+        <table id="labels">
+          {{with .CommonLabels}}
+            <tbody>
+              <tr>
+                <th>label</th><th>common value</th>
+              </tr>
+              {{range $label, $value := .}}
+                <tr>
+                  <th class="label">{{$label}}</th><td>{{$value}}</td>
+                </tr>
               {{end}}
-              ]
-            {{end}}
-          </td>
+            </tbody>
           {{end}}
-        </tr>
-        {{end}}
-      </table>
-    {{end}}
+          <tbody class="diff">
+            <tr>
+              <th>label</th>
+              <th>values</th>
+            </tr>
+            {{range $label, $exists := .Labels}}
+            <tr class="diff">
+              <th class="label">{{$label}}</th>
+              <td>
+                {{range $index, $group := $.Groups}}
+                Query {{$index}}: 
+                <table>
+                  {{with index $group.LabelValues $label}}
+                    {{range .TopN 4}}
+                      <tr>
+                        <td class="count">
+                          {{.Count}}
+                        </td>
+                        <td>
+                          {{if eq .Value ""}}
+                            missing
+                          {{else if eq .Value "…"}}
+                            {{.Value}}
+                          {{else}}
+                            <a href="/search?q={{addToQuery $.Q (printf "%s:%s" $label .Value)}}">
+                              {{printf "%q" .Value}}
+                            </a>
+                          {{end}}
+                        </td>
+                      </tr>
+                    {{end}}
+                  {{end}}
+                </table>
+              {{end}}
+              </td>
+            </tr>
+            {{end}}
+            </tbody>
+        </table>
+        <div id="benchstat">
+          {{.Benchstat}}
+        </div>
+      {{end}}
+      </div>
   </body>
 </html>

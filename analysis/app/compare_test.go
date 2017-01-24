@@ -34,7 +34,7 @@ BenchmarkName 1 ns/op`
 	if !reflect.DeepEqual(g.results, results) {
 		t.Errorf("g.results = %#v, want %#v", g.results, results)
 	}
-	if want := map[string]map[string]int{"key": {"value": 1, "value2": 1}}; !reflect.DeepEqual(g.LabelValues, want) {
+	if want := map[string]valueSet{"key": {"value": 1, "value2": 1}}; !reflect.DeepEqual(g.LabelValues, want) {
 		t.Errorf("g.LabelValues = %#v, want %#v", g.LabelValues, want)
 	}
 	groups := g.splitOn("key")
@@ -89,9 +89,9 @@ func TestCompareQuery(t *testing.T) {
 
 	for _, q := range []string{"one vs two", "onetwo"} {
 		t.Run(q, func(t *testing.T) {
-			data, err := a.compareQuery(q)
-			if err != nil {
-				t.Fatalf("compareQuery failed: %v", err)
+			data := a.compareQuery(q)
+			if data.Error != "" {
+				t.Fatalf("compareQuery failed: %s", data.Error)
 			}
 			if have := data.Q; have != q {
 				t.Errorf("Q = %q, want %q", have, q)
@@ -102,8 +102,11 @@ func TestCompareQuery(t *testing.T) {
 			if len(data.Benchstat) == 0 {
 				t.Error("len(Benchstat) = 0, want >0")
 			}
-			if want := map[string]bool{"upload": true, "upload-part": true, "label": true}; !reflect.DeepEqual(data.Labels, want) {
+			if want := map[string]bool{"upload-part": true, "label": true}; !reflect.DeepEqual(data.Labels, want) {
 				t.Errorf("Labels = %#v, want %#v", data.Labels, want)
+			}
+			if want := (benchfmt.Labels{"upload": "1"}); !reflect.DeepEqual(data.CommonLabels, want) {
+				t.Errorf("CommonLabels = %#v, want %#v", data.CommonLabels, want)
 			}
 		})
 	}
