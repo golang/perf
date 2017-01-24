@@ -127,8 +127,11 @@ func TestReplaceUpload(t *testing.T) {
 	r.Labels["uploadid"] = u.ID
 	for _, num := range []string{"1", "2"} {
 		r.Labels["num"] = num
-		if err := u.InsertRecord(r); err != nil {
-			t.Fatalf("InsertRecord: %v", err)
+		for _, num2 := range []int{1, 2} {
+			r.Content = fmt.Sprintf("BenchmarkName %d ns/op", num2)
+			if err := u.InsertRecord(r); err != nil {
+				t.Fatalf("InsertRecord: %v", err)
+			}
 		}
 	}
 
@@ -141,11 +144,14 @@ func TestReplaceUpload(t *testing.T) {
 num: 1
 uploadid: 19700101.1
 BenchmarkName 1 ns/op
+BenchmarkName 2 ns/op
 num: 2
 BenchmarkName 1 ns/op
+BenchmarkName 2 ns/op
 `)
 
 	r.Labels["num"] = "3"
+	r.Content = "BenchmarkName 3 ns/op"
 
 	for _, uploadid := range []string{u.ID, "new"} {
 		u, err := db.ReplaceUpload(uploadid)
@@ -166,9 +172,9 @@ BenchmarkName 1 ns/op
 		`key: value
 num: 3
 uploadid: 19700101.1
-BenchmarkName 1 ns/op
+BenchmarkName 3 ns/op
 uploadid: new
-BenchmarkName 1 ns/op
+BenchmarkName 3 ns/op
 `)
 }
 
