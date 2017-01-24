@@ -34,6 +34,9 @@ type Reader struct {
 	// file or provided by AddLabels. They cannot be overridden.
 	permLabels Labels
 	lineNum    int
+	// cached from last call to newResult, to save on allocations
+	lastName       string
+	lastNameLabels Labels
 	// cached from the last call to Next
 	result *Result
 	err    error
@@ -160,15 +163,19 @@ func parseNameLabels(name string, labels Labels) {
 }
 
 // newResult parses a line and returns a Result object for the line.
-func newResult(labels Labels, lineNum int, name, content string) *Result {
-	r := &Result{
-		Labels:     labels,
-		NameLabels: make(Labels),
-		LineNum:    lineNum,
-		Content:    content,
+func (r *Reader) newResult(labels Labels, lineNum int, name, content string) *Result {
+	res := &Result{
+		Labels:  labels,
+		LineNum: lineNum,
+		Content: content,
 	}
-	parseNameLabels(name, r.NameLabels)
-	return r
+	if r.lastName != name {
+		r.lastName = name
+		r.lastNameLabels = make(Labels)
+		parseNameLabels(name, r.lastNameLabels)
+	}
+	res.NameLabels = r.lastNameLabels
+	return res
 }
 
 // copy returns a new copy of the labels map, to protect against
@@ -221,7 +228,7 @@ func (r *Reader) Next() bool {
 			}
 		}
 		if fullName, ok := parseBenchmarkLine(line); ok {
-			r.result = newResult(r.labels, r.lineNum, fullName, line)
+			r.result = r.newResult(r.labels, r.lineNum, fullName, line)
 			return true
 		}
 	}
