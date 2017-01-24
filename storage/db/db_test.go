@@ -114,24 +114,25 @@ func TestReplaceUpload(t *testing.T) {
 
 	ctx := context.Background()
 
-	r := &benchfmt.Result{
-		benchfmt.Labels{"key": "value"},
-		nil,
-		1,
-		"BenchmarkName 1 ns/op",
-	}
+	labels := benchfmt.Labels{"key": "value"}
+
 	u, err := db.NewUpload(ctx)
 	if err != nil {
 		t.Fatalf("NewUpload: %v", err)
 	}
-	r.Labels["uploadid"] = u.ID
+	labels["uploadid"] = u.ID
 	for _, num := range []string{"1", "2"} {
-		r.Labels["num"] = num
+		labels["num"] = num
 		for _, num2 := range []int{1, 2} {
-			r.Content = fmt.Sprintf("BenchmarkName %d ns/op", num2)
-			if err := u.InsertRecord(r); err != nil {
+			if err := u.InsertRecord(&benchfmt.Result{
+				labels,
+				nil,
+				1,
+				fmt.Sprintf("BenchmarkName %d ns/op", num2),
+			}); err != nil {
 				t.Fatalf("InsertRecord: %v", err)
 			}
+			labels = labels.Copy()
 		}
 	}
 
@@ -150,18 +151,23 @@ BenchmarkName 1 ns/op
 BenchmarkName 2 ns/op
 `)
 
-	r.Labels["num"] = "3"
-	r.Content = "BenchmarkName 3 ns/op"
+	labels["num"] = "3"
 
 	for _, uploadid := range []string{u.ID, "new"} {
 		u, err := db.ReplaceUpload(uploadid)
 		if err != nil {
 			t.Fatalf("ReplaceUpload: %v", err)
 		}
-		r.Labels["uploadid"] = u.ID
-		if err := u.InsertRecord(r); err != nil {
+		labels["uploadid"] = u.ID
+		if err := u.InsertRecord(&benchfmt.Result{
+			labels,
+			nil,
+			1,
+			"BenchmarkName 3 ns/op",
+		}); err != nil {
 			t.Fatalf("InsertRecord: %v", err)
 		}
+		labels = labels.Copy()
 
 		if err := u.Commit(); err != nil {
 			t.Fatalf("Commit: %v", err)
@@ -193,15 +199,16 @@ func TestNewUpload(t *testing.T) {
 	br := benchfmt.NewReader(strings.NewReader(`
 key: value
 BenchmarkName 1 ns/op
+BenchmarkName 2 ns/op
 `))
-	if !br.Next() {
-		t.Fatalf("unable to read test string: %v", br.Err())
+	for br.Next() {
+		if err := u.InsertRecord(br.Result()); err != nil {
+			t.Fatalf("InsertRecord: %v", err)
+		}
 	}
-
-	if err := u.InsertRecord(br.Result()); err != nil {
-		t.Fatalf("InsertRecord: %v", err)
+	if err := br.Err(); err != nil {
+		t.Fatalf("Err: %v", err)
 	}
-
 	if err := u.Commit(); err != nil {
 		t.Fatalf("Commit: %v", err)
 	}

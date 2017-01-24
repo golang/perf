@@ -9,6 +9,7 @@ package benchfmt
 
 import (
 	"bufio"
+	"bytes"
 	"fmt"
 	"io"
 	"sort"
@@ -53,7 +54,7 @@ func NewReader(r io.Reader) *Reader {
 // AddLabels adds additional labels as if they had been read from the header of a file.
 // It must be called before the first call to r.Next.
 func (r *Reader) AddLabels(labels Labels) {
-	r.permLabels = labels.copy()
+	r.permLabels = labels.Copy()
 	for k, v := range labels {
 		r.labels[k] = v
 	}
@@ -61,6 +62,7 @@ func (r *Reader) AddLabels(labels Labels) {
 
 // Result represents a single line from a benchmark file.
 // All information about that line is self-contained in the Result.
+// A Result is immutable once created.
 type Result struct {
 	// Labels is the set of persistent labels that apply to the result.
 	// Labels must not be modified.
@@ -75,10 +77,29 @@ type Result struct {
 	Content string
 }
 
+// SameLabels reports whether r and b have the same labels.
+func (r *Result) SameLabels(b *Result) bool {
+	return r.Labels.Equal(b.Labels) && r.NameLabels.Equal(b.NameLabels)
+}
+
 // Labels is a set of key-value strings.
 type Labels map[string]string
 
-// TODO(quentin): Add String and Equal methods to Labels?
+// String returns the labels formatted as a comma-separated
+// list enclosed in braces.
+func (l Labels) String() string {
+	var out bytes.Buffer
+	out.WriteString("{")
+	for k, v := range l {
+		fmt.Fprintf(&out, "%q: %q, ", k, v)
+	}
+	if out.Len() > 1 {
+		// Remove extra ", "
+		out.Truncate(out.Len() - 2)
+	}
+	out.WriteString("}")
+	return out.String()
+}
 
 // Keys returns a sorted list of the keys in l.
 func (l Labels) Keys() []string {
@@ -88,6 +109,19 @@ func (l Labels) Keys() []string {
 	}
 	sort.Strings(out)
 	return out
+}
+
+// Equal reports whether l and b have the same keys and values.
+func (l Labels) Equal(b Labels) bool {
+	if len(l) != len(b) {
+		return false
+	}
+	for k := range l {
+		if l[k] != b[k] {
+			return false
+		}
+	}
+	return true
 }
 
 // A Printer prints a sequence of benchmark results.
@@ -178,9 +212,9 @@ func (r *Reader) newResult(labels Labels, lineNum int, name, content string) *Re
 	return res
 }
 
-// copy returns a new copy of the labels map, to protect against
+// Copy returns a new copy of the labels map, to protect against
 // future modifications to labels.
-func (l Labels) copy() Labels {
+func (l Labels) Copy() Labels {
 	new := make(Labels)
 	for k, v := range l {
 		new[k] = v
@@ -207,7 +241,7 @@ func (r *Reader) Next() bool {
 			}
 			if !copied {
 				copied = true
-				r.labels = r.labels.copy()
+				r.labels = r.labels.Copy()
 			}
 			// TODO(quentin): Spec says empty value is valid, but
 			// we need a way to cancel previous labels, so we'll
@@ -222,7 +256,7 @@ func (r *Reader) Next() bool {
 		// Blank line delimits the header. If we find anything else, the file must not have a header.
 		if !havePerm {
 			if line == "" {
-				r.permLabels = r.labels.copy()
+				r.permLabels = r.labels.Copy()
 			} else {
 				r.permLabels = Labels{}
 			}

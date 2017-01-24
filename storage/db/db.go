@@ -167,6 +167,7 @@ type Upload struct {
 	// pending arguments for flush
 	insertRecordArgs []interface{}
 	insertLabelArgs  []interface{}
+	lastResult       *benchfmt.Result
 }
 
 // now is a hook for testing
@@ -267,11 +268,19 @@ func (db *DB) NewUpload(ctx context.Context) (*Upload, error) {
 // InsertRecord inserts a single record in an existing upload.
 // If InsertRecord returns a non-nil error, the Upload has failed and u.Abort() must be called.
 func (u *Upload) InsertRecord(r *benchfmt.Result) error {
+	if u.lastResult != nil && u.lastResult.SameLabels(r) {
+		data := u.insertRecordArgs[len(u.insertRecordArgs)-1].([]byte)
+		data = append(data, r.Content...)
+		data = append(data, '\n')
+		u.insertRecordArgs[len(u.insertRecordArgs)-1] = data
+		return nil
+	}
 	// TODO(quentin): Support multiple lines (slice of results?)
 	var buf bytes.Buffer
 	if err := benchfmt.NewPrinter(&buf).Print(r); err != nil {
 		return err
 	}
+	u.lastResult = r
 	u.insertRecordArgs = append(u.insertRecordArgs, u.ID, u.recordid, buf.Bytes())
 	for _, k := range r.Labels.Keys() {
 		if err := u.insertLabel(k, r.Labels[k]); err != nil {
@@ -331,6 +340,7 @@ func (u *Upload) flush() error {
 		}
 		u.insertLabelArgs = nil
 	}
+	u.lastResult = nil
 	return nil
 }
 
