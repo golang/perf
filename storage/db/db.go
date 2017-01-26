@@ -9,7 +9,6 @@ package db
 import (
 	"bytes"
 	"database/sql"
-	"errors"
 	"fmt"
 	"io"
 	"regexp"
@@ -369,37 +368,44 @@ func (db *DB) Query(q string) *Query {
 	qparts := splitQueryWords(q)
 
 	var args []interface{}
-Words:
-	for _, part := range qparts {
-		for i, c := range part {
-			switch {
-			case c == ':':
-				args = append(args, part[:i], part[i+1:])
-				continue Words
-			case c == '>' || c == '<':
-				// TODO
-				return &Query{err: errors.New("unsupported operator")}
-			case unicode.IsSpace(c) || unicode.IsUpper(c):
-				return &Query{err: fmt.Errorf("query part %q has invalid key", part)}
-			}
-		}
-		return &Query{err: fmt.Errorf("query part %q is missing operator", part)}
-	}
-
 	query := "SELECT r.Content FROM "
-	for i := 0; i < len(args)/2; i++ {
+	for i, part := range qparts {
 		if i > 0 {
 			query += " INNER JOIN "
 		}
-		query += fmt.Sprintf("(SELECT UploadID, RecordID FROM RecordLabels WHERE Name = ? AND Value = ?) t%d", i)
+		sepIndex := strings.IndexFunc(part, func(r rune) bool {
+			return r == ':' || r == '>' || r == '<' || unicode.IsSpace(r) || unicode.IsUpper(r)
+		})
+		if sepIndex < 0 {
+			return &Query{err: fmt.Errorf("query part %q is missing operator", part)}
+		}
+		key, sep, value := part[:sepIndex], part[sepIndex], part[sepIndex+1:]
+		switch sep {
+		case ':':
+			if value == "" {
+				// TODO(quentin): Implement support for searching for missing labels.
+				return &Query{err: fmt.Errorf("missing value for query part %q", part)}
+			}
+			query += fmt.Sprintf("(SELECT UploadID, RecordID FROM RecordLabels WHERE Name = ? AND Value = ?) t%d", i)
+			args = append(args, key, value)
+		case '>', '<':
+			query += fmt.Sprintf("(SELECT UploadID, RecordID FROM RecordLabels WHERE Name = ? AND Value %c ?) t%d", sep, i)
+			args = append(args, key, value)
+		default:
+			return &Query{err: fmt.Errorf("query part %q has invalid key", part)}
+		}
 		if i > 0 {
 			query += " USING (UploadID, RecordID)"
 		}
 	}
 
-	// TODO(quentin): Handle empty query string.
-
-	query += " LEFT JOIN Records r USING (UploadID, RecordID)"
+	if len(qparts) > 0 {
+		query += " LEFT JOIN"
+	}
+	query += " Records r"
+	if len(qparts) > 0 {
+		query += " USING (UploadID, RecordID)"
+	}
 
 	rows, err := db.sql.Query(query, args...)
 	if err != nil {

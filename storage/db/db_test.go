@@ -263,7 +263,10 @@ func TestQuery(t *testing.T) {
 		t.Fatalf("NewUpload: %v", err)
 	}
 
+	var allRecords []int
+
 	for i := 0; i < 1024; i++ {
+		allRecords = append(allRecords, i)
 		r := &benchfmt.Result{Labels: make(map[string]string), NameLabels: make(map[string]string), Content: "BenchmarkName 1 ns/op"}
 		for j := uint(0); j < 10; j++ {
 			r.Labels[fmt.Sprintf("label%d", j)] = fmt.Sprintf("%d", i/(1<<j))
@@ -286,6 +289,9 @@ func TestQuery(t *testing.T) {
 		{"label0:5 name:Name", []int{5}},
 		{"label0:0 label0:5", []int{}},
 		{"bogus query", nil},
+		{"label1<2 label3:0", []int{0, 1, 2, 3}},
+		{"label1>510", []int{1022, 1023}},
+		{"", allRecords},
 	}
 	for _, test := range tests {
 		t.Run("query="+test.q, func(t *testing.T) {
