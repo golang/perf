@@ -9,7 +9,9 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"time"
 
+	"golang.org/x/net/context"
 	"golang.org/x/perf/analysis/app"
 	"golang.org/x/perf/storage"
 	"google.golang.org/appengine"
@@ -31,6 +33,11 @@ func mustGetenv(k string) string {
 // write to.
 func appHandler(w http.ResponseWriter, r *http.Request) {
 	ctx := appengine.NewContext(r)
+	// urlfetch defaults to 5s timeout if the context has no timeout.
+	// The underlying request has a 60 second timeout, so we might as well propagate that here.
+	// (Why doesn't appengine do that for us?)
+	ctx, cancel := context.WithTimeout(ctx, 60*time.Second)
+	defer cancel()
 	app := &app.App{
 		StorageClient: &storage.Client{
 			BaseURL:    mustGetenv("STORAGE_URL_BASE"),
