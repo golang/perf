@@ -18,6 +18,8 @@ func requestContext(r *http.Request) context.Context {
 	return r.Context()
 }
 
-func errorf(_ context.Context, format string, args ...interface{}) {
+func infof(_ context.Context, format string, args ...interface{}) {
 	log.Printf(format, args...)
 }
+
+var errorf = infof

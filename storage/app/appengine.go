@@ -19,4 +19,5 @@ func requestContext(r *http.Request) context.Context {
 	return appengine.NewContext(r)
 }
 
+var infof = log.Infof
 var errorf = log.Errorf

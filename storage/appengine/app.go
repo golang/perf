@@ -10,8 +10,10 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"time"
 
 	_ "github.com/go-sql-driver/mysql"
+	"golang.org/x/net/context"
 	"golang.org/x/perf/storage/app"
 	"golang.org/x/perf/storage/db"
 	"golang.org/x/perf/storage/fs/gcs"
@@ -69,6 +71,13 @@ func auth(w http.ResponseWriter, r *http.Request) (string, error) {
 // be supplied in /upload responses.
 func appHandler(w http.ResponseWriter, r *http.Request) {
 	ctx := appengine.NewContext(r)
+	// App Engine does not return a context with a deadline set,
+	// even though the request does have a deadline. urlfetch uses
+	// a 5s default timeout if the context does not have a
+	// deadline, so explicitly set a deadline to match the App
+	// Engine timeout.
+	ctx, cancel := context.WithTimeout(ctx, 60*time.Second)
+	defer cancel()
 	// GCS clients need to be constructed with an AppEngine
 	// context, so we can't actually make the App until the
 	// request comes in.

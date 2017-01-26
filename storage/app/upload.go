@@ -165,16 +165,19 @@ func (a *App) processUpload(ctx context.Context, user string, mr *multipart.Read
 }
 
 func (a *App) indexFile(ctx context.Context, upload *db.Upload, p io.Reader, meta map[string]string) (err error) {
-	fw, err := a.FS.NewWriter(ctx, fmt.Sprintf("uploads/%s.txt", meta["upload-part"]), meta)
+	path := fmt.Sprintf("uploads/%s.txt", meta["upload-part"])
+	fw, err := a.FS.NewWriter(ctx, path, meta)
 	if err != nil {
 		return err
 	}
 	defer func() {
+		start := time.Now()
 		if err != nil {
 			fw.CloseWithError(err)
 		} else {
 			err = fw.Close()
 		}
+		infof(ctx, "Close(%q) took %.2f seconds", path, time.Since(start).Seconds())
 	}()
 	var keys []string
 	for k := range meta {
