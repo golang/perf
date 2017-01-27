@@ -111,3 +111,23 @@ func TestCompareQuery(t *testing.T) {
 		})
 	}
 }
+
+func TestAddToQuery(t *testing.T) {
+	tests := []struct {
+		query, add string
+		want       string
+	}{
+		{"one", "two", "two | one"},
+		{"pre | one vs two", "three", "three pre | one vs two"},
+		{"four", "five six", `"five six" | four`},
+		{"seven", `extra "fun"\problem`, `"extra \"fun\"\\problem" | seven`},
+		{"eight", `ni\"ne`, `"ni\\\"ne" | eight`},
+	}
+	for i, test := range tests {
+		t.Run(fmt.Sprintf("%d", i), func(t *testing.T) {
+			if got := addToQuery(test.query, test.add); got != test.want {
+				t.Errorf("addToQuery(%q, %q) = %q, want %q", test.query, test.add, got, test.want)
+			}
+		})
+	}
+}

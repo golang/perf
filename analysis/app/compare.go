@@ -113,6 +113,11 @@ func (vs valueSet) TopN(n int) []valueCount {
 
 // addToQuery returns a new query string with add applied as a filter.
 func addToQuery(query, add string) string {
+	if strings.ContainsAny(add, " \t\\\"") {
+		add = strings.Replace(add, `\`, `\\`, -1)
+		add = strings.Replace(add, `"`, `\"`, -1)
+		add = `"` + add + `"`
+	}
 	if strings.Contains(query, "|") {
 		return add + " " + query
 	}
