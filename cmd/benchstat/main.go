@@ -119,7 +119,7 @@ var (
 	flagHTML      = flag.Bool("html", false, "print results as an HTML table")
 )
 
-var deltaTestNames = map[string]func(old, new *Benchstat) (float64, error){
+var deltaTestNames = map[string]func(old, new *Metrics) (float64, error){
 	"none":   notest,
 	"u":      utest,
 	"u-test": utest,
@@ -159,23 +159,23 @@ func main() {
 
 	// Read in benchmark data.
 	c := readFiles(flag.Args())
-	for _, stat := range c.Stats {
-		stat.ComputeStats()
+	for _, m := range c.Metrics {
+		m.ComputeStats()
 	}
 
 	var tables [][]*row
 	switch len(c.Configs) {
 	case 2:
 		before, after := c.Configs[0], c.Configs[1]
-		key := BenchKey{}
+		key := Key{}
 		for _, key.Unit = range c.Units {
 			var table []*row
 			metric := metricOf(key.Unit)
 			for _, key.Benchmark = range c.Benchmarks {
 				key.Config = before
-				old := c.Stats[key]
+				old := c.Metrics[key]
 				key.Config = after
-				new := c.Stats[key]
+				new := c.Metrics[key]
 				if old == nil || new == nil {
 					continue
 				}
@@ -210,7 +210,7 @@ func main() {
 		}
 
 	default:
-		key := BenchKey{}
+		key := Key{}
 		for _, key.Unit = range c.Units {
 			var table []*row
 			metric := metricOf(key.Unit)
@@ -229,15 +229,15 @@ func main() {
 				row := newRow(key.Benchmark)
 				var scaler func(float64) string
 				for _, key.Config = range c.Configs {
-					stat := c.Stats[key]
-					if stat == nil {
+					m := c.Metrics[key]
+					if m == nil {
 						row.add("")
 						continue
 					}
 					if scaler == nil {
-						scaler = newScaler(stat.Mean, stat.Unit)
+						scaler = newScaler(m.Mean, m.Unit)
 					}
-					row.add(stat.Format(scaler))
+					row.add(m.Format(scaler))
 				}
 				row.trim()
 				if len(row.cols) > 1 {
@@ -335,14 +335,14 @@ func addGeomean(table []*row, c *Collection, unit string, delta bool) []*row {
 	}
 
 	row := newRow("[Geo mean]")
-	key := BenchKey{Unit: unit}
+	key := Key{Unit: unit}
 	geomeans := []float64{}
 	for _, key.Config = range c.Configs {
 		var means []float64
 		for _, key.Benchmark = range c.Benchmarks {
-			stat := c.Stats[key]
-			if stat != nil {
-				means = append(means, stat.Mean)
+			m := c.Metrics[key]
+			if m != nil {
+				means = append(means, m.Mean)
 			}
 		}
 		if len(means) == 0 {
@@ -454,13 +454,13 @@ func newScaler(val float64, unit string) func(float64) string {
 	}
 }
 
-func (b *Benchstat) Format(scaler func(float64) string) string {
-	diff := 1 - b.Min/b.Mean
-	if d := b.Max/b.Mean - 1; d > diff {
+func (m *Metrics) Format(scaler func(float64) string) string {
+	diff := 1 - m.Min/m.Mean
+	if d := m.Max/m.Mean - 1; d > diff {
 		diff = d
 	}
-	s := scaler(b.Mean)
-	if b.Mean == 0 {
+	s := scaler(m.Mean)
+	if m.Mean == 0 {
 		s += "     "
 	} else {
 		s = fmt.Sprintf("%s ±%3s", s, fmt.Sprintf("%.0f%%", diff*100.0))
@@ -470,51 +470,52 @@ func (b *Benchstat) Format(scaler func(float64) string) string {
 
 // ComputeStats updates the derived statistics in s from the raw
 // samples in s.Values.
-func (stat *Benchstat) ComputeStats() {
+func (m *Metrics) ComputeStats() {
 	// Discard outliers.
-	values := stats.Sample{Xs: stat.Values}
+	values := stats.Sample{Xs: m.Values}
 	q1, q3 := values.Percentile(0.25), values.Percentile(0.75)
 	lo, hi := q1-1.5*(q3-q1), q3+1.5*(q3-q1)
-	for _, value := range stat.Values {
+	for _, value := range m.Values {
 		if lo <= value && value <= hi {
-			stat.RValues = append(stat.RValues, value)
+			m.RValues = append(m.RValues, value)
 		}
 	}
 
 	// Compute statistics of remaining data.
-	stat.Min, stat.Max = stats.Bounds(stat.RValues)
-	stat.Mean = stats.Mean(stat.RValues)
+	m.Min, m.Max = stats.Bounds(m.RValues)
+	m.Mean = stats.Mean(m.RValues)
 }
 
-// A Benchstat is the metrics along one axis (e.g., ns/op or MB/s)
-// for all runs of a specific benchmark.
-type Benchstat struct {
-	Unit    string
-	Values  []float64 // metrics
-	RValues []float64 // metrics with outliers removed
+// A Metrics holds the measurements of a single metric (for example, ns/op or MB/s)
+// for all runs of a particular benchmark.
+type Metrics struct {
+	Unit    string    // unit being measured
+	Values  []float64 // measured values
+	RValues []float64 // Values with outliers removed
 	Min     float64   // min of RValues
 	Mean    float64   // mean of RValues
 	Max     float64   // max of RValues
 }
 
-// A BenchKey identifies one metric (e.g., "ns/op", "B/op") from one
+// A Key identifies one metric (e.g., "ns/op", "B/op") from one
 // benchmark (function name sans "Benchmark" prefix) in one
 // configuration (input file name).
-type BenchKey struct {
+type Key struct {
 	Config, Benchmark, Unit string
 }
 
 type Collection struct {
-	Stats map[BenchKey]*Benchstat
-
 	// Configs, Benchmarks, and Units give the set of configs,
 	// benchmarks, and units from the keys in Stats in an order
 	// meant to match the order the benchmarks were read in.
 	Configs, Benchmarks, Units []string
+
+	// Metrics holds the accumulated metrics for each key.
+	Metrics map[Key]*Metrics
 }
 
-func (c *Collection) AddStat(key BenchKey) *Benchstat {
-	if stat, ok := c.Stats[key]; ok {
+func (c *Collection) AddStat(key Key) *Metrics {
+	if stat, ok := c.Metrics[key]; ok {
 		return stat
 	}
 
@@ -529,14 +530,14 @@ func (c *Collection) AddStat(key BenchKey) *Benchstat {
 	addString(&c.Configs, key.Config)
 	addString(&c.Benchmarks, key.Benchmark)
 	addString(&c.Units, key.Unit)
-	stat := &Benchstat{Unit: key.Unit}
-	c.Stats[key] = stat
-	return stat
+	m := &Metrics{Unit: key.Unit}
+	c.Metrics[key] = m
+	return m
 }
 
 // readFiles reads a set of benchmark files.
 func readFiles(files []string) *Collection {
-	c := Collection{Stats: make(map[BenchKey]*Benchstat)}
+	c := Collection{Metrics: make(map[Key]*Metrics)}
 	for _, file := range files {
 		readFile(file, &c)
 	}
@@ -546,7 +547,7 @@ func readFiles(files []string) *Collection {
 // readFile reads a set of benchmarks from a file in to a Collection.
 func readFile(file string, c *Collection) {
 	c.Configs = append(c.Configs, file)
-	key := BenchKey{Config: file}
+	key := Key{Config: file}
 
 	text, err := ioutil.ReadFile(file)
 	if err != nil {
@@ -595,11 +596,11 @@ func metricOf(unit string) string {
 
 // Significance tests.
 
-func notest(old, new *Benchstat) (pval float64, err error) {
+func notest(old, new *Metrics) (pval float64, err error) {
 	return -1, nil
 }
 
-func ttest(old, new *Benchstat) (pval float64, err error) {
+func ttest(old, new *Metrics) (pval float64, err error) {
 	t, err := stats.TwoSampleWelchTTest(stats.Sample{Xs: old.RValues}, stats.Sample{Xs: new.RValues}, stats.LocationDiffers)
 	if err != nil {
 		return -1, err
@@ -607,7 +608,7 @@ func ttest(old, new *Benchstat) (pval float64, err error) {
 	return t.P, nil
 }
 
-func utest(old, new *Benchstat) (pval float64, err error) {
+func utest(old, new *Metrics) (pval float64, err error) {
 	u, err := stats.MannWhitneyUTest(old.RValues, new.RValues, stats.LocationDiffers)
 	if err != nil {
 		return -1, err
