@@ -119,14 +119,14 @@ var (
 	flagHTML      = flag.Bool("html", false, "print results as an HTML table")
 )
 
-var deltaTestNames = map[string]func(old, new *Metrics) (float64, error){
-	"none":   notest,
-	"u":      utest,
-	"u-test": utest,
-	"utest":  utest,
-	"t":      ttest,
-	"t-test": ttest,
-	"ttest":  ttest,
+var deltaTestNames = map[string]DeltaTest{
+	"none":   NoDeltaTest,
+	"u":      UTest,
+	"u-test": UTest,
+	"utest":  UTest,
+	"t":      TTest,
+	"t-test": TTest,
+	"ttest":  TTest,
 }
 
 type row struct {
@@ -187,13 +187,7 @@ func main() {
 
 				scaler := NewScaler(old.Mean, old.Unit)
 				row := newRow(key.Benchmark, old.Format(scaler), new.Format(scaler), "~   ")
-				if testerr == stats.ErrZeroVariance {
-					row.add("(zero variance)")
-				} else if testerr == stats.ErrSampleSize {
-					row.add("(too few samples)")
-				} else if testerr == stats.ErrSamplesEqual {
-					row.add("(all equal)")
-				} else if testerr != nil {
+				if testerr != nil {
 					row.add(fmt.Sprintf("(%s)", testerr))
 				} else if pval < *flagAlpha {
 					row.cols[3] = fmt.Sprintf("%+.2f%%", ((new.Mean/old.Mean)-1.0)*100.0)
@@ -498,26 +492,4 @@ func metricOf(unit string) string {
 	default:
 		return unit
 	}
-}
-
-// Significance tests.
-
-func notest(old, new *Metrics) (pval float64, err error) {
-	return -1, nil
-}
-
-func ttest(old, new *Metrics) (pval float64, err error) {
-	t, err := stats.TwoSampleWelchTTest(stats.Sample{Xs: old.RValues}, stats.Sample{Xs: new.RValues}, stats.LocationDiffers)
-	if err != nil {
-		return -1, err
-	}
-	return t.P, nil
-}
-
-func utest(old, new *Metrics) (pval float64, err error) {
-	u, err := stats.MannWhitneyUTest(old.RValues, new.RValues, stats.LocationDiffers)
-	if err != nil {
-		return -1, err
-	}
-	return u.P, nil
 }
