@@ -11,7 +11,6 @@ import (
 	"io/ioutil"
 	"os"
 	"os/exec"
-	"reflect"
 	"strings"
 	"testing"
 	"time"
@@ -22,24 +21,6 @@ import (
 )
 
 // Most of the db package is tested via the end-to-end-tests in perf/storage/app.
-
-func TestSplitQueryWords(t *testing.T) {
-	for _, test := range []struct {
-		q    string
-		want []string
-	}{
-		{"hello world", []string{"hello", "world"}},
-		{"hello\\ world", []string{"hello world"}},
-		{`"key:value two" and\ more`, []string{"key:value two", "and more"}},
-		{`one" two"\ three four`, []string{"one two three", "four"}},
-		{`"4'7\""`, []string{`4'7"`}},
-	} {
-		have := SplitQueryWords(test.q)
-		if !reflect.DeepEqual(have, test.want) {
-			t.Errorf("splitQueryWords(%q) = %+v, want %+v", test.q, have, test.want)
-		}
-	}
-}
 
 // TestUploadIDs verifies that NewUpload generates the correct sequence of upload IDs.
 func TestUploadIDs(t *testing.T) {

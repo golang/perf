@@ -20,6 +20,7 @@ import (
 
 	"golang.org/x/net/context"
 	"golang.org/x/perf/storage/benchfmt"
+	"golang.org/x/perf/storage/query"
 )
 
 // TODO(quentin): Add Context to every function when App Engine supports Go >=1.8.
@@ -365,7 +366,7 @@ func (u *Upload) Abort() error {
 // key>value - value greater than (useful for dates)
 // key<value - value less than (also useful for dates)
 func (db *DB) Query(q string) *Query {
-	qparts := splitQueryWords(q)
+	qparts := query.SplitWords(q)
 
 	var args []interface{}
 	query := "SELECT r.Content FROM "
@@ -412,48 +413,6 @@ func (db *DB) Query(q string) *Query {
 		return &Query{err: err}
 	}
 	return &Query{rows: rows}
-}
-
-// splitQueryWords splits q into words using shell syntax (whitespace
-// can be escaped with double quotes or with a backslash).
-func splitQueryWords(q string) []string {
-	var words []string
-	word := make([]byte, len(q))
-	w := 0
-	quoting := false
-	for r := 0; r < len(q); r++ {
-		switch c := q[r]; {
-		case c == '"' && quoting:
-			quoting = false
-		case quoting:
-			if c == '\\' {
-				r++
-			}
-			if r < len(q) {
-				word[w] = q[r]
-				w++
-			}
-		case c == '"':
-			quoting = true
-		case c == ' ', c == '\t':
-			if w > 0 {
-				words = append(words, string(word[:w]))
-			}
-			w = 0
-		case c == '\\':
-			r++
-			fallthrough
-		default:
-			if r < len(q) {
-				word[w] = q[r]
-				w++
-			}
-		}
-	}
-	if w > 0 {
-		words = append(words, string(word[:w]))
-	}
-	return words
 }
 
 // Query is the result of a query.

@@ -9,8 +9,6 @@ import (
 	"time"
 )
 
-var SplitQueryWords = splitQueryWords
-
 func DBSQL(db *DB) *sql.DB {
 	return db.sql
 }
