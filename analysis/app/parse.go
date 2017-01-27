@@ -8,11 +8,11 @@ import "strings"
 
 // parseQueryString splits a user-entered query into one or more storage server queries.
 // The supported query formats are:
-//     prefix | one vs two  - parsed as {"prefix one", "prefix two"}
-//     prefix one vs two    - parsed as {"prefix one", "two"}
-//     anything else        - parsed as {"anything else"}
+//     prefix | one vs two  - parsed as "prefix", {"one", "two"}
+//     prefix one vs two    - parsed as "", {"prefix one", "two"}
+//     anything else        - parsed as "", {"anything else"}
 // The vs and | separators must not be quoted.
-func parseQueryString(q string) []string {
+func parseQueryString(q string) (string, []string) {
 	var queries []string
 	var parts []string
 	var prefix string
@@ -33,10 +33,10 @@ func parseQueryString(q string) []string {
 		case c == ' ', c == '\t':
 			switch part := q[:r]; {
 			case part == "|" && prefix == "":
-				prefix = strings.Join(parts, " ") + " "
+				prefix = strings.Join(parts, " ")
 				parts = nil
 			case part == "vs":
-				queries = append(queries, prefix+strings.Join(parts, " "))
+				queries = append(queries, strings.Join(parts, " "))
 				parts = nil
 			default:
 				parts = append(parts, part)
@@ -54,7 +54,7 @@ func parseQueryString(q string) []string {
 		parts = append(parts, q)
 	}
 	if len(parts) > 0 {
-		queries = append(queries, prefix+strings.Join(parts, " "))
+		queries = append(queries, strings.Join(parts, " "))
 	}
-	return queries
+	return prefix, queries
 }

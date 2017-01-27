@@ -167,7 +167,7 @@ type compareData struct {
 
 func (a *App) compareQuery(q string) *compareData {
 	// Parse query
-	queries := parseQueryString(q)
+	prefix, queries := parseQueryString(q)
 
 	// Send requests
 	// TODO(quentin): Issue requests in parallel?
@@ -175,6 +175,9 @@ func (a *App) compareQuery(q string) *compareData {
 	var found int
 	for _, qPart := range queries {
 		group := &resultGroup{}
+		if prefix != "" {
+			qPart = prefix + " " + qPart
+		}
 		res := a.StorageClient.Query(qPart)
 		for res.Next() {
 			group.add(res.Result())

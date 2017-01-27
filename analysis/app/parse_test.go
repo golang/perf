@@ -11,20 +11,24 @@ import (
 
 func TestParseQueryString(t *testing.T) {
 	tests := []struct {
-		q    string
-		want []string
+		q          string
+		wantPrefix string
+		wantParts  []string
 	}{
-		{"prefix | one vs two", []string{"prefix one", "prefix two"}},
-		{"prefix one vs two", []string{"prefix one", "two"}},
-		{"anything else", []string{"anything else"}},
-		{`one vs "two vs three"`, []string{"one", `"two vs three"`}},
-		{"mixed\ttabs \"and\tspaces\"", []string{"mixed tabs \"and\tspaces\""}},
+		{"prefix | one vs two", "prefix", []string{"one", "two"}},
+		{"prefix one vs two", "", []string{"prefix one", "two"}},
+		{"anything else", "", []string{"anything else"}},
+		{`one vs "two vs three"`, "", []string{"one", `"two vs three"`}},
+		{"mixed\ttabs \"and\tspaces\"", "", []string{"mixed tabs \"and\tspaces\""}},
 	}
 	for _, test := range tests {
 		t.Run(test.q, func(t *testing.T) {
-			have := parseQueryString(test.q)
-			if !reflect.DeepEqual(have, test.want) {
-				t.Fatalf("parseQueryString = %#v, want %#v", have, test.want)
+			havePrefix, haveParts := parseQueryString(test.q)
+			if havePrefix != test.wantPrefix {
+				t.Errorf("parseQueryString returned prefix %q, want %q", havePrefix, test.wantPrefix)
+			}
+			if !reflect.DeepEqual(haveParts, test.wantParts) {
+				t.Errorf("parseQueryString returned parts %#v, want %#v", haveParts, test.wantParts)
 			}
 		})
 	}
