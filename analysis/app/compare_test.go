@@ -131,3 +131,27 @@ func TestAddToQuery(t *testing.T) {
 		})
 	}
 }
+
+func TestElideKeyValues(t *testing.T) {
+	type sb map[string]bool
+	tests := []struct {
+		content string
+		keys    sb
+		want    string
+	}{
+		{"BenchmarkOne/key=1-1 1 ns/op", sb{"key": true}, "BenchmarkOne/key=*-1 1 ns/op"},
+		{"BenchmarkOne/key=1-2 1 ns/op", sb{"other": true}, "BenchmarkOne/key=1-2 1 ns/op"},
+		{"BenchmarkOne/key=1/key2=2-3 1 ns/op", sb{"key": true}, "BenchmarkOne/key=*/key2=2-3 1 ns/op"},
+		{"BenchmarkOne/foo/bar-4 1 ns/op", sb{"sub1": true}, "BenchmarkOne/*/bar-4 1 ns/op"},
+		{"BenchmarkOne/foo/bar-5 1 ns/op", sb{"gomaxprocs": true}, "BenchmarkOne/foo/bar-* 1 ns/op"},
+		{"BenchmarkOne/foo/bar-6 1 ns/op", sb{"name": true}, "Benchmark*/foo/bar-6 1 ns/op"},
+	}
+	for i, test := range tests {
+		t.Run(fmt.Sprintf("%d", i), func(t *testing.T) {
+			have := elideKeyValues(test.content, test.keys)
+			if have != test.want {
+				t.Errorf("elideKeys(%q, %#v) = %q, want %q", test.content, map[string]bool(test.keys), have, test.want)
+			}
+		})
+	}
+}

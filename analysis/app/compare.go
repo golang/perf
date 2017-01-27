@@ -6,14 +6,18 @@ package app
 
 import (
 	"bytes"
+	"fmt"
 	"html/template"
 	"io/ioutil"
 	"net/http"
 	"sort"
+	"strconv"
 	"strings"
+	"unicode"
 
 	"golang.org/x/perf/analysis/internal/benchstat"
 	"golang.org/x/perf/storage/benchfmt"
+	"golang.org/x/perf/storage/query"
 )
 
 // A resultGroup holds a list of results and tracks the distinct labels found in that list.
@@ -165,6 +169,56 @@ type compareData struct {
 	CommonLabels benchfmt.Labels
 }
 
+// queryKeys returns the keys that are exact-matched by q.
+func queryKeys(q string) map[string]bool {
+	out := make(map[string]bool)
+	for _, part := range query.SplitWords(q) {
+		// TODO(quentin): This func is shared with db.go; refactor?
+		i := strings.IndexFunc(part, func(r rune) bool {
+			return r == ':' || r == '>' || r == '<' || unicode.IsSpace(r) || unicode.IsUpper(r)
+		})
+		if i >= 0 && part[i] == ':' {
+			out[part[:i]] = true
+		}
+	}
+	return out
+}
+
+// elideKeyValues returns content, a benchmark format line, with the
+// values of any keys in keys elided.
+func elideKeyValues(content string, keys map[string]bool) string {
+	var end string
+	if i := strings.IndexFunc(content, unicode.IsSpace); i >= 0 {
+		content, end = content[:i], content[i:]
+	}
+	// Check for gomaxprocs value
+	if i := strings.LastIndex(content, "-"); i >= 0 {
+		_, err := strconv.Atoi(content[i+1:])
+		if err == nil {
+			if keys["gomaxprocs"] {
+				content, end = content[:i], "-*"+end
+			} else {
+				content, end = content[:i], content[i:]+end
+			}
+		}
+	}
+	parts := strings.Split(content, "/")
+	for i, part := range parts {
+		if equals := strings.Index(part, "="); equals >= 0 {
+			if keys[part[:equals]] {
+				parts[i] = part[:equals] + "=*"
+			}
+		} else if i == 0 {
+			if keys["name"] {
+				parts[i] = "Benchmark*"
+			}
+		} else if keys[fmt.Sprintf("sub%d", i)] {
+			parts[i] = "*"
+		}
+	}
+	return strings.Join(parts, "/") + end
+}
+
 func (a *App) compareQuery(q string) *compareData {
 	// Parse query
 	prefix, queries := parseQueryString(q)
@@ -174,13 +228,16 @@ func (a *App) compareQuery(q string) *compareData {
 	var groups []*resultGroup
 	var found int
 	for _, qPart := range queries {
+		keys := queryKeys(qPart)
 		group := &resultGroup{}
 		if prefix != "" {
 			qPart = prefix + " " + qPart
 		}
 		res := a.StorageClient.Query(qPart)
 		for res.Next() {
-			group.add(res.Result())
+			result := res.Result()
+			result.Content = elideKeyValues(result.Content, keys)
+			group.add(result)
 			found++
 		}
 		err := res.Err()
