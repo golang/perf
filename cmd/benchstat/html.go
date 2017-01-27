@@ -6,34 +6,27 @@ package main
 
 import (
 	"bytes"
-	"fmt"
-	"html"
+	"html/template"
 )
+
+var htmlTemplate = template.Must(template.New("").Parse(
+	`{{range $i, $table := .}}{{if gt $i 0}}
+{{end}}<style>.benchstat tbody td:nth-child(1n+2) { text-align: right; padding: 0em 1em; }</style>
+<table class='benchstat'>
+{{if .OldNewDelta}}<tr><th>name</th><th>old {{.Metric}}</th><th>new {{.Metric}}</th><th>delta</th>
+{{else if eq (len .Configs) 1}}<tr><th>name</th><th>{{.Metric}}</th>
+{{else}}<tr><th>name \ {{.Metric}}</th>{{range .Configs}}<th>{{.}}</th>{{end}}
+{{end}}{{range $row := $table.Rows}}<tr><td>{{.Benchmark}}</td>{{range $m := .Metrics}}<td>{{$m.Format $row.Scaler}}</td>{{end}}{{if $table.OldNewDelta}}<td>{{.Delta}}</td><td>{{.Note}}</td>{{end}}
+{{end -}}
+</table>
+{{end}}`))
 
 // FormatHTML appends an HTML formatting of the tables to buf.
 func FormatHTML(buf *bytes.Buffer, tables []*Table) {
-	var textTables [][]*textRow
-	for _, t := range tables {
-		textTables = append(textTables, toText(t))
-	}
-
-	for i, table := range textTables {
-		if i > 0 {
-			fmt.Fprintf(buf, "\n")
-		}
-		fmt.Fprintf(buf, "<style>.benchstat tbody td:nth-child(1n+2) { text-align: right; padding: 0em 1em; }</style>\n")
-		fmt.Fprintf(buf, "<table class='benchstat'>\n")
-		printRow := func(row *textRow, tag string) {
-			fmt.Fprintf(buf, "<tr>")
-			for _, cell := range row.cols {
-				fmt.Fprintf(buf, "<%s>%s</%s>", tag, html.EscapeString(cell), tag)
-			}
-			fmt.Fprintf(buf, "\n")
-		}
-		printRow(table[0], "th")
-		for _, row := range table[1:] {
-			printRow(row, "td")
-		}
-		fmt.Fprintf(buf, "</table>\n")
+	err := htmlTemplate.Execute(buf, tables)
+	if err != nil {
+		// Only possible errors here are template not matching data structure.
+		// Don't make caller check - it's our fault.
+		panic(err)
 	}
 }

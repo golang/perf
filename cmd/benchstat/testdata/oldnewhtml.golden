@@ -1,81 +1,81 @@
 <style>.benchstat tbody td:nth-child(1n+2) { text-align: right; padding: 0em 1em; }</style>
 <table class='benchstat'>
 <tr><th>name</th><th>old time/op</th><th>new time/op</th><th>delta</th>
-<tr><td>CRC32/poly=IEEE/size=15/align=0-8</td><td>46.9ns ± 8%</td><td>44.5ns ± 3%</td><td>-5.01%</td><td>(p=0.008 n=10+10)</td>
-<tr><td>CRC32/poly=IEEE/size=15/align=1-8</td><td>44.7ns ± 5%</td><td>44.5ns ± 4%</td><td>~   </td><td>(p=0.539 n=10+10)</td>
-<tr><td>CRC32/poly=IEEE/size=40/align=0-8</td><td>41.0ns ± 1%</td><td>42.5ns ± 6%</td><td>+3.56%</td><td>(p=0.000 n=8+10)</td>
-<tr><td>CRC32/poly=IEEE/size=40/align=1-8</td><td>41.1ns ± 1%</td><td>42.0ns ± 3%</td><td>+2.34%</td><td>(p=0.000 n=9+10)</td>
-<tr><td>CRC32/poly=IEEE/size=512/align=0-8</td><td>238ns ± 5%</td><td>57ns ± 3%</td><td>-76.00%</td><td>(p=0.000 n=10+10)</td>
-<tr><td>CRC32/poly=IEEE/size=512/align=1-8</td><td>236ns ± 3%</td><td>57ns ± 3%</td><td>-75.72%</td><td>(p=0.000 n=10+10)</td>
-<tr><td>CRC32/poly=IEEE/size=1kB/align=0-8</td><td>452ns ± 4%</td><td>94ns ± 2%</td><td>-79.20%</td><td>(p=0.000 n=10+8)</td>
-<tr><td>CRC32/poly=IEEE/size=1kB/align=1-8</td><td>444ns ± 2%</td><td>93ns ± 2%</td><td>-78.97%</td><td>(p=0.000 n=10+8)</td>
-<tr><td>CRC32/poly=IEEE/size=4kB/align=0-8</td><td>1.74µs ± 8%</td><td>0.30µs ± 1%</td><td>-82.87%</td><td>(p=0.000 n=10+9)</td>
-<tr><td>CRC32/poly=IEEE/size=4kB/align=1-8</td><td>1.76µs ± 6%</td><td>0.30µs ± 3%</td><td>-83.05%</td><td>(p=0.000 n=10+10)</td>
-<tr><td>CRC32/poly=IEEE/size=32kB/align=0-8</td><td>15.0µs ± 7%</td><td>2.2µs ± 3%</td><td>-85.57%</td><td>(p=0.000 n=10+10)</td>
-<tr><td>CRC32/poly=IEEE/size=32kB/align=1-8</td><td>14.2µs ± 7%</td><td>2.2µs ± 3%</td><td>-84.65%</td><td>(p=0.000 n=10+10)</td>
-<tr><td>CRC32/poly=Castagnoli/size=15/align=0-8</td><td>16.4ns ± 3%</td><td>16.3ns ± 2%</td><td>~   </td><td>(p=0.615 n=9+9)</td>
-<tr><td>CRC32/poly=Castagnoli/size=15/align=1-8</td><td>17.2ns ± 2%</td><td>17.3ns ± 2%</td><td>~   </td><td>(p=0.650 n=9+10)</td>
-<tr><td>CRC32/poly=Castagnoli/size=40/align=0-8</td><td>17.4ns ± 2%</td><td>17.5ns ± 4%</td><td>~   </td><td>(p=0.694 n=10+10)</td>
-<tr><td>CRC32/poly=Castagnoli/size=40/align=1-8</td><td>19.7ns ± 3%</td><td>19.4ns ± 2%</td><td>-1.62%</td><td>(p=0.036 n=10+10)</td>
-<tr><td>CRC32/poly=Castagnoli/size=512/align=0-8</td><td>40.2ns ± 2%</td><td>40.1ns ± 4%</td><td>~   </td><td>(p=0.614 n=10+10)</td>
-<tr><td>CRC32/poly=Castagnoli/size=512/align=1-8</td><td>42.1ns ± 3%</td><td>41.9ns ± 2%</td><td>~   </td><td>(p=0.952 n=10+9)</td>
-<tr><td>CRC32/poly=Castagnoli/size=1kB/align=0-8</td><td>65.5ns ± 1%</td><td>66.2ns ± 1%</td><td>+1.01%</td><td>(p=0.003 n=9+8)</td>
-<tr><td>CRC32/poly=Castagnoli/size=1kB/align=1-8</td><td>70.1ns ± 6%</td><td>68.5ns ± 2%</td><td>~   </td><td>(p=0.190 n=10+9)</td>
-<tr><td>CRC32/poly=Castagnoli/size=4kB/align=0-8</td><td>163ns ± 5%</td><td>159ns ± 3%</td><td>-2.46%</td><td>(p=0.032 n=10+10)</td>
-<tr><td>CRC32/poly=Castagnoli/size=4kB/align=1-8</td><td>169ns ± 6%</td><td>162ns ± 3%</td><td>-4.60%</td><td>(p=0.005 n=10+10)</td>
-<tr><td>CRC32/poly=Castagnoli/size=32kB/align=0-8</td><td>1.22µs ± 4%</td><td>1.21µs ± 3%</td><td>~   </td><td>(p=0.882 n=9+9)</td>
-<tr><td>CRC32/poly=Castagnoli/size=32kB/align=1-8</td><td>1.26µs ± 3%</td><td>1.22µs ± 4%</td><td>-3.48%</td><td>(p=0.002 n=9+10)</td>
-<tr><td>CRC32/poly=Koopman/size=15/align=0-8</td><td>36.5ns ±11%</td><td>35.6ns ± 3%</td><td>~   </td><td>(p=0.216 n=10+10)</td>
-<tr><td>CRC32/poly=Koopman/size=15/align=1-8</td><td>35.1ns ± 5%</td><td>35.5ns ± 1%</td><td>~   </td><td>(p=0.508 n=10+9)</td>
-<tr><td>CRC32/poly=Koopman/size=40/align=0-8</td><td>91.6ns ± 9%</td><td>87.6ns ± 2%</td><td>-4.35%</td><td>(p=0.002 n=10+10)</td>
-<tr><td>CRC32/poly=Koopman/size=40/align=1-8</td><td>91.1ns ± 6%</td><td>88.0ns ± 3%</td><td>~   </td><td>(p=0.055 n=10+10)</td>
-<tr><td>CRC32/poly=Koopman/size=512/align=0-8</td><td>1.13µs ± 5%</td><td>1.08µs ± 3%</td><td>-4.93%</td><td>(p=0.000 n=10+10)</td>
-<tr><td>CRC32/poly=Koopman/size=512/align=1-8</td><td>1.13µs ± 6%</td><td>1.17µs ± 8%</td><td>~   </td><td>(p=0.143 n=10+10)</td>
-<tr><td>CRC32/poly=Koopman/size=1kB/align=0-8</td><td>2.24µs ± 6%</td><td>2.34µs ± 4%</td><td>+4.34%</td><td>(p=0.010 n=9+10)</td>
-<tr><td>CRC32/poly=Koopman/size=1kB/align=1-8</td><td>2.15µs ± 2%</td><td>2.36µs ± 5%</td><td>+9.84%</td><td>(p=0.000 n=9+10)</td>
-<tr><td>CRC32/poly=Koopman/size=4kB/align=0-8</td><td>9.03µs ± 6%</td><td>9.00µs ± 6%</td><td>~   </td><td>(p=0.971 n=10+10)</td>
-<tr><td>CRC32/poly=Koopman/size=4kB/align=1-8</td><td>8.94µs ±10%</td><td>9.05µs ±12%</td><td>~   </td><td>(p=0.754 n=10+10)</td>
-<tr><td>CRC32/poly=Koopman/size=32kB/align=0-8</td><td>72.4µs ± 9%</td><td>72.9µs ± 4%</td><td>~   </td><td>(p=0.684 n=10+10)</td>
-<tr><td>CRC32/poly=Koopman/size=32kB/align=1-8</td><td>69.6µs ± 3%</td><td>74.3µs ± 3%</td><td>+6.70%</td><td>(p=0.000 n=8+10)</td>
+<tr><td>CRC32/poly=IEEE/size=15/align=0-8</td><td>46.9ns ± 8%</td><td>44.5ns ± 3%</td><td>-5.01%</td><td>(p=0.008 n=10&#43;10)</td>
+<tr><td>CRC32/poly=IEEE/size=15/align=1-8</td><td>44.7ns ± 5%</td><td>44.5ns ± 4%</td><td>~</td><td>(p=0.539 n=10&#43;10)</td>
+<tr><td>CRC32/poly=IEEE/size=40/align=0-8</td><td>41.0ns ± 1%</td><td>42.5ns ± 6%</td><td>&#43;3.56%</td><td>(p=0.000 n=8&#43;10)</td>
+<tr><td>CRC32/poly=IEEE/size=40/align=1-8</td><td>41.1ns ± 1%</td><td>42.0ns ± 3%</td><td>&#43;2.34%</td><td>(p=0.000 n=9&#43;10)</td>
+<tr><td>CRC32/poly=IEEE/size=512/align=0-8</td><td>238ns ± 5%</td><td>57ns ± 3%</td><td>-76.00%</td><td>(p=0.000 n=10&#43;10)</td>
+<tr><td>CRC32/poly=IEEE/size=512/align=1-8</td><td>236ns ± 3%</td><td>57ns ± 3%</td><td>-75.72%</td><td>(p=0.000 n=10&#43;10)</td>
+<tr><td>CRC32/poly=IEEE/size=1kB/align=0-8</td><td>452ns ± 4%</td><td>94ns ± 2%</td><td>-79.20%</td><td>(p=0.000 n=10&#43;8)</td>
+<tr><td>CRC32/poly=IEEE/size=1kB/align=1-8</td><td>444ns ± 2%</td><td>93ns ± 2%</td><td>-78.97%</td><td>(p=0.000 n=10&#43;8)</td>
+<tr><td>CRC32/poly=IEEE/size=4kB/align=0-8</td><td>1.74µs ± 8%</td><td>0.30µs ± 1%</td><td>-82.87%</td><td>(p=0.000 n=10&#43;9)</td>
+<tr><td>CRC32/poly=IEEE/size=4kB/align=1-8</td><td>1.76µs ± 6%</td><td>0.30µs ± 3%</td><td>-83.05%</td><td>(p=0.000 n=10&#43;10)</td>
+<tr><td>CRC32/poly=IEEE/size=32kB/align=0-8</td><td>15.0µs ± 7%</td><td>2.2µs ± 3%</td><td>-85.57%</td><td>(p=0.000 n=10&#43;10)</td>
+<tr><td>CRC32/poly=IEEE/size=32kB/align=1-8</td><td>14.2µs ± 7%</td><td>2.2µs ± 3%</td><td>-84.65%</td><td>(p=0.000 n=10&#43;10)</td>
+<tr><td>CRC32/poly=Castagnoli/size=15/align=0-8</td><td>16.4ns ± 3%</td><td>16.3ns ± 2%</td><td>~</td><td>(p=0.615 n=9&#43;9)</td>
+<tr><td>CRC32/poly=Castagnoli/size=15/align=1-8</td><td>17.2ns ± 2%</td><td>17.3ns ± 2%</td><td>~</td><td>(p=0.650 n=9&#43;10)</td>
+<tr><td>CRC32/poly=Castagnoli/size=40/align=0-8</td><td>17.4ns ± 2%</td><td>17.5ns ± 4%</td><td>~</td><td>(p=0.694 n=10&#43;10)</td>
+<tr><td>CRC32/poly=Castagnoli/size=40/align=1-8</td><td>19.7ns ± 3%</td><td>19.4ns ± 2%</td><td>-1.62%</td><td>(p=0.036 n=10&#43;10)</td>
+<tr><td>CRC32/poly=Castagnoli/size=512/align=0-8</td><td>40.2ns ± 2%</td><td>40.1ns ± 4%</td><td>~</td><td>(p=0.614 n=10&#43;10)</td>
+<tr><td>CRC32/poly=Castagnoli/size=512/align=1-8</td><td>42.1ns ± 3%</td><td>41.9ns ± 2%</td><td>~</td><td>(p=0.952 n=10&#43;9)</td>
+<tr><td>CRC32/poly=Castagnoli/size=1kB/align=0-8</td><td>65.5ns ± 1%</td><td>66.2ns ± 1%</td><td>&#43;1.01%</td><td>(p=0.003 n=9&#43;8)</td>
+<tr><td>CRC32/poly=Castagnoli/size=1kB/align=1-8</td><td>70.1ns ± 6%</td><td>68.5ns ± 2%</td><td>~</td><td>(p=0.190 n=10&#43;9)</td>
+<tr><td>CRC32/poly=Castagnoli/size=4kB/align=0-8</td><td>163ns ± 5%</td><td>159ns ± 3%</td><td>-2.46%</td><td>(p=0.032 n=10&#43;10)</td>
+<tr><td>CRC32/poly=Castagnoli/size=4kB/align=1-8</td><td>169ns ± 6%</td><td>162ns ± 3%</td><td>-4.60%</td><td>(p=0.005 n=10&#43;10)</td>
+<tr><td>CRC32/poly=Castagnoli/size=32kB/align=0-8</td><td>1.22µs ± 4%</td><td>1.21µs ± 3%</td><td>~</td><td>(p=0.882 n=9&#43;9)</td>
+<tr><td>CRC32/poly=Castagnoli/size=32kB/align=1-8</td><td>1.26µs ± 3%</td><td>1.22µs ± 4%</td><td>-3.48%</td><td>(p=0.002 n=9&#43;10)</td>
+<tr><td>CRC32/poly=Koopman/size=15/align=0-8</td><td>36.5ns ±11%</td><td>35.6ns ± 3%</td><td>~</td><td>(p=0.216 n=10&#43;10)</td>
+<tr><td>CRC32/poly=Koopman/size=15/align=1-8</td><td>35.1ns ± 5%</td><td>35.5ns ± 1%</td><td>~</td><td>(p=0.508 n=10&#43;9)</td>
+<tr><td>CRC32/poly=Koopman/size=40/align=0-8</td><td>91.6ns ± 9%</td><td>87.6ns ± 2%</td><td>-4.35%</td><td>(p=0.002 n=10&#43;10)</td>
+<tr><td>CRC32/poly=Koopman/size=40/align=1-8</td><td>91.1ns ± 6%</td><td>88.0ns ± 3%</td><td>~</td><td>(p=0.055 n=10&#43;10)</td>
+<tr><td>CRC32/poly=Koopman/size=512/align=0-8</td><td>1.13µs ± 5%</td><td>1.08µs ± 3%</td><td>-4.93%</td><td>(p=0.000 n=10&#43;10)</td>
+<tr><td>CRC32/poly=Koopman/size=512/align=1-8</td><td>1.13µs ± 6%</td><td>1.17µs ± 8%</td><td>~</td><td>(p=0.143 n=10&#43;10)</td>
+<tr><td>CRC32/poly=Koopman/size=1kB/align=0-8</td><td>2.24µs ± 6%</td><td>2.34µs ± 4%</td><td>&#43;4.34%</td><td>(p=0.010 n=9&#43;10)</td>
+<tr><td>CRC32/poly=Koopman/size=1kB/align=1-8</td><td>2.15µs ± 2%</td><td>2.36µs ± 5%</td><td>&#43;9.84%</td><td>(p=0.000 n=9&#43;10)</td>
+<tr><td>CRC32/poly=Koopman/size=4kB/align=0-8</td><td>9.03µs ± 6%</td><td>9.00µs ± 6%</td><td>~</td><td>(p=0.971 n=10&#43;10)</td>
+<tr><td>CRC32/poly=Koopman/size=4kB/align=1-8</td><td>8.94µs ±10%</td><td>9.05µs ±12%</td><td>~</td><td>(p=0.754 n=10&#43;10)</td>
+<tr><td>CRC32/poly=Koopman/size=32kB/align=0-8</td><td>72.4µs ± 9%</td><td>72.9µs ± 4%</td><td>~</td><td>(p=0.684 n=10&#43;10)</td>
+<tr><td>CRC32/poly=Koopman/size=32kB/align=1-8</td><td>69.6µs ± 3%</td><td>74.3µs ± 3%</td><td>&#43;6.70%</td><td>(p=0.000 n=8&#43;10)</td>
 </table>
 
 <style>.benchstat tbody td:nth-child(1n+2) { text-align: right; padding: 0em 1em; }</style>
 <table class='benchstat'>
 <tr><th>name</th><th>old speed</th><th>new speed</th><th>delta</th>
-<tr><td>CRC32/poly=IEEE/size=15/align=0-8</td><td>321MB/s ± 8%</td><td>337MB/s ± 3%</td><td>+5.06%</td><td>(p=0.009 n=10+10)</td>
-<tr><td>CRC32/poly=IEEE/size=15/align=1-8</td><td>336MB/s ± 4%</td><td>337MB/s ± 4%</td><td>~   </td><td>(p=0.579 n=10+10)</td>
-<tr><td>CRC32/poly=IEEE/size=40/align=0-8</td><td>975MB/s ± 1%</td><td>942MB/s ± 5%</td><td>-3.37%</td><td>(p=0.001 n=8+10)</td>
-<tr><td>CRC32/poly=IEEE/size=40/align=1-8</td><td>974MB/s ± 1%</td><td>952MB/s ± 3%</td><td>-2.25%</td><td>(p=0.000 n=9+10)</td>
-<tr><td>CRC32/poly=IEEE/size=512/align=0-8</td><td>2.15GB/s ± 4%</td><td>8.97GB/s ± 3%</td><td>+317.65%</td><td>(p=0.000 n=10+10)</td>
-<tr><td>CRC32/poly=IEEE/size=512/align=1-8</td><td>2.17GB/s ± 3%</td><td>8.96GB/s ± 3%</td><td>+312.89%</td><td>(p=0.000 n=10+10)</td>
-<tr><td>CRC32/poly=IEEE/size=1kB/align=0-8</td><td>2.26GB/s ± 4%</td><td>10.88GB/s ± 2%</td><td>+381.12%</td><td>(p=0.000 n=10+8)</td>
-<tr><td>CRC32/poly=IEEE/size=1kB/align=1-8</td><td>2.31GB/s ± 2%</td><td>10.98GB/s ± 2%</td><td>+375.97%</td><td>(p=0.000 n=10+8)</td>
-<tr><td>CRC32/poly=IEEE/size=4kB/align=0-8</td><td>2.36GB/s ± 7%</td><td>13.73GB/s ± 1%</td><td>+482.26%</td><td>(p=0.000 n=10+9)</td>
-<tr><td>CRC32/poly=IEEE/size=4kB/align=1-8</td><td>2.33GB/s ± 6%</td><td>13.68GB/s ± 3%</td><td>+488.23%</td><td>(p=0.000 n=10+10)</td>
-<tr><td>CRC32/poly=IEEE/size=32kB/align=0-8</td><td>2.19GB/s ± 7%</td><td>15.19GB/s ± 3%</td><td>+591.99%</td><td>(p=0.000 n=10+10)</td>
-<tr><td>CRC32/poly=IEEE/size=32kB/align=1-8</td><td>2.31GB/s ± 8%</td><td>15.04GB/s ± 3%</td><td>+550.07%</td><td>(p=0.000 n=10+10)</td>
-<tr><td>CRC32/poly=Castagnoli/size=15/align=0-8</td><td>916MB/s ± 2%</td><td>920MB/s ± 2%</td><td>~   </td><td>(p=0.489 n=9+9)</td>
-<tr><td>CRC32/poly=Castagnoli/size=15/align=1-8</td><td>870MB/s ± 2%</td><td>867MB/s ± 2%</td><td>~   </td><td>(p=0.661 n=9+10)</td>
-<tr><td>CRC32/poly=Castagnoli/size=40/align=0-8</td><td>2.30GB/s ± 2%</td><td>2.28GB/s ± 4%</td><td>~   </td><td>(p=0.684 n=10+10)</td>
-<tr><td>CRC32/poly=Castagnoli/size=40/align=1-8</td><td>2.03GB/s ± 3%</td><td>2.06GB/s ± 2%</td><td>~   </td><td>(p=0.063 n=10+10)</td>
-<tr><td>CRC32/poly=Castagnoli/size=512/align=0-8</td><td>12.7GB/s ± 2%</td><td>12.8GB/s ± 4%</td><td>~   </td><td>(p=0.529 n=10+10)</td>
-<tr><td>CRC32/poly=Castagnoli/size=512/align=1-8</td><td>12.1GB/s ± 3%</td><td>12.2GB/s ± 1%</td><td>~   </td><td>(p=0.780 n=10+9)</td>
-<tr><td>CRC32/poly=Castagnoli/size=1kB/align=0-8</td><td>15.6GB/s ± 1%</td><td>15.5GB/s ± 1%</td><td>-1.02%</td><td>(p=0.002 n=9+8)</td>
-<tr><td>CRC32/poly=Castagnoli/size=1kB/align=1-8</td><td>14.6GB/s ± 6%</td><td>15.0GB/s ± 2%</td><td>~   </td><td>(p=0.211 n=10+9)</td>
-<tr><td>CRC32/poly=Castagnoli/size=4kB/align=0-8</td><td>25.1GB/s ± 5%</td><td>25.7GB/s ± 3%</td><td>~   </td><td>(p=0.052 n=10+10)</td>
-<tr><td>CRC32/poly=Castagnoli/size=4kB/align=1-8</td><td>24.1GB/s ± 6%</td><td>25.3GB/s ± 3%</td><td>+4.71%</td><td>(p=0.005 n=10+10)</td>
-<tr><td>CRC32/poly=Castagnoli/size=32kB/align=0-8</td><td>26.9GB/s ± 4%</td><td>26.8GB/s ± 5%</td><td>~   </td><td>(p=0.842 n=9+10)</td>
-<tr><td>CRC32/poly=Castagnoli/size=32kB/align=1-8</td><td>25.9GB/s ± 3%</td><td>26.8GB/s ± 4%</td><td>+3.62%</td><td>(p=0.002 n=9+10)</td>
-<tr><td>CRC32/poly=Koopman/size=15/align=0-8</td><td>412MB/s ±10%</td><td>421MB/s ± 3%</td><td>~   </td><td>(p=0.218 n=10+10)</td>
-<tr><td>CRC32/poly=Koopman/size=15/align=1-8</td><td>427MB/s ± 5%</td><td>422MB/s ± 1%</td><td>~   </td><td>(p=0.497 n=10+9)</td>
-<tr><td>CRC32/poly=Koopman/size=40/align=0-8</td><td>437MB/s ± 9%</td><td>456MB/s ± 2%</td><td>+4.50%</td><td>(p=0.002 n=10+10)</td>
-<tr><td>CRC32/poly=Koopman/size=40/align=1-8</td><td>440MB/s ± 6%</td><td>455MB/s ± 3%</td><td>~   </td><td>(p=0.052 n=10+10)</td>
-<tr><td>CRC32/poly=Koopman/size=512/align=0-8</td><td>453MB/s ± 5%</td><td>476MB/s ± 3%</td><td>+5.09%</td><td>(p=0.000 n=10+10)</td>
-<tr><td>CRC32/poly=Koopman/size=512/align=1-8</td><td>455MB/s ± 6%</td><td>440MB/s ± 8%</td><td>~   </td><td>(p=0.143 n=10+10)</td>
-<tr><td>CRC32/poly=Koopman/size=1kB/align=0-8</td><td>452MB/s ± 9%</td><td>438MB/s ± 4%</td><td>~   </td><td>(p=0.052 n=10+10)</td>
-<tr><td>CRC32/poly=Koopman/size=1kB/align=1-8</td><td>477MB/s ± 2%</td><td>434MB/s ± 5%</td><td>-8.92%</td><td>(p=0.000 n=9+10)</td>
-<tr><td>CRC32/poly=Koopman/size=4kB/align=0-8</td><td>454MB/s ± 5%</td><td>455MB/s ± 6%</td><td>~   </td><td>(p=0.971 n=10+10)</td>
-<tr><td>CRC32/poly=Koopman/size=4kB/align=1-8</td><td>459MB/s ± 9%</td><td>455MB/s ±11%</td><td>~   </td><td>(p=0.739 n=10+10)</td>
-<tr><td>CRC32/poly=Koopman/size=32kB/align=0-8</td><td>453MB/s ± 8%</td><td>450MB/s ± 4%</td><td>~   </td><td>(p=0.684 n=10+10)</td>
-<tr><td>CRC32/poly=Koopman/size=32kB/align=1-8</td><td>471MB/s ± 3%</td><td>441MB/s ± 3%</td><td>-6.25%</td><td>(p=0.000 n=8+10)</td>
+<tr><td>CRC32/poly=IEEE/size=15/align=0-8</td><td>321MB/s ± 8%</td><td>337MB/s ± 3%</td><td>&#43;5.06%</td><td>(p=0.009 n=10&#43;10)</td>
+<tr><td>CRC32/poly=IEEE/size=15/align=1-8</td><td>336MB/s ± 4%</td><td>337MB/s ± 4%</td><td>~</td><td>(p=0.579 n=10&#43;10)</td>
+<tr><td>CRC32/poly=IEEE/size=40/align=0-8</td><td>975MB/s ± 1%</td><td>942MB/s ± 5%</td><td>-3.37%</td><td>(p=0.001 n=8&#43;10)</td>
+<tr><td>CRC32/poly=IEEE/size=40/align=1-8</td><td>974MB/s ± 1%</td><td>952MB/s ± 3%</td><td>-2.25%</td><td>(p=0.000 n=9&#43;10)</td>
+<tr><td>CRC32/poly=IEEE/size=512/align=0-8</td><td>2.15GB/s ± 4%</td><td>8.97GB/s ± 3%</td><td>&#43;317.65%</td><td>(p=0.000 n=10&#43;10)</td>
+<tr><td>CRC32/poly=IEEE/size=512/align=1-8</td><td>2.17GB/s ± 3%</td><td>8.96GB/s ± 3%</td><td>&#43;312.89%</td><td>(p=0.000 n=10&#43;10)</td>
+<tr><td>CRC32/poly=IEEE/size=1kB/align=0-8</td><td>2.26GB/s ± 4%</td><td>10.88GB/s ± 2%</td><td>&#43;381.12%</td><td>(p=0.000 n=10&#43;8)</td>
+<tr><td>CRC32/poly=IEEE/size=1kB/align=1-8</td><td>2.31GB/s ± 2%</td><td>10.98GB/s ± 2%</td><td>&#43;375.97%</td><td>(p=0.000 n=10&#43;8)</td>
+<tr><td>CRC32/poly=IEEE/size=4kB/align=0-8</td><td>2.36GB/s ± 7%</td><td>13.73GB/s ± 1%</td><td>&#43;482.26%</td><td>(p=0.000 n=10&#43;9)</td>
+<tr><td>CRC32/poly=IEEE/size=4kB/align=1-8</td><td>2.33GB/s ± 6%</td><td>13.68GB/s ± 3%</td><td>&#43;488.23%</td><td>(p=0.000 n=10&#43;10)</td>
+<tr><td>CRC32/poly=IEEE/size=32kB/align=0-8</td><td>2.19GB/s ± 7%</td><td>15.19GB/s ± 3%</td><td>&#43;591.99%</td><td>(p=0.000 n=10&#43;10)</td>
+<tr><td>CRC32/poly=IEEE/size=32kB/align=1-8</td><td>2.31GB/s ± 8%</td><td>15.04GB/s ± 3%</td><td>&#43;550.07%</td><td>(p=0.000 n=10&#43;10)</td>
+<tr><td>CRC32/poly=Castagnoli/size=15/align=0-8</td><td>916MB/s ± 2%</td><td>920MB/s ± 2%</td><td>~</td><td>(p=0.489 n=9&#43;9)</td>
+<tr><td>CRC32/poly=Castagnoli/size=15/align=1-8</td><td>870MB/s ± 2%</td><td>867MB/s ± 2%</td><td>~</td><td>(p=0.661 n=9&#43;10)</td>
+<tr><td>CRC32/poly=Castagnoli/size=40/align=0-8</td><td>2.30GB/s ± 2%</td><td>2.28GB/s ± 4%</td><td>~</td><td>(p=0.684 n=10&#43;10)</td>
+<tr><td>CRC32/poly=Castagnoli/size=40/align=1-8</td><td>2.03GB/s ± 3%</td><td>2.06GB/s ± 2%</td><td>~</td><td>(p=0.063 n=10&#43;10)</td>
+<tr><td>CRC32/poly=Castagnoli/size=512/align=0-8</td><td>12.7GB/s ± 2%</td><td>12.8GB/s ± 4%</td><td>~</td><td>(p=0.529 n=10&#43;10)</td>
+<tr><td>CRC32/poly=Castagnoli/size=512/align=1-8</td><td>12.1GB/s ± 3%</td><td>12.2GB/s ± 1%</td><td>~</td><td>(p=0.780 n=10&#43;9)</td>
+<tr><td>CRC32/poly=Castagnoli/size=1kB/align=0-8</td><td>15.6GB/s ± 1%</td><td>15.5GB/s ± 1%</td><td>-1.02%</td><td>(p=0.002 n=9&#43;8)</td>
+<tr><td>CRC32/poly=Castagnoli/size=1kB/align=1-8</td><td>14.6GB/s ± 6%</td><td>15.0GB/s ± 2%</td><td>~</td><td>(p=0.211 n=10&#43;9)</td>
+<tr><td>CRC32/poly=Castagnoli/size=4kB/align=0-8</td><td>25.1GB/s ± 5%</td><td>25.7GB/s ± 3%</td><td>~</td><td>(p=0.052 n=10&#43;10)</td>
+<tr><td>CRC32/poly=Castagnoli/size=4kB/align=1-8</td><td>24.1GB/s ± 6%</td><td>25.3GB/s ± 3%</td><td>&#43;4.71%</td><td>(p=0.005 n=10&#43;10)</td>
+<tr><td>CRC32/poly=Castagnoli/size=32kB/align=0-8</td><td>26.9GB/s ± 4%</td><td>26.8GB/s ± 5%</td><td>~</td><td>(p=0.842 n=9&#43;10)</td>
+<tr><td>CRC32/poly=Castagnoli/size=32kB/align=1-8</td><td>25.9GB/s ± 3%</td><td>26.8GB/s ± 4%</td><td>&#43;3.62%</td><td>(p=0.002 n=9&#43;10)</td>
+<tr><td>CRC32/poly=Koopman/size=15/align=0-8</td><td>412MB/s ±10%</td><td>421MB/s ± 3%</td><td>~</td><td>(p=0.218 n=10&#43;10)</td>
+<tr><td>CRC32/poly=Koopman/size=15/align=1-8</td><td>427MB/s ± 5%</td><td>422MB/s ± 1%</td><td>~</td><td>(p=0.497 n=10&#43;9)</td>
+<tr><td>CRC32/poly=Koopman/size=40/align=0-8</td><td>437MB/s ± 9%</td><td>456MB/s ± 2%</td><td>&#43;4.50%</td><td>(p=0.002 n=10&#43;10)</td>
+<tr><td>CRC32/poly=Koopman/size=40/align=1-8</td><td>440MB/s ± 6%</td><td>455MB/s ± 3%</td><td>~</td><td>(p=0.052 n=10&#43;10)</td>
+<tr><td>CRC32/poly=Koopman/size=512/align=0-8</td><td>453MB/s ± 5%</td><td>476MB/s ± 3%</td><td>&#43;5.09%</td><td>(p=0.000 n=10&#43;10)</td>
+<tr><td>CRC32/poly=Koopman/size=512/align=1-8</td><td>455MB/s ± 6%</td><td>440MB/s ± 8%</td><td>~</td><td>(p=0.143 n=10&#43;10)</td>
+<tr><td>CRC32/poly=Koopman/size=1kB/align=0-8</td><td>452MB/s ± 9%</td><td>438MB/s ± 4%</td><td>~</td><td>(p=0.052 n=10&#43;10)</td>
+<tr><td>CRC32/poly=Koopman/size=1kB/align=1-8</td><td>477MB/s ± 2%</td><td>434MB/s ± 5%</td><td>-8.92%</td><td>(p=0.000 n=9&#43;10)</td>
+<tr><td>CRC32/poly=Koopman/size=4kB/align=0-8</td><td>454MB/s ± 5%</td><td>455MB/s ± 6%</td><td>~</td><td>(p=0.971 n=10&#43;10)</td>
+<tr><td>CRC32/poly=Koopman/size=4kB/align=1-8</td><td>459MB/s ± 9%</td><td>455MB/s ±11%</td><td>~</td><td>(p=0.739 n=10&#43;10)</td>
+<tr><td>CRC32/poly=Koopman/size=32kB/align=0-8</td><td>453MB/s ± 8%</td><td>450MB/s ± 4%</td><td>~</td><td>(p=0.684 n=10&#43;10)</td>
+<tr><td>CRC32/poly=Koopman/size=32kB/align=1-8</td><td>471MB/s ± 3%</td><td>441MB/s ± 3%</td><td>-6.25%</td><td>(p=0.000 n=8&#43;10)</td>
 </table>

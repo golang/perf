@@ -1,0 +1,13 @@
+<style>.benchstat tbody td:nth-child(1n+2) { text-align: right; padding: 0em 1em; }</style>
+<table class='benchstat'>
+<tr><th>name</th><th>time/op</th>
+<tr><td>GobEncode</td><td>13.6ms ± 1%</td>
+<tr><td>JSONEncode</td><td>32.1ms ± 1%</td>
+</table>
+
+<style>.benchstat tbody td:nth-child(1n+2) { text-align: right; padding: 0em 1em; }</style>
+<table class='benchstat'>
+<tr><th>name</th><th>speed</th>
+<tr><td>GobEncode</td><td>56.4MB/s ± 1%</td>
+<tr><td>JSONEncode</td><td>60.4MB/s ± 1%</td>
+</table>

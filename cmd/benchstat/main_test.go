@@ -22,6 +22,7 @@ func TestGolden(t *testing.T) {
 	if t.Failed() {
 		t.Fatal("skipping other tests")
 	}
+	check(t, "exampleoldhtml", "-html", "exampleold.txt")
 	check(t, "examplehtml", "-html", "exampleold.txt", "examplenew.txt")
 	if t.Failed() {
 		t.Fatal("skipping other tests")

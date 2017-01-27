@@ -12,16 +12,17 @@ import (
 
 // A Table is a table for display in the benchstat output.
 type Table struct {
-	Metric  string
-	Configs []string
-	Rows    []*Row
+	Metric      string
+	OldNewDelta bool // is this an old-new-delta table?
+	Configs     []string
+	Rows        []*Row
 }
 
 // A Row is a table row for display in the benchstat output.
 type Row struct {
 	Benchmark string     // benchmark name
 	Scaler    Scaler     // formatter for stats means
-	Metrics   []*Metrics // columns of statistics (nil slice entry means no data)
+	Metrics   []*Metrics // columns of statistics
 	Delta     string     // formatted percent change
 	Note      string     // additional information
 	Same      bool       // likely no change
@@ -40,31 +41,33 @@ func (c *Collection) Tables(deltaTest DeltaTest) []*Table {
 		table := new(Table)
 		table.Configs = c.Configs
 		table.Metric = metricOf(key.Unit)
+		table.OldNewDelta = len(c.Configs) == 2
 		for _, key.Benchmark = range c.Benchmarks {
 			row := &Row{Benchmark: key.Benchmark}
 
 			for _, key.Config = range c.Configs {
 				m := c.Metrics[key]
-				row.Metrics = append(row.Metrics, m)
 				if m == nil {
+					row.Metrics = append(row.Metrics, new(Metrics))
 					continue
 				}
+				row.Metrics = append(row.Metrics, m)
 				if row.Scaler == nil {
 					row.Scaler = NewScaler(m.Mean, m.Unit)
 				}
 			}
 
 			// If there are only two configs being compared, add stats.
-			// If one is missing, omit line entirely.
-			// TODO: Control this better.
-			if len(c.Configs) == 2 {
+			if table.OldNewDelta {
 				k0 := key
 				k0.Config = c.Configs[0]
 				k1 := key
 				k1.Config = c.Configs[1]
 				old := c.Metrics[k0]
 				new := c.Metrics[k1]
-				if old == nil || new == nil {
+				// If one is missing, omit row entirely.
+				// TODO: Control this better.
+				if old == new || new == nil {
 					continue
 				}
 				pval, testerr := deltaTest(old, new)
@@ -90,7 +93,7 @@ func (c *Collection) Tables(deltaTest DeltaTest) []*Table {
 
 		if len(table.Rows) > 0 {
 			if *flagGeomean {
-				addGeomean(c, table, key.Unit, len(c.Configs) == 2)
+				addGeomean(c, table, key.Unit, table.OldNewDelta)
 			}
 			tables = append(tables, table)
 		}
@@ -128,7 +131,7 @@ func addGeomean(c *Collection, t *Table, unit string, delta bool) {
 			}
 		}
 		if len(means) == 0 {
-			row.Metrics = append(row.Metrics, nil)
+			row.Metrics = append(row.Metrics, new(Metrics))
 			delta = false
 		} else {
 			geomean := stats.GeoMean(means)
