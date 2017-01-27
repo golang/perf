@@ -25,7 +25,7 @@ type Row struct {
 	Metrics   []*Metrics // columns of statistics
 	Delta     string     // formatted percent change
 	Note      string     // additional information
-	Same      bool       // likely no change
+	Change    int        // +1 better, -1 worse, 0 unchanged
 }
 
 // Tables returns tables comparing the benchmarks in the collection.
@@ -81,7 +81,13 @@ func (c *Collection) Tables(deltaTest DeltaTest) []*Table {
 				} else if testerr != nil {
 					row.Note = fmt.Sprintf("(%s)", testerr)
 				} else if pval < *flagAlpha {
-					row.Delta = fmt.Sprintf("%+.2f%%", ((new.Mean/old.Mean)-1.0)*100.0)
+					pct := ((new.Mean / old.Mean) - 1.0) * 100.0
+					row.Delta = fmt.Sprintf("%+.2f%%", pct)
+					if pct < 0 == (table.Metric != "speed") { // smaller is better, except speeds
+						row.Change = +1
+					} else {
+						row.Change = -1
+					}
 				}
 				if row.Note == "" && pval != -1 {
 					row.Note = fmt.Sprintf("(p=%0.3f n=%d+%d)", pval, len(old.RValues), len(new.RValues))

@@ -147,9 +147,13 @@ func main() {
 
 	var buf bytes.Buffer
 	if *flagHTML {
+		buf.WriteString(htmlStyle)
 		FormatHTML(&buf, tables)
 	} else {
 		FormatText(&buf, tables)
 	}
 	os.Stdout.Write(buf.Bytes())
 }
+
+var htmlStyle = `<style>.benchstat tbody td:nth-child(1n+2):not(.note) { text-align: right; padding: 0em 1em; }</style>
+`

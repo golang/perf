@@ -1,13 +1,16 @@
-<style>.benchstat tbody td:nth-child(1n+2) { text-align: right; padding: 0em 1em; }</style>
-<table class='benchstat'>
-<tr><th>name</th><th>old time/op</th><th>new time/op</th><th>delta</th>
-<tr><td>GobEncode</td><td>13.6ms ± 1%</td><td>11.8ms ± 1%</td><td>-13.31%</td><td>(p=0.016 n=4&#43;5)</td>
-<tr><td>JSONEncode</td><td>32.1ms ± 1%</td><td>31.8ms ± 1%</td><td>~</td><td>(p=0.286 n=4&#43;5)</td>
-</table>
+<style>.benchstat tbody td:nth-child(1n+2):not(.note) { text-align: right; padding: 0em 1em; }</style>
 
-<style>.benchstat tbody td:nth-child(1n+2) { text-align: right; padding: 0em 1em; }</style>
 <table class='benchstat'>
-<tr><th>name</th><th>old speed</th><th>new speed</th><th>delta</th>
-<tr><td>GobEncode</td><td>56.4MB/s ± 1%</td><td>65.1MB/s ± 1%</td><td>&#43;15.36%</td><td>(p=0.016 n=4&#43;5)</td>
-<tr><td>JSONEncode</td><td>60.4MB/s ± 1%</td><td>61.1MB/s ± 2%</td><td>~</td><td>(p=0.286 n=4&#43;5)</td>
+<tbody class='oldnew'>
+<tr><th>name<th>old time/op<th>new time/op<th>delta
+<tr class='better'><td>GobEncode<td>13.6ms ± 1%<td>11.8ms ± 1%<td>-13.31%<td class='note'>(p=0.016 n=4&#43;5)
+<tr class='unchanged'><td>JSONEncode<td>32.1ms ± 1%<td>31.8ms ± 1%<td>~<td class='note'>(p=0.286 n=4&#43;5)
+</tbody>
+
+<tbody class='oldnew'>
+<tr><th>name<th>old speed<th>new speed<th>delta
+<tr class='better'><td>GobEncode<td>56.4MB/s ± 1%<td>65.1MB/s ± 1%<td>&#43;15.36%<td class='note'>(p=0.016 n=4&#43;5)
+<tr class='unchanged'><td>JSONEncode<td>60.4MB/s ± 1%<td>61.1MB/s ± 2%<td>~<td class='note'>(p=0.286 n=4&#43;5)
+</tbody>
+
 </table>

@@ -1,13 +1,18 @@
-<style>.benchstat tbody td:nth-child(1n+2) { text-align: right; padding: 0em 1em; }</style>
-<table class='benchstat'>
-<tr><th>name</th><th>time/op</th>
-<tr><td>GobEncode</td><td>13.6ms ± 1%</td>
-<tr><td>JSONEncode</td><td>32.1ms ± 1%</td>
-</table>
+<style>.benchstat tbody td:nth-child(1n+2):not(.note) { text-align: right; padding: 0em 1em; }</style>
 
-<style>.benchstat tbody td:nth-child(1n+2) { text-align: right; padding: 0em 1em; }</style>
 <table class='benchstat'>
-<tr><th>name</th><th>speed</th>
-<tr><td>GobEncode</td><td>56.4MB/s ± 1%</td>
-<tr><td>JSONEncode</td><td>60.4MB/s ± 1%</td>
+<tbody >
+
+<tr><th>name<th>time/op
+<tr><td>GobEncode<td>13.6ms ± 1%
+<tr><td>JSONEncode<td>32.1ms ± 1%
+</tbody>
+
+<tbody >
+
+<tr><th>name<th>speed
+<tr><td>GobEncode<td>56.4MB/s ± 1%
+<tr><td>JSONEncode<td>60.4MB/s ± 1%
+</tbody>
+
 </table>
