@@ -7,9 +7,10 @@ package main
 import (
 	"bytes"
 	"html/template"
+	"strings"
 )
 
-var htmlTemplate = template.Must(template.New("").Parse(`
+var htmlTemplate = template.Must(template.New("").Funcs(htmlFuncs).Parse(`
 {{with index . 0}}
 <table class='benchstat {{if .OldNewDelta}}oldnew{{end}}'>
 {{if .OldNewDelta -}}
@@ -32,13 +33,17 @@ var htmlTemplate = template.Must(template.New("").Parse(`
 {{- else -}}
 <tr>
 {{- end -}}
-<td>{{.Benchmark}}{{range .Metrics}}<td>{{.Format $row.Scaler}}{{end}}{{if $table.OldNewDelta}}<td{{if eq .Delta "~"}} class='nodelta'{{end}}>{{.Delta}}<td class='note'>{{.Note}}{{end}}
+<td>{{.Benchmark}}{{range .Metrics}}<td>{{.Format $row.Scaler}}{{end}}{{if $table.OldNewDelta}}<td class='{{if eq .Delta "~"}}nodelta{{else}}delta{{end}}'>{{replace .Delta "-" "−" -1}}<td class='note'>{{.Note}}{{end}}
 {{end -}}
 <tr><td>&nbsp;
 </tbody>
 {{end}}
 </table>
 `))
+
+var htmlFuncs = template.FuncMap{
+	"replace": strings.Replace,
+}
 
 // FormatHTML appends an HTML formatting of the tables to buf.
 func FormatHTML(buf *bytes.Buffer, tables []*Table) {
