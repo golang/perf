@@ -39,13 +39,6 @@ td.count {
   border-collapse: collapse;
   border-bottom: 1px solid black;
 }
-table.benchstat {
-  border-collapse: collapse;
-}
-table.benchstat td, table.benchstat th {
-  padding-right: 2px;
-  padding-bottom: 2px;
-}
 #labels > tbody > tr:last-child > th, #labels > tbody > tr:last-child > td {
   padding-bottom: 1em;
 }
@@ -66,6 +59,15 @@ table.benchstat td, table.benchstat th {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.benchstat { border-collapse: collapse; }
+.benchstat th:nth-child(1) { text-align: left; }
+.benchstat tbody td:nth-child(1n+2):not(.note) { text-align: right; padding: 0em 1em; }
+.benchstat tr:not(.configs) th { border-top: 1px solid #666; border-bottom: 1px solid #ccc; }
+.benchstat .nodelta { text-align: center !important; }
+.benchstat .better td.delta { font-weight: bold; }
+.benchstat .worse td.delta { font-weight: bold; color: #c00; }
+
     </style>
   </head>
   <body>

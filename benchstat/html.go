@@ -11,22 +11,20 @@ import (
 )
 
 var htmlTemplate = template.Must(template.New("").Funcs(htmlFuncs).Parse(`
+{{- if . -}}
 {{with index . 0}}
 <table class='benchstat {{if .OldNewDelta}}oldnew{{end}}'>
-{{if .OldNewDelta -}}
-{{- else if eq (len .Configs) 1}}
+{{if eq (len .Configs) 1}}
 {{- else -}}
 <tr class='configs'><th>{{range .Configs}}<th>{{.}}{{end}}
 {{end}}
 {{end}}
 {{- range $i, $table := .}}
 <tbody>
-{{if .OldNewDelta -}}
-<tr><th><th>old {{.Metric}}<th>new {{.Metric}}<th>delta<th>
-{{else if eq (len .Configs) 1}}
+{{if eq (len .Configs) 1}}
 <tr><th><th>{{.Metric}}
 {{else -}}
-<tr><th><th colspan='{{len .Configs}}' class='metric'>{{.Metric}}
+<tr><th><th colspan='{{len .Configs}}' class='metric'>{{.Metric}}{{if .OldNewDelta}}<th>delta{{end}}
 {{end}}{{range $row := $table.Rows -}}
 {{if $table.OldNewDelta -}}
 <tr class='{{if eq .Change 1}}better{{else if eq .Change -1}}worse{{else}}unchanged{{end}}'>
@@ -39,6 +37,7 @@ var htmlTemplate = template.Must(template.New("").Funcs(htmlFuncs).Parse(`
 </tbody>
 {{end}}
 </table>
+{{end -}}
 `))
 
 var htmlFuncs = template.FuncMap{

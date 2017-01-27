@@ -15,7 +15,7 @@ import (
 	"strings"
 	"unicode"
 
-	"golang.org/x/perf/analysis/internal/benchstat"
+	"golang.org/x/perf/benchstat"
 	"golang.org/x/perf/storage/benchfmt"
 	"golang.org/x/perf/storage/query"
 )
@@ -52,7 +52,7 @@ func (g *resultGroup) add(res *benchfmt.Result) {
 }
 
 // splitOn returns a new set of groups sharing a common value for key.
-func (g *resultGroup) splitOn(key string) []*resultGroup {
+func (g *resultGroup) splitOn(key string) ([]string, []*resultGroup) {
 	groups := make(map[string]*resultGroup)
 	var values []string
 	for _, res := range g.results {
@@ -69,7 +69,7 @@ func (g *resultGroup) splitOn(key string) []*resultGroup {
 	for _, value := range values {
 		out = append(out, groups[value])
 	}
-	return out
+	return values, out
 }
 
 // valueSet is a set of values and the number of results with each value.
@@ -264,19 +264,23 @@ func (a *App) compareQuery(q string) *compareData {
 		group := groups[0]
 		// Matching a single upload with multiple files -> split by file
 		if len(group.LabelValues["upload"]) == 1 && len(group.LabelValues["upload-part"]) > 1 {
-			groups = group.splitOn("upload-part")
+			var values []string
+			values, groups = group.splitOn("upload-part")
+			q := make([]string, len(values))
+			for i, v := range values {
+				q[i] = "upload-part:" + v
+			}
+			queries = q
 		}
 	}
 
-	// Compute benchstat
 	var buf bytes.Buffer
-	var results [][]*benchfmt.Result
-	for _, g := range groups {
-		results = append(results, g.results)
+	// Compute benchstat
+	c := new(benchstat.Collection)
+	for i, g := range groups {
+		c.AddResults(queries[i], g.results)
 	}
-	benchstat.Run(&buf, results, &benchstat.Options{
-		HTML: true,
-	})
+	benchstat.FormatHTML(&buf, c.Tables())
 
 	// Prepare struct for template.
 	labels := make(map[string]bool)

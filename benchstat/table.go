@@ -76,7 +76,7 @@ func (c *Collection) Tables() []*Table {
 				new := c.Metrics[k1]
 				// If one is missing, omit row entirely.
 				// TODO: Control this better.
-				if old == new || new == nil {
+				if old == nil || new == nil {
 					continue
 				}
 				pval, testerr := deltaTest(old, new)
