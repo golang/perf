@@ -1,18 +1,28 @@
-<style>.benchstat tbody td:nth-child(1n+2):not(.note) { text-align: right; padding: 0em 1em; }</style>
+<style>
+.benchstat th:nth-child(1) { text-align: left; }
+.benchstat tbody td:nth-child(1n+2):not(.note) { text-align: right; padding: 0em 1em; }
+.benchstat tr:not(.configs) th { border-top: 1px solid #666; border-bottom: 1px solid #ccc; }
+.benchstat .nodelta { text-align: center !important; }
+</style>
 
-<table class='benchstat'>
-<tbody >
 
-<tr><th>name<th>time/op
+<table class='benchstat '>
+
+
+<tbody>
+
+<tr><th><th>time/op
 <tr><td>GobEncode<td>13.6ms ± 1%
 <tr><td>JSONEncode<td>32.1ms ± 1%
+<tr><td>&nbsp;
 </tbody>
 
-<tbody >
+<tbody>
 
-<tr><th>name<th>speed
+<tr><th><th>speed
 <tr><td>GobEncode<td>56.4MB/s ± 1%
 <tr><td>JSONEncode<td>60.4MB/s ± 1%
+<tr><td>&nbsp;
 </tbody>
 
 </table>

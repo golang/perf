@@ -155,5 +155,10 @@ func main() {
 	os.Stdout.Write(buf.Bytes())
 }
 
-var htmlStyle = `<style>.benchstat tbody td:nth-child(1n+2):not(.note) { text-align: right; padding: 0em 1em; }</style>
+var htmlStyle = `<style>
+.benchstat th:nth-child(1) { text-align: left; }
+.benchstat tbody td:nth-child(1n+2):not(.note) { text-align: right; padding: 0em 1em; }
+.benchstat tr:not(.configs) th { border-top: 1px solid #666; border-bottom: 1px solid #ccc; }
+.benchstat .nodelta { text-align: center !important; }
+</style>
 `

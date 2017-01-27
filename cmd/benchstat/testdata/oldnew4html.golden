@@ -1,8 +1,17 @@
-<style>.benchstat tbody td:nth-child(1n+2):not(.note) { text-align: right; padding: 0em 1em; }</style>
+<style>
+.benchstat th:nth-child(1) { text-align: left; }
+.benchstat tbody td:nth-child(1n+2):not(.note) { text-align: right; padding: 0em 1em; }
+.benchstat tr:not(.configs) th { border-top: 1px solid #666; border-bottom: 1px solid #ccc; }
+.benchstat .nodelta { text-align: center !important; }
+</style>
 
-<table class='benchstat'>
-<tbody >
-<tr><th>name \ time/op<th>old.txt<th>new.txt<th>slashslash4.txt
+
+<table class='benchstat '>
+<tr class='configs'><th><th>old.txt<th>new.txt<th>slashslash4.txt
+
+
+<tbody>
+<tr><th><th colspan='3' class='metric'>time/op
 <tr><td>CRC32/poly=IEEE/size=15/align=0-8<td>46.9ns ± 8%<td>44.5ns ± 3%<td>
 <tr><td>CRC32/poly=IEEE/size=15/align=1-8<td>44.7ns ± 5%<td>44.5ns ± 4%<td>
 <tr><td>CRC32/poly=IEEE/size=40/align=0-8<td>41.0ns ± 1%<td>42.5ns ± 6%<td>42.1ns ± 3%
@@ -39,10 +48,11 @@
 <tr><td>CRC32/poly=Koopman/size=4kB/align=1-8<td>8.94µs ±10%<td>9.05µs ±12%<td>9.46µs ± 8%
 <tr><td>CRC32/poly=Koopman/size=32kB/align=0-8<td>72.4µs ± 9%<td>72.9µs ± 4%<td>
 <tr><td>CRC32/poly=Koopman/size=32kB/align=1-8<td>69.6µs ± 3%<td>74.3µs ± 3%<td>
+<tr><td>&nbsp;
 </tbody>
 
-<tbody >
-<tr><th>name \ speed<th>old.txt<th>new.txt<th>slashslash4.txt
+<tbody>
+<tr><th><th colspan='3' class='metric'>speed
 <tr><td>CRC32/poly=IEEE/size=15/align=0-8<td>321MB/s ± 8%<td>337MB/s ± 3%<td>
 <tr><td>CRC32/poly=IEEE/size=15/align=1-8<td>336MB/s ± 4%<td>337MB/s ± 4%<td>
 <tr><td>CRC32/poly=IEEE/size=40/align=0-8<td>975MB/s ± 1%<td>942MB/s ± 5%<td>951MB/s ± 3%
@@ -79,6 +89,7 @@
 <tr><td>CRC32/poly=Koopman/size=4kB/align=1-8<td>459MB/s ± 9%<td>455MB/s ±11%<td>434MB/s ± 9%
 <tr><td>CRC32/poly=Koopman/size=32kB/align=0-8<td>453MB/s ± 8%<td>450MB/s ± 4%<td>
 <tr><td>CRC32/poly=Koopman/size=32kB/align=1-8<td>471MB/s ± 3%<td>441MB/s ± 3%<td>
+<tr><td>&nbsp;
 </tbody>
 
 </table>
