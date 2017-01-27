@@ -98,6 +98,8 @@ import (
 	"log"
 	"os"
 	"strings"
+
+	"golang.org/x/perf/benchstat"
 )
 
 func usage() {
@@ -114,14 +116,14 @@ var (
 	flagHTML      = flag.Bool("html", false, "print results as an HTML table")
 )
 
-var deltaTestNames = map[string]DeltaTest{
-	"none":   NoDeltaTest,
-	"u":      UTest,
-	"u-test": UTest,
-	"utest":  UTest,
-	"t":      TTest,
-	"t-test": TTest,
-	"ttest":  TTest,
+var deltaTestNames = map[string]benchstat.DeltaTest{
+	"none":   benchstat.NoDeltaTest,
+	"u":      benchstat.UTest,
+	"u-test": benchstat.UTest,
+	"utest":  benchstat.UTest,
+	"t":      benchstat.TTest,
+	"t-test": benchstat.TTest,
+	"ttest":  benchstat.TTest,
 }
 
 func main() {
@@ -134,7 +136,11 @@ func main() {
 		flag.Usage()
 	}
 
-	c := new(Collection)
+	c := &benchstat.Collection{
+		Alpha:      *flagAlpha,
+		AddGeoMean: *flagGeomean,
+		DeltaTest:  deltaTest,
+	}
 	for _, file := range flag.Args() {
 		data, err := ioutil.ReadFile(file)
 		if err != nil {
@@ -143,14 +149,14 @@ func main() {
 		c.AddConfig(file, data)
 	}
 
-	tables := c.Tables(deltaTest)
+	tables := c.Tables()
 
 	var buf bytes.Buffer
 	if *flagHTML {
 		buf.WriteString(htmlStyle)
-		FormatHTML(&buf, tables)
+		benchstat.FormatHTML(&buf, tables)
 	} else {
-		FormatText(&buf, tables)
+		benchstat.FormatText(&buf, tables)
 	}
 	os.Stdout.Write(buf.Bytes())
 }

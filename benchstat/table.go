@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-package main
+package benchstat
 
 import (
 	"fmt"
@@ -29,7 +29,16 @@ type Row struct {
 }
 
 // Tables returns tables comparing the benchmarks in the collection.
-func (c *Collection) Tables(deltaTest DeltaTest) []*Table {
+func (c *Collection) Tables() []*Table {
+	deltaTest := c.DeltaTest
+	if deltaTest == nil {
+		deltaTest = UTest
+	}
+	alpha := c.Alpha
+	if alpha == 0 {
+		alpha = 0.05
+	}
+
 	// Update statistics.
 	for _, m := range c.Metrics {
 		m.computeStats()
@@ -80,7 +89,7 @@ func (c *Collection) Tables(deltaTest DeltaTest) []*Table {
 					row.Note = "(all equal)"
 				} else if testerr != nil {
 					row.Note = fmt.Sprintf("(%s)", testerr)
-				} else if pval < *flagAlpha {
+				} else if pval < alpha {
 					pct := ((new.Mean / old.Mean) - 1.0) * 100.0
 					row.Delta = fmt.Sprintf("%+.2f%%", pct)
 					if pct < 0 == (table.Metric != "speed") { // smaller is better, except speeds
@@ -98,7 +107,7 @@ func (c *Collection) Tables(deltaTest DeltaTest) []*Table {
 		}
 
 		if len(table.Rows) > 0 {
-			if *flagGeomean {
+			if c.AddGeoMean {
 				addGeomean(c, table, key.Unit, table.OldNewDelta)
 			}
 			tables = append(tables, table)

@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-package main
+package benchstat
 
 import (
 	"fmt"
@@ -21,6 +21,18 @@ type Collection struct {
 
 	// Metrics holds the accumulated metrics for each key.
 	Metrics map[Key]*Metrics
+
+	// DeltaTest is the test to use to decide if a change is significant.
+	// If nil, it defaults to UTest.
+	DeltaTest DeltaTest
+
+	// Alpha is the p-value cutoff to report a change as significant.
+	// If zero, it defaults to 0.05.
+	Alpha float64
+
+	// AddGeoMean specifies whether to add a line to the table
+	// showing the geometric mean of all the benchmark results.
+	AddGeoMean bool
 }
 
 // A Key identifies one metric (e.g., "ns/op", "B/op") from one

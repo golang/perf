@@ -4,7 +4,7 @@
 
 // Significance tests.
 
-package main
+package benchstat
 
 import (
 	"errors"
