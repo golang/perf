@@ -98,7 +98,6 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
-	"strconv"
 	"strings"
 	"unicode/utf8"
 
@@ -158,9 +157,16 @@ func main() {
 	}
 
 	// Read in benchmark data.
-	c := readFiles(flag.Args())
+	c := new(Collection)
+	for _, file := range flag.Args() {
+		data, err := ioutil.ReadFile(file)
+		if err != nil {
+			log.Fatal(err)
+		}
+		c.AddConfig(file, data)
+	}
 	for _, m := range c.Metrics {
-		m.ComputeStats()
+		m.computeStats()
 	}
 
 	var tables [][]*row
@@ -352,133 +358,6 @@ func addGeomean(table []*row, c *Collection, unit string, delta bool) []*row {
 		row.add(fmt.Sprintf("%+.2f%%", ((geomeans[1]/geomeans[0])-1.0)*100.0))
 	}
 	return append(table, row)
-}
-
-func (m *Metrics) Format(scaler Scaler) string {
-	diff := 1 - m.Min/m.Mean
-	if d := m.Max/m.Mean - 1; d > diff {
-		diff = d
-	}
-	s := scaler(m.Mean)
-	if m.Mean == 0 {
-		s += "     "
-	} else {
-		s = fmt.Sprintf("%s ±%3s", s, fmt.Sprintf("%.0f%%", diff*100.0))
-	}
-	return s
-}
-
-// ComputeStats updates the derived statistics in s from the raw
-// samples in s.Values.
-func (m *Metrics) ComputeStats() {
-	// Discard outliers.
-	values := stats.Sample{Xs: m.Values}
-	q1, q3 := values.Percentile(0.25), values.Percentile(0.75)
-	lo, hi := q1-1.5*(q3-q1), q3+1.5*(q3-q1)
-	for _, value := range m.Values {
-		if lo <= value && value <= hi {
-			m.RValues = append(m.RValues, value)
-		}
-	}
-
-	// Compute statistics of remaining data.
-	m.Min, m.Max = stats.Bounds(m.RValues)
-	m.Mean = stats.Mean(m.RValues)
-}
-
-// A Metrics holds the measurements of a single metric (for example, ns/op or MB/s)
-// for all runs of a particular benchmark.
-type Metrics struct {
-	Unit    string    // unit being measured
-	Values  []float64 // measured values
-	RValues []float64 // Values with outliers removed
-	Min     float64   // min of RValues
-	Mean    float64   // mean of RValues
-	Max     float64   // max of RValues
-}
-
-// A Key identifies one metric (e.g., "ns/op", "B/op") from one
-// benchmark (function name sans "Benchmark" prefix) in one
-// configuration (input file name).
-type Key struct {
-	Config, Benchmark, Unit string
-}
-
-type Collection struct {
-	// Configs, Benchmarks, and Units give the set of configs,
-	// benchmarks, and units from the keys in Stats in an order
-	// meant to match the order the benchmarks were read in.
-	Configs, Benchmarks, Units []string
-
-	// Metrics holds the accumulated metrics for each key.
-	Metrics map[Key]*Metrics
-}
-
-func (c *Collection) AddStat(key Key) *Metrics {
-	if stat, ok := c.Metrics[key]; ok {
-		return stat
-	}
-
-	addString := func(strings *[]string, add string) {
-		for _, s := range *strings {
-			if s == add {
-				return
-			}
-		}
-		*strings = append(*strings, add)
-	}
-	addString(&c.Configs, key.Config)
-	addString(&c.Benchmarks, key.Benchmark)
-	addString(&c.Units, key.Unit)
-	m := &Metrics{Unit: key.Unit}
-	c.Metrics[key] = m
-	return m
-}
-
-// readFiles reads a set of benchmark files.
-func readFiles(files []string) *Collection {
-	c := Collection{Metrics: make(map[Key]*Metrics)}
-	for _, file := range files {
-		readFile(file, &c)
-	}
-	return &c
-}
-
-// readFile reads a set of benchmarks from a file in to a Collection.
-func readFile(file string, c *Collection) {
-	c.Configs = append(c.Configs, file)
-	key := Key{Config: file}
-
-	text, err := ioutil.ReadFile(file)
-	if err != nil {
-		log.Fatal(err)
-	}
-	for _, line := range strings.Split(string(text), "\n") {
-		f := strings.Fields(line)
-		if len(f) < 4 {
-			continue
-		}
-		name := f[0]
-		if !strings.HasPrefix(name, "Benchmark") {
-			continue
-		}
-		name = strings.TrimPrefix(name, "Benchmark")
-		n, _ := strconv.Atoi(f[1])
-		if n == 0 {
-			continue
-		}
-
-		key.Benchmark = name
-		for i := 2; i+2 <= len(f); i += 2 {
-			val, err := strconv.ParseFloat(f[i], 64)
-			if err != nil {
-				continue
-			}
-			key.Unit = f[i+1]
-			stat := c.AddStat(key)
-			stat.Values = append(stat.Values, val)
-		}
-	}
 }
 
 func metricOf(unit string) string {
