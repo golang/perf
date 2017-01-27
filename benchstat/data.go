@@ -10,6 +10,7 @@ import (
 	"strings"
 
 	"golang.org/x/perf/internal/stats"
+	"golang.org/x/perf/storage/benchfmt"
 )
 
 // A Collection is a collection of benchmark results.
@@ -135,11 +136,24 @@ func (c *Collection) addMetrics(key Key) *Metrics {
 	return m
 }
 
-// AddConfig adds a set of benchmark results from a single configuration to the collection.
-func (c *Collection) AddConfig(config string, data []byte) {
+// AddFile adds the benchmark results in the formatted data
+// to the named configuration.
+func (c *Collection) AddFile(config string, data []byte) {
 	c.Configs = append(c.Configs, config)
 	key := Key{Config: config}
+	c.addText(key, string(data))
+}
 
+// AddResults adds the benchmark results to the named configuration.
+func (c *Collection) AddResults(config string, results []*benchfmt.Result) {
+	c.Configs = append(c.Configs, config)
+	key := Key{Config: config}
+	for _, r := range results {
+		c.addText(key, r.Content)
+	}
+}
+
+func (c *Collection) addText(key Key, data string) {
 	for _, line := range strings.Split(string(data), "\n") {
 		f := strings.Fields(line)
 		if len(f) < 4 {
