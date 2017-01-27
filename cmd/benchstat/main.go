@@ -94,14 +94,10 @@ import (
 	"bytes"
 	"flag"
 	"fmt"
-	"html"
 	"io/ioutil"
 	"log"
 	"os"
 	"strings"
-	"unicode/utf8"
-
-	"golang.org/x/perf/internal/stats"
 )
 
 func usage() {
@@ -128,24 +124,6 @@ var deltaTestNames = map[string]DeltaTest{
 	"ttest":  TTest,
 }
 
-type row struct {
-	cols []string
-}
-
-func newRow(cols ...string) *row {
-	return &row{cols: cols}
-}
-
-func (r *row) add(col string) {
-	r.cols = append(r.cols, col)
-}
-
-func (r *row) trim() {
-	for len(r.cols) > 0 && r.cols[len(r.cols)-1] == "" {
-		r.cols = r.cols[:len(r.cols)-1]
-	}
-}
-
 func main() {
 	log.SetPrefix("benchstat: ")
 	log.SetFlags(0)
@@ -156,7 +134,6 @@ func main() {
 		flag.Usage()
 	}
 
-	// Read in benchmark data.
 	c := new(Collection)
 	for _, file := range flag.Args() {
 		data, err := ioutil.ReadFile(file)
@@ -165,210 +142,14 @@ func main() {
 		}
 		c.AddConfig(file, data)
 	}
-	for _, m := range c.Metrics {
-		m.computeStats()
-	}
 
-	var tables [][]*row
-	switch len(c.Configs) {
-	case 2:
-		before, after := c.Configs[0], c.Configs[1]
-		key := Key{}
-		for _, key.Unit = range c.Units {
-			var table []*row
-			metric := metricOf(key.Unit)
-			for _, key.Benchmark = range c.Benchmarks {
-				key.Config = before
-				old := c.Metrics[key]
-				key.Config = after
-				new := c.Metrics[key]
-				if old == nil || new == nil {
-					continue
-				}
-				if len(table) == 0 {
-					table = append(table, newRow("name", "old "+metric, "new "+metric, "delta"))
-				}
-
-				pval, testerr := deltaTest(old, new)
-
-				scaler := NewScaler(old.Mean, old.Unit)
-				row := newRow(key.Benchmark, old.Format(scaler), new.Format(scaler), "~   ")
-				if testerr != nil {
-					row.add(fmt.Sprintf("(%s)", testerr))
-				} else if pval < *flagAlpha {
-					row.cols[3] = fmt.Sprintf("%+.2f%%", ((new.Mean/old.Mean)-1.0)*100.0)
-				}
-				if len(row.cols) == 4 && pval != -1 {
-					row.add(fmt.Sprintf("(p=%0.3f n=%d+%d)", pval, len(old.RValues), len(new.RValues)))
-				}
-				table = append(table, row)
-			}
-			if len(table) > 0 {
-				table = addGeomean(table, c, key.Unit, true)
-				tables = append(tables, table)
-			}
-		}
-
-	default:
-		key := Key{}
-		for _, key.Unit = range c.Units {
-			var table []*row
-			metric := metricOf(key.Unit)
-
-			if len(c.Configs) > 1 {
-				hdr := newRow("name \\ " + metric)
-				for _, config := range c.Configs {
-					hdr.add(config)
-				}
-				table = append(table, hdr)
-			} else {
-				table = append(table, newRow("name", metric))
-			}
-
-			for _, key.Benchmark = range c.Benchmarks {
-				row := newRow(key.Benchmark)
-				var scaler Scaler
-				for _, key.Config = range c.Configs {
-					m := c.Metrics[key]
-					if m == nil {
-						row.add("")
-						continue
-					}
-					if scaler == nil {
-						scaler = NewScaler(m.Mean, m.Unit)
-					}
-					row.add(m.Format(scaler))
-				}
-				row.trim()
-				if len(row.cols) > 1 {
-					table = append(table, row)
-				}
-			}
-			table = addGeomean(table, c, key.Unit, false)
-			tables = append(tables, table)
-		}
-	}
-
-	numColumn := 0
-	for _, table := range tables {
-		for _, row := range table {
-			if numColumn < len(row.cols) {
-				numColumn = len(row.cols)
-			}
-		}
-	}
-
-	max := make([]int, numColumn)
-	for _, table := range tables {
-		for _, row := range table {
-			for i, s := range row.cols {
-				n := utf8.RuneCountInString(s)
-				if max[i] < n {
-					max[i] = n
-				}
-			}
-		}
-	}
+	tables := c.Tables(deltaTest)
 
 	var buf bytes.Buffer
-	for i, table := range tables {
-		if i > 0 {
-			fmt.Fprintf(&buf, "\n")
-		}
-
-		if *flagHTML {
-			fmt.Fprintf(&buf, "<style>.benchstat tbody td:nth-child(1n+2) { text-align: right; padding: 0em 1em; }</style>\n")
-			fmt.Fprintf(&buf, "<table class='benchstat'>\n")
-			printRow := func(row *row, tag string) {
-				fmt.Fprintf(&buf, "<tr>")
-				for _, cell := range row.cols {
-					fmt.Fprintf(&buf, "<%s>%s</%s>", tag, html.EscapeString(cell), tag)
-				}
-				fmt.Fprintf(&buf, "\n")
-			}
-			printRow(table[0], "th")
-			for _, row := range table[1:] {
-				printRow(row, "td")
-			}
-			fmt.Fprintf(&buf, "</table>\n")
-			continue
-		}
-
-		// headings
-		row := table[0]
-		for i, s := range row.cols {
-			switch i {
-			case 0:
-				fmt.Fprintf(&buf, "%-*s", max[i], s)
-			default:
-				fmt.Fprintf(&buf, "  %-*s", max[i], s)
-			case len(row.cols) - 1:
-				fmt.Fprintf(&buf, "  %s\n", s)
-			}
-		}
-
-		// data
-		for _, row := range table[1:] {
-			for i, s := range row.cols {
-				switch i {
-				case 0:
-					fmt.Fprintf(&buf, "%-*s", max[i], s)
-				default:
-					if i == len(row.cols)-1 && len(s) > 0 && s[0] == '(' {
-						// Left-align p value.
-						fmt.Fprintf(&buf, "  %s", s)
-						break
-					}
-					fmt.Fprintf(&buf, "  %*s", max[i], s)
-				}
-			}
-			fmt.Fprintf(&buf, "\n")
-		}
+	if *flagHTML {
+		FormatHTML(&buf, tables)
+	} else {
+		FormatText(&buf, tables)
 	}
-
 	os.Stdout.Write(buf.Bytes())
-}
-
-func addGeomean(table []*row, c *Collection, unit string, delta bool) []*row {
-	if !*flagGeomean {
-		return table
-	}
-
-	row := newRow("[Geo mean]")
-	key := Key{Unit: unit}
-	geomeans := []float64{}
-	for _, key.Config = range c.Configs {
-		var means []float64
-		for _, key.Benchmark = range c.Benchmarks {
-			m := c.Metrics[key]
-			if m != nil {
-				means = append(means, m.Mean)
-			}
-		}
-		if len(means) == 0 {
-			row.add("")
-			delta = false
-		} else {
-			geomean := stats.GeoMean(means)
-			geomeans = append(geomeans, geomean)
-			row.add(NewScaler(geomean, unit)(geomean) + "     ")
-		}
-	}
-	if delta {
-		row.add(fmt.Sprintf("%+.2f%%", ((geomeans[1]/geomeans[0])-1.0)*100.0))
-	}
-	return append(table, row)
-}
-
-func metricOf(unit string) string {
-	switch unit {
-	case "ns/op":
-		return "time/op"
-	case "B/op":
-		return "alloc/op"
-	case "MB/s":
-		return "speed"
-	default:
-		return unit
-	}
 }

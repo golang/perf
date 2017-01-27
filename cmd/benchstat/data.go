@@ -59,7 +59,7 @@ func (m *Metrics) FormatMean(scaler Scaler) string {
 // FormatDiff computes and formats the percent variation of max and min compared to mean.
 // If b.Mean or b.Max is zero, FormatDiff returns an empty string.
 func (m *Metrics) FormatDiff() string {
-	if m.Mean == 0 || m.Max == 0 {
+	if m == nil || m.Mean == 0 || m.Max == 0 {
 		return ""
 	}
 	diff := 1 - m.Min/m.Mean
@@ -71,6 +71,9 @@ func (m *Metrics) FormatDiff() string {
 
 // Format returns a textual formatting of "Mean ±Diff" using scaler.
 func (m *Metrics) Format(scaler Scaler) string {
+	if m == nil {
+		return ""
+	}
 	mean := m.FormatMean(scaler)
 	diff := m.FormatDiff()
 	if diff == "" {
