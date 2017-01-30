@@ -22,6 +22,8 @@ import (
 
 // A resultGroup holds a list of results and tracks the distinct labels found in that list.
 type resultGroup struct {
+	// The (partial) query string that resulted in this group.
+	Q string
 	// Raw list of results.
 	results []*benchfmt.Result
 	// LabelValues is the count of results found with each distinct (key, value) pair found in labels.
@@ -52,13 +54,13 @@ func (g *resultGroup) add(res *benchfmt.Result) {
 }
 
 // splitOn returns a new set of groups sharing a common value for key.
-func (g *resultGroup) splitOn(key string) ([]string, []*resultGroup) {
+func (g *resultGroup) splitOn(key string) []*resultGroup {
 	groups := make(map[string]*resultGroup)
 	var values []string
 	for _, res := range g.results {
 		value := res.Labels[key]
 		if groups[value] == nil {
-			groups[value] = &resultGroup{}
+			groups[value] = &resultGroup{Q: key + ":" + value}
 			values = append(values, value)
 		}
 		groups[value].add(res)
@@ -69,7 +71,7 @@ func (g *resultGroup) splitOn(key string) ([]string, []*resultGroup) {
 	for _, value := range values {
 		out = append(out, groups[value])
 	}
-	return values, out
+	return out
 }
 
 // valueSet is a set of values and the number of results with each value.
@@ -229,7 +231,7 @@ func (a *App) compareQuery(q string) *compareData {
 	var found int
 	for _, qPart := range queries {
 		keys := queryKeys(qPart)
-		group := &resultGroup{}
+		group := &resultGroup{Q: qPart}
 		if prefix != "" {
 			qPart = prefix + " " + qPart
 		}
@@ -264,21 +266,15 @@ func (a *App) compareQuery(q string) *compareData {
 		group := groups[0]
 		// Matching a single upload with multiple files -> split by file
 		if len(group.LabelValues["upload"]) == 1 && len(group.LabelValues["upload-part"]) > 1 {
-			var values []string
-			values, groups = group.splitOn("upload-part")
-			q := make([]string, len(values))
-			for i, v := range values {
-				q[i] = "upload-part:" + v
-			}
-			queries = q
+			groups = group.splitOn("upload-part")
 		}
 	}
 
 	var buf bytes.Buffer
 	// Compute benchstat
 	c := new(benchstat.Collection)
-	for i, g := range groups {
-		c.AddResults(queries[i], g.results)
+	for _, g := range groups {
+		c.AddResults(g.Q, g.results)
 	}
 	benchstat.FormatHTML(&buf, c.Tables())
 

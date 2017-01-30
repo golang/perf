@@ -53,8 +53,15 @@ td.count {
 #labels .diff {
   padding-bottom: 1em;
 }
-#labels .diff table td {
+#labels .diff table td, #labels .diff .query {
   max-width: 20em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.benchstat tr.configs th {
+  max-width: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -108,7 +115,7 @@ td.count {
               <th class="label">{{$label}}</th>
               <td>
                 {{range $index, $group := $.Groups}}
-                Query {{$index}}: 
+                <div class="query">{{$group.Q}}:</div>
                 <table>
                   {{with index $group.LabelValues $label}}
                     {{range .TopN 4}}
