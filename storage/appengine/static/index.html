@@ -28,8 +28,8 @@
 
     <p>As a convenience for testing, GET on /upload will render an HTML form that can be used for initiating an upload.</p>
 
-    <h3>GET https://perfdata.golang.org/search?q=$search</h3>
-    <p>A GET request to this URL will return a text file with synthesized benchmark results matching the search. The search string contains space-separated "key:value" pairs which limits the results to only records containing those exact fields. Every "key:value" pair is ANDed together, and each value must be matched exactly, with no regexes or substring matches supported. Range queries will be supported for prespecified date fields. Example searches:</p>
+    <h3>GET /search?q=$search</h3>
+    <p>A GET request to this URL will return a text file with synthesized benchmark results matching the search. The search string contains space-separated "key:value" pairs which limits the results to only records containing those exact fields. Every "key:value" pair is ANDed together, and each value must be matched exactly, with no regexes or substring matches supported. The operators "&gt;" and "&lt;" may be used instead of ":" to perform a range query. Example searches:</p>
 
     <ul>
       <li>by:rsc pkg:compress/flate commit:1234</li>
@@ -37,5 +37,19 @@
       <li>upload:123</li>
       <li>commit-time&gt;2016-12-01</li>
     </ul>
+
+    <h3>GET /uploads?q=$search&amp;extra_label=$label&amp;limit=$limit</h3>
+    <p>A GET request to this URL returns a list of the most recent <code>$limit</code> uploads that match the search string. If the <code>q</code> parameter is omitted, all uploads will be returned. If the <code>limit</code> parameter is omitted, a server-specified limit is used. If the <code>extra_label</code> parameter is supplied, an arbitrary value for that label will be chosen from the upload's records. (Therefore, this is most useful for labels that do not vary across the upload, such as "by" or "upload-time".)</p>
+    <p>The result of this query is streaming JSON (readable using <a href="https://godoc.org/encoding/json#NewDecoder">>json.NewDecoder</a>), with one JSON entity per upload:</p>
+    <pre>
+{
+	"Count": 10,
+	"UploadID": "arbitrary-string",
+	"LabelValues": {
+		"by": "user@email.com",
+		"upload-time": "2006-01-02T15:04:05Z",
+	}
+}
+    </pre>
   </body>
 </html>

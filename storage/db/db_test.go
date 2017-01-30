@@ -11,6 +11,8 @@ import (
 	"io/ioutil"
 	"os"
 	"os/exec"
+	"reflect"
+	"strconv"
 	"strings"
 	"testing"
 	"time"
@@ -341,4 +343,89 @@ func diff(s1, s2 string) string {
 	}
 	return string(data)
 
+}
+
+// TestListUploads verifies that ListUploads returns the correct values.
+func TestListUploads(t *testing.T) {
+	SetNow(time.Unix(0, 0))
+	defer SetNow(time.Time{})
+	db, cleanup := dbtest.NewDB(t)
+	defer cleanup()
+
+	for i := 0; i < 9; i++ {
+		u, err := db.NewUpload(context.Background())
+		if err != nil {
+			t.Fatalf("NewUpload: %v", err)
+		}
+		for j := 0; j <= i; j++ {
+			labels := benchfmt.Labels{
+				"key": "value",
+				"i":   fmt.Sprintf("%d", i),
+				"j":   fmt.Sprintf("%d", j),
+			}
+			if err := u.InsertRecord(&benchfmt.Result{
+				labels,
+				nil,
+				1,
+				fmt.Sprintf("BenchmarkName %d ns/op", j),
+			}); err != nil {
+				t.Fatalf("InsertRecord: %v", err)
+			}
+		}
+		if err := u.Commit(); err != nil {
+			t.Fatalf("Commit: %v", err)
+		}
+	}
+
+	type result struct {
+		count int
+		id    string
+	}
+
+	tests := []struct {
+		query       string
+		extraLabels []string
+		limit       int
+		want        []result
+	}{
+		{"", nil, 0, []result{{9, "19700101.9"}, {8, "19700101.8"}, {7, "19700101.7"}, {6, "19700101.6"}, {5, "19700101.5"}, {4, "19700101.4"}, {3, "19700101.3"}, {2, "19700101.2"}, {1, "19700101.1"}}},
+		{"", nil, 2, []result{{9, "19700101.9"}, {8, "19700101.8"}}},
+		{"j:5", nil, 0, []result{{1, "19700101.9"}, {1, "19700101.8"}, {1, "19700101.7"}, {1, "19700101.6"}}},
+		{"i:5", nil, 0, []result{{6, "19700101.6"}}},
+		{"i:5", []string{"i", "missing"}, 0, []result{{6, "19700101.6"}}},
+		{"not:found", nil, 0, nil},
+	}
+
+	for _, test := range tests {
+		t.Run(fmt.Sprintf("query=%s/limit=%d", test.query, test.limit), func(t *testing.T) {
+			r := db.ListUploads(test.query, test.extraLabels, test.limit)
+			defer r.Close()
+			var have []result
+			for r.Next() {
+				ui := r.Info()
+				res := result{ui.Count, ui.UploadID}
+				have = append(have, res)
+				for k, v := range ui.LabelValues {
+					switch k {
+					case "i":
+						uploadNum, err := strconv.Atoi(res.id[strings.LastIndex(res.id, ".")+1:])
+						if err != nil {
+							t.Fatalf("cannot parse upload ID %q", res.id)
+						}
+						if v != fmt.Sprintf("%d", uploadNum-1) {
+							t.Errorf(`i = %q, want "%d"`, v, uploadNum-1)
+						}
+					default:
+						t.Errorf("unexpected label %q", k)
+					}
+				}
+			}
+			if err := r.Err(); err != nil {
+				t.Errorf("Err() = %v", err)
+			}
+			if !reflect.DeepEqual(have, test.want) {
+				t.Errorf("results = %v, want %v", have, test.want)
+			}
+		})
+	}
 }

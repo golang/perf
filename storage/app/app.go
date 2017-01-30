@@ -41,9 +41,10 @@ func (a *App) RegisterOnMux(mux *http.ServeMux) {
 	mux.HandleFunc("/", a.index)
 	mux.HandleFunc("/upload", a.upload)
 	mux.HandleFunc("/search", a.search)
+	mux.HandleFunc("/uploads", a.uploads)
 }
 
 // index serves the readme on /
-func (a *App) index(w ResponseWriter, r *http.Request) {
+func (a *App) index(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "static/index.html")
 }

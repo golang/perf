@@ -19,6 +19,7 @@ import (
 	"unicode"
 
 	"golang.org/x/net/context"
+	"golang.org/x/perf/storage"
 	"golang.org/x/perf/storage/benchfmt"
 	"golang.org/x/perf/storage/query"
 )
@@ -358,6 +359,28 @@ func (u *Upload) Abort() error {
 	return u.tx.Rollback()
 }
 
+// parseQueryPart parses a single query part into a SQL expression and a list of arguments.
+func parseQueryPart(part string) (sql string, args []interface{}, err error) {
+	sepIndex := strings.IndexFunc(part, func(r rune) bool {
+		return r == ':' || r == '>' || r == '<' || unicode.IsSpace(r) || unicode.IsUpper(r)
+	})
+	if sepIndex < 0 {
+		return "", nil, fmt.Errorf("query part %q is missing operator", part)
+	}
+	key, sep, value := part[:sepIndex], part[sepIndex], part[sepIndex+1:]
+	switch sep {
+	case ':':
+		if value == "" {
+			// TODO(quentin): Implement support for searching for missing labels.
+			return "", nil, fmt.Errorf("missing value for query part %q", part)
+		}
+		return "SELECT UploadID, RecordID FROM RecordLabels WHERE Name = ? AND Value = ?", []interface{}{key, value}, nil
+	case '>', '<':
+		return fmt.Sprintf("SELECT UploadID, RecordID FROM RecordLabels WHERE Name = ? AND Value %c ?", sep), []interface{}{key, value}, nil
+	}
+	return "", nil, fmt.Errorf("query part %q has invalid key", part)
+}
+
 // Query searches for results matching the given query string.
 //
 // The query string is first parsed into quoted words (as in the shell)
@@ -374,27 +397,12 @@ func (db *DB) Query(q string) *Query {
 		if i > 0 {
 			query += " INNER JOIN "
 		}
-		sepIndex := strings.IndexFunc(part, func(r rune) bool {
-			return r == ':' || r == '>' || r == '<' || unicode.IsSpace(r) || unicode.IsUpper(r)
-		})
-		if sepIndex < 0 {
-			return &Query{err: fmt.Errorf("query part %q is missing operator", part)}
+		partSql, partArgs, err := parseQueryPart(part)
+		if err != nil {
+			return &Query{err: err}
 		}
-		key, sep, value := part[:sepIndex], part[sepIndex], part[sepIndex+1:]
-		switch sep {
-		case ':':
-			if value == "" {
-				// TODO(quentin): Implement support for searching for missing labels.
-				return &Query{err: fmt.Errorf("missing value for query part %q", part)}
-			}
-			query += fmt.Sprintf("(SELECT UploadID, RecordID FROM RecordLabels WHERE Name = ? AND Value = ?) t%d", i)
-			args = append(args, key, value)
-		case '>', '<':
-			query += fmt.Sprintf("(SELECT UploadID, RecordID FROM RecordLabels WHERE Name = ? AND Value %c ?) t%d", sep, i)
-			args = append(args, key, value)
-		default:
-			return &Query{err: fmt.Errorf("query part %q has invalid key", part)}
-		}
+		query += fmt.Sprintf("(%s) t%d", partSql, i)
+		args = append(args, partArgs...)
 		if i > 0 {
 			query += " USING (UploadID, RecordID)"
 		}
@@ -504,4 +512,119 @@ func (db *DB) Close() error {
 		}
 	}
 	return db.sql.Close()
+}
+
+// UploadList is the result of ListUploads.
+// Use Next to advance through the rows, making sure to call Close when done:
+//
+//   q := db.ListUploads("key:value")
+//   defer q.Close()
+//   for q.Next() {
+//     info := q.Info()
+//     ...
+//   }
+//   err = q.Err() // get any error encountered during iteration
+//   ...
+type UploadList struct {
+	rows        *sql.Rows
+	extraLabels []string
+	// from last call to Next
+	count       int
+	uploadID    string
+	labelValues []sql.NullString
+	err         error
+}
+
+// ListUploads searches for uploads containing results matching the given query string.
+// The query may be empty, in which case all uploads will be returned.
+// For each label in extraLabels, one unspecified record's value will be obtained for each upload.
+// If limit is non-zero, only the limit most recent uploads will be returned.
+func (db *DB) ListUploads(q string, extraLabels []string, limit int) *UploadList {
+	qparts := query.SplitWords(q)
+
+	var args []interface{}
+	query := "SELECT j.UploadID, rCount"
+	for i, label := range extraLabels {
+		query += fmt.Sprintf(", (SELECT l%d.Value FROM RecordLabels l%d WHERE l%d.UploadID = j.UploadID AND Name = ? LIMIT 1)", i, i, i)
+		args = append(args, label)
+	}
+	query += " FROM (SELECT UploadID, COUNT(*) as rCount FROM "
+	for i, part := range qparts {
+		if i > 0 {
+			query += " INNER JOIN "
+		}
+		partSql, partArgs, err := parseQueryPart(part)
+		if err != nil {
+			return &UploadList{err: err}
+		}
+		query += fmt.Sprintf("(%s) t%d", partSql, i)
+		args = append(args, partArgs...)
+		if i > 0 {
+			query += " USING (UploadID, RecordID)"
+		}
+	}
+
+	if len(qparts) > 0 {
+		query += " LEFT JOIN"
+	}
+	query += " Records r"
+	if len(qparts) > 0 {
+		query += " USING (UploadID, RecordID)"
+	}
+	query += " GROUP BY UploadID) j LEFT JOIN Uploads u USING (UploadID) ORDER BY u.Day DESC, u.Seq DESC, u.UploadID DESC"
+	if limit != 0 {
+		query += fmt.Sprintf(" LIMIT %d", limit)
+	}
+
+	rows, err := db.sql.Query(query, args...)
+	if err != nil {
+		return &UploadList{err: err}
+	}
+	return &UploadList{rows: rows, extraLabels: extraLabels}
+}
+
+// Next prepares the next result for reading with the Result
+// method. It returns false when there are no more results, either by
+// reaching the end of the input or an error.
+func (ul *UploadList) Next() bool {
+	if ul.err != nil {
+		return false
+	}
+	if !ul.rows.Next() {
+		return false
+	}
+	args := []interface{}{&ul.uploadID, &ul.count}
+	ul.labelValues = make([]sql.NullString, len(ul.extraLabels))
+	for i := range ul.labelValues {
+		args = append(args, &ul.labelValues[i])
+	}
+	ul.err = ul.rows.Scan(args...)
+	if ul.err != nil {
+		return false
+	}
+	return ul.err == nil
+}
+
+// Info returns the most recent UploadInfo generated by a call to Next.
+func (ul *UploadList) Info() storage.UploadInfo {
+	l := make(benchfmt.Labels)
+	for i := range ul.extraLabels {
+		if ul.labelValues[i].Valid {
+			l[ul.extraLabels[i]] = ul.labelValues[i].String
+		}
+	}
+	return storage.UploadInfo{UploadID: ul.uploadID, Count: ul.count, LabelValues: l}
+}
+
+// Err returns the error state of the query.
+func (ul *UploadList) Err() error {
+	return ul.err
+}
+
+// Close frees resources associated with the query.
+func (ul *UploadList) Close() error {
+	if ul.rows != nil {
+		return ul.rows.Close()
+	}
+	return ul.err
 }
