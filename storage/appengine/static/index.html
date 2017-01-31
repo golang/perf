@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Go Performance Data Server</title>
+  </head>
+  <body>
+    <h1>Go Performance Data Server</h1>
+    <p>The Go Performance Data Server allows upload and querying of benchmark results in the <a href="https://github.com/golang/proposal/blob/master/design/14313-benchmark-format.md">standard benchmark data format</a>. It provides a RESTful API to upload benchmark results and query individual results.</p>
+    <h2>API Documentation</h2>
+
+    <h3>POST /upload</h3>
+    <p>A POST request to this URL with multipart/form-data contents. The form should contain a single field, "file", and the other MIME components are the uploaded files in benchmark format. The request is authenticated with OAuth. Upon success, it will return a JSON body that identifies the uploaded records:</p>
+
+    <pre>
+{
+	"uploadid": "arbitrary-string",
+	"fileids": [
+		"arbitrary-string-1",
+		"arbitrary-string-2"
+	],
+	"viewurl": "https://foo/bar",
+}
+    </pre>
+
+    <p>The upload ID may be used in a query as "upload:$uploadid" to find the uploaded data, and each file ID may be used in a query as "upload-part:$fileid". The view URL is optional and if present points to a human-readable page for analysing the uploaded benchmark data.</p>
+
+    <p>Errors will be returned as HTTP errors with a plain text error message.</p>
+
+    <p>As a convenience for testing, GET on /upload will render an HTML form that can be used for initiating an upload.</p>
+
+    <h3>GET https://perfdata.golang.org/search?q=$search</h3>
+    <p>A GET request to this URL will return a text file with synthesized benchmark results matching the search. The search string contains space-separated "key:value" pairs which limits the results to only records containing those exact fields. Every "key:value" pair is ANDed together, and each value must be matched exactly, with no regexes or substring matches supported. Range queries will be supported for prespecified date fields. Example searches:</p>
+
+    <ul>
+      <li>by:rsc pkg:compress/flate commit:1234</li>
+      <li>upload-part:4567</li>
+      <li>upload:123</li>
+      <li>commit-time&gt;2016-12-01</li>
+    </ul>
+  </body>
+</html>

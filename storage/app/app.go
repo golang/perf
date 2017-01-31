@@ -38,6 +38,12 @@ var ErrResponseWritten = errors.New("response written")
 // RegisterOnMux registers the app's URLs on mux.
 func (a *App) RegisterOnMux(mux *http.ServeMux) {
 	// TODO(quentin): Should we just make the App itself be an http.Handler?
+	mux.HandleFunc("/", a.index)
 	mux.HandleFunc("/upload", a.upload)
 	mux.HandleFunc("/search", a.search)
+}
+
+// index serves the readme on /
+func (a *App) index(w ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, "static/index.html")
 }
