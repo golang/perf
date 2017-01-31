@@ -12,6 +12,7 @@ import (
 	"net/http/httptest"
 	"os"
 	"os/exec"
+	"reflect"
 	"testing"
 
 	"golang.org/x/perf/storage/benchfmt"
@@ -64,6 +65,31 @@ func TestQuery(t *testing.T) {
 	want := "key: value\nBenchmarkOne 5 ns/op\nkey: value2\nBenchmarkTwo 10 ns/op\n"
 	if diff := diff(buf.String(), want); diff != "" {
 		t.Errorf("wrong results: (- have/+ want)\n%s", diff)
+	}
+}
+
+func TestListUploads(t *testing.T) {
+	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if have, want := r.URL.RequestURI(), "/uploads?extra_label=key1&extra_label=key2&limit=10&q=key1%3Avalue+key2%3Avalue"; have != want {
+			t.Errorf("RequestURI = %q, want %q", have, want)
+		}
+		fmt.Fprintf(w, "%s\n", `{"UploadID": "id", "Count": 100, "LabelValues": {"key1": "value"}}`)
+	}))
+	defer ts.Close()
+
+	c := &Client{BaseURL: ts.URL}
+
+	r := c.ListUploads("key1:value key2:value", []string{"key1", "key2"}, 10)
+	defer r.Close()
+
+	if !r.Next() {
+		t.Errorf("Next = false, want true")
+	}
+	if have, want := r.Info(), (UploadInfo{Count: 100, UploadID: "id", LabelValues: benchfmt.Labels{"key1": "value"}}); !reflect.DeepEqual(have, want) {
+		t.Errorf("Info = %#v, want %#v", have, want)
+	}
+	if err := r.Err(); err != nil {
+		t.Fatalf("Err: %v", err)
 	}
 }
 
