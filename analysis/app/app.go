@@ -38,8 +38,3 @@ func (a *App) search(w http.ResponseWriter, r *http.Request) {
 	//q := r.Form.Get("q")
 	a.compare(w, r)
 }
-
-// index redirects / to /search.
-func (a *App) index(w http.ResponseWriter, r *http.Request) {
-	http.Redirect(w, r, "/search", http.StatusSeeOther)
-}
