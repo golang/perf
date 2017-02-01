@@ -89,65 +89,76 @@ td.count {
       </form>
     </div>
     <div id="results">
-      {{with .Error}}
-      <p>{{.}}</p>
+      {{if not .Q}}
+        <p>The Go Performance Dashboard provides a centralized
+          resource for sharing and analyzing benchmark results. To get
+          started, upload benchmark results using
+          <code>go get -u golang.org/x/perf/cmd/benchsave</code>
+          and
+          <code>benchsave old.txt new.txt</code>
+          or upload via the web at
+          <a href="https://perfdata-dot-golang-org.appspot.com/upload">https://perfdata-dot-golang-org.appspot.com/upload</a>.</p>
       {{else}}
-        <table id="labels">
-          {{with .CommonLabels}}
-            <tbody>
-              <tr>
-                <th>label</th><th>common value</th>
-              </tr>
-              {{range $label, $value := .}}
+        {{with .Error}}
+        <p>{{.}}</p>
+        {{else}}
+          <table id="labels">
+            {{with .CommonLabels}}
+              <tbody>
                 <tr>
-                  <th class="label">{{$label}}</th><td>{{$value}}</td>
+                  <th>label</th><th>common value</th>
                 </tr>
-              {{end}}
-            </tbody>
-          {{end}}
-          <tbody class="diff">
-            <tr>
-              <th>label</th>
-              <th>values</th>
-            </tr>
-            {{range $label, $exists := .Labels}}
-            <tr class="diff">
-              <th class="label">{{$label}}</th>
-              <td>
-                {{range $index, $group := $.Groups}}
-                <div class="query">{{$group.Q}}:</div>
-                <table>
-                  {{with index $group.LabelValues $label}}
-                    {{range .TopN 4}}
-                      <tr>
-                        <td class="count">
-                          {{.Count}}
-                        </td>
-                        <td>
-                          {{if eq .Value ""}}
-                            missing
-                          {{else if eq .Value "…"}}
-                            {{.Value}}
-                          {{else}}
-                            <a href="/search?q={{addToQuery $.Q (printf "%s:%s" $label .Value)}}">
-                              {{printf "%q" .Value}}
-                            </a>
-                          {{end}}
-                        </td>
-                      </tr>
-                    {{end}}
-                  {{end}}
-                </table>
-              {{end}}
-              </td>
-            </tr>
+                {{range $label, $value := .}}
+                  <tr>
+                    <th class="label">{{$label}}</th><td>{{$value}}</td>
+                  </tr>
+                {{end}}
+              </tbody>
             {{end}}
-            </tbody>
-        </table>
-        <div id="benchstat">
-          {{.Benchstat}}
-        </div>
+            <tbody class="diff">
+              <tr>
+                <th>label</th>
+                <th>values</th>
+              </tr>
+              {{range $label, $exists := .Labels}}
+              <tr class="diff">
+                <th class="label">{{$label}}</th>
+                <td>
+                  {{range $index, $group := $.Groups}}
+                  <div class="query">{{$group.Q}}:</div>
+                  <table>
+                    {{with index $group.LabelValues $label}}
+                      {{range .TopN 4}}
+                        <tr>
+                          <td class="count">
+                            {{.Count}}
+                          </td>
+                          <td>
+                            {{if eq .Value ""}}
+                              missing
+                            {{else if eq .Value "…"}}
+                              {{.Value}}
+                            {{else}}
+                              <a href="/search?q={{addToQuery $.Q (printf "%s:%s" $label .Value)}}">
+                                {{printf "%q" .Value}}
+                              </a>
+                            {{end}}
+                          </td>
+                        </tr>
+                      {{end}}
+                    {{end}}
+                  </table>
+                {{end}}
+                </td>
+              </tr>
+              {{end}}
+              </tbody>
+          </table>
+          <div id="benchstat">
+            {{.Benchstat}}
+          </div>
+        {{end}}
       {{end}}
-      </div>
+    </div>
   </body>
 </html>

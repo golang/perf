@@ -222,6 +222,10 @@ func elideKeyValues(content string, keys map[string]bool) string {
 }
 
 func (a *App) compareQuery(q string) *compareData {
+	if len(q) == 0 {
+		return &compareData{}
+	}
+
 	// Parse query
 	prefix, queries := parseQueryString(q)
 

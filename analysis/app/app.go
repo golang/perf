@@ -20,6 +20,7 @@ type App struct {
 
 // RegisterOnMux registers the app's URLs on mux.
 func (a *App) RegisterOnMux(mux *http.ServeMux) {
+	mux.HandleFunc("/", a.index)
 	mux.HandleFunc("/search", a.search)
 	mux.HandleFunc("/compare", a.compare)
 }
@@ -36,4 +37,9 @@ func (a *App) search(w http.ResponseWriter, r *http.Request) {
 	// than one analysis method.
 	//q := r.Form.Get("q")
 	a.compare(w, r)
+}
+
+// index redirects / to /search.
+func (a *App) index(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, "/search", http.StatusSeeOther)
 }
