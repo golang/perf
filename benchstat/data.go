@@ -157,7 +157,7 @@ func (c *Collection) addMetrics(key Key) *Metrics {
 	return m
 }
 
-// AddFile adds the benchmark results in the formatted data
+// AddConfig adds the benchmark results in the formatted data
 // to the named configuration.
 func (c *Collection) AddConfig(config string, data []byte) {
 	c.Configs = append(c.Configs, config)
