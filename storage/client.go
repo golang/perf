@@ -180,6 +180,10 @@ func (ul *UploadList) Next() bool {
 	if ul.err != nil {
 		return false
 	}
+
+	// Clear UploadInfo before decoding new value.
+	ul.ui = UploadInfo{}
+
 	ul.err = ul.dec.Decode(&ul.ui)
 	return ul.err == nil
 }
