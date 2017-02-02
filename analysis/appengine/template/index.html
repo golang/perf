@@ -48,7 +48,7 @@ input[type="text"] {
             {{range .}}
               <tr>
                 <td>{{.Count}}</td>
-                <td><a href="/search?q={{.UploadID}}">{{index .LabelValues "upload-time"}}</a></td>
+                <td><a href="/search?q=upload:{{.UploadID}}">{{index .LabelValues "upload-time"}}</a></td>
                 <td>{{.LabelValues.by}}</td>
               </tr>
             {{end}}
