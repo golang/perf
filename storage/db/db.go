@@ -377,6 +377,10 @@ func parseQueryPart(part string) (sql string, args []interface{}, err error) {
 		}
 		return "SELECT UploadID, RecordID FROM RecordLabels WHERE Name = ? AND Value = ?", []interface{}{key, value}, nil
 	case '>', '<':
+		if sep == '>' && value == "" {
+			// Simplify queries for any value.
+			return "SELECT UploadID, RecordID FROM RecordLabels WHERE Name = ?", []interface{}{key}, nil
+		}
 		return fmt.Sprintf("SELECT UploadID, RecordID FROM RecordLabels WHERE Name = ? AND Value %c ?", sep), []interface{}{key, value}, nil
 	}
 	return "", nil, fmt.Errorf("query part %q has invalid key", part)

@@ -12,6 +12,7 @@ import (
 	"os"
 	"os/exec"
 	"reflect"
+	"sort"
 	"strconv"
 	"strings"
 	"testing"
@@ -273,8 +274,10 @@ func TestQuery(t *testing.T) {
 		{"label0:0 label0:5", []int{}},
 		{"bogus query", nil},
 		{"label1<2 label3:0", []int{0, 1, 2, 3}},
-		{"label1>510", []int{1022, 1023}},
+		{"label1>510 label1<52", []int{1022, 1023}},
 		{"", allRecords},
+		{"missing>", []int{}},
+		{"label0>", allRecords},
 	}
 	for _, test := range tests {
 		t.Run("query="+test.q, func(t *testing.T) {
@@ -293,20 +296,34 @@ func TestQuery(t *testing.T) {
 					t.Errorf("Close: %v", err)
 				}
 			}()
-			for i, num := range test.want {
+			var have []int
+			for i := range test.want {
 				if !q.Next() {
 					t.Fatalf("#%d: Next() = false", i)
 				}
 				r := q.Result()
-				if r.Labels["label0"] != fmt.Sprintf("%d", num) {
-					t.Errorf("result[%d].label0 = %q, want %d", i, r.Labels["label0"], num)
+				n, err := strconv.Atoi(r.Labels["label0"])
+				if err != nil {
+					t.Fatalf("unexpected label0 value %q: %v", r.Labels["label0"], err)
 				}
+				have = append(have, n)
 				if r.NameLabels["name"] != "Name" {
 					t.Errorf("result[%d].name = %q, want %q", i, r.NameLabels["name"], "Name")
 				}
 			}
+			for q.Next() {
+				r := q.Result()
+				t.Errorf("Next() = true, want false (got labels %v)", r.Labels)
+			}
 			if err := q.Err(); err != nil {
 				t.Errorf("Err() = %v, want nil", err)
+			}
+			sort.Ints(have)
+			if len(have) == 0 {
+				have = []int{}
+			}
+			if !reflect.DeepEqual(have, test.want) {
+				t.Errorf("label0[] = %v, want %v", have, test.want)
 			}
 		})
 	}
