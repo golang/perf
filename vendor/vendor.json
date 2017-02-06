@@ -27,6 +27,54 @@
 			"revisionTime": "2017-02-02T22:37:47Z"
 		},
 		{
+			"checksumSHA1": "b95iQdItSVgUj7mm2lGPq6bAKuI=",
+			"path": "github.com/aclements/go-gg/generic",
+			"revision": "6dbb4e4fefb062aa608dfc5abc3279753d400000",
+			"revisionTime": "2016-09-21T14:28:07Z"
+		},
+		{
+			"checksumSHA1": "AnfMX9UQwGTIk1lOXvHC5neV/Ys=",
+			"path": "github.com/aclements/go-gg/generic/slice",
+			"revision": "6dbb4e4fefb062aa608dfc5abc3279753d400000",
+			"revisionTime": "2016-09-21T14:28:07Z"
+		},
+		{
+			"checksumSHA1": "dCOm7590kLFskNaN1qxnZqv3Uoc=",
+			"path": "github.com/aclements/go-gg/ggstat",
+			"revision": "6dbb4e4fefb062aa608dfc5abc3279753d400000",
+			"revisionTime": "2016-09-21T14:28:07Z"
+		},
+		{
+			"checksumSHA1": "iSkv+GYexi78UZka28H+2tdC5S0=",
+			"path": "github.com/aclements/go-gg/table",
+			"revision": "6dbb4e4fefb062aa608dfc5abc3279753d400000",
+			"revisionTime": "2016-09-21T14:28:07Z"
+		},
+		{
+			"checksumSHA1": "0R5tItJTud6pMwB/vVna0FdHsFg=",
+			"path": "github.com/aclements/go-moremath/fit",
+			"revision": "0ff62e0875ff52f29a54f430cefa15e4775c99b2",
+			"revisionTime": "2016-10-14T18:41:02Z"
+		},
+		{
+			"checksumSHA1": "eKoKQST+S7X0jcu8IEa/URMOsbY=",
+			"path": "github.com/aclements/go-moremath/mathx",
+			"revision": "0ff62e0875ff52f29a54f430cefa15e4775c99b2",
+			"revisionTime": "2016-10-14T18:41:02Z"
+		},
+		{
+			"checksumSHA1": "QJmKpM8L5l7aLi6zIRXBArf9mPk=",
+			"path": "github.com/aclements/go-moremath/stats",
+			"revision": "0ff62e0875ff52f29a54f430cefa15e4775c99b2",
+			"revisionTime": "2016-10-14T18:41:02Z"
+		},
+		{
+			"checksumSHA1": "DZGrSYl93Bo71dvmtmvdxwi6rKM=",
+			"path": "github.com/aclements/go-moremath/vec",
+			"revision": "0ff62e0875ff52f29a54f430cefa15e4775c99b2",
+			"revisionTime": "2016-10-14T18:41:02Z"
+		},
+		{
 			"checksumSHA1": "q3Bc7JpLWBqhZ4M7oreGo34RSkc=",
 			"path": "github.com/golang/protobuf/proto",
 			"revision": "8ee79997227bf9b34611aee7946ae64735e6fd93",

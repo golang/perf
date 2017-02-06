@@ -23,6 +23,7 @@ func (a *App) RegisterOnMux(mux *http.ServeMux) {
 	mux.HandleFunc("/", a.index)
 	mux.HandleFunc("/search", a.search)
 	mux.HandleFunc("/compare", a.compare)
+	mux.HandleFunc("/trend", a.trend)
 }
 
 // search handles /search.
