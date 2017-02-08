@@ -39,6 +39,7 @@ func TestGolden(t *testing.T) {
 func check(t *testing.T, name string, files ...string) {
 	t.Run(name, func(t *testing.T) {
 		os.Args = append([]string{"benchstat"}, files...)
+		t.Logf("running %v", os.Args)
 		r, w, err := os.Pipe()
 		if err != nil {
 			t.Fatal(err)

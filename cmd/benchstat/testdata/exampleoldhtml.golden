@@ -8,7 +8,6 @@
 .benchstat .worse td.delta { font-weight: bold; color: #c00; }
 </style>
 
-
 <table class='benchstat '>
 
 

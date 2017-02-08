@@ -8,19 +8,19 @@
 .benchstat .worse td.delta { font-weight: bold; color: #c00; }
 </style>
 
-
 <table class='benchstat oldnew'>
+<tr class='configs'><th><th>exampleold.txt<th>examplenew.txt
 
 
 <tbody>
-<tr><th><th>old time/op<th>new time/op<th>delta<th>
+<tr><th><th colspan='2' class='metric'>time/op<th>delta
 <tr class='better'><td>GobEncode<td>13.6ms ± 1%<td>11.8ms ± 1%<td class='delta'>−13.31%<td class='note'>(p=0.016 n=4&#43;5)
 <tr class='unchanged'><td>JSONEncode<td>32.1ms ± 1%<td>31.8ms ± 1%<td class='nodelta'>~<td class='note'>(p=0.286 n=4&#43;5)
 <tr><td>&nbsp;
 </tbody>
 
 <tbody>
-<tr><th><th>old speed<th>new speed<th>delta<th>
+<tr><th><th colspan='2' class='metric'>speed<th>delta
 <tr class='better'><td>GobEncode<td>56.4MB/s ± 1%<td>65.1MB/s ± 1%<td class='delta'>&#43;15.36%<td class='note'>(p=0.016 n=4&#43;5)
 <tr class='unchanged'><td>JSONEncode<td>60.4MB/s ± 1%<td>61.1MB/s ± 2%<td class='nodelta'>~<td class='note'>(p=0.286 n=4&#43;5)
 <tr><td>&nbsp;

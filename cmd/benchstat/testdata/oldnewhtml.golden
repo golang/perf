@@ -8,12 +8,12 @@
 .benchstat .worse td.delta { font-weight: bold; color: #c00; }
 </style>
 
-
 <table class='benchstat oldnew'>
+<tr class='configs'><th><th>old.txt<th>new.txt
 
 
 <tbody>
-<tr><th><th>old time/op<th>new time/op<th>delta<th>
+<tr><th><th colspan='2' class='metric'>time/op<th>delta
 <tr class='better'><td>CRC32/poly=IEEE/size=15/align=0-8<td>46.9ns ± 8%<td>44.5ns ± 3%<td class='delta'>−5.01%<td class='note'>(p=0.008 n=10&#43;10)
 <tr class='unchanged'><td>CRC32/poly=IEEE/size=15/align=1-8<td>44.7ns ± 5%<td>44.5ns ± 4%<td class='nodelta'>~<td class='note'>(p=0.539 n=10&#43;10)
 <tr class='worse'><td>CRC32/poly=IEEE/size=40/align=0-8<td>41.0ns ± 1%<td>42.5ns ± 6%<td class='delta'>&#43;3.56%<td class='note'>(p=0.000 n=8&#43;10)
@@ -54,7 +54,7 @@
 </tbody>
 
 <tbody>
-<tr><th><th>old speed<th>new speed<th>delta<th>
+<tr><th><th colspan='2' class='metric'>speed<th>delta
 <tr class='better'><td>CRC32/poly=IEEE/size=15/align=0-8<td>321MB/s ± 8%<td>337MB/s ± 3%<td class='delta'>&#43;5.06%<td class='note'>(p=0.009 n=10&#43;10)
 <tr class='unchanged'><td>CRC32/poly=IEEE/size=15/align=1-8<td>336MB/s ± 4%<td>337MB/s ± 4%<td class='nodelta'>~<td class='note'>(p=0.579 n=10&#43;10)
 <tr class='worse'><td>CRC32/poly=IEEE/size=40/align=0-8<td>975MB/s ± 1%<td>942MB/s ± 5%<td class='delta'>−3.37%<td class='note'>(p=0.001 n=8&#43;10)
