@@ -396,6 +396,8 @@ func parseQueryPart(part string) (sql string, args []interface{}, err error) {
 func (db *DB) Query(q string) *Query {
 	qparts := query.SplitWords(q)
 
+	ret := &Query{q: q}
+
 	var args []interface{}
 	query := "SELECT r.Content FROM "
 	for i, part := range qparts {
@@ -403,8 +405,9 @@ func (db *DB) Query(q string) *Query {
 			query += " INNER JOIN "
 		}
 		partSql, partArgs, err := parseQueryPart(part)
+		ret.err = err
 		if err != nil {
-			return &Query{err: err}
+			return ret
 		}
 		query += fmt.Sprintf("(%s) t%d", partSql, i)
 		args = append(args, partArgs...)
@@ -421,11 +424,9 @@ func (db *DB) Query(q string) *Query {
 		query += " USING (UploadID, RecordID)"
 	}
 
-	rows, err := db.sql.Query(query, args...)
-	if err != nil {
-		return &Query{err: err}
-	}
-	return &Query{rows: rows}
+	ret.sqlQuery, ret.sqlArgs = query, args
+	ret.rows, ret.err = db.sql.Query(query, args...)
+	return ret
 }
 
 // Query is the result of a query.
@@ -441,9 +442,25 @@ func (db *DB) Query(q string) *Query {
 //   ...
 type Query struct {
 	rows *sql.Rows
+	// for Debug
+	q        string
+	sqlQuery string
+	sqlArgs  []interface{}
 	// from last call to Next
 	br  *benchfmt.Reader
 	err error
+}
+
+// Debug returns the human-readable state of the query.
+func (q *Query) Debug() string {
+	ret := fmt.Sprintf("q=%q", q.q)
+	if q.sqlQuery != "" || len(q.sqlArgs) > 0 {
+		ret += fmt.Sprintf(" sql={%q %#v}", q.sqlQuery, q.sqlArgs)
+	}
+	if q.err != nil {
+		ret += fmt.Sprintf(" err=%v", q.err)
+	}
+	return ret
 }
 
 // Next prepares the next result for reading with the Result

@@ -13,6 +13,8 @@ import (
 )
 
 func (a *App) search(w http.ResponseWriter, r *http.Request) {
+	ctx := requestContext(r)
+
 	if err := r.ParseForm(); err != nil {
 		http.Error(w, err.Error(), 500)
 		return
@@ -27,6 +29,8 @@ func (a *App) search(w http.ResponseWriter, r *http.Request) {
 	query := a.DB.Query(q)
 	defer query.Close()
 
+	infof(ctx, "query: %s", query.Debug())
+
 	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
 	bw := benchfmt.NewPrinter(w)
 	for query.Next() {
@@ -36,6 +40,7 @@ func (a *App) search(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	if err := query.Err(); err != nil {
+		errorf(ctx, "query returned error: %v", err)
 		http.Error(w, err.Error(), 500)
 		return
 	}

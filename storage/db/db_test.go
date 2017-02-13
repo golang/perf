@@ -6,7 +6,6 @@ package db_test
 
 import (
 	"bytes"
-	"context"
 	"fmt"
 	"reflect"
 	"sort"
@@ -15,6 +14,7 @@ import (
 	"testing"
 	"time"
 
+	"golang.org/x/net/context"
 	"golang.org/x/perf/internal/diff"
 	"golang.org/x/perf/storage/benchfmt"
 	. "golang.org/x/perf/storage/db"
