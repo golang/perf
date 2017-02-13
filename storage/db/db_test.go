@@ -109,10 +109,10 @@ func TestReplaceUpload(t *testing.T) {
 		labels["num"] = num
 		for _, num2 := range []int{1, 2} {
 			if err := u.InsertRecord(&benchfmt.Result{
-				labels,
-				nil,
-				1,
-				fmt.Sprintf("BenchmarkName %d ns/op", num2),
+				Labels:     labels,
+				NameLabels: nil,
+				LineNum:    1,
+				Content:    fmt.Sprintf("BenchmarkName %d ns/op", num2),
 			}); err != nil {
 				t.Fatalf("InsertRecord: %v", err)
 			}
@@ -144,10 +144,10 @@ BenchmarkName 2 ns/op
 		}
 		labels["uploadid"] = u.ID
 		if err := u.InsertRecord(&benchfmt.Result{
-			labels,
-			nil,
-			1,
-			"BenchmarkName 3 ns/op",
+			Labels:     labels,
+			NameLabels: nil,
+			LineNum:    1,
+			Content:    "BenchmarkName 3 ns/op",
 		}); err != nil {
 			t.Fatalf("InsertRecord: %v", err)
 		}
@@ -359,10 +359,10 @@ func TestListUploads(t *testing.T) {
 				"j":   fmt.Sprintf("%d", j),
 			}
 			if err := u.InsertRecord(&benchfmt.Result{
-				labels,
-				nil,
-				1,
-				fmt.Sprintf("BenchmarkName %d ns/op", j),
+				Labels:     labels,
+				NameLabels: nil,
+				LineNum:    1,
+				Content:    fmt.Sprintf("BenchmarkName %d ns/op", j),
 			}); err != nil {
 				t.Fatalf("InsertRecord: %v", err)
 			}

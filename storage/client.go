@@ -206,8 +206,9 @@ func (ul *UploadList) Err() error {
 // Close frees resources associated with the query.
 func (ul *UploadList) Close() error {
 	if ul.body != nil {
-		return ul.body.Close()
+		err := ul.body.Close()
 		ul.body = nil
+		return err
 	}
 	return ul.Err()
 }
