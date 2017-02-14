@@ -267,6 +267,10 @@ func TestQuery(t *testing.T) {
 		want []int // nil means we want an error
 	}{
 		{"label0:0", []int{0}},
+		{"label0:1 label0:1 label0<2 label0>0", []int{1}},
+		{"label0>0 label0<2 label0:1 label0:1", []int{1}},
+		{"label0<2 label0<1", []int{0}},
+		{"label0>1021 label0>1022 label1:511", []int{1023}},
 		{"label1:0", []int{0, 1}},
 		{"label0:5 name:Name", []int{5}},
 		{"label0:0 label0:5", []int{}},
@@ -290,6 +294,7 @@ func TestQuery(t *testing.T) {
 				return
 			}
 			defer func() {
+				t.Logf("q.Debug: %s", q.Debug())
 				if err := q.Close(); err != nil {
 					t.Errorf("Close: %v", err)
 				}

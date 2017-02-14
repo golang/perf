@@ -12,11 +12,11 @@ import (
 	"fmt"
 	"io"
 	"regexp"
+	"sort"
 	"strconv"
 	"strings"
 	"text/template"
 	"time"
-	"unicode"
 
 	"golang.org/x/net/context"
 	"golang.org/x/perf/storage"
@@ -360,30 +360,37 @@ func (u *Upload) Abort() error {
 	return u.tx.Rollback()
 }
 
-// parseQueryPart parses a single query part into a SQL expression and a list of arguments.
-func parseQueryPart(part string) (sql string, args []interface{}, err error) {
-	sepIndex := strings.IndexFunc(part, func(r rune) bool {
-		return r == ':' || r == '>' || r == '<' || unicode.IsSpace(r) || unicode.IsUpper(r)
-	})
-	if sepIndex < 0 {
-		return "", nil, fmt.Errorf("query part %q is missing operator", part)
-	}
-	key, sep, value := part[:sepIndex], part[sepIndex], part[sepIndex+1:]
-	switch sep {
-	case ':':
-		if value == "" {
-			// TODO(quentin): Implement support for searching for missing labels.
-			return "", nil, fmt.Errorf("missing value for query part %q", part)
+// parseQuery parses a query into a slice of SQL subselects and a slice of arguments.
+// The subselects must be joined with INNER JOIN in the order returned.
+func parseQuery(q string) (sql []string, args []interface{}, err error) {
+	var keys []string
+	parts := make(map[string]part)
+	for _, word := range query.SplitWords(q) {
+		p, err := parseWord(word)
+		if err != nil {
+			return nil, nil, err
 		}
-		return "SELECT UploadID, RecordID FROM RecordLabels WHERE Name = ? AND Value = ?", []interface{}{key, value}, nil
-	case '>', '<':
-		if sep == '>' && value == "" {
-			// Simplify queries for any value.
-			return "SELECT UploadID, RecordID FROM RecordLabels WHERE Name = ?", []interface{}{key}, nil
+		if _, ok := parts[p.key]; ok {
+			parts[p.key], err = parts[p.key].merge(p)
+			if err != nil {
+				return nil, nil, err
+			}
+		} else {
+			keys = append(keys, p.key)
+			parts[p.key] = p
 		}
-		return fmt.Sprintf("SELECT UploadID, RecordID FROM RecordLabels WHERE Name = ? AND Value %c ?", sep), []interface{}{key, value}, nil
 	}
-	return "", nil, fmt.Errorf("query part %q has invalid key", part)
+	// Process each key
+	sort.Strings(keys)
+	for _, key := range keys {
+		s, a, err := parts[key].sql()
+		if err != nil {
+			return nil, nil, err
+		}
+		sql = append(sql, s)
+		args = append(args, a...)
+	}
+	return
 }
 
 // Query searches for results matching the given query string.
@@ -394,33 +401,30 @@ func parseQueryPart(part string) (sql string, args []interface{}, err error) {
 // key>value - value greater than (useful for dates)
 // key<value - value less than (also useful for dates)
 func (db *DB) Query(q string) *Query {
-	qparts := query.SplitWords(q)
-
 	ret := &Query{q: q}
 
-	var args []interface{}
 	query := "SELECT r.Content FROM "
-	for i, part := range qparts {
+
+	sql, args, err := parseQuery(q)
+	if err != nil {
+		ret.err = err
+		return ret
+	}
+	for i, part := range sql {
 		if i > 0 {
 			query += " INNER JOIN "
 		}
-		partSql, partArgs, err := parseQueryPart(part)
-		ret.err = err
-		if err != nil {
-			return ret
-		}
-		query += fmt.Sprintf("(%s) t%d", partSql, i)
-		args = append(args, partArgs...)
+		query += fmt.Sprintf("(%s) t%d", part, i)
 		if i > 0 {
 			query += " USING (UploadID, RecordID)"
 		}
 	}
 
-	if len(qparts) > 0 {
+	if len(sql) > 0 {
 		query += " LEFT JOIN"
 	}
 	query += " Records r"
-	if len(qparts) > 0 {
+	if len(sql) > 0 {
 		query += " USING (UploadID, RecordID)"
 	}
 
@@ -516,7 +520,7 @@ func (q *Query) Close() error {
 	if q.rows != nil {
 		return q.rows.Close()
 	}
-	return q.err
+	return q.Err()
 }
 
 // CountUploads returns the number of uploads in the database.
@@ -562,8 +566,6 @@ type UploadList struct {
 // For each label in extraLabels, one unspecified record's value will be obtained for each upload.
 // If limit is non-zero, only the limit most recent uploads will be returned.
 func (db *DB) ListUploads(q string, extraLabels []string, limit int) *UploadList {
-	qparts := query.SplitWords(q)
-
 	var args []interface{}
 	query := "SELECT j.UploadID, rCount"
 	for i, label := range extraLabels {
@@ -571,26 +573,26 @@ func (db *DB) ListUploads(q string, extraLabels []string, limit int) *UploadList
 		args = append(args, label)
 	}
 	query += " FROM (SELECT UploadID, COUNT(*) as rCount FROM "
-	for i, part := range qparts {
+	sql, qArgs, err := parseQuery(q)
+	if err != nil {
+		return &UploadList{err: err}
+	}
+	args = append(args, qArgs...)
+	for i, part := range sql {
 		if i > 0 {
 			query += " INNER JOIN "
 		}
-		partSql, partArgs, err := parseQueryPart(part)
-		if err != nil {
-			return &UploadList{err: err}
-		}
-		query += fmt.Sprintf("(%s) t%d", partSql, i)
-		args = append(args, partArgs...)
+		query += fmt.Sprintf("(%s) t%d", part, i)
 		if i > 0 {
 			query += " USING (UploadID, RecordID)"
 		}
 	}
 
-	if len(qparts) > 0 {
+	if len(sql) > 0 {
 		query += " LEFT JOIN"
 	}
 	query += " Records r"
-	if len(qparts) > 0 {
+	if len(sql) > 0 {
 		query += " USING (UploadID, RecordID)"
 	}
 	query += " GROUP BY UploadID) j LEFT JOIN Uploads u USING (UploadID) ORDER BY u.Day DESC, u.Seq DESC, u.UploadID DESC"
