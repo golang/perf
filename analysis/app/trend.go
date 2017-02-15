@@ -99,7 +99,7 @@ func (a *App) trendQuery(ctx context.Context, q string) *trendData {
 	// Pivot all of the benchmarks into columns of a single table.
 	ar := &aggResults{
 		Across: "name",
-		Values: []string{"filtered normalized mean result", "normalized mean result", "normalized min result", "normalized max result"},
+		Values: []string{"filtered normalized mean result", "normalized mean result", "normalized median result", "normalized min result", "normalized max result"},
 	}
 	data = ggstat.Agg("commit", "branch", "commit-index")(ar.agg).F(data)
 
@@ -112,6 +112,7 @@ func (a *App) trendQuery(ctx context.Context, q string) *trendData {
 				column{Name: prefix + "/normalized mean result"},
 				column{Name: prefix + "/normalized min result", Role: "interval"},
 				column{Name: prefix + "/normalized max result", Role: "interval"},
+				column{Name: prefix + "/normalized median result"},
 			)
 		}
 		columns = append(columns,
@@ -195,7 +196,7 @@ func plot(t table.Grouping, resultCols []string) table.Grouping {
 
 	// Average each result at each commit (but keep columns names
 	// the same to keep things easier to read).
-	t = ggstat.Agg("commit", "name", "metric", "branch", "commit-index")(ggstat.AggMean("result"), ggstat.AggMin("result"), ggstat.AggMax("result")).F(t)
+	t = ggstat.Agg("commit", "name", "metric", "branch", "commit-index")(ggstat.AggMean("result"), ggstat.AggQuantile("median", .5, "result"), ggstat.AggMin("result"), ggstat.AggMax("result")).F(t)
 	y := "mean result"
 
 	// Normalize to earliest commit on master. It's important to
@@ -204,9 +205,9 @@ func plot(t table.Grouping, resultCols []string) table.Grouping {
 	// group by name and metric, since the geomean needs to be
 	// done on a different grouping.
 	t = table.GroupBy(t, "name", "metric")
-	t = ggstat.Normalize{X: "branch", By: firstMasterIndex, Cols: []string{"mean result", "max result", "min result"}, DenomCols: []string{"mean result", "mean result", "mean result"}}.F(t)
+	t = ggstat.Normalize{X: "branch", By: firstMasterIndex, Cols: []string{"mean result", "median result", "max result", "min result"}, DenomCols: []string{"mean result", "mean result", "mean result", "mean result"}}.F(t)
 	y = "normalized " + y
-	for _, col := range []string{"mean result", "max result", "min result"} {
+	for _, col := range []string{"mean result", "median result", "max result", "min result"} {
 		t = table.Remove(t, col)
 	}
 	t = table.Ungroup(table.Ungroup(t))
@@ -215,11 +216,12 @@ func plot(t table.Grouping, resultCols []string) table.Grouping {
 	// more than one benchmark.
 	if len(table.GroupBy(t, "name").Tables()) > 1 {
 		gt := removeNaNs(t, y)
-		gt = ggstat.Agg("commit", "metric", "branch", "commit-index")(ggstat.AggGeoMean(y), ggstat.AggMin("normalized min result"), ggstat.AggMax("normalized max result")).F(gt)
+		gt = ggstat.Agg("commit", "metric", "branch", "commit-index")(ggstat.AggGeoMean(y, "normalized median result"), ggstat.AggMin("normalized min result"), ggstat.AggMax("normalized max result")).F(gt)
 		gt = table.MapTables(gt, func(_ table.GroupID, t *table.Table) *table.Table {
 			return table.NewBuilder(t).AddConst("name", " geomean").Done()
 		})
 		gt = table.Rename(gt, "geomean "+y, y)
+		gt = table.Rename(gt, "geomean normalized median result", "normalized median result")
 		gt = table.Rename(gt, "min normalized min result", "normalized min result")
 		gt = table.Rename(gt, "max normalized max result", "normalized max result")
 		t = table.Concat(t, gt)
