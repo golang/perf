@@ -50,7 +50,12 @@ func (a *App) trend(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	data := a.trendQuery(ctx, q)
+	opt := plotOptions{
+		x:   r.Form.Get("x"),
+		raw: r.Form.Get("raw") == "1",
+	}
+
+	data := a.trendQuery(ctx, q, opt)
 
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	if err := t.Execute(w, data); err != nil {
@@ -65,10 +70,11 @@ type trendData struct {
 	Error        string
 	TrendUploads []storage.UploadInfo
 	PlotData     template.JS
+	PlotType     template.JS
 }
 
 // trendData computes the values for the template and returns a trendData for display.
-func (a *App) trendQuery(ctx context.Context, q string) *trendData {
+func (a *App) trendQuery(ctx context.Context, q string, opt plotOptions) *trendData {
 	d := &trendData{Q: q}
 	if q == "" {
 		ul := a.StorageClient.ListUploads(`trend>`, []string{"by", "upload-time", "trend"}, 16)
@@ -86,15 +92,54 @@ func (a *App) trendQuery(ctx context.Context, q string) *trendData {
 	res := a.StorageClient.Query(q)
 	defer res.Close()
 	t, resultCols := queryToTable(res)
-	for _, col := range []string{"commit", "commit-time", "branch"} {
-		if t.Column(col) == nil {
+	if err := res.Err(); err != nil {
+		errorf(ctx, "failed to read query results: %v", err)
+		d.Error = fmt.Sprintf("failed to read query results: %v", err)
+		return d
+	}
+	for _, col := range []string{"commit", "commit-time", "branch", "name"} {
+		if !hasStringColumn(t, col) {
 			d.Error = fmt.Sprintf("results missing %q label", col)
 			return d
 		}
 	}
-	data := plot(t, resultCols)
+	if opt.x != "" && !hasStringColumn(t, opt.x) {
+		d.Error = fmt.Sprintf("results missing x label %q", opt.x)
+		return d
+	}
+	data := plot(t, resultCols, opt)
 
 	// TODO(quentin): Give the user control over across vs. plotting in separate graphs, instead of only showing one graph with ns/op for each benchmark.
+
+	if opt.raw {
+		data = table.MapTables(data, func(_ table.GroupID, t *table.Table) *table.Table {
+			// From http://tristen.ca/hcl-picker/#/hlc/9/1.13/F1796F/B3EC6C
+			colors := []string{"#F1796F", "#B3EC6C", "#F67E9D", "#6CEB98", "#E392CB", "#0AE4C6", "#B7ABEC", "#16D7E9", "#75C4F7"}
+			colorIdx := 0
+			partColors := make(map[string]string)
+			styles := make([]string, t.Len())
+			for i, part := range t.MustColumn("upload-part").([]string) {
+				if _, ok := partColors[part]; !ok {
+					partColors[part] = colors[colorIdx]
+					colorIdx++
+					if colorIdx >= len(colors) {
+						colorIdx = 0
+					}
+				}
+				styles[i] = "color: " + partColors[part]
+			}
+			return table.NewBuilder(t).Add("style", styles).Done()
+		})
+		columns := []column{
+			{Name: "commit-index"},
+			{Name: "result"},
+			{Name: "style", Role: "style"},
+			{Name: "commit", Role: "tooltip"},
+		}
+		d.PlotData = tableToJS(data.Table(data.Tables()[0]), columns)
+		d.PlotType = "ScatterChart"
+		return d
+	}
 
 	// Pivot all of the benchmarks into columns of a single table.
 	ar := &aggResults{
@@ -120,6 +165,7 @@ func (a *App) trendQuery(ctx context.Context, q string) *trendData {
 		)
 	}
 	d.PlotData = tableToJS(data.Table(tables[0]), columns)
+	d.PlotType = "LineChart"
 	return d
 }
 
@@ -177,22 +223,40 @@ func queryToTable(q *storage.Query) (t *table.Table, resultCols []string) {
 	return tab.Done(), resultCols
 }
 
+type plotOptions struct {
+	// x names the column to use for the X axis.
+	// If unspecified, "commit" is used.
+	x string
+	// raw will return the raw points without any averaging/smoothing.
+	// The only result column will be "result".
+	raw bool
+	// correlate will use the string column "upload-part" as an indication that results came from the same machine. Commits present in multiple parts will be used to correlate results.
+	correlate bool
+}
+
 // plot takes raw benchmark data in t and produces a Grouping object containing filtered, normalized metric results for a graph.
 // t must contain the string columns "commit", "commit-time", "branch". resultCols specifies the names of float64 columns containing metric results.
 // The returned grouping has columns "commit", "commit-time", "commit-index", "branch", "metric", "normalized min result", "normalized max result", "normalized mean result", "filtered normalized mean result".
 // This is roughly the algorithm from github.com/aclements/go-misc/benchplot
-func plot(t table.Grouping, resultCols []string) table.Grouping {
+func plot(t table.Grouping, resultCols []string, opt plotOptions) table.Grouping {
 	nrows := len(table.GroupBy(t, "name").Tables())
 
 	// Turn ordered commit-time into a "commit-index" column.
-	t = table.SortBy(t, "commit-time", "commit")
-	t = commitIndex{}.F(t)
+	if opt.x == "" {
+		opt.x = "commit"
+	}
+	t = table.SortBy(t, "commit-time", opt.x)
+	t = colIndex{col: opt.x}.F(t)
 
 	// Unpivot all of the metrics into one column.
 	t = table.Unpivot(t, "metric", "result", resultCols...)
 
 	// TODO(quentin): Let user choose which metric(s) to keep.
 	t = table.FilterEq(t, "metric", "ns/op")
+
+	if opt.raw {
+		return t
+	}
 
 	// Average each result at each commit (but keep columns names
 	// the same to keep things easier to read).
@@ -235,6 +299,16 @@ func plot(t table.Grouping, resultCols []string) table.Grouping {
 	t = table.Ungroup(table.Ungroup(t))
 
 	return t
+}
+
+// hasStringColumn returns whether t has a []string column called col.
+func hasStringColumn(t table.Grouping, col string) bool {
+	c := t.Table(t.Tables()[0]).Column(col)
+	if c == nil {
+		return false
+	}
+	_, ok := c.([]string)
+	return ok
 }
 
 // aggResults pivots the table, taking the columns in Values and making a new column for each distinct value in Across.
@@ -299,14 +373,20 @@ func firstMasterIndex(bs []string) int {
 	return slice.Index(bs, "master")
 }
 
-// commitIndex is a gg.Stat that adds a column called "commit-index" sequentially counting unique values of the column "commit".
-type commitIndex struct{}
+// colIndex is a gg.Stat that adds a column called "commit-index" sequentially counting unique values of the column "commit".
+type colIndex struct {
+	// col specifies the string column to assign indices to. If unspecified, "commit" will be used.
+	col string
+}
 
-func (commitIndex) F(g table.Grouping) table.Grouping {
+func (ci colIndex) F(g table.Grouping) table.Grouping {
+	if ci.col == "" {
+		ci.col = "commit"
+	}
 	return table.MapTables(g, func(_ table.GroupID, t *table.Table) *table.Table {
 		idxs := make([]int, t.Len())
 		last, idx := "", -1
-		for i, hash := range t.MustColumn("commit").([]string) {
+		for i, hash := range t.MustColumn(ci.col).([]string) {
 			if hash != last {
 				idx++
 				last = hash
@@ -367,6 +447,9 @@ func tableToJS(t *table.Table, columns []column) template.JS {
 				c.Type = "string"
 			case []int, []float64:
 				c.Type = "number"
+			default:
+				// Matches the hardcoded string below.
+				c.Type = "string"
 			}
 		}
 		if c.Label == "" {
@@ -398,6 +481,8 @@ func tableToJS(t *table.Table, columns []column) template.JS {
 				value, err = json.Marshal(column[i])
 			case []float64:
 				value, err = json.Marshal(column[i])
+			default:
+				value = []byte(`"unknown column type"`)
 			}
 			if err != nil {
 				panic(err)
