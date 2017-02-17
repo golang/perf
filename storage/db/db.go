@@ -554,6 +554,10 @@ func (db *DB) Close() error {
 type UploadList struct {
 	rows        *sql.Rows
 	extraLabels []string
+	// for Debug
+	q        string
+	sqlQuery string
+	sqlArgs  []interface{}
 	// from last call to Next
 	count       int
 	uploadID    string
@@ -561,11 +565,25 @@ type UploadList struct {
 	err         error
 }
 
+// Debug returns the human-readable state of ul.
+func (ul *UploadList) Debug() string {
+	ret := fmt.Sprintf("q=%q", ul.q)
+	if ul.sqlQuery != "" || len(ul.sqlArgs) > 0 {
+		ret += fmt.Sprintf(" sql={%q %#v}", ul.sqlQuery, ul.sqlArgs)
+	}
+	if ul.err != nil {
+		ret += fmt.Sprintf(" err=%v", ul.err)
+	}
+	return ret
+}
+
 // ListUploads searches for uploads containing results matching the given query string.
 // The query may be empty, in which case all uploads will be returned.
 // For each label in extraLabels, one unspecified record's value will be obtained for each upload.
 // If limit is non-zero, only the limit most recent uploads will be returned.
 func (db *DB) ListUploads(q string, extraLabels []string, limit int) *UploadList {
+	ret := &UploadList{q: q, extraLabels: extraLabels}
+
 	var args []interface{}
 	query := "SELECT j.UploadID, rCount"
 	for i, label := range extraLabels {
@@ -575,7 +593,8 @@ func (db *DB) ListUploads(q string, extraLabels []string, limit int) *UploadList
 	query += " FROM (SELECT UploadID, COUNT(*) as rCount FROM "
 	sql, qArgs, err := parseQuery(q)
 	if err != nil {
-		return &UploadList{err: err}
+		ret.err = err
+		return ret
 	}
 	args = append(args, qArgs...)
 	for i, part := range sql {
@@ -600,11 +619,9 @@ func (db *DB) ListUploads(q string, extraLabels []string, limit int) *UploadList
 		query += fmt.Sprintf(" LIMIT %d", limit)
 	}
 
-	rows, err := db.sql.Query(query, args...)
-	if err != nil {
-		return &UploadList{err: err}
-	}
-	return &UploadList{rows: rows, extraLabels: extraLabels}
+	ret.sqlQuery, ret.sqlArgs = query, args
+	ret.rows, ret.err = db.sql.Query(query, args...)
+	return ret
 }
 
 // Next prepares the next result for reading with the Result

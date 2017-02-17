@@ -76,6 +76,8 @@ func (a *App) uploads(w http.ResponseWriter, r *http.Request) {
 	res := a.DB.ListUploads(q, r.Form["extra_label"], limit)
 	defer res.Close()
 
+	infof(ctx, "query: %s", res.Debug())
+
 	w.Header().Set("Content-Type", "application/json")
 	e := json.NewEncoder(w)
 	for res.Next() {
