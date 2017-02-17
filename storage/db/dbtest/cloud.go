@@ -46,7 +46,7 @@ func createEmptyDB(t *testing.T) (driver, dsn string, cleanup func()) {
 
 	t.Logf("Using database %q", name)
 
-	return prefix + name + "?interpolateParams=true", func() {
+	return "mysql", prefix + name + "?interpolateParams=true", func() {
 		if _, err := db.Exec(fmt.Sprintf("DROP DATABASE `%s`", name)); err != nil {
 			t.Error(err)
 		}
