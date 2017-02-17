@@ -133,6 +133,18 @@ func (p part) merge(p2 part) (part, error) {
 
 // sql returns a SQL expression and a list of arguments for finding records matching p.
 func (p part) sql() (sql string, args []interface{}, err error) {
+	if p.key == "upload" {
+		switch p.operator {
+		case equals:
+			return "SELECT UploadID, RecordID FROM Records WHERE UploadID = ?", []interface{}{p.value}, nil
+		case lt:
+			return "SELECT UploadID, RecordID FROM Records WHERE UploadID < ?", []interface{}{p.value}, nil
+		case gt:
+			return "SELECT UploadID, RecordID FROM Records WHERE UploadID > ?", []interface{}{p.value}, nil
+		case ltgt:
+			return "SELECT UploadID, RecordID FROM Records WHERE UploadID < ? AND UploadID > ?", []interface{}{p.value, p.value2}, nil
+		}
+	}
 	switch p.operator {
 	case equals:
 		if p.value == "" {

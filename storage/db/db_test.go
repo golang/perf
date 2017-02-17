@@ -250,6 +250,7 @@ func TestQuery(t *testing.T) {
 	for i := 0; i < 1024; i++ {
 		allRecords = append(allRecords, i)
 		r := &benchfmt.Result{Labels: make(map[string]string), NameLabels: make(map[string]string), Content: "BenchmarkName 1 ns/op"}
+		r.Labels["upload"] = u.ID
 		for j := uint(0); j < 10; j++ {
 			r.Labels[fmt.Sprintf("label%d", j)] = fmt.Sprintf("%d", i/(1<<j))
 		}
@@ -280,6 +281,11 @@ func TestQuery(t *testing.T) {
 		{"", allRecords},
 		{"missing>", []int{}},
 		{"label0>", allRecords},
+		{"upload:" + u.ID, allRecords},
+		{"upload:none", []int{}},
+		{"upload>" + u.ID, []int{}},
+		{"upload<" + u.ID, []int{}},
+		{"label0:0 upload:" + u.ID, []int{0}},
 	}
 	for _, test := range tests {
 		t.Run("query="+test.q, func(t *testing.T) {

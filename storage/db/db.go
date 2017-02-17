@@ -155,7 +155,7 @@ func (db *DB) prepareStatements(driverName string) error {
 
 // An Upload is a collection of files that share an upload ID.
 type Upload struct {
-	// ID is the value of the "uploadid" key that should be
+	// ID is the value of the "upload" key that should be
 	// associated with every record in this upload.
 	ID string
 
