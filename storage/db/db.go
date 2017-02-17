@@ -590,33 +590,37 @@ func (db *DB) ListUploads(q string, extraLabels []string, limit int) *UploadList
 		query += fmt.Sprintf(", (SELECT l%d.Value FROM RecordLabels l%d WHERE l%d.UploadID = j.UploadID AND Name = ? LIMIT 1)", i, i, i)
 		args = append(args, label)
 	}
-	query += " FROM (SELECT UploadID, COUNT(*) as rCount FROM "
 	sql, qArgs, err := parseQuery(q)
 	if err != nil {
 		ret.err = err
 		return ret
 	}
-	args = append(args, qArgs...)
-	for i, part := range sql {
-		if i > 0 {
-			query += " INNER JOIN "
+	if len(sql) == 0 {
+		// Optimize empty query.
+		query += " FROM (SELECT UploadID, (SELECT COUNT(*) FROM Records r WHERE r.UploadID = u.UploadID) AS rCount FROM Uploads u ORDER BY u.Day DESC, u.Seq DESC, u.UploadID DESC"
+		if limit != 0 {
+			query += fmt.Sprintf(" LIMIT %d", limit)
 		}
-		query += fmt.Sprintf("(%s) t%d", part, i)
-		if i > 0 {
-			query += " USING (UploadID, RecordID)"
+		query += ") j"
+	} else {
+		// Join individual queries.
+		query += " FROM (SELECT UploadID, COUNT(*) as rCount FROM "
+		args = append(args, qArgs...)
+		for i, part := range sql {
+			if i > 0 {
+				query += " INNER JOIN "
+			}
+			query += fmt.Sprintf("(%s) t%d", part, i)
+			if i > 0 {
+				query += " USING (UploadID, RecordID)"
+			}
 		}
-	}
 
-	if len(sql) > 0 {
-		query += " LEFT JOIN"
-	}
-	query += " Records r"
-	if len(sql) > 0 {
-		query += " USING (UploadID, RecordID)"
-	}
-	query += " GROUP BY UploadID) j LEFT JOIN Uploads u USING (UploadID) ORDER BY u.Day DESC, u.Seq DESC, u.UploadID DESC"
-	if limit != 0 {
-		query += fmt.Sprintf(" LIMIT %d", limit)
+		query += " LEFT JOIN Records r USING (UploadID, RecordID)"
+		query += " GROUP BY UploadID) j LEFT JOIN Uploads u USING (UploadID) ORDER BY u.Day DESC, u.Seq DESC, u.UploadID DESC"
+		if limit != 0 {
+			query += fmt.Sprintf(" LIMIT %d", limit)
+		}
 	}
 
 	ret.sqlQuery, ret.sqlArgs = query, args

@@ -392,7 +392,10 @@ func TestListUploads(t *testing.T) {
 	for _, test := range tests {
 		t.Run(fmt.Sprintf("query=%s/limit=%d", test.query, test.limit), func(t *testing.T) {
 			r := db.ListUploads(test.query, test.extraLabels, test.limit)
-			defer r.Close()
+			defer func() {
+				t.Logf("r.Debug: %s", r.Debug())
+				r.Close()
+			}()
 			var have []result
 			for r.Next() {
 				ui := r.Info()
