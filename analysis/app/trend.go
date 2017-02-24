@@ -245,7 +245,11 @@ func plot(t table.Grouping, resultCols []string, opt plotOptions) table.Grouping
 	if opt.x == "" {
 		opt.x = "commit"
 	}
-	t = table.SortBy(t, "commit-time", opt.x)
+	// TODO(quentin): One SortBy call should do this, but
+	// sometimes it seems to sort by the second column instead of
+	// the first. Do them in separate steps until SortBy is fixed.
+	t = table.SortBy(t, opt.x)
+	t = table.SortBy(t, "commit-time")
 	t = colIndex{col: opt.x}.F(t)
 
 	// Unpivot all of the metrics into one column.
