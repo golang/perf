@@ -15,7 +15,10 @@ import (
 	"golang.org/x/perf/storage/fs"
 )
 
-var host = flag.String("port", ":8080", "(host and) port to bind on")
+var (
+	addr        = flag.String("addr", ":8080", "serve HTTP on `address`")
+	viewURLBase = flag.String("view_url_base", "", "/upload response with `URL` for viewing")
+)
 
 func main() {
 	flag.Parse()
@@ -26,10 +29,15 @@ func main() {
 	}
 	fs := fs.NewMemFS()
 
-	app := &app.App{DB: db, FS: fs, Auth: func(http.ResponseWriter, *http.Request) (string, error) { return "", nil }}
+	app := &app.App{
+		DB:          db,
+		FS:          fs,
+		ViewURLBase: *viewURLBase,
+		Auth:        func(http.ResponseWriter, *http.Request) (string, error) { return "", nil },
+	}
 	app.RegisterOnMux(http.DefaultServeMux)
 
-	log.Printf("Listening on %s", *host)
+	log.Printf("Listening on %s", *addr)
 
-	log.Fatal(http.ListenAndServe(*host, nil))
+	log.Fatal(http.ListenAndServe(*addr, nil))
 }
