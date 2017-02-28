@@ -5,13 +5,13 @@
 package benchstat
 
 import (
-	"bytes"
 	"fmt"
+	"io"
 	"unicode/utf8"
 )
 
-// FormatText appends a fixed-width text formatting of the tables to buf.
-func FormatText(buf *bytes.Buffer, tables []*Table) {
+// FormatText appends a fixed-width text formatting of the tables to w.
+func FormatText(w io.Writer, tables []*Table) {
 	var textTables [][]*textRow
 	for _, t := range tables {
 		textTables = append(textTables, toText(t))
@@ -34,7 +34,7 @@ func FormatText(buf *bytes.Buffer, tables []*Table) {
 
 	for i, table := range textTables {
 		if i > 0 {
-			fmt.Fprintf(buf, "\n")
+			fmt.Fprintf(w, "\n")
 		}
 
 		// headings
@@ -42,11 +42,11 @@ func FormatText(buf *bytes.Buffer, tables []*Table) {
 		for i, s := range row.cols {
 			switch i {
 			case 0:
-				fmt.Fprintf(buf, "%-*s", max[i], s)
+				fmt.Fprintf(w, "%-*s", max[i], s)
 			default:
-				fmt.Fprintf(buf, "  %-*s", max[i], s)
+				fmt.Fprintf(w, "  %-*s", max[i], s)
 			case len(row.cols) - 1:
-				fmt.Fprintf(buf, "  %s\n", s)
+				fmt.Fprintf(w, "  %s\n", s)
 			}
 		}
 
@@ -55,17 +55,17 @@ func FormatText(buf *bytes.Buffer, tables []*Table) {
 			for i, s := range row.cols {
 				switch i {
 				case 0:
-					fmt.Fprintf(buf, "%-*s", max[i], s)
+					fmt.Fprintf(w, "%-*s", max[i], s)
 				default:
 					if i == len(row.cols)-1 && len(s) > 0 && s[0] == '(' {
 						// Left-align p value.
-						fmt.Fprintf(buf, "  %s", s)
+						fmt.Fprintf(w, "  %s", s)
 						break
 					}
-					fmt.Fprintf(buf, "  %*s", max[i], s)
+					fmt.Fprintf(w, "  %*s", max[i], s)
 				}
 			}
-			fmt.Fprintf(buf, "\n")
+			fmt.Fprintf(w, "\n")
 		}
 	}
 }

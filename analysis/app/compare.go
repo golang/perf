@@ -6,6 +6,7 @@ package app
 
 import (
 	"bytes"
+	"errors"
 	"fmt"
 	"html/template"
 	"io/ioutil"
@@ -221,11 +222,9 @@ func elideKeyValues(content string, keys map[string]bool) string {
 	return strings.Join(parts, "/") + end
 }
 
-func (a *App) compareQuery(q string) *compareData {
-	if len(q) == 0 {
-		return &compareData{}
-	}
-
+// fetchCompareResults fetches the matching results for a given query string.
+// The results will be grouped into one or more groups based on either the query string or heuristics.
+func (a *App) fetchCompareResults(q string) ([]*resultGroup, error) {
 	// Parse query
 	prefix, queries := parseQueryString(q)
 
@@ -250,19 +249,13 @@ func (a *App) compareQuery(q string) *compareData {
 		res.Close()
 		if err != nil {
 			// TODO: If the query is invalid, surface that to the user.
-			return &compareData{
-				Q:     q,
-				Error: err.Error(),
-			}
+			return nil, err
 		}
 		groups = append(groups, group)
 	}
 
 	if found == 0 {
-		return &compareData{
-			Q:     q,
-			Error: "No results matched the query string.",
-		}
+		return nil, errors.New("no results matched the query string")
 	}
 
 	// Attempt to automatically split results.
@@ -271,6 +264,22 @@ func (a *App) compareQuery(q string) *compareData {
 		// Matching a single upload with multiple files -> split by file
 		if len(group.LabelValues["upload"]) == 1 && len(group.LabelValues["upload-part"]) > 1 {
 			groups = group.splitOn("upload-part")
+		}
+	}
+
+	return groups, nil
+}
+
+func (a *App) compareQuery(q string) *compareData {
+	if len(q) == 0 {
+		return &compareData{}
+	}
+
+	groups, err := a.fetchCompareResults(q)
+	if err != nil {
+		return &compareData{
+			Q:     q,
+			Error: err.Error(),
 		}
 	}
 
@@ -320,4 +329,29 @@ func (a *App) compareQuery(q string) *compareData {
 		CommonLabels: commonLabels,
 	}
 	return data
+}
+
+// textCompare is called if benchsave is requesting a text-only analysis.
+func (a *App) textCompare(w http.ResponseWriter, r *http.Request) {
+	if err := r.ParseForm(); err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+
+	w.Header().Set("Content-Type", "text/plain; charset=utf-8")
+
+	q := r.Form.Get("q")
+
+	groups, err := a.fetchCompareResults(q)
+	if err != nil {
+		// TODO(quentin): Should we serve this with a 500 or 404? This means the query was invalid or had no results.
+		fmt.Fprintf(w, "unable to analyze results: %v", err)
+	}
+
+	// Compute benchstat
+	c := new(benchstat.Collection)
+	for _, g := range groups {
+		c.AddResults(g.Q, g.results)
+	}
+	benchstat.FormatText(w, c.Tables())
 }

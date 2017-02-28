@@ -24,7 +24,9 @@ import (
 	"io"
 	"io/ioutil"
 	"log"
+	"mime"
 	"mime/multipart"
+	"net/http"
 	"os"
 	"path/filepath"
 	"time"
@@ -37,6 +39,8 @@ var (
 	verbose = flag.Bool("v", false, "print verbose log messages")
 	header  = flag.String("header", "", "insert `file` at the beginning of each uploaded file")
 )
+
+const userAgent = "Benchsave/1.0"
 
 type uploadStatus struct {
 	// UploadID is the upload ID assigned to the upload.
@@ -126,7 +130,13 @@ func main() {
 
 	start := time.Now()
 
-	resp, err := hc.Post(*server+"/upload", mpw.FormDataContentType(), pr)
+	req, err := http.NewRequest("POST", *server+"/upload", pr)
+	if err != nil {
+		log.Fatalf("NewRequest failed: %v\n", err)
+	}
+	req.Header.Set("Content-Type", mpw.FormDataContentType())
+	req.Header.Set("User-Agent", userAgent)
+	resp, err := hc.Do(req)
 	if err != nil {
 		log.Fatalf("upload failed: %v\n", err)
 	}
@@ -151,7 +161,23 @@ func main() {
 		log.Printf("%d file%s uploaded in %.2f seconds.\n", len(files), s, time.Since(start).Seconds())
 	}
 	if status.ViewURL != "" {
+		// New servers will serve a text/plain response to the view URL when given these headers.
+		// Old servers will not, so only show the response if it is a 200 and text/plain.
+		req, err := http.NewRequest("GET", status.ViewURL, nil)
+		if err == nil {
+			req.Header.Set("User-Agent", userAgent)
+			req.Header.Set("Accept", "text/plain")
+			req.Header.Set("X-Benchsave", "1")
+			resp, err := hc.Do(req)
+			if err == nil {
+				defer resp.Body.Close()
+				mt, _, err := mime.ParseMediaType(resp.Header.Get("Content-Type"))
+				if resp.StatusCode == http.StatusOK && err == nil && mt == "text/plain" {
+					io.Copy(os.Stdout, resp.Body)
+					fmt.Println()
+				}
+			}
+		}
 		fmt.Printf("%s\n", status.ViewURL)
 	}
-	// TODO(quentin): Print benchstat-style output, either computed client-side or fetched from a server.
 }

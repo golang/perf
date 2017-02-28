@@ -33,6 +33,12 @@ func (a *App) search(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), 500)
 		return
 	}
+	if r.Header.Get("Accept") == "text/plain" || r.Header.Get("X-Benchsave") == "1" {
+		// TODO(quentin): Switch to real Accept negotiation when golang/go#19307 is resolved.
+		// Benchsave sends both of these headers.
+		a.textCompare(w, r)
+		return
+	}
 	// TODO(quentin): Intelligently choose an analysis method
 	// based on the results from the query, once there is more
 	// than one analysis method.
