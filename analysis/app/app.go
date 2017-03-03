@@ -16,6 +16,10 @@ import (
 type App struct {
 	// StorageClient is used to talk to the storage server.
 	StorageClient *storage.Client
+
+	// BaseDir is the directory containing the "template" directory.
+	// If empty, the current directory will be used.
+	BaseDir string
 }
 
 // RegisterOnMux registers the app's URLs on mux.

@@ -9,6 +9,7 @@ package app
 import (
 	"errors"
 	"net/http"
+	"path/filepath"
 
 	"golang.org/x/perf/storage/db"
 	"golang.org/x/perf/storage/fs"
@@ -30,6 +31,10 @@ type App struct {
 	// "viewurl" in the response from /upload. If it is non-empty,
 	// the upload ID will be appended to ViewURLBase.
 	ViewURLBase string
+
+	// BaseDir is the directory containing the "template" directory.
+	// If empty, the current directory will be used.
+	BaseDir string
 }
 
 // ErrResponseWritten can be returned by App.Auth to abort the normal /upload handling.
@@ -46,5 +51,5 @@ func (a *App) RegisterOnMux(mux *http.ServeMux) {
 
 // index serves the readme on /
 func (a *App) index(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, "static/index.html")
+	http.ServeFile(w, r, filepath.Join(a.BaseDir, "static/index.html"))
 }

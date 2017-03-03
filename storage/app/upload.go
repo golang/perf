@@ -12,6 +12,7 @@ import (
 	"mime/multipart"
 	"net/http"
 	"net/url"
+	"path/filepath"
 	"sort"
 	"strings"
 	"time"
@@ -36,7 +37,7 @@ func (a *App) upload(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if r.Method == http.MethodGet {
-		http.ServeFile(w, r, "static/upload.html")
+		http.ServeFile(w, r, filepath.Join(a.BaseDir, "static/upload.html"))
 		return
 	}
 	if r.Method != http.MethodPost {

@@ -2,11 +2,11 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// Localserver runs an HTTP server for benchmark analysis.
+// Localperf runs an HTTP server for benchmark analysis.
 //
 // Usage:
 //
-//     localserver [-addr address] [-storage url]
+//     localperf [-addr address] [-storage url] [-base_dir ../appengine]
 package main
 
 import (
@@ -17,31 +17,41 @@ import (
 	"os"
 
 	"golang.org/x/perf/analysis/app"
+	"golang.org/x/perf/internal/basedir"
 	"golang.org/x/perf/storage"
 )
 
 var (
 	addr       = flag.String("addr", "localhost:8080", "serve HTTP on `address`")
 	storageURL = flag.String("storage", "https://perfdata.golang.org", "storage server base `url`")
+	baseDir    = flag.String("base_dir", basedir.Find("golang.org/x/perf/analysis/appengine"), "base `directory` for templates")
 )
 
 func usage() {
-	fmt.Fprintf(os.Stderr, `Usage of localserver:
-	localserver [flags]
+	fmt.Fprintf(os.Stderr, `Usage of localperf:
+	localperf [flags]
 `)
 	flag.PrintDefaults()
 	os.Exit(2)
 }
 
 func main() {
-	log.SetPrefix("localserver: ")
+	log.SetPrefix("localperf: ")
 	flag.Usage = usage
 	flag.Parse()
 	if flag.NArg() != 0 {
 		flag.Usage()
 	}
 
-	app := &app.App{StorageClient: &storage.Client{BaseURL: *storageURL}}
+	if *baseDir == "" {
+		log.Print("base_dir is required and could not be automatically found")
+		flag.Usage()
+	}
+
+	app := &app.App{
+		StorageClient: &storage.Client{BaseURL: *storageURL},
+		BaseDir:       *baseDir,
+	}
 	app.RegisterOnMux(http.DefaultServeMux)
 
 	log.Printf("Listening on %s", *addr)
