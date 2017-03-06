@@ -26,9 +26,9 @@ localperf -addr=:8080 -storage=localhost:8081
 ```
 
 The storage system is designed to have a
-[standardized API](storage/appengine/static/index.html), and we
+[standardized API](https://perfdata.golang.org/), and we
 encourage additional analysis tools to be written against the API. A
-client can be found in [storage/client](storage/client).
+client can be found in the [storage](https://godoc.org/golang.org/x/perf/storage) package.
 
 --
 
