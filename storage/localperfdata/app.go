@@ -19,12 +19,14 @@ import (
 	"golang.org/x/perf/storage/db"
 	_ "golang.org/x/perf/storage/db/sqlite3"
 	"golang.org/x/perf/storage/fs"
+	"golang.org/x/perf/storage/fs/local"
 )
 
 var (
 	addr        = flag.String("addr", ":8080", "serve HTTP on `address`")
 	viewURLBase = flag.String("view_url_base", "", "/upload response with `URL` for viewing")
 	dsn         = flag.String("dsn", ":memory:", "sqlite `dsn`")
+	data        = flag.String("data", "", "data `directory` (in-memory if empty)")
 	baseDir     = flag.String("base_dir", basedir.Find("golang.org/x/perf/storage/appengine"), "base `directory` for static files")
 )
 
@@ -40,7 +42,11 @@ func main() {
 	if err != nil {
 		log.Fatalf("open database: %v", err)
 	}
-	fs := fs.NewMemFS()
+	var fs fs.FS = fs.NewMemFS()
+
+	if *data != "" {
+		fs = local.NewFS(*data)
+	}
 
 	app := &app.App{
 		DB:          db,
