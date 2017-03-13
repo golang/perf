@@ -141,7 +141,13 @@ func addGeomean(c *Collection, t *Table, unit string, delta bool) {
 		var means []float64
 		for _, key.Benchmark = range c.Benchmarks {
 			m := c.Metrics[key]
-			if m != nil {
+			// Omit 0 values from the geomean calculation,
+			// as these either make the geomean undefined
+			// or zero (depending on who you ask). This
+			// typically comes up with things like
+			// allocation counts, where it's fine to just
+			// ignore the benchmark.
+			if m != nil && m.Mean != 0 {
 				means = append(means, m.Mean)
 			}
 		}
