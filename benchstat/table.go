@@ -137,6 +137,7 @@ func addGeomean(c *Collection, t *Table, unit string, delta bool) {
 	row := &Row{Benchmark: "[Geo mean]"}
 	key := Key{Unit: unit}
 	geomeans := []float64{}
+	maxCount := 0
 	for _, key.Config = range c.Configs {
 		var means []float64
 		for _, key.Benchmark = range c.Benchmarks {
@@ -150,6 +151,9 @@ func addGeomean(c *Collection, t *Table, unit string, delta bool) {
 			if m != nil && m.Mean != 0 {
 				means = append(means, m.Mean)
 			}
+		}
+		if len(means) > maxCount {
+			maxCount = len(means)
 		}
 		if len(means) == 0 {
 			row.Metrics = append(row.Metrics, new(Metrics))
@@ -165,6 +169,12 @@ func addGeomean(c *Collection, t *Table, unit string, delta bool) {
 				Mean: geomean,
 			})
 		}
+	}
+	if maxCount <= 1 {
+		// Only one benchmark contributed to this geomean.
+		// Since the geomean is the same as the benchmark
+		// result, don't bother outputting it.
+		return
 	}
 	if delta {
 		row.Delta = fmt.Sprintf("%+.2f%%", ((geomeans[1]/geomeans[0])-1.0)*100.0)
