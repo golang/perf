@@ -286,7 +286,9 @@ func (a *App) compareQuery(q string) *compareData {
 
 	var buf bytes.Buffer
 	// Compute benchstat
-	c := new(benchstat.Collection)
+	c := &benchstat.Collection{
+		AddGeoMean: true,
+	}
 	for _, g := range groups {
 		c.AddResults(g.Q, g.results)
 	}
