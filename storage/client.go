@@ -10,6 +10,7 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
+	"mime/multipart"
 	"net/http"
 	"net/url"
 
@@ -47,7 +48,6 @@ func (c *Client) Query(q string) *Query {
 	if err != nil {
 		return &Query{err: err}
 	}
-
 	if resp.StatusCode != 200 {
 		defer resp.Body.Close()
 		body, err := ioutil.ReadAll(resp.Body)
@@ -210,4 +210,131 @@ func (ul *UploadList) Close() error {
 	return ul.Err()
 }
 
-// TODO(quentin): Move upload code here from cmd/benchsave?
+// NewUpload starts a new upload to the storage server.
+// The upload must have Abort or Commit called on it.
+// If the server requires authentication for uploads, c.HTTPClient should be set to the result of oauth2.NewClient.
+func (c *Client) NewUpload() *Upload {
+	hc := c.httpClient()
+
+	pr, pw := io.Pipe()
+	mpw := multipart.NewWriter(pw)
+
+	req, err := http.NewRequest("POST", c.BaseURL+"/upload", pr)
+	if err != nil {
+		return &Upload{err: err}
+	}
+	req.Header.Set("Content-Type", mpw.FormDataContentType())
+	req.Header.Set("User-Agent", "golang.org/x/perf/storage")
+	errCh := make(chan error)
+	u := &Upload{pw: pw, mpw: mpw, errCh: errCh}
+	go func() {
+		resp, err := hc.Do(req)
+		if err != nil {
+			errCh <- err
+			return
+		}
+		defer resp.Body.Close()
+		if resp.StatusCode != 200 {
+			body, _ := ioutil.ReadAll(resp.Body)
+			errCh <- fmt.Errorf("upload failed: %v\n%s", resp.Status, body)
+			return
+		}
+		status := &UploadStatus{}
+		if err := json.NewDecoder(resp.Body).Decode(status); err != nil {
+			errCh <- err
+		}
+		u.status = status
+		errCh <- nil
+	}()
+	return u
+}
+
+// UploadStatus contains information about a successful upload.
+type UploadStatus struct {
+	// UploadID is the upload ID assigned to the upload.
+	UploadID string `json:"uploadid"`
+	// FileIDs is the list of file IDs assigned to the files in the upload.
+	FileIDs []string `json:"fileids"`
+	// ViewURL is a server-supplied URL to view the results.
+	ViewURL string `json:"viewurl"`
+}
+
+// An Upload is an in-progress upload.
+// Use CreateFile to upload one or more files, then call Commit or Abort.
+//
+//   u := client.NewUpload()
+//   w, err := u.CreateFile()
+//   if err != nil {
+//     u.Abort()
+//     return err
+//   }
+//   fmt.Fprintf(w, "BenchmarkResult 1 1 ns/op\n")
+//   if err := u.Commit(); err != nil {
+//     return err
+//   }
+type Upload struct {
+	pw     io.WriteCloser
+	mpw    *multipart.Writer
+	status *UploadStatus
+	// errCh is used to report the success/failure of the HTTP request
+	errCh chan error
+	// err is the first observed error; it is only accessed from user-called methods for thread safety
+	err error
+}
+
+// CreateFile creates a new upload with the given name.
+// The Writer may be used until CreateFile is called again.
+// name may be the empty string if the file does not have a name.
+func (u *Upload) CreateFile(name string) (io.Writer, error) {
+	if u.err != nil {
+		return nil, u.err
+	}
+	return u.mpw.CreateFormFile("file", name)
+}
+
+// Commit attempts to commit the upload.
+func (u *Upload) Commit() (*UploadStatus, error) {
+	if u.err != nil {
+		return nil, u.err
+	}
+	if u.err = u.mpw.WriteField("commit", "1"); u.err != nil {
+		u.Abort()
+		return nil, u.err
+	}
+	if u.err = u.mpw.Close(); u.err != nil {
+		u.Abort()
+		return nil, u.err
+	}
+	u.mpw = nil
+	if u.err = u.pw.Close(); u.err != nil {
+		u.Abort()
+		return nil, u.err
+	}
+	u.pw = nil
+	u.err = <-u.errCh
+	u.errCh = nil
+	if u.err != nil {
+		return nil, u.err
+	}
+	return u.status, nil
+}
+
+// Abort attempts to cancel the in-progress upload.
+func (u *Upload) Abort() error {
+	if u.mpw != nil {
+		u.mpw.WriteField("abort", "1")
+		// Writing the 'abort' field will cause the server to send back an error response.
+		u.mpw.Close()
+		u.mpw = nil
+	}
+	if u.pw != nil {
+		u.pw.Close()
+		u.pw = nil
+	}
+	err := <-u.errCh
+	u.errCh = nil
+	if u.err == nil {
+		u.err = err
+	}
+	return u.err
+}

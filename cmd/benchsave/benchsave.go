@@ -18,20 +18,19 @@ package main
 import (
 	"bytes"
 	"context"
-	"encoding/json"
 	"flag"
 	"fmt"
 	"io"
 	"io/ioutil"
 	"log"
 	"mime"
-	"mime/multipart"
 	"net/http"
 	"os"
 	"path/filepath"
 	"time"
 
 	"golang.org/x/oauth2"
+	"golang.org/x/perf/storage"
 )
 
 var (
@@ -42,18 +41,9 @@ var (
 
 const userAgent = "Benchsave/1.0"
 
-type uploadStatus struct {
-	// UploadID is the upload ID assigned to the upload.
-	UploadID string `json:"uploadid"`
-	// FileIDs is the list of file IDs assigned to the files in the upload.
-	FileIDs []string `json:"fileids"`
-	// ViewURL is a server-supplied URL to view the results.
-	ViewURL string `json:"viewurl"`
-}
-
-// writeOneFile reads name and writes it to mpw.
-func writeOneFile(mpw *multipart.Writer, name string, header []byte) error {
-	w, err := mpw.CreateFormFile("file", filepath.Base(name))
+// writeOneFile reads name and writes it to u.
+func writeOneFile(u *storage.Upload, name string, header []byte) error {
+	w, err := u.CreateFile(filepath.Base(name))
 	if err != nil {
 		return err
 	}
@@ -108,49 +98,23 @@ func main() {
 	// Or they might need non-Google authentication.
 	hc := oauth2.NewClient(context.Background(), newTokenSource())
 
-	pr, pw := io.Pipe()
-	mpw := multipart.NewWriter(pw)
-
-	go func() {
-		defer pw.Close()
-		defer mpw.Close()
-
-		for _, name := range files {
-			if err := writeOneFile(mpw, name, headerData); err != nil {
-				log.Print(err)
-				mpw.WriteField("abort", "1")
-				// Writing the 'abort' field will cause the server to send back an error response,
-				// which will cause the main goroutine to  below.
-				return
-			}
-		}
-
-		mpw.WriteField("commit", "1")
-	}()
+	client := &storage.Client{BaseURL: *server, HTTPClient: hc}
 
 	start := time.Now()
 
-	req, err := http.NewRequest("POST", *server+"/upload", pr)
-	if err != nil {
-		log.Fatalf("NewRequest failed: %v\n", err)
+	u := client.NewUpload()
+
+	for _, name := range files {
+		if err := writeOneFile(u, name, headerData); err != nil {
+			log.Print(err)
+			u.Abort()
+			return
+		}
 	}
-	req.Header.Set("Content-Type", mpw.FormDataContentType())
-	req.Header.Set("User-Agent", userAgent)
-	resp, err := hc.Do(req)
+
+	status, err := u.Commit()
 	if err != nil {
 		log.Fatalf("upload failed: %v\n", err)
-	}
-	defer resp.Body.Close()
-
-	if resp.StatusCode != 200 {
-		log.Printf("upload failed: %v\n", resp.Status)
-		io.Copy(os.Stderr, resp.Body)
-		os.Exit(1)
-	}
-
-	status := &uploadStatus{}
-	if err := json.NewDecoder(resp.Body).Decode(status); err != nil {
-		log.Fatalf("cannot parse upload response: %v\n", err)
 	}
 
 	if *verbose {

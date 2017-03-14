@@ -7,6 +7,8 @@ package storage
 import (
 	"bytes"
 	"fmt"
+	"io"
+	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
 	"reflect"
@@ -88,5 +90,117 @@ func TestListUploads(t *testing.T) {
 	}
 	if err := r.Err(); err != nil {
 		t.Fatalf("Err: %v", err)
+	}
+}
+
+func TestNewUpload(t *testing.T) {
+	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if have, want := r.URL.RequestURI(), "/upload"; have != want {
+			t.Errorf("RequestURI = %q, want %q", have, want)
+		}
+		mr, err := r.MultipartReader()
+		if err != nil {
+			t.Error(err)
+		}
+		i := 0
+		for i = 0; ; i++ {
+			p, err := mr.NextPart()
+			if err == io.EOF {
+				break
+			}
+			name := p.FormName()
+			if name == "commit" {
+				continue
+			}
+			if name != "file" {
+				t.Errorf("unexpected field %q, want file", name)
+			}
+			if have, want := p.FileName(), fmt.Sprintf("want%d.txt", i); have != want {
+				t.Errorf("file name = %q, want %q", have, want)
+			}
+			content, _ := ioutil.ReadAll(p)
+			if have, want := string(content), "content"; have != want {
+				t.Errorf("unexpected content %q, want %q", have, want)
+			}
+		}
+		if i != 3 {
+			t.Errorf("number of files = %d, want %d", i, 3)
+		}
+		fmt.Fprintf(w, "%s\n", `{"uploadid": "id", "fileids": ["id/1", "id/2"]}`)
+	}))
+	defer ts.Close()
+
+	c := &Client{BaseURL: ts.URL}
+
+	u := c.NewUpload()
+	for i := 0; i < 2; i++ {
+		w, err := u.CreateFile(fmt.Sprintf("want%d.txt", i))
+		if err != nil {
+			t.Fatalf("CreateFile = %v", err)
+		}
+		if _, err := fmt.Fprintf(w, "content"); err != nil {
+			t.Fatalf("Write returned %v", err)
+		}
+	}
+	status, err := u.Commit()
+	if err != nil {
+		t.Errorf("Commit = %v", err)
+	}
+	if status.UploadID != "id" {
+		t.Errorf("status.UploadID = %q, want %q", status.UploadID, "id")
+	}
+}
+
+func TestNewUploadAbort(t *testing.T) {
+	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if have, want := r.URL.RequestURI(), "/upload"; have != want {
+			t.Errorf("RequestURI = %q, want %q", have, want)
+		}
+		mr, err := r.MultipartReader()
+		if err != nil {
+			t.Error(err)
+		}
+		i := 0
+		for i = 0; ; i++ {
+			p, err := mr.NextPart()
+			if err == io.EOF {
+				break
+			}
+			name := p.FormName()
+			if name == "abort" {
+				continue
+			}
+			if name != "file" {
+				t.Errorf("unexpected field %q, want file or abort", name)
+			}
+			if have, want := p.FileName(), fmt.Sprintf("want%d.txt", i); have != want {
+				t.Errorf("file name = %q, want %q", have, want)
+			}
+			content, _ := ioutil.ReadAll(p)
+			if have, want := string(content), "content"; have != want {
+				t.Errorf("unexpected content %q, want %q", have, want)
+			}
+		}
+		if i != 3 {
+			t.Errorf("number of files = %d, want %d", i, 3)
+		}
+		fmt.Fprintf(w, "%s\n", `{"uploadid": "id", "fileids": ["id/1", "id/2"]}`)
+	}))
+	defer ts.Close()
+
+	c := &Client{BaseURL: ts.URL}
+
+	u := c.NewUpload()
+	for i := 0; i < 2; i++ {
+		w, err := u.CreateFile(fmt.Sprintf("want%d.txt", i))
+		if err != nil {
+			t.Fatalf("CreateFile = %v", err)
+		}
+		if _, err := fmt.Fprintf(w, "content"); err != nil {
+			t.Fatalf("Write returned %v", err)
+		}
+	}
+	if err := u.Abort(); err != nil {
+		t.Errorf("Abort = %v", err)
 	}
 }
