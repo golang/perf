@@ -33,7 +33,9 @@ func (a *App) upload(w http.ResponseWriter, r *http.Request) {
 	case err == ErrResponseWritten:
 		return
 	case err != nil:
+		errorf(ctx, "%v", err)
 		http.Error(w, err.Error(), 500)
+		return
 	}
 
 	if r.Method == http.MethodGet {
@@ -91,6 +93,9 @@ func (a *App) processUpload(ctx context.Context, user string, mr *multipart.Read
 		p, err := mr.NextPart()
 		if err == io.EOF {
 			break
+		}
+		if err != nil {
+			return nil, err
 		}
 
 		name := p.FormName()
