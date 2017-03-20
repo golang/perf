@@ -8,10 +8,12 @@
 package appengine
 
 import (
+	"errors"
 	"fmt"
 	"log"
 	"net/http"
 	"os"
+	"strings"
 	"time"
 
 	_ "github.com/go-sql-driver/mysql"
@@ -19,8 +21,10 @@ import (
 	"golang.org/x/perf/storage/app"
 	"golang.org/x/perf/storage/db"
 	"golang.org/x/perf/storage/fs/gcs"
+	oauth2 "google.golang.org/api/oauth2/v2"
 	"google.golang.org/appengine"
 	aelog "google.golang.org/appengine/log"
+	"google.golang.org/appengine/urlfetch"
 	"google.golang.org/appengine/user"
 )
 
@@ -46,15 +50,11 @@ func mustGetenv(k string) string {
 
 func auth(w http.ResponseWriter, r *http.Request) (string, error) {
 	ctx := appengine.NewContext(r)
-	u := user.Current(ctx)
-	if u == nil && r.Header.Get("Authorization") != "" {
-		var err error
-		u, err = user.CurrentOAuth(ctx, "https://www.googleapis.com/auth/userinfo.email")
-		if err != nil {
-			return "", err
-		}
+	u, err := reqUser(ctx, r)
+	if err != nil {
+		return "", err
 	}
-	if u == nil {
+	if u == "" {
 		url, err := user.LoginURL(ctx, r.URL.String())
 		if err != nil {
 			return "", err
@@ -62,7 +62,50 @@ func auth(w http.ResponseWriter, r *http.Request) (string, error) {
 		http.Redirect(w, r, url, http.StatusFound)
 		return "", app.ErrResponseWritten
 	}
-	return u.Email, nil
+	return u, nil
+}
+
+// reqUser gets the username from the request, trying AE user authentication, AE OAuth authentication, and Google OAuth authentication, in that order.
+// If the request contains no authentication, "", nil is returned.
+// If the request contains bogus authentication, an error is returned.
+func reqUser(ctx context.Context, r *http.Request) (string, error) {
+	u := user.Current(ctx)
+	if u != nil {
+		return u.Email, nil
+	}
+	if r.Header.Get("Authorization") == "" {
+		return "", nil
+	}
+	u, err := user.CurrentOAuth(ctx, "https://www.googleapis.com/auth/userinfo.email")
+	if err == nil {
+		return u.Email, nil
+	}
+	return oauthServiceUser(ctx, r)
+}
+
+// oauthServiceUser authenticates the OAuth token from r's headers.
+// This is necessary because user.CurrentOAuth does not work if the token is for a service account.
+func oauthServiceUser(ctx context.Context, r *http.Request) (string, error) {
+	tok := r.Header.Get("Authorization")
+	if !strings.HasPrefix(tok, "Bearer ") {
+		return "", errors.New("unknown Authorization header")
+	}
+	tok = tok[len("Bearer "):]
+
+	hc := urlfetch.Client(ctx)
+	service, err := oauth2.New(hc)
+	if err != nil {
+		return "", err
+	}
+	info, err := service.Tokeninfo().AccessToken(tok).Do()
+	if err != nil {
+		return "", err
+	}
+
+	if !info.VerifiedEmail || info.Email == "" {
+		return "", errors.New("token does not contain verified e-mail address")
+	}
+	return info.Email, nil
 }
 
 // appHandler is the default handler, registered to serve "/".
