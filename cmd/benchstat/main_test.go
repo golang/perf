@@ -6,6 +6,7 @@ package main
 
 import (
 	"bytes"
+	"flag"
 	"io/ioutil"
 	"os"
 	"os/exec"
@@ -28,12 +29,15 @@ func TestGolden(t *testing.T) {
 		t.Fatal("skipping other tests")
 	}
 	check(t, "all", "new.txt", "old.txt", "slashslash4.txt", "x386.txt")
+	check(t, "allnosplit", "-split", "", "new.txt", "old.txt", "slashslash4.txt", "x386.txt")
 	check(t, "oldnew", "old.txt", "new.txt")
 	check(t, "oldnewgeo", "-geomean", "old.txt", "new.txt")
 	check(t, "new4", "new.txt", "slashslash4.txt")
 	check(t, "oldnewhtml", "-html", "old.txt", "new.txt")
 	check(t, "oldnew4html", "-html", "old.txt", "new.txt", "slashslash4.txt")
 	check(t, "oldnewttest", "-delta-test=ttest", "old.txt", "new.txt")
+	check(t, "packagesold", "packagesold.txt")
+	check(t, "packages", "packagesold.txt", "packagesnew.txt")
 }
 
 func check(t *testing.T, name string, files ...string) {
@@ -59,6 +63,7 @@ func check(t *testing.T, name string, files ...string) {
 		*flagGeomean = false
 		*flagHTML = false
 		*flagDeltaTest = "utest"
+		*flagSplit = flag.Lookup("split").DefValue
 
 		main()
 

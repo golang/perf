@@ -15,12 +15,14 @@ type Table struct {
 	Metric      string
 	OldNewDelta bool // is this an old-new-delta table?
 	Configs     []string
+	Groups      []string
 	Rows        []*Row
 }
 
 // A Row is a table row for display in the benchstat output.
 type Row struct {
 	Benchmark string     // benchmark name
+	Group     string     // group name
 	Scaler    Scaler     // formatter for stats means
 	Metrics   []*Metrics // columns of statistics
 	Delta     string     // formatted percent change
@@ -49,61 +51,68 @@ func (c *Collection) Tables() []*Table {
 	for _, key.Unit = range c.Units {
 		table := new(Table)
 		table.Configs = c.Configs
+		table.Groups = c.Groups
 		table.Metric = metricOf(key.Unit)
 		table.OldNewDelta = len(c.Configs) == 2
-		for _, key.Benchmark = range c.Benchmarks {
-			row := &Row{Benchmark: key.Benchmark}
+		for _, key.Group = range c.Groups {
+			for _, key.Benchmark = range c.Benchmarks[key.Group] {
+				row := &Row{Benchmark: key.Benchmark}
+				if len(c.Groups) > 1 {
+					// Show group headers if there is more than one group.
+					row.Group = key.Group
+				}
 
-			for _, key.Config = range c.Configs {
-				m := c.Metrics[key]
-				if m == nil {
-					row.Metrics = append(row.Metrics, new(Metrics))
-					continue
-				}
-				row.Metrics = append(row.Metrics, m)
-				if row.Scaler == nil {
-					row.Scaler = NewScaler(m.Mean, m.Unit)
-				}
-			}
-
-			// If there are only two configs being compared, add stats.
-			if table.OldNewDelta {
-				k0 := key
-				k0.Config = c.Configs[0]
-				k1 := key
-				k1.Config = c.Configs[1]
-				old := c.Metrics[k0]
-				new := c.Metrics[k1]
-				// If one is missing, omit row entirely.
-				// TODO: Control this better.
-				if old == nil || new == nil {
-					continue
-				}
-				pval, testerr := deltaTest(old, new)
-				row.Delta = "~"
-				if testerr == stats.ErrZeroVariance {
-					row.Note = "(zero variance)"
-				} else if testerr == stats.ErrSampleSize {
-					row.Note = "(too few samples)"
-				} else if testerr == stats.ErrSamplesEqual {
-					row.Note = "(all equal)"
-				} else if testerr != nil {
-					row.Note = fmt.Sprintf("(%s)", testerr)
-				} else if pval < alpha {
-					pct := ((new.Mean / old.Mean) - 1.0) * 100.0
-					row.Delta = fmt.Sprintf("%+.2f%%", pct)
-					if pct < 0 == (table.Metric != "speed") { // smaller is better, except speeds
-						row.Change = +1
-					} else {
-						row.Change = -1
+				for _, key.Config = range c.Configs {
+					m := c.Metrics[key]
+					if m == nil {
+						row.Metrics = append(row.Metrics, new(Metrics))
+						continue
+					}
+					row.Metrics = append(row.Metrics, m)
+					if row.Scaler == nil {
+						row.Scaler = NewScaler(m.Mean, m.Unit)
 					}
 				}
-				if row.Note == "" && pval != -1 {
-					row.Note = fmt.Sprintf("(p=%0.3f n=%d+%d)", pval, len(old.RValues), len(new.RValues))
-				}
-			}
 
-			table.Rows = append(table.Rows, row)
+				// If there are only two configs being compared, add stats.
+				if table.OldNewDelta {
+					k0 := key
+					k0.Config = c.Configs[0]
+					k1 := key
+					k1.Config = c.Configs[1]
+					old := c.Metrics[k0]
+					new := c.Metrics[k1]
+					// If one is missing, omit row entirely.
+					// TODO: Control this better.
+					if old == nil || new == nil {
+						continue
+					}
+					pval, testerr := deltaTest(old, new)
+					row.Delta = "~"
+					if testerr == stats.ErrZeroVariance {
+						row.Note = "(zero variance)"
+					} else if testerr == stats.ErrSampleSize {
+						row.Note = "(too few samples)"
+					} else if testerr == stats.ErrSamplesEqual {
+						row.Note = "(all equal)"
+					} else if testerr != nil {
+						row.Note = fmt.Sprintf("(%s)", testerr)
+					} else if pval < alpha {
+						pct := ((new.Mean / old.Mean) - 1.0) * 100.0
+						row.Delta = fmt.Sprintf("%+.2f%%", pct)
+						if pct < 0 == (table.Metric != "speed") { // smaller is better, except speeds
+							row.Change = +1
+						} else {
+							row.Change = -1
+						}
+					}
+					if row.Note == "" && pval != -1 {
+						row.Note = fmt.Sprintf("(p=%0.3f n=%d+%d)", pval, len(old.RValues), len(new.RValues))
+					}
+				}
+
+				table.Rows = append(table.Rows, row)
+			}
 		}
 
 		if len(table.Rows) > 0 {
@@ -140,16 +149,18 @@ func addGeomean(c *Collection, t *Table, unit string, delta bool) {
 	maxCount := 0
 	for _, key.Config = range c.Configs {
 		var means []float64
-		for _, key.Benchmark = range c.Benchmarks {
-			m := c.Metrics[key]
-			// Omit 0 values from the geomean calculation,
-			// as these either make the geomean undefined
-			// or zero (depending on who you ask). This
-			// typically comes up with things like
-			// allocation counts, where it's fine to just
-			// ignore the benchmark.
-			if m != nil && m.Mean != 0 {
-				means = append(means, m.Mean)
+		for _, key.Group = range c.Groups {
+			for _, key.Benchmark = range c.Benchmarks[key.Group] {
+				m := c.Metrics[key]
+				// Omit 0 values from the geomean calculation,
+				// as these either make the geomean undefined
+				// or zero (depending on who you ask). This
+				// typically comes up with things like
+				// allocation counts, where it's fine to just
+				// ignore the benchmark.
+				if m != nil && m.Mean != 0 {
+					means = append(means, m.Mean)
+				}
 			}
 		}
 		if len(means) > maxCount {

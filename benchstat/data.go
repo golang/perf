@@ -5,6 +5,7 @@
 package benchstat
 
 import (
+	"bytes"
 	"fmt"
 	"strconv"
 	"strings"
@@ -15,10 +16,15 @@ import (
 
 // A Collection is a collection of benchmark results.
 type Collection struct {
-	// Configs, Benchmarks, and Units give the set of configs,
-	// benchmarks, and units from the keys in Stats in an order
+	// Configs, Groups, and Units give the set of configs,
+	// groups, and units from the keys in Stats in an order
 	// meant to match the order the benchmarks were read in.
-	Configs, Benchmarks, Units []string
+	Configs, Groups, Units []string
+
+	// Benchmarks gives the set of benchmarks from the keys in
+	// Stats by group in an order meant to match the order
+	// benchmarks were read in.
+	Benchmarks map[string][]string
 
 	// Metrics holds the accumulated metrics for each key.
 	Metrics map[Key]*Metrics
@@ -34,13 +40,17 @@ type Collection struct {
 	// AddGeoMean specifies whether to add a line to the table
 	// showing the geometric mean of all the benchmark results.
 	AddGeoMean bool
+
+	// SplitBy specifies the labels to split results by.
+	// By default, results will only be split by full name.
+	SplitBy []string
 }
 
 // A Key identifies one metric (e.g., "ns/op", "B/op") from one
-// benchmark (function name sans "Benchmark" prefix) in one
-// configuration (input file name).
+// benchmark (function name sans "Benchmark" prefix) and optional
+// group in one configuration (input file name).
 type Key struct {
-	Config, Benchmark, Unit string
+	Config, Group, Benchmark, Unit string
 }
 
 // A Metrics holds the measurements of a single metric
@@ -129,7 +139,13 @@ func (c *Collection) addMetrics(key Key) *Metrics {
 		*strings = append(*strings, add)
 	}
 	addString(&c.Configs, key.Config)
-	addString(&c.Benchmarks, key.Benchmark)
+	addString(&c.Groups, key.Group)
+	if c.Benchmarks == nil {
+		c.Benchmarks = make(map[string][]string)
+	}
+	benchmarks := c.Benchmarks[key.Group]
+	addString(&benchmarks, key.Benchmark)
+	c.Benchmarks[key.Group] = benchmarks
 	addString(&c.Units, key.Unit)
 	m := &Metrics{Unit: key.Unit}
 	c.Metrics[key] = m
@@ -141,7 +157,14 @@ func (c *Collection) addMetrics(key Key) *Metrics {
 func (c *Collection) AddConfig(config string, data []byte) {
 	c.Configs = append(c.Configs, config)
 	key := Key{Config: config}
-	c.addText(key, string(data))
+	br := benchfmt.NewReader(bytes.NewReader(data))
+	for br.Next() {
+		c.addResult(key, br.Result())
+	}
+	if err := br.Err(); err != nil {
+		// bytes.Reader never returns errors
+		panic(err)
+	}
 }
 
 // AddResults adds the benchmark results to the named configuration.
@@ -149,35 +172,50 @@ func (c *Collection) AddResults(config string, results []*benchfmt.Result) {
 	c.Configs = append(c.Configs, config)
 	key := Key{Config: config}
 	for _, r := range results {
-		c.addText(key, r.Content)
+		c.addResult(key, r)
 	}
 }
 
-func (c *Collection) addText(key Key, data string) {
-	for _, line := range strings.Split(string(data), "\n") {
-		f := strings.Fields(line)
-		if len(f) < 4 {
+func (c *Collection) addResult(key Key, r *benchfmt.Result) {
+	f := strings.Fields(r.Content)
+	if len(f) < 4 {
+		return
+	}
+	name := f[0]
+	if !strings.HasPrefix(name, "Benchmark") {
+		return
+	}
+	name = strings.TrimPrefix(name, "Benchmark")
+	n, _ := strconv.Atoi(f[1])
+	if n == 0 {
+		return
+	}
+	key.Group = c.makeGroup(r)
+	key.Benchmark = name
+	for i := 2; i+2 <= len(f); i += 2 {
+		val, err := strconv.ParseFloat(f[i], 64)
+		if err != nil {
 			continue
 		}
-		name := f[0]
-		if !strings.HasPrefix(name, "Benchmark") {
-			continue
-		}
-		name = strings.TrimPrefix(name, "Benchmark")
-		n, _ := strconv.Atoi(f[1])
-		if n == 0 {
-			continue
-		}
+		key.Unit = f[i+1]
+		m := c.addMetrics(key)
+		m.Values = append(m.Values, val)
+	}
+}
 
-		key.Benchmark = name
-		for i := 2; i+2 <= len(f); i += 2 {
-			val, err := strconv.ParseFloat(f[i], 64)
-			if err != nil {
-				continue
+func (c *Collection) makeGroup(r *benchfmt.Result) string {
+	var out string
+	for _, s := range c.SplitBy {
+		v := r.NameLabels[s]
+		if v == "" {
+			v = r.Labels[s]
+		}
+		if v != "" {
+			if out != "" {
+				out = out + " "
 			}
-			key.Unit = f[i+1]
-			m := c.addMetrics(key)
-			m.Values = append(m.Values, val)
+			out += fmt.Sprintf("%s:%s", s, v)
 		}
 	}
+	return out
 }

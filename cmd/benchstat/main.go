@@ -114,6 +114,7 @@ var (
 	flagAlpha     = flag.Float64("alpha", 0.05, "consider change significant if p < `α`")
 	flagGeomean   = flag.Bool("geomean", false, "print the geometric mean of each file")
 	flagHTML      = flag.Bool("html", false, "print results as an HTML table")
+	flagSplit     = flag.String("split", "pkg,goos,goarch", "split benchmarks by `labels`")
 )
 
 var deltaTestNames = map[string]benchstat.DeltaTest{
@@ -140,6 +141,9 @@ func main() {
 		Alpha:      *flagAlpha,
 		AddGeoMean: *flagGeomean,
 		DeltaTest:  deltaTest,
+	}
+	if *flagSplit != "" {
+		c.SplitBy = strings.Split(*flagSplit, ",")
 	}
 	for _, file := range flag.Args() {
 		data, err := ioutil.ReadFile(file)

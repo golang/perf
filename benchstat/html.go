@@ -25,7 +25,9 @@ var htmlTemplate = template.Must(template.New("").Funcs(htmlFuncs).Parse(`
 <tr><th><th>{{.Metric}}
 {{else -}}
 <tr><th><th colspan='{{len .Configs}}' class='metric'>{{.Metric}}{{if .OldNewDelta}}<th>delta{{end}}
-{{end}}{{range $row := $table.Rows -}}
+{{end}}{{range $group := group $table.Rows -}}
+{{if and (gt (len $table.Groups) 1) (len (index . 0).Group)}}<tr class='group'><th colspan='{{colspan (len $table.Configs) $table.OldNewDelta}}'>{{(index . 0).Group}}{{end}}
+{{- range $row := . -}}
 {{if $table.OldNewDelta -}}
 <tr class='{{if eq .Change 1}}better{{else if eq .Change -1}}worse{{else}}unchanged{{end}}'>
 {{- else -}}
@@ -33,6 +35,7 @@ var htmlTemplate = template.Must(template.New("").Funcs(htmlFuncs).Parse(`
 {{- end -}}
 <td>{{.Benchmark}}{{range .Metrics}}<td>{{.Format $row.Scaler}}{{end}}{{if $table.OldNewDelta}}<td class='{{if eq .Delta "~"}}nodelta{{else}}delta{{end}}'>{{replace .Delta "-" "−" -1}}<td class='note'>{{.Note}}{{end}}
 {{end -}}
+{{- end -}}
 <tr><td>&nbsp;
 </tbody>
 {{end}}
@@ -42,6 +45,34 @@ var htmlTemplate = template.Must(template.New("").Funcs(htmlFuncs).Parse(`
 
 var htmlFuncs = template.FuncMap{
 	"replace": strings.Replace,
+	"group":   htmlGroup,
+	"colspan": htmlColspan,
+}
+
+func htmlColspan(configs int, delta bool) int {
+	if delta {
+		configs++
+	}
+	return configs + 1
+}
+
+func htmlGroup(rows []*Row) (out [][]*Row) {
+	var group string
+	var cur []*Row
+	for _, r := range rows {
+		if r.Group != group {
+			group = r.Group
+			if len(cur) > 0 {
+				out = append(out, cur)
+				cur = nil
+			}
+		}
+		cur = append(cur, r)
+	}
+	if len(cur) > 0 {
+		out = append(out, cur)
+	}
+	return
 }
 
 // FormatHTML appends an HTML formatting of the tables to buf.

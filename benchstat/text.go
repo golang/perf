@@ -20,6 +20,10 @@ func FormatText(w io.Writer, tables []*Table) {
 	var max []int
 	for _, table := range textTables {
 		for _, row := range table {
+			if len(row.cols) == 1 {
+				// Header row
+				continue
+			}
 			for len(max) < len(row.cols) {
 				max = append(max, 0)
 			}
@@ -53,8 +57,11 @@ func FormatText(w io.Writer, tables []*Table) {
 		// data
 		for _, row := range table[1:] {
 			for i, s := range row.cols {
-				switch i {
-				case 0:
+				switch {
+				case len(row.cols) == 1:
+					// Header row
+					fmt.Fprint(w, s)
+				case i == 0:
 					fmt.Fprintf(w, "%-*s", max[i], s)
 				default:
 					if i == len(row.cols)-1 && len(s) > 0 && s[0] == '(' {
@@ -104,7 +111,13 @@ func toText(t *Table) []*textRow {
 		textRows = append(textRows, row)
 	}
 
+	var group string
+
 	for _, row := range t.Rows {
+		if row.Group != group {
+			group = row.Group
+			textRows = append(textRows, newTextRow(group))
+		}
 		text := newTextRow(row.Benchmark)
 		for _, m := range row.Metrics {
 			text.cols = append(text.cols, m.Format(row.Scaler))

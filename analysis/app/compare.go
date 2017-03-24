@@ -288,6 +288,7 @@ func (a *App) compareQuery(q string) *compareData {
 	// Compute benchstat
 	c := &benchstat.Collection{
 		AddGeoMean: true,
+		SplitBy:    []string{"pkg", "goos", "goarch"},
 	}
 	for _, g := range groups {
 		c.AddResults(g.Q, g.results)
