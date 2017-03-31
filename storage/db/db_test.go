@@ -345,7 +345,7 @@ func TestListUploads(t *testing.T) {
 	db, cleanup := dbtest.NewDB(t)
 	defer cleanup()
 
-	for i := 0; i < 9; i++ {
+	for i := -1; i < 9; i++ {
 		u, err := db.NewUpload(context.Background())
 		if err != nil {
 			t.Fatalf("NewUpload: %v", err)
@@ -381,11 +381,11 @@ func TestListUploads(t *testing.T) {
 		limit       int
 		want        []result
 	}{
-		{"", nil, 0, []result{{9, "19700101.9"}, {8, "19700101.8"}, {7, "19700101.7"}, {6, "19700101.6"}, {5, "19700101.5"}, {4, "19700101.4"}, {3, "19700101.3"}, {2, "19700101.2"}, {1, "19700101.1"}}},
-		{"", nil, 2, []result{{9, "19700101.9"}, {8, "19700101.8"}}},
-		{"j:5", nil, 0, []result{{1, "19700101.9"}, {1, "19700101.8"}, {1, "19700101.7"}, {1, "19700101.6"}}},
-		{"i:5", nil, 0, []result{{6, "19700101.6"}}},
-		{"i:5", []string{"i", "missing"}, 0, []result{{6, "19700101.6"}}},
+		{"", nil, 0, []result{{9, "19700101.10"}, {8, "19700101.9"}, {7, "19700101.8"}, {6, "19700101.7"}, {5, "19700101.6"}, {4, "19700101.5"}, {3, "19700101.4"}, {2, "19700101.3"}, {1, "19700101.2"}}},
+		{"", nil, 2, []result{{9, "19700101.10"}, {8, "19700101.9"}}},
+		{"j:5", nil, 0, []result{{1, "19700101.10"}, {1, "19700101.9"}, {1, "19700101.8"}, {1, "19700101.7"}}},
+		{"i:5", nil, 0, []result{{6, "19700101.7"}}},
+		{"i:5", []string{"i", "missing"}, 0, []result{{6, "19700101.7"}}},
 		{"not:found", nil, 0, nil},
 	}
 
@@ -408,8 +408,8 @@ func TestListUploads(t *testing.T) {
 						if err != nil {
 							t.Fatalf("cannot parse upload ID %q", res.id)
 						}
-						if v != fmt.Sprintf("%d", uploadNum-1) {
-							t.Errorf(`i = %q, want "%d"`, v, uploadNum-1)
+						if v != fmt.Sprintf("%d", uploadNum-2) {
+							t.Errorf(`i = %q, want "%d"`, v, uploadNum-2)
 						}
 					default:
 						t.Errorf("unexpected label %q", k)

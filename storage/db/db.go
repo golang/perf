@@ -597,7 +597,7 @@ func (db *DB) ListUploads(q string, extraLabels []string, limit int) *UploadList
 	}
 	if len(sql) == 0 {
 		// Optimize empty query.
-		query += " FROM (SELECT UploadID, (SELECT COUNT(*) FROM Records r WHERE r.UploadID = u.UploadID) AS rCount FROM Uploads u ORDER BY u.Day DESC, u.Seq DESC, u.UploadID DESC"
+		query += " FROM (SELECT UploadID, (SELECT COUNT(*) FROM Records r WHERE r.UploadID = u.UploadID) AS rCount FROM Uploads u WHERE rCount > 0 ORDER BY u.Day DESC, u.Seq DESC, u.UploadID DESC"
 		if limit != 0 {
 			query += fmt.Sprintf(" LIMIT %d", limit)
 		}
