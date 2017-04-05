@@ -29,7 +29,8 @@ import (
 // DB is a high-level interface to a database for the storage
 // app. It's safe for concurrent use by multiple goroutines.
 type DB struct {
-	sql *sql.DB // underlying database connection
+	sql        *sql.DB // underlying database connection
+	driverName string  // name of underlying driver for SQL differences
 	// prepared statements
 	lastUpload    *sql.Stmt
 	insertUpload  *sql.Stmt
@@ -51,7 +52,7 @@ func OpenSQL(driverName, dataSourceName string) (*DB, error) {
 			return nil, err
 		}
 	}
-	d := &DB{sql: db}
+	d := &DB{sql: db, driverName: driverName}
 	if err := d.createTables(driverName); err != nil {
 		return nil, err
 	}
@@ -597,7 +598,14 @@ func (db *DB) ListUploads(q string, extraLabels []string, limit int) *UploadList
 	}
 	if len(sql) == 0 {
 		// Optimize empty query.
-		query += " FROM (SELECT UploadID, (SELECT COUNT(*) FROM Records r WHERE r.UploadID = u.UploadID) AS rCount FROM Uploads u WHERE rCount > 0 ORDER BY u.Day DESC, u.Seq DESC, u.UploadID DESC"
+		query += " FROM (SELECT UploadID, (SELECT COUNT(*) FROM Records r WHERE r.UploadID = u.UploadID) AS rCount FROM Uploads u "
+		switch db.driverName {
+		case "sqlite3":
+			query += "WHERE"
+		default:
+			query += "HAVING"
+		}
+		query += " rCount > 0 ORDER BY u.Day DESC, u.Seq DESC, u.UploadID DESC"
 		if limit != 0 {
 			query += fmt.Sprintf(" LIMIT %d", limit)
 		}
