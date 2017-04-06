@@ -38,6 +38,7 @@ func TestGolden(t *testing.T) {
 	check(t, "oldnewttest", "-delta-test=ttest", "old.txt", "new.txt")
 	check(t, "packagesold", "packagesold.txt")
 	check(t, "packages", "packagesold.txt", "packagesnew.txt")
+	check(t, "units", "units-old.txt", "units-new.txt")
 }
 
 func check(t *testing.T, name string, files ...string) {

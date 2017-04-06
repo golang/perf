@@ -4,7 +4,10 @@
 
 package benchstat
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 // A Scaler is a function that scales and formats a measurement.
 // All measurements within a given table row are formatted
@@ -15,7 +18,7 @@ type Scaler func(float64) string
 // NewScaler returns a Scaler appropriate for formatting
 // the measurement val, which has the given unit.
 func NewScaler(val float64, unit string) Scaler {
-	if unit == "ns/op" {
+	if hasBaseUnit(unit, "ns/op") || hasBaseUnit(unit, "ns/GC") {
 		return timeScaler(val)
 	}
 
@@ -24,7 +27,7 @@ func NewScaler(val float64, unit string) Scaler {
 	var suffix string
 
 	prescale := 1.0
-	if unit == "MB/s" {
+	if hasBaseUnit(unit, "MB/s") {
 		prescale = 1e6
 	}
 
@@ -61,10 +64,10 @@ func NewScaler(val float64, unit string) Scaler {
 		format, scale, suffix = "%.2f", 1, ""
 	}
 
-	if unit == "B/op" {
+	if hasBaseUnit(unit, "B/op") || hasBaseUnit(unit, "bytes/op") || hasBaseUnit(unit, "bytes") {
 		suffix += "B"
 	}
-	if unit == "MB/s" {
+	if hasBaseUnit(unit, "MB/s") {
 		suffix += "B/s"
 	}
 	scale /= prescale
@@ -106,4 +109,10 @@ func timeScaler(ns float64) Scaler {
 	return func(ns float64) string {
 		return fmt.Sprintf(format, ns/1e9*scale)
 	}
+}
+
+// hasBaseUnit reports whether s has unit unit.
+// For now, it reports whether s == unit or s ends in -unit.
+func hasBaseUnit(s, unit string) bool {
+	return s == unit || strings.HasSuffix(s, "-"+unit)
 }

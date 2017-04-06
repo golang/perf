@@ -6,6 +6,7 @@ package benchstat
 
 import (
 	"fmt"
+	"strings"
 
 	"golang.org/x/perf/internal/stats"
 )
@@ -126,18 +127,25 @@ func (c *Collection) Tables() []*Table {
 	return tables
 }
 
+var metricSuffix = map[string]string{
+	"ns/op": "time/op",
+	"ns/GC": "time/GC",
+	"B/op":  "alloc/op",
+	"MB/s":  "speed",
+}
+
 // metricOf returns the name of the metric with the given unit.
 func metricOf(unit string) string {
-	switch unit {
-	case "ns/op":
-		return "time/op"
-	case "B/op":
-		return "alloc/op"
-	case "MB/s":
-		return "speed"
-	default:
-		return unit
+	if s := metricSuffix[unit]; s != "" {
+		return s
 	}
+	for s, suff := range metricSuffix {
+		if dashs := "-" + s; strings.HasSuffix(unit, dashs) {
+			prefix := strings.TrimSuffix(unit, dashs)
+			return prefix + "-" + suff
+		}
+	}
+	return unit
 }
 
 // addGeomean adds a "geomean" row to the table,
