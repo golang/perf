@@ -262,8 +262,12 @@ func (a *App) fetchCompareResults(q string) ([]*resultGroup, error) {
 	// Attempt to automatically split results.
 	if len(groups) == 1 {
 		group := groups[0]
+		// Matching a single CL -> split by filename
+		switch {
+		case len(group.LabelValues["cl"]) == 1 && len(group.LabelValues["ps"]) == 1 && len(group.LabelValues["upload-file"]) > 1:
+			groups = group.splitOn("upload-file")
 		// Matching a single upload with multiple files -> split by file
-		if len(group.LabelValues["upload"]) == 1 && len(group.LabelValues["upload-part"]) > 1 {
+		case len(group.LabelValues["upload"]) == 1 && len(group.LabelValues["upload-part"]) > 1:
 			groups = group.splitOn("upload-part")
 		}
 	}
@@ -288,7 +292,15 @@ func (a *App) compareQuery(q string) *compareData {
 	// Compute benchstat
 	c := &benchstat.Collection{
 		AddGeoMean: true,
-		SplitBy:    []string{"pkg", "goos", "goarch"},
+		SplitBy:    nil,
+	}
+	for _, label := range []string{"buildlet", "pkg", "goos", "goarch"} {
+		for _, g := range groups {
+			if len(g.LabelValues[label]) > 1 {
+				c.SplitBy = append(c.SplitBy, label)
+				break
+			}
+		}
 	}
 	for _, g := range groups {
 		c.AddResults(g.Q, g.results)
