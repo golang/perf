@@ -14,6 +14,7 @@ import (
 	"reflect"
 	"testing"
 
+	"golang.org/x/net/context"
 	"golang.org/x/perf/internal/diff"
 	"golang.org/x/perf/storage/benchfmt"
 )
@@ -26,7 +27,7 @@ func TestQueryError(t *testing.T) {
 
 	c := &Client{BaseURL: ts.URL}
 
-	q := c.Query("invalid query")
+	q := c.Query(context.Background(), "invalid query")
 	defer q.Close()
 
 	if q.Next() {
@@ -48,7 +49,7 @@ func TestQuery(t *testing.T) {
 
 	c := &Client{BaseURL: ts.URL}
 
-	q := c.Query("key1:value key2:value")
+	q := c.Query(context.Background(), "key1:value key2:value")
 	defer q.Close()
 
 	var buf bytes.Buffer
@@ -79,7 +80,7 @@ func TestListUploads(t *testing.T) {
 
 	c := &Client{BaseURL: ts.URL}
 
-	r := c.ListUploads("key1:value key2:value", []string{"key1", "key2"}, 10)
+	r := c.ListUploads(context.Background(), "key1:value key2:value", []string{"key1", "key2"}, 10)
 	defer r.Close()
 
 	if !r.Next() {
@@ -132,7 +133,7 @@ func TestNewUpload(t *testing.T) {
 
 	c := &Client{BaseURL: ts.URL}
 
-	u := c.NewUpload()
+	u := c.NewUpload(context.Background())
 	for i := 0; i < 2; i++ {
 		w, err := u.CreateFile(fmt.Sprintf("want%d.txt", i))
 		if err != nil {
@@ -190,7 +191,7 @@ func TestNewUploadAbort(t *testing.T) {
 
 	c := &Client{BaseURL: ts.URL}
 
-	u := c.NewUpload()
+	u := c.NewUpload(context.Background())
 	for i := 0; i < 2; i++ {
 		w, err := u.CreateFile(fmt.Sprintf("want%d.txt", i))
 		if err != nil {

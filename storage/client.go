@@ -14,6 +14,8 @@ import (
 	"net/http"
 	"net/url"
 
+	"golang.org/x/net/context"
+	"golang.org/x/net/context/ctxhttp"
 	"golang.org/x/perf/storage/benchfmt"
 )
 
@@ -41,10 +43,10 @@ func (c *Client) httpClient() *http.Client {
 // key:value - exact match on label "key" = "value"
 // key>value - value greater than (useful for dates)
 // key<value - value less than (also useful for dates)
-func (c *Client) Query(q string) *Query {
+func (c *Client) Query(ctx context.Context, q string) *Query {
 	hc := c.httpClient()
 
-	resp, err := hc.Get(c.BaseURL + "/search?" + url.Values{"q": []string{q}}.Encode())
+	resp, err := ctxhttp.Get(ctx, hc, c.BaseURL+"/search?"+url.Values{"q": []string{q}}.Encode())
 	if err != nil {
 		return &Query{err: err}
 	}
@@ -124,7 +126,7 @@ type UploadInfo struct {
 // extraLabels specifies other labels to be retrieved.
 // If limit is 0, no limit will be provided to the server.
 // The uploads are returned starting with the most recent upload.
-func (c *Client) ListUploads(q string, extraLabels []string, limit int) *UploadList {
+func (c *Client) ListUploads(ctx context.Context, q string, extraLabels []string, limit int) *UploadList {
 	hc := c.httpClient()
 
 	v := url.Values{"extra_label": extraLabels}
@@ -139,7 +141,7 @@ func (c *Client) ListUploads(q string, extraLabels []string, limit int) *UploadL
 	if len(v) > 0 {
 		u += "?" + v.Encode()
 	}
-	resp, err := hc.Get(u)
+	resp, err := ctxhttp.Get(ctx, hc, u)
 	if err != nil {
 		return &UploadList{err: err}
 	}
@@ -213,7 +215,7 @@ func (ul *UploadList) Close() error {
 // NewUpload starts a new upload to the storage server.
 // The upload must have Abort or Commit called on it.
 // If the server requires authentication for uploads, c.HTTPClient should be set to the result of oauth2.NewClient.
-func (c *Client) NewUpload() *Upload {
+func (c *Client) NewUpload(ctx context.Context) *Upload {
 	hc := c.httpClient()
 
 	pr, pw := io.Pipe()
@@ -228,7 +230,7 @@ func (c *Client) NewUpload() *Upload {
 	errCh := make(chan error)
 	u := &Upload{pw: pw, mpw: mpw, errCh: errCh}
 	go func() {
-		resp, err := hc.Do(req)
+		resp, err := ctxhttp.Do(ctx, hc, req)
 		if err != nil {
 			errCh <- err
 			return

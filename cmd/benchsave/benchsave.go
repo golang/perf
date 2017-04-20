@@ -102,7 +102,7 @@ func main() {
 
 	start := time.Now()
 
-	u := client.NewUpload()
+	u := client.NewUpload(context.Background())
 
 	for _, name := range files {
 		if err := writeOneFile(u, name, headerData); err != nil {

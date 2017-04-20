@@ -78,7 +78,7 @@ type trendData struct {
 func (a *App) trendQuery(ctx context.Context, q string, opt plotOptions) *trendData {
 	d := &trendData{Q: q}
 	if q == "" {
-		ul := a.StorageClient.ListUploads(`trend>`, []string{"by", "upload-time", "trend"}, 16)
+		ul := a.StorageClient.ListUploads(ctx, `trend>`, []string{"by", "upload-time", "trend"}, 16)
 		defer ul.Close()
 		for ul.Next() {
 			d.TrendUploads = append(d.TrendUploads, ul.Info())
@@ -90,7 +90,7 @@ func (a *App) trendQuery(ctx context.Context, q string, opt plotOptions) *trendD
 	}
 
 	// TODO(quentin): Chunk query based on matching upload IDs.
-	res := a.StorageClient.Query(q)
+	res := a.StorageClient.Query(ctx, q)
 	defer res.Close()
 	t, resultCols := queryToTable(res)
 	if err := res.Err(); err != nil {

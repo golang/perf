@@ -30,7 +30,7 @@ func (a *App) index(w http.ResponseWriter, r *http.Request) {
 	}
 
 	var uploads []storage.UploadInfo
-	ul := a.StorageClient.ListUploads("", []string{"by", "upload-time"}, 16)
+	ul := a.StorageClient.ListUploads(ctx, "", []string{"by", "upload-time"}, 16)
 	defer ul.Close()
 	for ul.Next() {
 		uploads = append(uploads, ul.Info())

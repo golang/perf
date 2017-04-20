@@ -12,6 +12,7 @@ import (
 	"strings"
 	"testing"
 
+	"golang.org/x/net/context"
 	"golang.org/x/perf/storage"
 	"golang.org/x/perf/storage/benchfmt"
 )
@@ -89,7 +90,7 @@ func TestCompareQuery(t *testing.T) {
 
 	for _, q := range []string{"one vs two", "onetwo"} {
 		t.Run(q, func(t *testing.T) {
-			data := a.compareQuery(q)
+			data := a.compareQuery(context.Background(), q)
 			if data.Error != "" {
 				t.Fatalf("compareQuery failed: %s", data.Error)
 			}

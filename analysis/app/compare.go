@@ -17,6 +17,7 @@ import (
 	"strings"
 	"unicode"
 
+	"golang.org/x/net/context"
 	"golang.org/x/perf/benchstat"
 	"golang.org/x/perf/storage/benchfmt"
 	"golang.org/x/perf/storage/query"
@@ -134,6 +135,8 @@ func addToQuery(query, add string) string {
 
 // compare handles queries that require comparison of the groups in the query.
 func (a *App) compare(w http.ResponseWriter, r *http.Request) {
+	ctx := requestContext(r)
+
 	if err := r.ParseForm(); err != nil {
 		http.Error(w, err.Error(), 500)
 		return
@@ -155,7 +158,7 @@ func (a *App) compare(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	data := a.compareQuery(q)
+	data := a.compareQuery(ctx, q)
 
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	if err := t.Execute(w, data); err != nil {
@@ -225,7 +228,7 @@ func elideKeyValues(content string, keys map[string]bool) string {
 
 // fetchCompareResults fetches the matching results for a given query string.
 // The results will be grouped into one or more groups based on either the query string or heuristics.
-func (a *App) fetchCompareResults(q string) ([]*resultGroup, error) {
+func (a *App) fetchCompareResults(ctx context.Context, q string) ([]*resultGroup, error) {
 	// Parse query
 	prefix, queries := parseQueryString(q)
 
@@ -239,7 +242,7 @@ func (a *App) fetchCompareResults(q string) ([]*resultGroup, error) {
 		if prefix != "" {
 			qPart = prefix + " " + qPart
 		}
-		res := a.StorageClient.Query(qPart)
+		res := a.StorageClient.Query(ctx, qPart)
 		for res.Next() {
 			result := res.Result()
 			result.Content = elideKeyValues(result.Content, keys)
@@ -275,12 +278,12 @@ func (a *App) fetchCompareResults(q string) ([]*resultGroup, error) {
 	return groups, nil
 }
 
-func (a *App) compareQuery(q string) *compareData {
+func (a *App) compareQuery(ctx context.Context, q string) *compareData {
 	if len(q) == 0 {
 		return &compareData{}
 	}
 
-	groups, err := a.fetchCompareResults(q)
+	groups, err := a.fetchCompareResults(ctx, q)
 	if err != nil {
 		return &compareData{
 			Q:     q,
@@ -349,6 +352,8 @@ func (a *App) compareQuery(q string) *compareData {
 
 // textCompare is called if benchsave is requesting a text-only analysis.
 func (a *App) textCompare(w http.ResponseWriter, r *http.Request) {
+	ctx := requestContext(r)
+
 	if err := r.ParseForm(); err != nil {
 		http.Error(w, err.Error(), 500)
 		return
@@ -358,7 +363,7 @@ func (a *App) textCompare(w http.ResponseWriter, r *http.Request) {
 
 	q := r.Form.Get("q")
 
-	groups, err := a.fetchCompareResults(q)
+	groups, err := a.fetchCompareResults(ctx, q)
 	if err != nil {
 		// TODO(quentin): Should we serve this with a 500 or 404? This means the query was invalid or had no results.
 		fmt.Fprintf(w, "unable to analyze results: %v", err)
