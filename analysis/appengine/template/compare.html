@@ -103,14 +103,14 @@ td.count {
         <p>{{.}}</p>
         {{else}}
           <table id="labels">
-            {{with .CommonLabels}}
+            {{with $cl := .CommonLabels}}
               <tbody>
                 <tr>
                   <th>label</th><th>common value</th>
                 </tr>
                 {{range $label, $value := .}}
                   <tr>
-                    <th class="label">{{$label}}</th><td>{{$value}}</td>
+                    <th class="label">{{$label}}</th><td>{{with $href := linkify $cl $label}}<a href="{{$href}}" rel="nofollow">{{$value}}</a>{{else}}{{$value}}{{end}}</td>
                   </tr>
                 {{end}}
               </tbody>

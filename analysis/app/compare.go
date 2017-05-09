@@ -133,6 +133,25 @@ func addToQuery(query, add string) string {
 	return add + " | " + query
 }
 
+// linkify returns a link related to the label's value. If no such link exists, it returns an empty string.
+// For example, "cl: 1234" is linked to golang.org/cl/1234.
+// string is used as the return type and not template.URL so that html/template will validate the scheme.
+func linkify(labels benchfmt.Labels, label string) string {
+	switch label {
+	case "cl", "commit":
+		return "https://golang.org/cl/" + template.URLQueryEscaper(labels[label])
+	case "ps":
+		// TODO(quentin): Figure out how to link to a particular patch set on Gerrit.
+		return ""
+	case "repo":
+		return labels["repo"]
+	case "try":
+		// TODO(quentin): Return link to farmer once farmer has permalinks.
+		return ""
+	}
+	return ""
+}
+
 // compare handles queries that require comparison of the groups in the query.
 func (a *App) compare(w http.ResponseWriter, r *http.Request) {
 	ctx := requestContext(r)
@@ -152,6 +171,7 @@ func (a *App) compare(w http.ResponseWriter, r *http.Request) {
 
 	t, err := template.New("main").Funcs(template.FuncMap{
 		"addToQuery": addToQuery,
+		"linkify":    linkify,
 	}).Parse(string(tmpl))
 	if err != nil {
 		http.Error(w, err.Error(), 500)
