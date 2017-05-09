@@ -22,7 +22,7 @@ the complete stack on your machine with an in-memory datastore.
 go get -u golang.org/x/perf/storage/localperfdata
 go get -u golang.org/x/perf/analysis/localperf
 localperfdata -addr=:8081 -view_url_base=http://localhost:8080/search?q=upload: &
-localperf -addr=:8080 -storage=localhost:8081
+localperf -addr=:8080 -storage=http://localhost:8081
 ```
 
 The storage system is designed to have a
