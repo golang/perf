@@ -99,12 +99,16 @@ func (c *Collection) Tables() []*Table {
 					} else if testerr != nil {
 						row.Note = fmt.Sprintf("(%s)", testerr)
 					} else if pval < alpha {
-						pct := ((new.Mean / old.Mean) - 1.0) * 100.0
-						row.Delta = fmt.Sprintf("%+.2f%%", pct)
-						if pct < 0 == (table.Metric != "speed") { // smaller is better, except speeds
-							row.Change = +1
+						if new.Mean == old.Mean {
+							row.Delta = "0.00%"
 						} else {
-							row.Change = -1
+							pct := ((new.Mean / old.Mean) - 1.0) * 100.0
+							row.Delta = fmt.Sprintf("%+.2f%%", pct)
+							if pct < 0 == (table.Metric != "speed") { // smaller is better, except speeds
+								row.Change = +1
+							} else {
+								row.Change = -1
+							}
 						}
 					}
 					if row.Note == "" && pval != -1 {
