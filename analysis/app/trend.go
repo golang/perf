@@ -151,7 +151,10 @@ func (a *App) trendQuery(ctx context.Context, q string, opt plotOptions) *trendD
 
 	tables := data.Tables()
 	infof(ctx, "tables: %v", tables)
-	columns := []column{{Name: "commit-index"}}
+	columns := []column{
+		{Name: "commit-index"},
+		{Name: "commit", Role: "tooltip"},
+	}
 	for _, prefix := range ar.Prefixes {
 		if len(ar.Prefixes) == 1 {
 			columns = append(columns,
