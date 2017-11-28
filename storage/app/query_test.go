@@ -73,13 +73,13 @@ func TestQuery(t *testing.T) {
 				}
 				r := br.Result()
 				if r.Labels["upload"] != status.UploadID {
-					t.Errorf("#%d: upload = %q, want %q", r.Labels["upload"], status.UploadID)
+					t.Errorf("#%d: upload = %q, want %q", i, r.Labels["upload"], status.UploadID)
 				}
 				if r.Labels["upload-part"] != status.FileIDs[0] {
-					t.Errorf("#%d: upload-part = %q, want %q", r.Labels["upload-part"], status.FileIDs[0])
+					t.Errorf("#%d: upload-part = %q, want %q", i, r.Labels["upload-part"], status.FileIDs[0])
 				}
 				if r.Labels["upload-file"] != "1.txt" {
-					t.Errorf("#%d: upload-file = %q, want %q", r.Labels["upload-file"], "1.txt")
+					t.Errorf("#%d: upload-file = %q, want %q", i, r.Labels["upload-file"], "1.txt")
 				}
 				if r.Labels["label0"] != fmt.Sprintf("%d", num) {
 					t.Errorf("#%d: label0 = %q, want %d", i, r.Labels["label0"], num)
