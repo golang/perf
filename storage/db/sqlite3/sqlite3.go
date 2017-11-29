@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+// +build !plan9
+
 // Package sqlite3 provides the sqlite3 driver for
 // x/perf/storage/db. It must be imported instead of go-sqlite3 to
 // ensure foreign keys are properly honored.
