@@ -4,10 +4,12 @@ Benchstat computes and compares statistics about benchmarks.
 
 Usage:
 
-    benchstat [-delta-test name] [-geomean] [-html] old.txt [new.txt] [more.txt ...]
+    benchstat [options] old.txt [new.txt] [more.txt ...]
+
+Run `benchstat -h` for the list of supported options.
 
 Each input file should contain the concatenated output of a number of runs
-of ``go test -bench.'' For each different benchmark listed in an input file,
+of `go test -bench`. For each different benchmark listed in an input file,
 benchstat computes the mean, minimum, and maximum run time, after removing
 outliers using the interquartile range rule.
 
@@ -35,7 +37,7 @@ The -html option causes benchstat to print the results as an HTML table.
 
 ## Example
 
-Suppose we collect benchmark results from running ``go test -bench=Encode''
+Suppose we collect benchmark results from running `go test -bench=Encode`
 five times before and after a particular change.
 
 The file old.txt contains:
@@ -71,7 +73,6 @@ If run with just one input file, benchstat summarizes that file:
     name        time/op
     GobEncode   13.6ms ± 1%
     JSONEncode  32.1ms ± 1%
-    $
 
 If run with two input files, benchstat summarizes and compares:
 
@@ -79,7 +80,6 @@ If run with two input files, benchstat summarizes and compares:
     name        old time/op  new time/op  delta
     GobEncode   13.6ms ± 1%  11.8ms ± 1%  -13.31% (p=0.016 n=4+5)
     JSONEncode  32.1ms ± 1%  31.8ms ± 1%     ~    (p=0.286 n=4+5)
-    $
 
 Note that the JSONEncode result is reported as statistically insignificant
 instead of a -0.93% delta.
