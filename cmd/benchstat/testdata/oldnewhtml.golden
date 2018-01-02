@@ -1,3 +1,8 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Performance Result Comparison</title>
 <style>
 .benchstat { border-collapse: collapse; }
 .benchstat th:nth-child(1) { text-align: left; }
@@ -7,6 +12,8 @@
 .benchstat .better td.delta { font-weight: bold; }
 .benchstat .worse td.delta { font-weight: bold; color: #c00; }
 </style>
+</head>
+<body>
 
 <table class='benchstat oldnew'>
 <tr class='configs'><th><th>old.txt<th>new.txt
@@ -95,3 +102,5 @@
 </tbody>
 
 </table>
+</body>
+</html>

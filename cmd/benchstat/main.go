@@ -157,15 +157,21 @@ func main() {
 
 	var buf bytes.Buffer
 	if *flagHTML {
-		buf.WriteString(htmlStyle)
+		buf.WriteString(htmlHeader)
 		benchstat.FormatHTML(&buf, tables)
+		buf.WriteString(htmlFooter)
 	} else {
 		benchstat.FormatText(&buf, tables)
 	}
 	os.Stdout.Write(buf.Bytes())
 }
 
-var htmlStyle = `<style>
+var htmlHeader = `<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Performance Result Comparison</title>
+<style>
 .benchstat { border-collapse: collapse; }
 .benchstat th:nth-child(1) { text-align: left; }
 .benchstat tbody td:nth-child(1n+2):not(.note) { text-align: right; padding: 0em 1em; }
@@ -174,4 +180,9 @@ var htmlStyle = `<style>
 .benchstat .better td.delta { font-weight: bold; }
 .benchstat .worse td.delta { font-weight: bold; color: #c00; }
 </style>
+</head>
+<body>
+`
+var htmlFooter = `</body>
+</html>
 `
