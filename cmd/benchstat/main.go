@@ -110,11 +110,13 @@ func usage() {
 }
 
 var (
-	flagDeltaTest = flag.String("delta-test", "utest", "significance `test` to apply to delta: utest, ttest, or none")
-	flagAlpha     = flag.Float64("alpha", 0.05, "consider change significant if p < `α`")
-	flagGeomean   = flag.Bool("geomean", false, "print the geometric mean of each file")
-	flagHTML      = flag.Bool("html", false, "print results as an HTML table")
-	flagSplit     = flag.String("split", "pkg,goos,goarch", "split benchmarks by `labels`")
+	flagDeltaTest   = flag.String("delta-test", "utest", "significance `test` to apply to delta: utest, ttest, or none")
+	flagAlpha       = flag.Float64("alpha", 0.05, "consider change significant if p < `α`")
+	flagGeomean     = flag.Bool("geomean", false, "print the geometric mean of each file")
+	flagHTML        = flag.Bool("html", false, "print results as an HTML table")
+	flagSplit       = flag.String("split", "pkg,goos,goarch", "split benchmarks by `labels`")
+	flagSort        = flag.String("sort", "none", "sort by this `header`: benchmark, delta, change")
+	flagReverseSort = flag.Bool("reverse", false, "reverse the sort order")
 )
 
 var deltaTestNames = map[string]benchstat.DeltaTest{
@@ -127,13 +129,21 @@ var deltaTestNames = map[string]benchstat.DeltaTest{
 	"ttest":  benchstat.TTest,
 }
 
+var sortNames = map[string]benchstat.SortFunc{
+	"none":      nil,
+	"benchmark": benchstat.ByName,
+	"delta":     benchstat.ByDelta,
+	"change":    benchstat.ByChange,
+}
+
 func main() {
 	log.SetPrefix("benchstat: ")
 	log.SetFlags(0)
 	flag.Usage = usage
 	flag.Parse()
 	deltaTest := deltaTestNames[strings.ToLower(*flagDeltaTest)]
-	if flag.NArg() < 1 || deltaTest == nil {
+	sortType, ok := sortNames[strings.ToLower(*flagSort)]
+	if flag.NArg() < 1 || deltaTest == nil || !ok {
 		flag.Usage()
 	}
 
@@ -145,6 +155,12 @@ func main() {
 	if *flagSplit != "" {
 		c.SplitBy = strings.Split(*flagSplit, ",")
 	}
+	if sortType != nil {
+		if *flagReverseSort {
+			sortType = benchstat.SortReverse(sortType)
+		}
+		c.SortBy = sortType
+	}
 	for _, file := range flag.Args() {
 		data, err := ioutil.ReadFile(file)
 		if err != nil {
@@ -154,7 +170,6 @@ func main() {
 	}
 
 	tables := c.Tables()
-
 	var buf bytes.Buffer
 	if *flagHTML {
 		buf.WriteString(htmlHeader)

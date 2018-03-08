@@ -26,6 +26,7 @@ type Row struct {
 	Group     string     // group name
 	Scaler    Scaler     // formatter for stats means
 	Metrics   []*Metrics // columns of statistics
+	PctDelta  float64    // unformatted percent change
 	Delta     string     // formatted percent change
 	Note      string     // additional information
 	Change    int        // +1 better, -1 worse, 0 unchanged
@@ -89,6 +90,7 @@ func (c *Collection) Tables() []*Table {
 						continue
 					}
 					pval, testerr := deltaTest(old, new)
+					row.PctDelta = 0.00
 					row.Delta = "~"
 					if testerr == stats.ErrZeroVariance {
 						row.Note = "(zero variance)"
@@ -103,6 +105,7 @@ func (c *Collection) Tables() []*Table {
 							row.Delta = "0.00%"
 						} else {
 							pct := ((new.Mean / old.Mean) - 1.0) * 100.0
+							row.PctDelta = pct
 							row.Delta = fmt.Sprintf("%+.2f%%", pct)
 							if pct < 0 == (table.Metric != "speed") { // smaller is better, except speeds
 								row.Change = +1
@@ -121,6 +124,9 @@ func (c *Collection) Tables() []*Table {
 		}
 
 		if len(table.Rows) > 0 {
+			if c.SortBy != nil {
+				SortTable(table, c.SortBy)
+			}
 			if c.AddGeoMean {
 				addGeomean(c, table, key.Unit, table.OldNewDelta)
 			}
@@ -200,7 +206,9 @@ func addGeomean(c *Collection, t *Table, unit string, delta bool) {
 		return
 	}
 	if delta {
-		row.Delta = fmt.Sprintf("%+.2f%%", ((geomeans[1]/geomeans[0])-1.0)*100.0)
+		pct := ((geomeans[1] / geomeans[0]) - 1.0) * 100.0
+		row.PctDelta = pct
+		row.Delta = fmt.Sprintf("%+.2f%%", pct)
 	}
 	t.Rows = append(t.Rows, row)
 }
