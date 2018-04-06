@@ -45,11 +45,10 @@ type Collection struct {
 	// By default, results will only be split by full name.
 	SplitBy []string
 
-	// SortBy specifies the function by which tables in this collection
-	// should be sorted.
-	// By default, tables will not be specifically sorted, and will appear
-	// in the order they were read in
-	SortBy SortFunc
+	// Order specifies the row display order for this table.
+	// If Order is nil, the table rows are printed in order of
+	// first appearance in the input.
+	Order Order
 }
 
 // A Key identifies one metric (e.g., "ns/op", "B/op") from one

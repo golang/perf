@@ -124,8 +124,8 @@ func (c *Collection) Tables() []*Table {
 		}
 
 		if len(table.Rows) > 0 {
-			if c.SortBy != nil {
-				SortTable(table, c.SortBy)
+			if c.Order != nil {
+				Sort(table, c.Order)
 			}
 			if c.AddGeoMean {
 				addGeomean(c, table, key.Unit, table.OldNewDelta)

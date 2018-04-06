@@ -27,20 +27,20 @@ func extractRowChange(row *Row) int {
 func benchmarkSortTest(t *testing.T, sampleTable *Table) {
 	numRows := len(sampleTable.Rows)
 	benchmarks := make([]string, numRows)
-	SortTable(sampleTable, ByName)
+	Sort(sampleTable, ByName)
 	for idx, row := range sampleTable.Rows {
 		benchmarks[idx] = extractRowBenchmark(row)
 	}
 	t.Run("BenchSorted", func(t *testing.T) {
 		if !sort.StringsAreSorted(benchmarks) {
-			t.Error("Table not sorted by benchmarks")
+			t.Error("Table not sorted by names")
 		}
 	})
-	SortTable(sampleTable, SortReverse(ByName))
+	Sort(sampleTable, Reverse(ByName))
 	for idx, row := range sampleTable.Rows {
 		benchmarks[numRows-idx-1] = extractRowBenchmark(row)
 	}
-	t.Run("BenchSortReversed", func(t *testing.T) {
+	t.Run("BenchReversed", func(t *testing.T) {
 		if !sort.StringsAreSorted(benchmarks) {
 			t.Error("Table not reverse sorted by benchmarks")
 		}
@@ -50,45 +50,22 @@ func benchmarkSortTest(t *testing.T, sampleTable *Table) {
 func deltaSortTest(t *testing.T, sampleTable *Table) {
 	numRows := len(sampleTable.Rows)
 	deltas := make([]float64, numRows)
-	SortTable(sampleTable, ByDelta)
+	Sort(sampleTable, ByDelta)
 	for idx, row := range sampleTable.Rows {
-		deltas[idx] = extractRowDelta(row)
+		deltas[idx] = -extractRowDelta(row)
 	}
 	t.Run("DeltaSorted", func(t *testing.T) {
 		if !sort.Float64sAreSorted(deltas) {
-			t.Error("Table not sorted by deltas")
+			t.Errorf("Table not sorted by deltas: %v", deltas)
 		}
 	})
-	SortTable(sampleTable, SortReverse(ByDelta))
+	Sort(sampleTable, Reverse(ByDelta))
 	for idx, row := range sampleTable.Rows {
-		deltas[numRows-idx-1] = extractRowDelta(row)
+		deltas[idx] = extractRowDelta(row)
 	}
-	t.Run("DeltaSortReversed", func(t *testing.T) {
+	t.Run("DeltaReversed", func(t *testing.T) {
 		if !sort.Float64sAreSorted(deltas) {
 			t.Error("Table not reverse sorted by deltas")
-		}
-	})
-}
-
-func changeSortTest(t *testing.T, sampleTable *Table) {
-	numRows := len(sampleTable.Rows)
-	changes := make([]int, numRows)
-	SortTable(sampleTable, ByChange)
-	for idx, row := range sampleTable.Rows {
-		changes[idx] = extractRowChange(row)
-	}
-	t.Run("ChangeSorted", func(t *testing.T) {
-		if !sort.IntsAreSorted(changes) {
-			t.Error("Table not sorted by changes")
-		}
-	})
-	SortTable(sampleTable, SortReverse(ByChange))
-	for idx, row := range sampleTable.Rows {
-		changes[numRows-idx-1] = extractRowChange(row)
-	}
-	t.Run("ChangeSortReversed", func(t *testing.T) {
-		if !sort.IntsAreSorted(changes) {
-			t.Error("Table not reverse sorted by changes")
 		}
 	})
 }
@@ -112,9 +89,6 @@ func TestCompareCollection(t *testing.T) {
 	})
 	t.Run("DeltaSort", func(t *testing.T) {
 		deltaSortTest(t, sampleTable)
-	})
-	t.Run("ChangeSort", func(t *testing.T) {
-		changeSortTest(t, sampleTable)
 	})
 }
 

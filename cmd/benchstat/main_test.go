@@ -40,9 +40,9 @@ func TestGolden(t *testing.T) {
 	check(t, "packages", "packagesold.txt", "packagesnew.txt")
 	check(t, "units", "units-old.txt", "units-new.txt")
 	check(t, "zero", "-delta-test=none", "zero-old.txt", "zero-new.txt")
-	check(t, "benchsort", "-sort=benchmark", "old.txt", "new.txt")
+	check(t, "namesort", "-sort=name", "old.txt", "new.txt")
 	check(t, "deltasort", "-sort=delta", "old.txt", "new.txt")
-	check(t, "changesort", "-sort=change", "old.txt", "new.txt")
+	check(t, "rdeltasort", "-sort=-delta", "old.txt", "new.txt")
 }
 
 func check(t *testing.T, name string, files ...string) {
@@ -65,6 +65,7 @@ func check(t *testing.T, name string, files ...string) {
 		stderr := os.Stderr
 		os.Stdout = w
 		os.Stderr = w
+		exit = func(code int) { t.Fatalf("exit %d during main", code) }
 		*flagGeomean = false
 		*flagHTML = false
 		*flagDeltaTest = "utest"
@@ -75,6 +76,7 @@ func check(t *testing.T, name string, files ...string) {
 		w.Close()
 		os.Stdout = stdout
 		os.Stderr = stderr
+		exit = os.Exit
 
 		data := <-c
 		golden, err := ioutil.ReadFile(name + ".golden")

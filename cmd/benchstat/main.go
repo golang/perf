@@ -6,7 +6,7 @@
 //
 // Usage:
 //
-//	benchstat [-delta-test name] [-geomean] [-html] old.txt [new.txt] [more.txt ...]
+//	benchstat [-delta-test name] [-geomean] [-html] [-sort order] old.txt [new.txt] [more.txt ...]
 //
 // Each input file should contain the concatenated output of a number
 // of runs of ``go test -bench.'' For each different benchmark listed in an input file,
@@ -36,6 +36,10 @@
 // with no column for percent change or statistical significance.
 //
 // The -html option causes benchstat to print the results as an HTML table.
+//
+// The -sort option specifies an order in which to list the results:
+// none (input order), delta (percent improvement), or name (benchmark name).
+// A leading “-” prefix, as in “-delta”, reverses the order.
 //
 // Example
 //
@@ -102,21 +106,22 @@ import (
 	"golang.org/x/perf/benchstat"
 )
 
+var exit = os.Exit // replaced during testing
+
 func usage() {
 	fmt.Fprintf(os.Stderr, "usage: benchstat [options] old.txt [new.txt] [more.txt ...]\n")
 	fmt.Fprintf(os.Stderr, "options:\n")
 	flag.PrintDefaults()
-	os.Exit(2)
+	exit(2)
 }
 
 var (
-	flagDeltaTest   = flag.String("delta-test", "utest", "significance `test` to apply to delta: utest, ttest, or none")
-	flagAlpha       = flag.Float64("alpha", 0.05, "consider change significant if p < `α`")
-	flagGeomean     = flag.Bool("geomean", false, "print the geometric mean of each file")
-	flagHTML        = flag.Bool("html", false, "print results as an HTML table")
-	flagSplit       = flag.String("split", "pkg,goos,goarch", "split benchmarks by `labels`")
-	flagSort        = flag.String("sort", "none", "sort by this `header`: benchmark, delta, change")
-	flagReverseSort = flag.Bool("reverse", false, "reverse the sort order")
+	flagDeltaTest = flag.String("delta-test", "utest", "significance `test` to apply to delta: utest, ttest, or none")
+	flagAlpha     = flag.Float64("alpha", 0.05, "consider change significant if p < `α`")
+	flagGeomean   = flag.Bool("geomean", false, "print the geometric mean of each file")
+	flagHTML      = flag.Bool("html", false, "print results as an HTML table")
+	flagSplit     = flag.String("split", "pkg,goos,goarch", "split benchmarks by `labels`")
+	flagSort      = flag.String("sort", "none", "sort by `order`: [-]delta, [-]name, none")
 )
 
 var deltaTestNames = map[string]benchstat.DeltaTest{
@@ -129,11 +134,10 @@ var deltaTestNames = map[string]benchstat.DeltaTest{
 	"ttest":  benchstat.TTest,
 }
 
-var sortNames = map[string]benchstat.SortFunc{
-	"none":      nil,
-	"benchmark": benchstat.ByName,
-	"delta":     benchstat.ByDelta,
-	"change":    benchstat.ByChange,
+var sortNames = map[string]benchstat.Order{
+	"none":  nil,
+	"name":  benchstat.ByName,
+	"delta": benchstat.ByDelta,
 }
 
 func main() {
@@ -142,7 +146,13 @@ func main() {
 	flag.Usage = usage
 	flag.Parse()
 	deltaTest := deltaTestNames[strings.ToLower(*flagDeltaTest)]
-	sortType, ok := sortNames[strings.ToLower(*flagSort)]
+	sortName := *flagSort
+	reverse := false
+	if strings.HasPrefix(sortName, "-") {
+		reverse = true
+		sortName = sortName[1:]
+	}
+	order, ok := sortNames[sortName]
 	if flag.NArg() < 1 || deltaTest == nil || !ok {
 		flag.Usage()
 	}
@@ -155,11 +165,11 @@ func main() {
 	if *flagSplit != "" {
 		c.SplitBy = strings.Split(*flagSplit, ",")
 	}
-	if sortType != nil {
-		if *flagReverseSort {
-			sortType = benchstat.SortReverse(sortType)
+	if order != nil {
+		if reverse {
+			order = benchstat.Reverse(order)
 		}
-		c.SortBy = sortType
+		c.Order = order
 	}
 	for _, file := range flag.Args() {
 		data, err := ioutil.ReadFile(file)
