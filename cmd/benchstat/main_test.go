@@ -10,8 +10,13 @@ import (
 	"io/ioutil"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"testing"
 )
+
+func dotSlash(s string) string {
+	return "." + string(filepath.Separator) + s
+}
 
 func TestGolden(t *testing.T) {
 	if err := os.Chdir("testdata"); err != nil {
@@ -43,6 +48,15 @@ func TestGolden(t *testing.T) {
 	check(t, "namesort", "-sort=name", "old.txt", "new.txt")
 	check(t, "deltasort", "-sort=delta", "old.txt", "new.txt")
 	check(t, "rdeltasort", "-sort=-delta", "old.txt", "new.txt")
+
+	check(t, "oldcsv", "-geomean", "-csv", "old.txt")
+	check(t, "allcsv", "-geomean", "-csv", "old.txt", "new.txt", "slashslash4.txt", "x386.txt")
+	check(t, "allnosplitcsv", "-geomean", "-csv", "-split", "", dotSlash("new.txt"), dotSlash("old.txt"), dotSlash("slashslash4.txt"), dotSlash("x386.txt")) // note order: new old slashslash4 x386; dotSlash tests common prefix removal
+
+	if dotSlash("x") == "./x" { // Golden files have hardcoded "/" path separators in them
+		check(t, "allnorangecsv", "-geomean", "-csv", "-norange", dotSlash("old.txt"), dotSlash("new.txt"), "slashslash4.txt", "x386.txt") // Mixed ./ tests common prefix non-removal
+	}
+
 }
 
 func check(t *testing.T, name string, files ...string) {
@@ -68,6 +82,7 @@ func check(t *testing.T, name string, files ...string) {
 		exit = func(code int) { t.Fatalf("exit %d during main", code) }
 		*flagGeomean = false
 		*flagHTML = false
+		*flagNoRange = false
 		*flagDeltaTest = "utest"
 		*flagSplit = flag.Lookup("split").DefValue
 
@@ -95,7 +110,8 @@ func diff(t *testing.T, old, new []byte) string {
 	if len(data) > 0 {
 		return string(data)
 	}
-	return "ERROR: " + err.Error()
+	// Most likely, "diff not found" so print the bad output so there is something.
+	return "ERROR: " + err.Error() + ": test output = \n" + string(old)
 }
 
 func writeTemp(t *testing.T, data []byte) string {
