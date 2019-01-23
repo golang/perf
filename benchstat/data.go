@@ -7,6 +7,7 @@ package benchstat
 import (
 	"bytes"
 	"fmt"
+	"io"
 	"strconv"
 	"strings"
 
@@ -159,17 +160,27 @@ func (c *Collection) addMetrics(key Key) *Metrics {
 
 // AddConfig adds the benchmark results in the formatted data
 // to the named configuration.
+// If the input is large, AddFile should be preferred,
+// since it avoids the need to read a copy of the entire raw input
+// into memory.
 func (c *Collection) AddConfig(config string, data []byte) {
-	c.Configs = append(c.Configs, config)
-	key := Key{Config: config}
-	br := benchfmt.NewReader(bytes.NewReader(data))
-	for br.Next() {
-		c.addResult(key, br.Result())
-	}
-	if err := br.Err(); err != nil {
+	err := c.AddFile(config, bytes.NewReader(data))
+	if err != nil {
 		// bytes.Reader never returns errors
 		panic(err)
 	}
+}
+
+// AddFile adds the benchmark results in the formatted data
+// (read from the reader r) to the named configuration.
+func (c *Collection) AddFile(config string, r io.Reader) error {
+	c.Configs = append(c.Configs, config)
+	key := Key{Config: config}
+	br := benchfmt.NewReader(r)
+	for br.Next() {
+		c.addResult(key, br.Result())
+	}
+	return br.Err()
 }
 
 // AddResults adds the benchmark results to the named configuration.

@@ -98,7 +98,6 @@ import (
 	"bytes"
 	"flag"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"os"
 	"strings"
@@ -172,11 +171,14 @@ func main() {
 		c.Order = order
 	}
 	for _, file := range flag.Args() {
-		data, err := ioutil.ReadFile(file)
+		f, err := os.Open(file)
 		if err != nil {
 			log.Fatal(err)
 		}
-		c.AddConfig(file, data)
+		if err := c.AddFile(file, f); err != nil {
+			log.Fatal(err)
+		}
+		f.Close()
 	}
 
 	tables := c.Tables()
