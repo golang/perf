@@ -7,6 +7,7 @@ package benchstat
 import (
 	"io/ioutil"
 	"log"
+	"runtime"
 	"sort"
 	"testing"
 )
@@ -71,6 +72,9 @@ func deltaSortTest(t *testing.T, sampleTable *Table) {
 }
 
 func TestCompareCollection(t *testing.T) {
+	if runtime.GOOS == "android" {
+		t.Skipf("files not available on GOOS=%s", runtime.GOOS)
+	}
 	sampleCompareCollection := Collection{Alpha: 0.05, AddGeoMean: false, DeltaTest: UTest}
 	file1Data, err := ioutil.ReadFile(file1)
 	if err != nil {
@@ -93,6 +97,9 @@ func TestCompareCollection(t *testing.T) {
 }
 
 func TestSingleCollection(t *testing.T) {
+	if runtime.GOOS == "android" {
+		t.Skipf("files not available on GOOS=%s", runtime.GOOS)
+	}
 	sampleCollection := Collection{Alpha: 0.05, AddGeoMean: false, DeltaTest: UTest}
 	file1Data, err1 := ioutil.ReadFile(file1)
 	if err1 != nil {
