@@ -2,10 +2,8 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// +build appengine
-
-// Package appengine contains an AppEngine app for perf.golang.org
-package appengine
+// This binary contains an App Engine app for perf.golang.org
+package main
 
 import (
 	"log"
@@ -51,6 +49,7 @@ func appHandler(w http.ResponseWriter, r *http.Request) {
 	mux.ServeHTTP(w, r)
 }
 
-func init() {
+func main() {
 	http.HandleFunc("/", appHandler)
+	appengine.Main()
 }

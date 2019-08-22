@@ -1,19 +1,11 @@
-# Update with
-#	google_appengine/appcfg.py [-V dev-test] update .
-#
-# Using -V dev-test will run as dev-test.perf.golang.org.
-
-application: golang-org
-module: perf
-version: main
-runtime: go
-api_version: go1
+runtime: go111
+service: perf
 
 handlers:
-- url: /_ah/remote_api
-  script: _go_app
-- url: /.*
-  script: _go_app
-  secure: always
+  - url: /_ah/remote_api
+    script: auto
+  - url: /.*
+    script: auto
+    secure: always
 env_variables:
-  STORAGE_URL_BASE: "https://perfdata.golang.org"
+  STORAGE_URL_BASE: 'https://perfdata.golang.org'
