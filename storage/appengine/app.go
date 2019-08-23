@@ -33,9 +33,15 @@ func connectDB() (*db.DB, error) {
 		user           = mustGetenv("CLOUDSQL_USER")
 		password       = os.Getenv("CLOUDSQL_PASSWORD") // NOTE: password may be empty
 		dbName         = mustGetenv("CLOUDSQL_DATABASE")
+		socket         = os.Getenv("CLOUDSQL_SOCKET_PREFIX")
 	)
 
-	return db.OpenSQL("mysql", fmt.Sprintf("%s:%s@cloudsql(%s)/%s?interpolateParams=true", user, password, connectionName, dbName))
+	// /cloudsql is used on App Engine.
+	if socket == "" {
+		socket = "/cloudsql"
+	}
+
+	return db.OpenSQL("mysql", fmt.Sprintf("%s:%s@unix(%s/%s)/%s", user, password, socket, connectionName, dbName))
 }
 
 func mustGetenv(k string) string {
