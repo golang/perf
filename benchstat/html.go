@@ -5,8 +5,8 @@
 package benchstat
 
 import (
-	"bytes"
 	"html/template"
+	"io"
 	"strings"
 )
 
@@ -75,12 +75,7 @@ func htmlGroup(rows []*Row) (out [][]*Row) {
 	return
 }
 
-// FormatHTML appends an HTML formatting of the tables to buf.
-func FormatHTML(buf *bytes.Buffer, tables []*Table) {
-	err := htmlTemplate.Execute(buf, tables)
-	if err != nil {
-		// Only possible errors here are template not matching data structure.
-		// Don't make caller check - it's our fault.
-		panic(err)
-	}
+// FormatHTML appends an HTML formatting of the tables to w.
+func FormatHTML(w io.Writer, tables []*Table) {
+	must(htmlTemplate.Execute(w, tables))
 }
