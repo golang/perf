@@ -1,5 +1,6 @@
-runtime: go111
+runtime: go113
 service: perfdata
+instance_class: F4_HIGHMEM
 
 handlers:
   - url: /_ah/remote_api
