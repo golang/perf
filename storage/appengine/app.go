@@ -22,7 +22,6 @@ import (
 	oauth2 "google.golang.org/api/oauth2/v2"
 	"google.golang.org/appengine"
 	aelog "google.golang.org/appengine/log"
-	"google.golang.org/appengine/urlfetch"
 	"google.golang.org/appengine/user"
 )
 
@@ -96,8 +95,7 @@ func oauthServiceUser(ctx context.Context, r *http.Request) (string, error) {
 	}
 	tok = tok[len("Bearer "):]
 
-	hc := urlfetch.Client(ctx)
-	service, err := oauth2.New(hc)
+	service, err := oauth2.New(http.DefaultClient)
 	if err != nil {
 		return "", err
 	}
