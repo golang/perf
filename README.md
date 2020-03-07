@@ -32,8 +32,8 @@ tools to be written against the API. A client can be found in the
 
 ## Download/Install
 
-The easiest way to install is to run `go get -u golang.org/x/perf/cmd/...`. You can
-also manually git clone the repository to `$GOPATH/src/golang.org/x/perf`.
+The easiest way to install is to run `go get golang.org/x/perf/cmd/...`.
+You can also manually git clone the repository and run `go install ./cmd/...`.
 
 ## Report Issues / Send Patches
 
