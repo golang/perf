@@ -15,7 +15,6 @@ import (
 	"golang.org/x/perf/analysis/app"
 	"golang.org/x/perf/storage"
 	"google.golang.org/appengine"
-	"google.golang.org/appengine/urlfetch"
 )
 
 func mustGetenv(k string) string {
@@ -39,9 +38,10 @@ func appHandler(w http.ResponseWriter, r *http.Request) {
 	ctx, cancel := context.WithTimeout(ctx, 60*time.Second)
 	defer cancel()
 	app := &app.App{
+		BaseDir: "analysis/appengine", // relative to module root
 		StorageClient: &storage.Client{
 			BaseURL:    mustGetenv("STORAGE_URL_BASE"),
-			HTTPClient: urlfetch.Client(ctx),
+			HTTPClient: http.DefaultClient,
 		},
 	}
 	mux := http.NewServeMux()
