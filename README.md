@@ -1,5 +1,7 @@
 # Go performance measurement, storage, and analysis tools
 
+[![Go Reference](https://pkg.go.dev/badge/golang.org/x/perf.svg)](https://pkg.go.dev/golang.org/x/perf)
+
 This subrepository holds the source for various packages and tools
 related to performance measurement, storage, and analysis.
 
