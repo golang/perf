@@ -1,0 +1,306 @@
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-135465
+tmp dwarf args quality wc =  36 tmp-bench-dwarf-135465
+tmp stmt args quality wc =  2 tmp-bench-dwarf-135465
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-135465
+goos: linux
+goarch: amd64
+Benchmarkk8s_schedulercache_dwarf_input_goodness 1 0.59 inputs-quality
+Benchmarkk8s_schedulercache_dwarf_args_goodness 1 0.855791 args-quality
+Benchmarkk8s_schedulercache_dwarf_stmt_goodness 1 0.9975 stmts-quality
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-137681
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-137681
+tmp stmt args quality wc =  2 tmp-bench-dwarf-137681
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-137681
+goos: linux
+goarch: amd64
+Benchmarkcespare_xxhash_dwarf_input_goodness 1 0.59 inputs-quality
+Benchmarkcespare_xxhash_dwarf_args_goodness 1 0.936547 args-quality
+Benchmarkcespare_xxhash_dwarf_stmt_goodness 1 0.9922 stmts-quality
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-138983
+tmp dwarf args quality wc =  11 tmp-bench-dwarf-138983
+tmp stmt args quality wc =  2 tmp-bench-dwarf-138983
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-138983
+goos: linux
+goarch: amd64
+Benchmarkuber_zap_dwarf_input_goodness 1 0.59 inputs-quality
+Benchmarkuber_zap_dwarf_args_goodness 1 0.899337 args-quality
+Benchmarkuber_zap_dwarf_stmt_goodness 1 0.9955 stmts-quality
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-139918
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-139918
+tmp stmt args quality wc =  2 tmp-bench-dwarf-139918
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-139918
+goos: linux
+goarch: amd64
+Benchmarkgonum_community_dwarf_input_goodness 1 0.54 inputs-quality
+Benchmarkgonum_community_dwarf_args_goodness 1 0.923156 args-quality
+Benchmarkgonum_community_dwarf_stmt_goodness 1 0.9930 stmts-quality
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-141119
+tmp dwarf args quality wc =  124 tmp-bench-dwarf-141119
+tmp stmt args quality wc =  2 tmp-bench-dwarf-141119
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-141119
+goos: linux
+goarch: amd64
+Benchmarkethereum_ethash_dwarf_input_goodness 1 0.58 inputs-quality
+Benchmarkethereum_ethash_dwarf_args_goodness 1 0.896651 args-quality
+Benchmarkethereum_ethash_dwarf_stmt_goodness 1 0.9922 stmts-quality
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-141440
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-141440
+tmp stmt args quality wc =  2 tmp-bench-dwarf-141440
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-141440
+goos: linux
+goarch: amd64
+Benchmarkkanzi_dwarf_input_goodness 1 0.58 inputs-quality
+Benchmarkkanzi_dwarf_args_goodness 1 0.937330 args-quality
+Benchmarkkanzi_dwarf_stmt_goodness 1 0.9907 stmts-quality
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-142689
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-142689
+tmp stmt args quality wc =  2 tmp-bench-dwarf-142689
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-142689
+goos: linux
+goarch: amd64
+Benchmarkcapnproto2_dwarf_input_goodness 1 0.58 inputs-quality
+Benchmarkcapnproto2_dwarf_args_goodness 1 0.936311 args-quality
+Benchmarkcapnproto2_dwarf_stmt_goodness 1 0.9941 stmts-quality
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-143417
+tmp dwarf args quality wc =  9 tmp-bench-dwarf-143417
+tmp stmt args quality wc =  2 tmp-bench-dwarf-143417
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-143417
+goos: linux
+goarch: amd64
+Benchmarkgonum_mat_dwarf_input_goodness 1 0.54 inputs-quality
+Benchmarkgonum_mat_dwarf_args_goodness 1 0.900986 args-quality
+Benchmarkgonum_mat_dwarf_stmt_goodness 1 0.9937 stmts-quality
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-144598
+tmp dwarf args quality wc =  5 tmp-bench-dwarf-144598
+tmp stmt args quality wc =  2 tmp-bench-dwarf-144598
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-144598
+goos: linux
+goarch: amd64
+Benchmarkgonum_blas_native_dwarf_input_goodness 1 0.55 inputs-quality
+Benchmarkgonum_blas_native_dwarf_args_goodness 1 0.950209 args-quality
+Benchmarkgonum_blas_native_dwarf_stmt_goodness 1 0.9946 stmts-quality
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-144828
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-144828
+tmp stmt args quality wc =  2 tmp-bench-dwarf-144828
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-144828
+goos: linux
+goarch: amd64
+Benchmarkdustin_broadcast_dwarf_input_goodness 1 0.59 inputs-quality
+Benchmarkdustin_broadcast_dwarf_args_goodness 1 0.934901 args-quality
+Benchmarkdustin_broadcast_dwarf_stmt_goodness 1 0.9925 stmts-quality
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-145800
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-145800
+tmp stmt args quality wc =  2 tmp-bench-dwarf-145800
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-145800
+goos: linux
+goarch: amd64
+Benchmarkgonum_topo_dwarf_input_goodness 1 0.56 inputs-quality
+Benchmarkgonum_topo_dwarf_args_goodness 1 0.932893 args-quality
+Benchmarkgonum_topo_dwarf_stmt_goodness 1 0.9928 stmts-quality
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-146032
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-146032
+tmp stmt args quality wc =  2 tmp-bench-dwarf-146032
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-146032
+goos: linux
+goarch: amd64
+Benchmarkdustin_humanize_dwarf_input_goodness 1 0.59 inputs-quality
+Benchmarkdustin_humanize_dwarf_args_goodness 1 0.906996 args-quality
+Benchmarkdustin_humanize_dwarf_stmt_goodness 1 0.9927 stmts-quality
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-147627
+tmp dwarf args quality wc =  132 tmp-bench-dwarf-147627
+tmp stmt args quality wc =  2 tmp-bench-dwarf-147627
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-147627
+goos: linux
+goarch: amd64
+Benchmarkethereum_storage_dwarf_input_goodness 1 0.59 inputs-quality
+Benchmarkethereum_storage_dwarf_args_goodness 1 0.898855 args-quality
+Benchmarkethereum_storage_dwarf_stmt_goodness 1 0.9921 stmts-quality
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-148532
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-148532
+tmp stmt args quality wc =  2 tmp-bench-dwarf-148532
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-148532
+goos: linux
+goarch: amd64
+Benchmarkgonum_traverse_dwarf_input_goodness 1 0.57 inputs-quality
+Benchmarkgonum_traverse_dwarf_args_goodness 1 0.933529 args-quality
+Benchmarkgonum_traverse_dwarf_stmt_goodness 1 0.9923 stmts-quality
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-155209
+tmp dwarf args quality wc =  114 tmp-bench-dwarf-155209
+tmp stmt args quality wc =  2 tmp-bench-dwarf-155209
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-155209
+goos: linux
+goarch: amd64
+Benchmarkethereum_corevm_dwarf_input_goodness 1 0.58 inputs-quality
+Benchmarkethereum_corevm_dwarf_args_goodness 1 0.870820 args-quality
+Benchmarkethereum_corevm_dwarf_stmt_goodness 1 0.9886 stmts-quality
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-158717
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-158717
+tmp stmt args quality wc =  2 tmp-bench-dwarf-158717
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-158717
+goos: linux
+goarch: amd64
+Benchmarkrcrowley_metrics_dwarf_input_goodness 1 0.59 inputs-quality
+Benchmarkrcrowley_metrics_dwarf_args_goodness 1 0.904707 args-quality
+Benchmarkrcrowley_metrics_dwarf_stmt_goodness 1 0.9919 stmts-quality
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-160340
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-160340
+tmp stmt args quality wc =  2 tmp-bench-dwarf-160340
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-160340
+goos: linux
+goarch: amd64
+Benchmarkcespare_mph_dwarf_input_goodness 1 0.59 inputs-quality
+Benchmarkcespare_mph_dwarf_args_goodness 1 0.937843 args-quality
+Benchmarkcespare_mph_dwarf_stmt_goodness 1 0.9923 stmts-quality
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-160670
+tmp dwarf args quality wc =  6 tmp-bench-dwarf-160670
+tmp stmt args quality wc =  2 tmp-bench-dwarf-160670
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-160670
+goos: linux
+goarch: amd64
+Benchmarkericlagergren_decimal_dwarf_input_goodness 1 0.59 inputs-quality
+Benchmarkericlagergren_decimal_dwarf_args_goodness 1 0.923951 args-quality
+Benchmarkericlagergren_decimal_dwarf_stmt_goodness 1 0.9920 stmts-quality
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-163004
+tmp dwarf args quality wc =  25 tmp-bench-dwarf-163004
+tmp stmt args quality wc =  2 tmp-bench-dwarf-163004
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-163004
+goos: linux
+goarch: amd64
+Benchmarkk8s_api_dwarf_input_goodness 1 0.59 inputs-quality
+Benchmarkk8s_api_dwarf_args_goodness 1 0.846591 args-quality
+Benchmarkk8s_api_dwarf_stmt_goodness 1 0.9974 stmts-quality
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-163301
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-163301
+tmp stmt args quality wc =  2 tmp-bench-dwarf-163301
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-163301
+goos: linux
+goarch: amd64
+Benchmarkgtank_blake2s_dwarf_input_goodness 1 0.58 inputs-quality
+Benchmarkgtank_blake2s_dwarf_args_goodness 1 0.937363 args-quality
+Benchmarkgtank_blake2s_dwarf_stmt_goodness 1 0.9930 stmts-quality
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-165190
+tmp dwarf args quality wc =  5 tmp-bench-dwarf-165190
+tmp stmt args quality wc =  2 tmp-bench-dwarf-165190
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-165190
+goos: linux
+goarch: amd64
+Benchmarkgonum_lapack_native_dwarf_input_goodness 1 0.57 inputs-quality
+Benchmarkgonum_lapack_native_dwarf_args_goodness 1 0.903830 args-quality
+Benchmarkgonum_lapack_native_dwarf_stmt_goodness 1 0.9935 stmts-quality
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-166179
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-166179
+tmp stmt args quality wc =  2 tmp-bench-dwarf-166179
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-166179
+goos: linux
+goarch: amd64
+Benchmarksemver_dwarf_input_goodness 1 0.59 inputs-quality
+Benchmarksemver_dwarf_args_goodness 1 0.940220 args-quality
+Benchmarksemver_dwarf_stmt_goodness 1 0.9931 stmts-quality
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-169557
+tmp dwarf args quality wc =  474 tmp-bench-dwarf-169557
+tmp stmt args quality wc =  2 tmp-bench-dwarf-169557
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-169557
+goos: linux
+goarch: amd64
+Benchmarkminio_dwarf_input_goodness 1 0.57 inputs-quality
+Benchmarkminio_dwarf_args_goodness 1 0.892932 args-quality
+Benchmarkminio_dwarf_stmt_goodness 1 0.9914 stmts-quality
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-171269
+tmp dwarf args quality wc =  115 tmp-bench-dwarf-171269
+tmp stmt args quality wc =  2 tmp-bench-dwarf-171269
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-171269
+goos: linux
+goarch: amd64
+Benchmarkethereum_trie_dwarf_input_goodness 1 0.59 inputs-quality
+Benchmarkethereum_trie_dwarf_args_goodness 1 0.904049 args-quality
+Benchmarkethereum_trie_dwarf_stmt_goodness 1 0.9886 stmts-quality
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-173668
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-173668
+tmp stmt args quality wc =  2 tmp-bench-dwarf-173668
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-173668
+goos: linux
+goarch: amd64
+Benchmarknelsam_gxui_interval_dwarf_input_goodness 1 0.59 inputs-quality
+Benchmarknelsam_gxui_interval_dwarf_args_goodness 1 0.934111 args-quality
+Benchmarknelsam_gxui_interval_dwarf_stmt_goodness 1 0.9923 stmts-quality
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-175319
+tmp dwarf args quality wc =  29 tmp-bench-dwarf-175319
+tmp stmt args quality wc =  2 tmp-bench-dwarf-175319
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-175319
+goos: linux
+goarch: amd64
+Benchmarkhugo_helpers_dwarf_input_goodness 1 0.59 inputs-quality
+Benchmarkhugo_helpers_dwarf_args_goodness 1 0.877448 args-quality
+Benchmarkhugo_helpers_dwarf_stmt_goodness 1 0.9956 stmts-quality
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-175664
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-175664
+tmp stmt args quality wc =  2 tmp-bench-dwarf-175664
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-175664
+goos: linux
+goarch: amd64
+Benchmarkcommonmark_markdown_dwarf_input_goodness 1 0.56 inputs-quality
+Benchmarkcommonmark_markdown_dwarf_args_goodness 1 0.862729 args-quality
+Benchmarkcommonmark_markdown_dwarf_stmt_goodness 1 0.9949 stmts-quality
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-178540
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-178540
+tmp stmt args quality wc =  2 tmp-bench-dwarf-178540
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-178540
+goos: linux
+goarch: amd64
+Benchmarkgonum_path_dwarf_input_goodness 1 0.57 inputs-quality
+Benchmarkgonum_path_dwarf_args_goodness 1 0.926660 args-quality
+Benchmarkgonum_path_dwarf_stmt_goodness 1 0.9931 stmts-quality
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-179324
+tmp dwarf args quality wc =  6 tmp-bench-dwarf-179324
+tmp stmt args quality wc =  2 tmp-bench-dwarf-179324
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-179324
+goos: linux
+goarch: amd64
+Benchmarkbenhoyt_goawk_dwarf_input_goodness 1 0.58 inputs-quality
+Benchmarkbenhoyt_goawk_dwarf_args_goodness 1 0.895798 args-quality
+Benchmarkbenhoyt_goawk_dwarf_stmt_goodness 1 0.9928 stmts-quality
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-179715
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-179715
+tmp stmt args quality wc =  2 tmp-bench-dwarf-179715
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-179715
+goos: linux
+goarch: amd64
+Benchmarkspexs2_dwarf_input_goodness 1 0.59 inputs-quality
+Benchmarkspexs2_dwarf_args_goodness 1 0.937633 args-quality
+Benchmarkspexs2_dwarf_stmt_goodness 1 0.9927 stmts-quality
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-179966
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-179966
+tmp stmt args quality wc =  2 tmp-bench-dwarf-179966
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-179966
+goos: linux
+goarch: amd64
+Benchmarkethereum_bitutil_dwarf_input_goodness 1 0.60 inputs-quality
+Benchmarkethereum_bitutil_dwarf_args_goodness 1 0.930941 args-quality
+Benchmarkethereum_bitutil_dwarf_stmt_goodness 1 0.9927 stmts-quality
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-181799
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-181799
+tmp stmt args quality wc =  2 tmp-bench-dwarf-181799
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-181799
+goos: linux
+goarch: amd64
+Benchmarkajstarks_deck_generate_dwarf_input_goodness 1 0.59 inputs-quality
+Benchmarkajstarks_deck_generate_dwarf_args_goodness 1 0.934455 args-quality
+Benchmarkajstarks_deck_generate_dwarf_stmt_goodness 1 0.9923 stmts-quality
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-182910
+tmp dwarf args quality wc =  126 tmp-bench-dwarf-182910
+tmp stmt args quality wc =  2 tmp-bench-dwarf-182910
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-182910
+goos: linux
+goarch: amd64
+Benchmarkethereum_core_dwarf_input_goodness 1 0.57 inputs-quality
+Benchmarkethereum_core_dwarf_args_goodness 1 0.888828 args-quality
+Benchmarkethereum_core_dwarf_stmt_goodness 1 0.9925 stmts-quality
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-183191
+tmp dwarf args quality wc =  6 tmp-bench-dwarf-183191
+tmp stmt args quality wc =  2 tmp-bench-dwarf-183191
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-183191
+goos: linux
+goarch: amd64
+Benchmarkbindata_dwarf_input_goodness 1 0.61 inputs-quality
+Benchmarkbindata_dwarf_args_goodness 1 0.936266 args-quality
+Benchmarkbindata_dwarf_stmt_goodness 1 0.9935 stmts-quality

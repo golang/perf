@@ -1,0 +1,4775 @@
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     268	   4330798 ns/op	17865787 B/op	      74 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	      88	  14465517 ns/op	12060612 B/op	   52672 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 9607308	       125 ns/op
+BenchmarkBaseTest2KB-12              	 1986160	       602 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   66116	     18037 ns/op	    9984 B/op	      15 allocs/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     914	   1373216 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4594503	       260 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12     	51407546	        22.8 ns/op
+BenchmarkCompactToHex-12     	35667094	        33.7 ns/op
+BenchmarkKeybytesToHex-12    	33001430	        36.1 ns/op
+BenchmarkHexToKeybytes-12    	52605199	        22.9 ns/op
+BenchmarkGet-12              	 6896518	       174 ns/op
+BenchmarkGetDB-12            	 7440099	       162 ns/op
+BenchmarkUpdateBE-12         	 1000000	      1076 ns/op
+BenchmarkUpdateLE-12         	 1000000	      1383 ns/op
+BenchmarkHash-12             	  353938	      3464 ns/op	     669 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24254938440 ns/op
+BenchmarkRun/10k/16-12      	       1	5229299551 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  298449	      4019 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1402719	       856 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   31056	     38512 ns/op
+BenchmarkDgeev/Circulant100-12        	     121	   9899247 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  61207774 ns/op
+BenchmarkScaleVec10000Inc20-12                	   51256	     22191 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1488310	       802 ns/op	     248 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  433657	      2748 ns/op
+BenchmarkReaderContains-12    	  218202	      5508 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  170857	      7009 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  193252	      6488 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      15	  76910161 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      56	  21033949 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  424532	      2926 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     127	   9398867 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2823	    424094 ns/op
+BenchmarkGrowth_MultiSegment-12            	     100	  11807587 ns/op	  88.81 MB/s	 1648627 B/op	      21 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  857985	      1264 ns/op
+BenchmarkAddingFields/apex/log-12          	   41174	     28904 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   36006	     34056 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   36067	     33758 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 215584574 ns/op	  31.84 MB/s	159354964 B/op	   17017 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      43	  27783399 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   53436	     22412 ns/op	 365.52 MB/s
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2786286	       429 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  328117	      3654 ns/op
+BenchmarkPolygon-12    	  180745	      6661 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   67878	     17575 ns/op
+BenchmarkRegexMatch-12       	  864067	      1386 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    8058	    145601 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3728	    321807 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    3043	    389081 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  268201	      4454 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9738	    119678 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199483	      6012 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3229557	       373 ns/op
+BenchmarkParallelDirectSend-12    	 3134880	       383 ns/op
+BenchmarkParallelBrodcast-12      	 2144446	       562 ns/op
+BenchmarkMuxBrodcast-12           	 2076523	       551 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  755282	      1633 ns/op
+BenchmarkFtoaRegexTrailing-12    	  574920	      2169 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     910	   1326380 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.631 ns/op
+BenchmarkFPAQ-12    	      39	  30332726 ns/op
+BenchmarkLZ-12      	    1826	    665635 ns/op
+BenchmarkMTFT-12    	     258	   4671066 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     207	   6126999 ns/op
+BenchmarkRenderSpec-12                	     195	   5845084 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     320	   3773564 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     274	   4303812 ns/op	17864152 B/op	      74 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	      84	  14405385 ns/op	12061934 B/op	   52620 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 9588832	       125 ns/op
+BenchmarkBaseTest2KB-12              	 1995568	       601 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   66259	     18086 ns/op	    9984 B/op	      15 allocs/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     927	   1303896 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4560580	       262 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12     	51029923	        22.8 ns/op
+BenchmarkCompactToHex-12     	35693919	        33.8 ns/op
+BenchmarkKeybytesToHex-12    	33001321	        36.1 ns/op
+BenchmarkHexToKeybytes-12    	51408546	        22.9 ns/op
+BenchmarkGet-12              	 6851912	       176 ns/op
+BenchmarkGetDB-12            	 7424628	       160 ns/op
+BenchmarkUpdateBE-12         	 1000000	      1088 ns/op
+BenchmarkUpdateLE-12         	 1000000	      1351 ns/op
+BenchmarkHash-12             	  363631	      3529 ns/op	     668 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24323865521 ns/op
+BenchmarkRun/10k/16-12      	       1	5151342940 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  298352	      4020 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1403095	       856 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   31058	     38682 ns/op
+BenchmarkDgeev/Circulant100-12        	     121	   9835139 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  61255697 ns/op
+BenchmarkScaleVec10000Inc20-12                	   51267	     22477 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1509051	       798 ns/op	     248 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  428517	      2744 ns/op
+BenchmarkReaderContains-12    	  217239	      5510 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  168592	      6990 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  195376	      6319 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      15	  77055332 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      56	  21101205 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  411871	      2955 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     126	   9416321 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2791	    421509 ns/op
+BenchmarkGrowth_MultiSegment-12            	     100	  11818440 ns/op	  88.73 MB/s	 1648650 B/op	      21 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  914052	      1263 ns/op
+BenchmarkAddingFields/apex/log-12          	   40936	     29062 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   35701	     33953 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   35682	     33759 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 217292265 ns/op	  31.59 MB/s	159353875 B/op	   17013 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      42	  28071205 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   53510	     22764 ns/op	 359.86 MB/s
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2820417	       426 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  328352	      3661 ns/op
+BenchmarkPolygon-12    	  179396	      6620 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   68012	     17519 ns/op
+BenchmarkRegexMatch-12       	  854812	      1393 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    8234	    145452 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3721	    321426 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    3034	    392158 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  269338	      4437 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9762	    120130 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199419	      6010 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3245570	       372 ns/op
+BenchmarkParallelDirectSend-12    	 3058266	       382 ns/op
+BenchmarkParallelBrodcast-12      	 2145396	       555 ns/op
+BenchmarkMuxBrodcast-12           	 2124759	       546 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  756831	      1511 ns/op
+BenchmarkFtoaRegexTrailing-12    	  580843	      2106 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     909	   1312907 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.623 ns/op
+BenchmarkFPAQ-12    	      39	  29525097 ns/op
+BenchmarkLZ-12      	    1834	    642822 ns/op
+BenchmarkMTFT-12    	     258	   4635960 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     198	   5648224 ns/op
+BenchmarkRenderSpec-12                	     211	   5661769 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     321	   3732762 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     276	   4331030 ns/op	17865190 B/op	      75 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	      86	  14470559 ns/op	12070524 B/op	   52642 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 9597747	       125 ns/op
+BenchmarkBaseTest2KB-12              	 1995990	       601 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   65997	     18045 ns/op	    9984 B/op	      15 allocs/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     915	   1300185 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4639624	       257 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12     	51088838	        22.8 ns/op
+BenchmarkCompactToHex-12     	35401201	        33.9 ns/op
+BenchmarkKeybytesToHex-12    	33187464	        36.2 ns/op
+BenchmarkHexToKeybytes-12    	52345402	        22.9 ns/op
+BenchmarkGet-12              	 6852187	       174 ns/op
+BenchmarkGetDB-12            	 7415995	       161 ns/op
+BenchmarkUpdateBE-12         	 1000000	      1099 ns/op
+BenchmarkUpdateLE-12         	 1000000	      1383 ns/op
+BenchmarkHash-12             	  354856	      3446 ns/op	     669 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24426591360 ns/op
+BenchmarkRun/10k/16-12      	       1	5272093523 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  298216	      4018 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1401849	       856 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   30903	     39491 ns/op
+BenchmarkDgeev/Circulant100-12        	     121	   9876328 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  61297097 ns/op
+BenchmarkScaleVec10000Inc20-12                	   52176	     22560 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1504436	       798 ns/op	     248 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  432730	      2748 ns/op
+BenchmarkReaderContains-12    	  217578	      5502 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  170719	      7037 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  195968	      6345 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      15	  77016962 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      56	  21033158 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  429388	      2918 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     127	   9418809 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2817	    424129 ns/op
+BenchmarkGrowth_MultiSegment-12            	      99	  11819950 ns/op	  88.71 MB/s	 1648629 B/op	      21 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  871765	      1245 ns/op
+BenchmarkAddingFields/apex/log-12          	   41269	     28696 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   35683	     33955 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   35823	     33732 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 216283661 ns/op	  31.74 MB/s	159353731 B/op	   17011 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      43	  27536367 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   53559	     22384 ns/op	 365.98 MB/s
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2818184	       427 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  325052	      3654 ns/op
+BenchmarkPolygon-12    	  181328	      6620 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   67684	     17572 ns/op
+BenchmarkRegexMatch-12       	  865324	      1385 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    8166	    145525 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3733	    322053 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    3044	    391287 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  269055	      4439 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9852	    119424 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199534	      6012 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3216453	       373 ns/op
+BenchmarkParallelDirectSend-12    	 3130846	       381 ns/op
+BenchmarkParallelBrodcast-12      	 2148628	       554 ns/op
+BenchmarkMuxBrodcast-12           	 2085595	       574 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  763760	      1511 ns/op
+BenchmarkFtoaRegexTrailing-12    	  578685	      2091 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     912	   1315245 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.623 ns/op
+BenchmarkFPAQ-12    	      39	  29505375 ns/op
+BenchmarkLZ-12      	    1838	    642726 ns/op
+BenchmarkMTFT-12    	     258	   4633239 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     211	   5899680 ns/op
+BenchmarkRenderSpec-12                	     207	   5784472 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     321	   3738064 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     277	   4263325 ns/op	17864317 B/op	      75 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	      86	  14490479 ns/op	12062944 B/op	   52632 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 9574272	       125 ns/op
+BenchmarkBaseTest2KB-12              	 1996953	       603 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   66235	     18045 ns/op	    9984 B/op	      15 allocs/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     910	   1305230 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4631269	       258 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12     	50327748	        22.9 ns/op
+BenchmarkCompactToHex-12     	35604729	        33.8 ns/op
+BenchmarkKeybytesToHex-12    	33341737	        36.2 ns/op
+BenchmarkHexToKeybytes-12    	52330184	        23.0 ns/op
+BenchmarkGet-12              	 6813565	       174 ns/op
+BenchmarkGetDB-12            	 7382250	       161 ns/op
+BenchmarkUpdateBE-12         	 1000000	      1089 ns/op
+BenchmarkUpdateLE-12         	 1000000	      1389 ns/op
+BenchmarkHash-12             	  353840	      3445 ns/op	     669 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24561678358 ns/op
+BenchmarkRun/10k/16-12      	       1	5416185779 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  298009	      4018 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1402620	       855 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   31059	     38457 ns/op
+BenchmarkDgeev/Circulant100-12        	     121	   9869602 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  61327178 ns/op
+BenchmarkScaleVec10000Inc20-12                	   52202	     22362 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1513458	       797 ns/op	     248 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  420504	      2747 ns/op
+BenchmarkReaderContains-12    	  219054	      5497 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  170067	      6996 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  195894	      6346 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      15	  76932471 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      56	  21050716 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  425212	      2957 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     127	   9412811 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2822	    421624 ns/op
+BenchmarkGrowth_MultiSegment-12            	      98	  11847993 ns/op	  88.50 MB/s	 1648614 B/op	      21 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  923020	      1263 ns/op
+BenchmarkAddingFields/apex/log-12          	   41607	     28803 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   35655	     33774 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   35628	     33614 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 218270899 ns/op	  31.45 MB/s	159352692 B/op	   17006 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      42	  27872421 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   53552	     22397 ns/op	 365.77 MB/s
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2813228	       426 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  329814	      3702 ns/op
+BenchmarkPolygon-12    	  181512	      6605 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   67802	     17593 ns/op
+BenchmarkRegexMatch-12       	  856564	      1403 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    8127	    145604 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3702	    321597 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    3098	    389773 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  270772	      4435 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9807	    119579 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199552	      6026 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3233906	       374 ns/op
+BenchmarkParallelDirectSend-12    	 3174402	       380 ns/op
+BenchmarkParallelBrodcast-12      	 2165334	       555 ns/op
+BenchmarkMuxBrodcast-12           	 2078426	       531 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  757647	      1515 ns/op
+BenchmarkFtoaRegexTrailing-12    	  580416	      2077 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     909	   1317320 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.622 ns/op
+BenchmarkFPAQ-12    	      39	  29524067 ns/op
+BenchmarkLZ-12      	    1834	    642744 ns/op
+BenchmarkMTFT-12    	     258	   4632434 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     211	   5659451 ns/op
+BenchmarkRenderSpec-12                	     211	   5658756 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     320	   3821354 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     265	   4386379 ns/op	17865884 B/op	      75 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	      87	  14328676 ns/op	12076540 B/op	   52671 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 9587254	       125 ns/op
+BenchmarkBaseTest2KB-12              	 1996886	       601 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   66099	     18037 ns/op	    9984 B/op	      15 allocs/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     914	   1297981 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4576724	       258 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12     	50882449	        22.9 ns/op
+BenchmarkCompactToHex-12     	35602575	        33.8 ns/op
+BenchmarkKeybytesToHex-12    	33398209	        36.1 ns/op
+BenchmarkHexToKeybytes-12    	52602628	        22.9 ns/op
+BenchmarkGet-12              	 6870258	       175 ns/op
+BenchmarkGetDB-12            	 7216192	       163 ns/op
+BenchmarkUpdateBE-12         	 1000000	      1096 ns/op
+BenchmarkUpdateLE-12         	 1000000	      1384 ns/op
+BenchmarkHash-12             	  350211	      3526 ns/op	     670 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24522591572 ns/op
+BenchmarkRun/10k/16-12      	       1	5343581380 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  297949	      4017 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1402993	       855 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   30940	     38638 ns/op
+BenchmarkDgeev/Circulant100-12        	     120	   9886752 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  61372055 ns/op
+BenchmarkScaleVec10000Inc20-12                	   51182	     22199 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1516248	       796 ns/op	     248 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  422090	      2748 ns/op
+BenchmarkReaderContains-12    	  218205	      5506 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  168182	      7039 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  196849	      6312 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      15	  77012844 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      56	  21062136 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  426322	      2939 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     126	   9440270 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2823	    425370 ns/op
+BenchmarkGrowth_MultiSegment-12            	      99	  11837017 ns/op	  88.59 MB/s	 1648611 B/op	      21 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  917850	      1258 ns/op
+BenchmarkAddingFields/apex/log-12          	   41694	     28733 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   35695	     34044 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   35437	     33805 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 217707914 ns/op	  31.53 MB/s	159354102 B/op	   17014 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      42	  28846418 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   53601	     22409 ns/op	 365.57 MB/s
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2795636	       428 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  327505	      3646 ns/op
+BenchmarkPolygon-12    	  181155	      6624 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   67454	     17507 ns/op
+BenchmarkRegexMatch-12       	  856862	      1383 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    8134	    145745 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3739	    321952 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    3020	    390532 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  270129	      4437 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9810	    119436 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199093	      6012 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3223263	       372 ns/op
+BenchmarkParallelDirectSend-12    	 3148552	       383 ns/op
+BenchmarkParallelBrodcast-12      	 2160061	       558 ns/op
+BenchmarkMuxBrodcast-12           	 2121632	       566 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  749268	      1505 ns/op
+BenchmarkFtoaRegexTrailing-12    	  580929	      2089 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     913	   1312037 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.622 ns/op
+BenchmarkFPAQ-12    	      39	  29515884 ns/op
+BenchmarkLZ-12      	    1833	    642758 ns/op
+BenchmarkMTFT-12    	     258	   4631514 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     211	   5648564 ns/op
+BenchmarkRenderSpec-12                	     211	   5654025 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     321	   3725747 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     282	   4358996 ns/op	17865285 B/op	      75 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	      87	  14239278 ns/op	12016014 B/op	   52403 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 9613141	       125 ns/op
+BenchmarkBaseTest2KB-12              	 1993579	       602 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   66426	     18042 ns/op	    9984 B/op	      15 allocs/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     909	   1302720 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4584948	       259 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12     	51254602	        22.9 ns/op
+BenchmarkCompactToHex-12     	35556832	        33.8 ns/op
+BenchmarkKeybytesToHex-12    	33264696	        36.2 ns/op
+BenchmarkHexToKeybytes-12    	52368406	        22.9 ns/op
+BenchmarkGet-12              	 6756812	       177 ns/op
+BenchmarkGetDB-12            	 7424164	       161 ns/op
+BenchmarkUpdateBE-12         	 1000000	      1090 ns/op
+BenchmarkUpdateLE-12         	 1000000	      1380 ns/op
+BenchmarkHash-12             	  362500	      3533 ns/op	     668 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24224800684 ns/op
+BenchmarkRun/10k/16-12      	       1	5290088273 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  298486	      4018 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1401954	       856 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   31138	     38987 ns/op
+BenchmarkDgeev/Circulant100-12        	     121	   9885370 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  61349749 ns/op
+BenchmarkScaleVec10000Inc20-12                	   52304	     22538 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1510356	       800 ns/op	     248 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  436424	      2743 ns/op
+BenchmarkReaderContains-12    	  216374	      5503 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  168374	      7004 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  197281	      6289 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      15	  76799979 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      56	  21014580 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  431414	      2918 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     126	   9489494 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2838	    422650 ns/op
+BenchmarkGrowth_MultiSegment-12            	      99	  11808935 ns/op	  88.80 MB/s	 1648631 B/op	      21 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  873414	      1251 ns/op
+BenchmarkAddingFields/apex/log-12          	   42229	     28926 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   35528	     34078 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   35865	     33544 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 217585380 ns/op	  31.55 MB/s	159353313 B/op	   17012 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      43	  28099532 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   53157	     22612 ns/op	 362.28 MB/s
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2717168	       427 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  319767	      3644 ns/op
+BenchmarkPolygon-12    	  172633	      6613 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   67863	     17523 ns/op
+BenchmarkRegexMatch-12       	  859258	      1388 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    8251	    145722 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3734	    322176 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    3080	    390544 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  268477	      4431 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9598	    119967 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199296	      6010 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3149917	       382 ns/op
+BenchmarkParallelDirectSend-12    	 3103953	       385 ns/op
+BenchmarkParallelBrodcast-12      	 2155755	       559 ns/op
+BenchmarkMuxBrodcast-12           	 2081008	       533 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  737997	      1513 ns/op
+BenchmarkFtoaRegexTrailing-12    	  577774	      2085 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     910	   1310153 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.624 ns/op
+BenchmarkFPAQ-12    	      39	  29556226 ns/op
+BenchmarkLZ-12      	    1833	    642955 ns/op
+BenchmarkMTFT-12    	     258	   4632960 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     211	   5649940 ns/op
+BenchmarkRenderSpec-12                	     211	   5699388 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     322	   3737153 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     277	   4319983 ns/op	17865880 B/op	      75 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	      79	  14364168 ns/op	12079061 B/op	   52634 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 9583903	       125 ns/op
+BenchmarkBaseTest2KB-12              	 1989375	       603 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   66216	     18071 ns/op	    9984 B/op	      15 allocs/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     909	   1337380 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4146826	       293 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12     	51313594	        23.8 ns/op
+BenchmarkCompactToHex-12     	27692935	        38.5 ns/op
+BenchmarkKeybytesToHex-12    	29845674	        39.5 ns/op
+BenchmarkHexToKeybytes-12    	50776792	        23.9 ns/op
+BenchmarkGet-12              	 5728720	       193 ns/op
+BenchmarkGetDB-12            	 7237651	       161 ns/op
+BenchmarkUpdateBE-12         	 1000000	      1089 ns/op
+BenchmarkUpdateLE-12         	 1000000	      1386 ns/op
+BenchmarkHash-12             	  363799	      3583 ns/op	     668 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24338019431 ns/op
+BenchmarkRun/10k/16-12      	       1	5170946164 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  297158	      4016 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1402828	       859 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   30843	     38614 ns/op
+BenchmarkDgeev/Circulant100-12        	     121	   9877481 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  61416989 ns/op
+BenchmarkScaleVec10000Inc20-12                	   52138	     22221 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1519648	       793 ns/op	     248 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  432535	      2744 ns/op
+BenchmarkReaderContains-12    	  216885	      5511 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  169632	      7039 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  196255	      6334 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      15	  77135679 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      56	  21319574 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  421759	      2953 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     127	   9415415 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2829	    423861 ns/op
+BenchmarkGrowth_MultiSegment-12            	      99	  11827322 ns/op	  88.66 MB/s	 1648631 B/op	      21 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  843808	      1255 ns/op
+BenchmarkAddingFields/apex/log-12          	   41568	     28868 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   36055	     33787 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   35864	     33970 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 217611175 ns/op	  31.55 MB/s	159352862 B/op	   17006 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      43	  27903897 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   53438	     22408 ns/op	 365.58 MB/s
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2811541	       426 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  328882	      3703 ns/op
+BenchmarkPolygon-12    	  181291	      6607 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   67665	     17654 ns/op
+BenchmarkRegexMatch-12       	  856815	      1384 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    8086	    145483 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3729	    321553 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    3086	    388824 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  269097	      4442 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9777	    119708 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199425	      6008 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3200865	       378 ns/op
+BenchmarkParallelDirectSend-12    	 3133879	       383 ns/op
+BenchmarkParallelBrodcast-12      	 2158674	       556 ns/op
+BenchmarkMuxBrodcast-12           	 2088594	       550 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  751402	      1512 ns/op
+BenchmarkFtoaRegexTrailing-12    	  579176	      2090 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     901	   1313299 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.623 ns/op
+BenchmarkFPAQ-12    	      39	  29493703 ns/op
+BenchmarkLZ-12      	    1830	    642724 ns/op
+BenchmarkMTFT-12    	     258	   4638879 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     211	   5647142 ns/op
+BenchmarkRenderSpec-12                	     211	   5662044 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     320	   3730530 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     284	   4345007 ns/op	17866586 B/op	      75 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	      86	  14737553 ns/op	12063073 B/op	   52632 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 9583680	       125 ns/op
+BenchmarkBaseTest2KB-12              	 1992432	       602 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   66325	     18058 ns/op	    9984 B/op	      15 allocs/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     921	   1298251 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4598508	       259 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12     	50967596	        22.8 ns/op
+BenchmarkCompactToHex-12     	35578161	        33.8 ns/op
+BenchmarkKeybytesToHex-12    	32882989	        36.2 ns/op
+BenchmarkHexToKeybytes-12    	52441634	        22.9 ns/op
+BenchmarkGet-12              	 6786098	       174 ns/op
+BenchmarkGetDB-12            	 7337440	       161 ns/op
+BenchmarkUpdateBE-12         	 1000000	      1079 ns/op
+BenchmarkUpdateLE-12         	 1000000	      1387 ns/op
+BenchmarkHash-12             	  354952	      3449 ns/op	     669 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24496910596 ns/op
+BenchmarkRun/10k/16-12      	       1	5224469741 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  298051	      4016 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1402453	       856 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   30991	     39446 ns/op
+BenchmarkDgeev/Circulant100-12        	     120	   9894553 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  61430704 ns/op
+BenchmarkScaleVec10000Inc20-12                	   49803	     22455 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1502974	       801 ns/op	     248 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  432330	      2746 ns/op
+BenchmarkReaderContains-12    	  218458	      5511 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  169257	      7054 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  195226	      6384 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      15	  76841692 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      54	  21082457 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  419896	      2941 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     127	   9375803 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2808	    424219 ns/op
+BenchmarkGrowth_MultiSegment-12            	      99	  11808972 ns/op	  88.80 MB/s	 1648609 B/op	      21 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  922824	      1253 ns/op
+BenchmarkAddingFields/apex/log-12          	   42092	     28935 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   36075	     33718 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   35679	     33623 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 215818996 ns/op	  31.81 MB/s	159352392 B/op	   17006 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      42	  28181138 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   53616	     22390 ns/op	 365.88 MB/s
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2799452	       428 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  325521	      3680 ns/op
+BenchmarkPolygon-12    	  181317	      6628 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   68019	     17831 ns/op
+BenchmarkRegexMatch-12       	  863223	      1412 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    7983	    145449 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3722	    321038 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    3050	    390409 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  269708	      4433 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9765	    119564 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199533	      6013 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3142058	       380 ns/op
+BenchmarkParallelDirectSend-12    	 3141697	       381 ns/op
+BenchmarkParallelBrodcast-12      	 2154825	       556 ns/op
+BenchmarkMuxBrodcast-12           	 2121562	       590 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  750645	      1506 ns/op
+BenchmarkFtoaRegexTrailing-12    	  579301	      2087 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     908	   1316582 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.622 ns/op
+BenchmarkFPAQ-12    	      39	  29519922 ns/op
+BenchmarkLZ-12      	    1837	    642454 ns/op
+BenchmarkMTFT-12    	     256	   4632939 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     211	   5653000 ns/op
+BenchmarkRenderSpec-12                	     211	   5659796 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     322	   3729946 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     272	   4315904 ns/op	17865133 B/op	      75 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	      85	  14458204 ns/op	12066288 B/op	   52625 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 9603198	       125 ns/op
+BenchmarkBaseTest2KB-12              	 1994094	       602 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   66650	     18065 ns/op	    9984 B/op	      15 allocs/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     916	   1307926 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4656368	       260 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12     	51611701	        23.1 ns/op
+BenchmarkCompactToHex-12     	35335903	        33.9 ns/op
+BenchmarkKeybytesToHex-12    	33279343	        36.1 ns/op
+BenchmarkHexToKeybytes-12    	51939345	        22.9 ns/op
+BenchmarkGet-12              	 6806294	       175 ns/op
+BenchmarkGetDB-12            	 7405186	       160 ns/op
+BenchmarkUpdateBE-12         	 1000000	      1085 ns/op
+BenchmarkUpdateLE-12         	 1000000	      1389 ns/op
+BenchmarkHash-12             	  351499	      3463 ns/op	     670 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24222618245 ns/op
+BenchmarkRun/10k/16-12      	       1	5191005026 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  297248	      4017 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1402995	       855 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   30966	     39390 ns/op
+BenchmarkDgeev/Circulant100-12        	     121	   9862421 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  61884926 ns/op
+BenchmarkScaleVec10000Inc20-12                	   51553	     22146 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1513564	       797 ns/op	     248 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  429621	      2749 ns/op
+BenchmarkReaderContains-12    	  217342	      5510 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  169147	      7025 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  198304	      6276 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      15	  76828480 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      56	  21012604 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  419995	      2954 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     126	   9448022 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2829	    424260 ns/op
+BenchmarkGrowth_MultiSegment-12            	      99	  11995441 ns/op	  87.42 MB/s	 1648609 B/op	      21 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  939943	      1246 ns/op
+BenchmarkAddingFields/apex/log-12          	   41698	     28757 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   35976	     34054 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   35294	     33630 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 217463242 ns/op	  31.57 MB/s	159353272 B/op	   17010 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      42	  28124533 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   53635	     22407 ns/op	 365.59 MB/s
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2795532	       428 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  327987	      3722 ns/op
+BenchmarkPolygon-12    	  181514	      6610 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   67479	     17560 ns/op
+BenchmarkRegexMatch-12       	  859074	      1406 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    8072	    145989 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3639	    322749 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    3093	    396579 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  267457	      4444 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9786	    119590 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199440	      6009 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3206638	       373 ns/op
+BenchmarkParallelDirectSend-12    	 3089943	       382 ns/op
+BenchmarkParallelBrodcast-12      	 2163265	       558 ns/op
+BenchmarkMuxBrodcast-12           	 2079448	       541 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  731707	      1509 ns/op
+BenchmarkFtoaRegexTrailing-12    	  575616	      2093 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     914	   1315844 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.621 ns/op
+BenchmarkFPAQ-12    	      39	  29509463 ns/op
+BenchmarkLZ-12      	    1837	    643065 ns/op
+BenchmarkMTFT-12    	     258	   4627869 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     211	   5657303 ns/op
+BenchmarkRenderSpec-12                	     211	   5654264 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     320	   3742928 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     277	   4307460 ns/op	17865366 B/op	      75 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	      84	  14463208 ns/op	12061832 B/op	   52613 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 9598044	       125 ns/op
+BenchmarkBaseTest2KB-12              	 1993740	       602 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   65800	     18363 ns/op	    9984 B/op	      15 allocs/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     924	   1304714 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4589773	       259 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12     	51266565	        22.9 ns/op
+BenchmarkCompactToHex-12     	35569741	        33.8 ns/op
+BenchmarkKeybytesToHex-12    	33019138	        36.3 ns/op
+BenchmarkHexToKeybytes-12    	51862014	        22.9 ns/op
+BenchmarkGet-12              	 6812486	       175 ns/op
+BenchmarkGetDB-12            	 7380782	       161 ns/op
+BenchmarkUpdateBE-12         	 1000000	      1103 ns/op
+BenchmarkUpdateLE-12         	 1000000	      1390 ns/op
+BenchmarkHash-12             	  353204	      3466 ns/op	     670 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24166544914 ns/op
+BenchmarkRun/10k/16-12      	       1	5139986321 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  298248	      4017 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1403046	       855 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   30946	     38862 ns/op
+BenchmarkDgeev/Circulant100-12        	     121	   9880102 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  63152065 ns/op
+BenchmarkScaleVec10000Inc20-12                	   51242	     22185 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1507113	       804 ns/op	     248 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  425571	      2754 ns/op
+BenchmarkReaderContains-12    	  217479	      5521 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  169672	      7085 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  193734	      6423 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      15	  77059586 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      56	  21074944 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  416530	      2975 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     127	   9441153 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2839	    424754 ns/op
+BenchmarkGrowth_MultiSegment-12            	     100	  11823370 ns/op	  88.69 MB/s	 1648608 B/op	      21 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  854516	      1258 ns/op
+BenchmarkAddingFields/apex/log-12          	   42208	     28877 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   35443	     33819 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   35839	     33709 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 217720984 ns/op	  31.53 MB/s	159352204 B/op	   17008 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      43	  27682115 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   53434	     22380 ns/op	 366.04 MB/s
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2812346	       426 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  320694	      3643 ns/op
+BenchmarkPolygon-12    	  181831	      6619 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   68164	     17478 ns/op
+BenchmarkRegexMatch-12       	  860066	      1398 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    8038	    145570 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3733	    321905 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    3087	    393486 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  267808	      4444 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9782	    119800 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199423	      6009 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3189157	       379 ns/op
+BenchmarkParallelDirectSend-12    	 3127724	       380 ns/op
+BenchmarkParallelBrodcast-12      	 2159719	       562 ns/op
+BenchmarkMuxBrodcast-12           	 2091644	       530 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  773310	      1513 ns/op
+BenchmarkFtoaRegexTrailing-12    	  580485	      2075 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     906	   1317505 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.621 ns/op
+BenchmarkFPAQ-12    	      39	  29583406 ns/op
+BenchmarkLZ-12      	    1832	    642120 ns/op
+BenchmarkMTFT-12    	     258	   4639339 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     208	   5652700 ns/op
+BenchmarkRenderSpec-12                	     211	   5657735 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     320	   3743241 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     278	   4352612 ns/op	17865593 B/op	      75 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	      81	  14440876 ns/op	12072992 B/op	   52593 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 9602299	       125 ns/op
+BenchmarkBaseTest2KB-12              	 1964527	       605 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   66412	     18102 ns/op	    9984 B/op	      15 allocs/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     921	   1310692 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4590530	       264 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12     	51494299	        22.9 ns/op
+BenchmarkCompactToHex-12     	35211675	        33.9 ns/op
+BenchmarkKeybytesToHex-12    	33179131	        36.1 ns/op
+BenchmarkHexToKeybytes-12    	52475956	        22.9 ns/op
+BenchmarkGet-12              	 6838665	       175 ns/op
+BenchmarkGetDB-12            	 7143943	       161 ns/op
+BenchmarkUpdateBE-12         	 1000000	      1106 ns/op
+BenchmarkUpdateLE-12         	 1000000	      1386 ns/op
+BenchmarkHash-12             	  354231	      3524 ns/op	     669 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24581834588 ns/op
+BenchmarkRun/10k/16-12      	       1	5208980811 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  298086	      4017 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1401808	       856 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   30600	     38533 ns/op
+BenchmarkDgeev/Circulant100-12        	     120	   9844227 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  61717767 ns/op
+BenchmarkScaleVec10000Inc20-12                	   51366	     22174 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1504177	       796 ns/op	     248 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  438990	      2742 ns/op
+BenchmarkReaderContains-12    	  215104	      5503 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  169510	      7007 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  196065	      6324 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      15	  77011578 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      55	  21105569 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  422582	      2943 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     127	   9415767 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2844	    423016 ns/op
+BenchmarkGrowth_MultiSegment-12            	     100	  11818581 ns/op	  88.72 MB/s	 1648630 B/op	      21 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  929052	      1256 ns/op
+BenchmarkAddingFields/apex/log-12          	   41713	     28687 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   36031	     33806 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   35690	     33915 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 217601011 ns/op	  31.55 MB/s	159352824 B/op	   17009 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      39	  28339814 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   53347	     22436 ns/op	 365.13 MB/s
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2812470	       427 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  323664	      3649 ns/op
+BenchmarkPolygon-12    	  181210	      6615 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   68156	     17511 ns/op
+BenchmarkRegexMatch-12       	  858168	      1408 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    7951	    145633 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3739	    321578 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    3066	    389546 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  270988	      4447 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9788	    119595 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  198937	      6019 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3209468	       380 ns/op
+BenchmarkParallelDirectSend-12    	 3089509	       381 ns/op
+BenchmarkParallelBrodcast-12      	 2151300	       552 ns/op
+BenchmarkMuxBrodcast-12           	 2216908	       530 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  745045	      1505 ns/op
+BenchmarkFtoaRegexTrailing-12    	  580110	      2079 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     913	   1319038 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.621 ns/op
+BenchmarkFPAQ-12    	      39	  29535770 ns/op
+BenchmarkLZ-12      	    1832	    642374 ns/op
+BenchmarkMTFT-12    	     258	   4660429 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     208	   5651957 ns/op
+BenchmarkRenderSpec-12                	     211	   5659969 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     322	   3728996 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     273	   4373582 ns/op	17865180 B/op	      75 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	      86	  14437517 ns/op	12068450 B/op	   52617 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 9595418	       125 ns/op
+BenchmarkBaseTest2KB-12              	 1995583	       602 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   66250	     18058 ns/op	    9984 B/op	      15 allocs/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     928	   1298288 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4639646	       260 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12     	51179394	        22.9 ns/op
+BenchmarkCompactToHex-12     	35366523	        34.5 ns/op
+BenchmarkKeybytesToHex-12    	32827249	        36.1 ns/op
+BenchmarkHexToKeybytes-12    	51254594	        23.0 ns/op
+BenchmarkGet-12              	 6917524	       175 ns/op
+BenchmarkGetDB-12            	 7411465	       162 ns/op
+BenchmarkUpdateBE-12         	 1000000	      1082 ns/op
+BenchmarkUpdateLE-12         	 1000000	      1351 ns/op
+BenchmarkHash-12             	  357280	      3530 ns/op	     669 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24397973695 ns/op
+BenchmarkRun/10k/16-12      	       1	5360454318 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  293397	      4017 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1402687	       855 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   31214	     38564 ns/op
+BenchmarkDgeev/Circulant100-12        	     121	   9847531 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  61328705 ns/op
+BenchmarkScaleVec10000Inc20-12                	   51210	     22511 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1469962	       843 ns/op	     248 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  428600	      2781 ns/op
+BenchmarkReaderContains-12    	  218769	      5516 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  169500	      7044 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  193599	      6385 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      15	  76795742 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      56	  21026838 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  422052	      2962 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     127	   9447696 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2832	    423383 ns/op
+BenchmarkGrowth_MultiSegment-12            	     100	  11828113 ns/op	  88.65 MB/s	 1648629 B/op	      21 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  888285	      1265 ns/op
+BenchmarkAddingFields/apex/log-12          	   41892	     28911 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   35937	     33774 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   35767	     33869 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 217577188 ns/op	  31.55 MB/s	159352507 B/op	   17008 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      42	  28219321 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   53559	     22384 ns/op	 365.98 MB/s
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2760103	       430 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  328413	      3663 ns/op
+BenchmarkPolygon-12    	  181393	      6618 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   67918	     17480 ns/op
+BenchmarkRegexMatch-12       	  847821	      1402 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    8144	    145300 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3745	    322041 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    3082	    388424 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  268363	      4437 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9795	    119222 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199004	      6013 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3188737	       377 ns/op
+BenchmarkParallelDirectSend-12    	 3132595	       387 ns/op
+BenchmarkParallelBrodcast-12      	 2146873	       554 ns/op
+BenchmarkMuxBrodcast-12           	 2143813	       535 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  761215	      1509 ns/op
+BenchmarkFtoaRegexTrailing-12    	  579924	      2086 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     908	   1314839 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.623 ns/op
+BenchmarkFPAQ-12    	      39	  29520064 ns/op
+BenchmarkLZ-12      	    1832	    642790 ns/op
+BenchmarkMTFT-12    	     258	   4628619 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     211	   5638812 ns/op
+BenchmarkRenderSpec-12                	     211	   5672862 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     322	   3741029 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     276	   4297547 ns/op	17864063 B/op	      74 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	      88	  14316787 ns/op	12079102 B/op	   52705 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 9609140	       125 ns/op
+BenchmarkBaseTest2KB-12              	 1944456	       601 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   66003	     18057 ns/op	    9984 B/op	      15 allocs/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     909	   1310286 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4645969	       258 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12     	50968767	        22.9 ns/op
+BenchmarkCompactToHex-12     	35101330	        33.8 ns/op
+BenchmarkKeybytesToHex-12    	33510190	        36.9 ns/op
+BenchmarkHexToKeybytes-12    	51092743	        23.1 ns/op
+BenchmarkGet-12              	 6753901	       176 ns/op
+BenchmarkGetDB-12            	 7304368	       164 ns/op
+BenchmarkUpdateBE-12         	 1000000	      1088 ns/op
+BenchmarkUpdateLE-12         	 1000000	      1398 ns/op
+BenchmarkHash-12             	  352728	      3477 ns/op	     670 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24310613248 ns/op
+BenchmarkRun/10k/16-12      	       1	5228612980 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  298152	      4018 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1401480	       856 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   31081	     38596 ns/op
+BenchmarkDgeev/Circulant100-12        	     120	   9882446 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  61572807 ns/op
+BenchmarkScaleVec10000Inc20-12                	   52165	     22528 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1506694	       799 ns/op	     248 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  422494	      2739 ns/op
+BenchmarkReaderContains-12    	  217670	      5612 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  167499	      7120 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  194359	      6378 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      14	  76757406 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      56	  21116034 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  427321	      2912 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     127	   9392631 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2824	    422886 ns/op
+BenchmarkGrowth_MultiSegment-12            	      99	  11835676 ns/op	  88.60 MB/s	 1648634 B/op	      21 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  853122	      1257 ns/op
+BenchmarkAddingFields/apex/log-12          	   41272	     28650 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   35661	     33814 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   35530	     33595 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 216704248 ns/op	  31.68 MB/s	159352091 B/op	   17007 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      42	  28096294 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   53520	     22427 ns/op	 365.28 MB/s
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2815557	       427 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  327903	      3652 ns/op
+BenchmarkPolygon-12    	  181248	      6607 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   67947	     17606 ns/op
+BenchmarkRegexMatch-12       	  857512	      1396 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    8198	    145825 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3714	    321336 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    3051	    388969 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  270195	      4430 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9814	    119274 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199360	      6013 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3182457	       374 ns/op
+BenchmarkParallelDirectSend-12    	 3112153	       387 ns/op
+BenchmarkParallelBrodcast-12      	 2154984	       552 ns/op
+BenchmarkMuxBrodcast-12           	 2146522	       576 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  749394	      1509 ns/op
+BenchmarkFtoaRegexTrailing-12    	  572026	      2080 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     912	   1309371 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.622 ns/op
+BenchmarkFPAQ-12    	      39	  29914568 ns/op
+BenchmarkLZ-12      	    1837	    643011 ns/op
+BenchmarkMTFT-12    	     258	   4630592 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     212	   5644093 ns/op
+BenchmarkRenderSpec-12                	     211	   5659037 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     321	   3732102 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     267	   4364409 ns/op	17865880 B/op	      75 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	      87	  14540649 ns/op	12046568 B/op	   52548 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 9600487	       125 ns/op
+BenchmarkBaseTest2KB-12              	 1997440	       601 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   66456	     18051 ns/op	    9984 B/op	      15 allocs/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     922	   1302441 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4636546	       259 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12     	51484815	        22.9 ns/op
+BenchmarkCompactToHex-12     	35821801	        33.8 ns/op
+BenchmarkKeybytesToHex-12    	32871463	        36.1 ns/op
+BenchmarkHexToKeybytes-12    	51122324	        22.9 ns/op
+BenchmarkGet-12              	 6770851	       178 ns/op
+BenchmarkGetDB-12            	 7246018	       163 ns/op
+BenchmarkUpdateBE-12         	 1000000	      1072 ns/op
+BenchmarkUpdateLE-12         	 1000000	      1388 ns/op
+BenchmarkHash-12             	  346884	      3518 ns/op	     670 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24326260026 ns/op
+BenchmarkRun/10k/16-12      	       1	5336664799 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  297765	      4017 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1402615	       856 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   31203	     38513 ns/op
+BenchmarkDgeev/Circulant100-12        	     120	   9866281 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  61310432 ns/op
+BenchmarkScaleVec10000Inc20-12                	   52177	     22536 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1502218	       798 ns/op	     248 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  427978	      2748 ns/op
+BenchmarkReaderContains-12    	  216462	      5500 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  168192	      7042 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  195963	      6359 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      15	  76779832 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      56	  21051016 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  421707	      2962 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     126	   9410471 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2824	    423858 ns/op
+BenchmarkGrowth_MultiSegment-12            	     100	  11824686 ns/op	  88.68 MB/s	 1648613 B/op	      21 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  924427	      1261 ns/op
+BenchmarkAddingFields/apex/log-12          	   41569	     28744 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   36007	     33814 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   35630	     33660 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 216956156 ns/op	  31.64 MB/s	159352315 B/op	   17005 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      42	  27606525 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   53557	     22409 ns/op	 365.57 MB/s
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2795488	       428 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  327885	      3644 ns/op
+BenchmarkPolygon-12    	  180890	      6613 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   68214	     17492 ns/op
+BenchmarkRegexMatch-12       	  820432	      1399 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    8132	    145914 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3724	    322043 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    3054	    391977 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  267027	      4433 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9729	    119907 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  198937	      6010 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3278804	       382 ns/op
+BenchmarkParallelDirectSend-12    	 3112099	       381 ns/op
+BenchmarkParallelBrodcast-12      	 2133489	       553 ns/op
+BenchmarkMuxBrodcast-12           	 2064066	       558 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  745760	      1575 ns/op
+BenchmarkFtoaRegexTrailing-12    	  579573	      2099 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     910	   1318023 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.622 ns/op
+BenchmarkFPAQ-12    	      39	  29558951 ns/op
+BenchmarkLZ-12      	    1831	    642189 ns/op
+BenchmarkMTFT-12    	     258	   4631519 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     211	   5649149 ns/op
+BenchmarkRenderSpec-12                	     211	   5667242 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     322	   3731508 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     272	   4393120 ns/op	17864984 B/op	      74 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	      86	  14350468 ns/op	12071079 B/op	   52648 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 9580736	       125 ns/op
+BenchmarkBaseTest2KB-12              	 1990586	       602 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   66289	     18097 ns/op	    9984 B/op	      15 allocs/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     922	   1305053 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4626649	       261 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12     	51754244	        22.9 ns/op
+BenchmarkCompactToHex-12     	35571660	        33.8 ns/op
+BenchmarkKeybytesToHex-12    	33458899	        36.1 ns/op
+BenchmarkHexToKeybytes-12    	52315430	        23.0 ns/op
+BenchmarkGet-12              	 6913023	       180 ns/op
+BenchmarkGetDB-12            	 7412124	       161 ns/op
+BenchmarkUpdateBE-12         	 1000000	      1116 ns/op
+BenchmarkUpdateLE-12         	 1000000	      1415 ns/op
+BenchmarkHash-12             	  360776	      3532 ns/op	     668 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24477900634 ns/op
+BenchmarkRun/10k/16-12      	       1	5306836639 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  298309	      4016 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1402413	       855 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   31174	     38522 ns/op
+BenchmarkDgeev/Circulant100-12        	     121	   9849817 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  61455206 ns/op
+BenchmarkScaleVec10000Inc20-12                	   51296	     22547 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1506426	       803 ns/op	     248 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  432392	      2744 ns/op
+BenchmarkReaderContains-12    	  218529	      5492 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  170744	      7038 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  195638	      6318 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      15	  77101771 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      55	  21086925 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  424392	      2934 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     126	   9482000 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2823	    423062 ns/op
+BenchmarkGrowth_MultiSegment-12            	      99	  11831814 ns/op	  88.63 MB/s	 1648613 B/op	      21 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  924423	      1251 ns/op
+BenchmarkAddingFields/apex/log-12          	   41577	     28777 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   35508	     34039 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   35409	     33539 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 216099411 ns/op	  31.77 MB/s	159353115 B/op	   17010 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      42	  28067489 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   53587	     22396 ns/op	 365.78 MB/s
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2783329	       429 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  326854	      3665 ns/op
+BenchmarkPolygon-12    	  181058	      6632 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   68199	     17475 ns/op
+BenchmarkRegexMatch-12       	  855367	      1386 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    8176	    145571 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3729	    321713 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    3043	    391810 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  259113	      4428 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9830	    119421 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199449	      6013 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3236360	       373 ns/op
+BenchmarkParallelDirectSend-12    	 3110060	       382 ns/op
+BenchmarkParallelBrodcast-12      	 2152927	       554 ns/op
+BenchmarkMuxBrodcast-12           	 2062651	       549 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  767960	      1505 ns/op
+BenchmarkFtoaRegexTrailing-12    	  580206	      2090 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     913	   1329026 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.621 ns/op
+BenchmarkFPAQ-12    	      39	  29529017 ns/op
+BenchmarkLZ-12      	    1837	    642957 ns/op
+BenchmarkMTFT-12    	     252	   4664710 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     211	   5645884 ns/op
+BenchmarkRenderSpec-12                	     211	   5664439 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     321	   3736110 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     273	   4323839 ns/op	17865506 B/op	      74 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	      87	  14394857 ns/op	12065308 B/op	   52636 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 9598383	       125 ns/op
+BenchmarkBaseTest2KB-12              	 1996020	       601 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   66399	     18066 ns/op	    9984 B/op	      15 allocs/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     926	   1290245 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4521404	       262 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12     	51379551	        22.9 ns/op
+BenchmarkCompactToHex-12     	35750734	        33.7 ns/op
+BenchmarkKeybytesToHex-12    	33277472	        36.2 ns/op
+BenchmarkHexToKeybytes-12    	52391553	        22.9 ns/op
+BenchmarkGet-12              	 6848198	       175 ns/op
+BenchmarkGetDB-12            	 7426755	       162 ns/op
+BenchmarkUpdateBE-12         	 1000000	      1108 ns/op
+BenchmarkUpdateLE-12         	 1000000	      1412 ns/op
+BenchmarkHash-12             	  353419	      3465 ns/op	     670 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24462964969 ns/op
+BenchmarkRun/10k/16-12      	       1	5279727055 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  292936	      4016 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1400694	       855 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   31011	     38720 ns/op
+BenchmarkDgeev/Circulant100-12        	     121	   9891035 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  61274447 ns/op
+BenchmarkScaleVec10000Inc20-12                	   51411	     22514 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1508488	       797 ns/op	     248 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  435302	      2746 ns/op
+BenchmarkReaderContains-12    	  218282	      5510 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  169057	      7012 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  197955	      6341 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      15	  76985327 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      56	  21019219 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  416428	      3004 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     127	   9433693 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2824	    422147 ns/op
+BenchmarkGrowth_MultiSegment-12            	      98	  11874025 ns/op	  88.31 MB/s	 1648611 B/op	      21 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  870228	      1249 ns/op
+BenchmarkAddingFields/apex/log-12          	   41251	     29013 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   35266	     33595 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   35365	     33616 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 216383655 ns/op	  31.73 MB/s	159353436 B/op	   17012 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      40	  28313256 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   53560	     22428 ns/op	 365.25 MB/s
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2789311	       428 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  330074	      3651 ns/op
+BenchmarkPolygon-12    	  180447	      6610 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   68053	     17567 ns/op
+BenchmarkRegexMatch-12       	  863862	      1394 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    8122	    145604 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3742	    321655 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    3088	    389707 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  269430	      4446 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9789	    119351 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199174	      6014 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3252289	       373 ns/op
+BenchmarkParallelDirectSend-12    	 3135867	       381 ns/op
+BenchmarkParallelBrodcast-12      	 2146786	       559 ns/op
+BenchmarkMuxBrodcast-12           	 2078493	       578 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  769074	      1508 ns/op
+BenchmarkFtoaRegexTrailing-12    	  582619	      2119 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     909	   1312096 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.622 ns/op
+BenchmarkFPAQ-12    	      39	  29549494 ns/op
+BenchmarkLZ-12      	    1836	    642290 ns/op
+BenchmarkMTFT-12    	     256	   4633572 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     211	   5642965 ns/op
+BenchmarkRenderSpec-12                	     211	   5655906 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     320	   3729408 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     273	   4268571 ns/op	17865450 B/op	      74 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	      80	  14494234 ns/op	12099508 B/op	   52735 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 9598670	       125 ns/op
+BenchmarkBaseTest2KB-12              	 1984094	       609 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   66189	     18050 ns/op	    9984 B/op	      15 allocs/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     907	   1305625 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4652248	       258 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12     	51339096	        22.9 ns/op
+BenchmarkCompactToHex-12     	34933653	        33.7 ns/op
+BenchmarkKeybytesToHex-12    	32819566	        36.1 ns/op
+BenchmarkHexToKeybytes-12    	52485631	        22.9 ns/op
+BenchmarkGet-12              	 6839610	       177 ns/op
+BenchmarkGetDB-12            	 7412841	       162 ns/op
+BenchmarkUpdateBE-12         	 1000000	      1093 ns/op
+BenchmarkUpdateLE-12         	 1000000	      1391 ns/op
+BenchmarkHash-12             	  350581	      3452 ns/op	     670 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24885739551 ns/op
+BenchmarkRun/10k/16-12      	       1	5585360824 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  298352	      4019 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1395006	       856 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   29983	     38723 ns/op
+BenchmarkDgeev/Circulant100-12        	     100	  10035212 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  67945419 ns/op
+BenchmarkScaleVec10000Inc20-12                	   52161	     22483 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1395141	       856 ns/op	     248 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  326125	      3077 ns/op
+BenchmarkReaderContains-12    	  179397	      5927 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  149244	      7666 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  194068	      6518 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      14	  77419140 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      55	  22173269 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  417909	      2991 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     123	   9601294 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2626	    427189 ns/op
+BenchmarkGrowth_MultiSegment-12            	      91	  12693458 ns/op	  82.61 MB/s	 1648610 B/op	      21 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  808494	      1456 ns/op
+BenchmarkAddingFields/apex/log-12          	   41226	     29507 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   34974	     34231 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   35912	     33528 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 216756864 ns/op	  31.67 MB/s	159353313 B/op	   17012 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      42	  28092769 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   53558	     22635 ns/op	 361.92 MB/s
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2780364	       429 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  329724	      3652 ns/op
+BenchmarkPolygon-12    	  181554	      6617 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   67905	     17488 ns/op
+BenchmarkRegexMatch-12       	  864624	      1410 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    8108	    146053 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3735	    322733 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    3063	    390001 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  269024	      4434 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9775	    119500 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199484	      6012 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3206232	       372 ns/op
+BenchmarkParallelDirectSend-12    	 3144192	       380 ns/op
+BenchmarkParallelBrodcast-12      	 2160315	       554 ns/op
+BenchmarkMuxBrodcast-12           	 2211307	       535 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  766878	      1510 ns/op
+BenchmarkFtoaRegexTrailing-12    	  579446	      2079 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     908	   1315524 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.621 ns/op
+BenchmarkFPAQ-12    	      39	  29496546 ns/op
+BenchmarkLZ-12      	    1834	    642402 ns/op
+BenchmarkMTFT-12    	     256	   4634733 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     211	   5771867 ns/op
+BenchmarkRenderSpec-12                	     211	   5652294 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     321	   3732098 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     265	   4307423 ns/op	17865492 B/op	      75 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	      86	  14569216 ns/op	12105228 B/op	   52839 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 9605319	       127 ns/op
+BenchmarkBaseTest2KB-12              	 1993210	       601 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   66411	     18046 ns/op	    9984 B/op	      15 allocs/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     919	   1291978 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4571581	       261 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12     	51609433	        22.9 ns/op
+BenchmarkCompactToHex-12     	35368322	        33.8 ns/op
+BenchmarkKeybytesToHex-12    	33463837	        36.1 ns/op
+BenchmarkHexToKeybytes-12    	52463570	        22.9 ns/op
+BenchmarkGet-12              	 6784518	       174 ns/op
+BenchmarkGetDB-12            	 7412318	       162 ns/op
+BenchmarkUpdateBE-12         	 1000000	      1087 ns/op
+BenchmarkUpdateLE-12         	 1000000	      1348 ns/op
+BenchmarkHash-12             	  365100	      3518 ns/op	     668 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24501579848 ns/op
+BenchmarkRun/10k/16-12      	       1	5326832193 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  298170	      4023 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1403217	       856 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   30979	     38752 ns/op
+BenchmarkDgeev/Circulant100-12        	     121	   9847687 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  61380165 ns/op
+BenchmarkScaleVec10000Inc20-12                	   52208	     22121 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1499935	       802 ns/op	     248 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  434412	      2821 ns/op
+BenchmarkReaderContains-12    	  217293	      5504 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  169412	      7056 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  196015	      6398 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      15	  76965407 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      56	  21034431 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  426235	      2926 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     127	   9417342 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2828	    423198 ns/op
+BenchmarkGrowth_MultiSegment-12            	     100	  11815558 ns/op	  88.75 MB/s	 1648613 B/op	      21 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  842611	      1254 ns/op
+BenchmarkAddingFields/apex/log-12          	   41496	     28983 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   35571	     33972 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   35470	     33603 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 217755320 ns/op	  31.53 MB/s	159353036 B/op	   17010 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      42	  28177384 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   53598	     22405 ns/op	 365.64 MB/s
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2810827	       428 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  329269	      3662 ns/op
+BenchmarkPolygon-12    	  180386	      6621 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   68137	     17593 ns/op
+BenchmarkRegexMatch-12       	  858662	      1402 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    8052	    145563 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3744	    321267 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    3022	    390249 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  264656	      4435 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9568	    119795 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199436	      6010 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3228748	       372 ns/op
+BenchmarkParallelDirectSend-12    	 3084946	       383 ns/op
+BenchmarkParallelBrodcast-12      	 2158958	       556 ns/op
+BenchmarkMuxBrodcast-12           	 2080686	       577 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  747013	      1511 ns/op
+BenchmarkFtoaRegexTrailing-12    	  579741	      2081 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     909	   1312793 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.623 ns/op
+BenchmarkFPAQ-12    	      39	  29502600 ns/op
+BenchmarkLZ-12      	    1833	    642408 ns/op
+BenchmarkMTFT-12    	     258	   4639833 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     211	   5644649 ns/op
+BenchmarkRenderSpec-12                	     211	   5652596 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     320	   3778483 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     273	   4310299 ns/op	17864439 B/op	      74 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	      82	  14523427 ns/op	12099675 B/op	   52767 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 9584930	       125 ns/op
+BenchmarkBaseTest2KB-12              	 1995039	       601 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   66390	     18084 ns/op	    9984 B/op	      15 allocs/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     916	   1299831 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4586738	       262 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12     	51186666	        22.8 ns/op
+BenchmarkCompactToHex-12     	35649354	        33.8 ns/op
+BenchmarkKeybytesToHex-12    	33272616	        36.1 ns/op
+BenchmarkHexToKeybytes-12    	52477125	        22.9 ns/op
+BenchmarkGet-12              	 6859317	       175 ns/op
+BenchmarkGetDB-12            	 7441315	       162 ns/op
+BenchmarkUpdateBE-12         	 1000000	      1085 ns/op
+BenchmarkUpdateLE-12         	 1000000	      1381 ns/op
+BenchmarkHash-12             	  354549	      3448 ns/op	     669 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24377416643 ns/op
+BenchmarkRun/10k/16-12      	       1	5200014086 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  298174	      4016 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1402359	       855 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   31002	     38542 ns/op
+BenchmarkDgeev/Circulant100-12        	     121	   9847467 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  61406468 ns/op
+BenchmarkScaleVec10000Inc20-12                	   51286	     22470 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1514410	       798 ns/op	     248 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  427117	      2745 ns/op
+BenchmarkReaderContains-12    	  218938	      5498 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  168069	      7020 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  197260	      6329 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      15	  76955665 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      56	  21094587 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  427147	      2911 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     127	   9420817 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2836	    425323 ns/op
+BenchmarkGrowth_MultiSegment-12            	     100	  11824068 ns/op	  88.68 MB/s	 1648611 B/op	      21 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  948481	      1264 ns/op
+BenchmarkAddingFields/apex/log-12          	   41378	     29018 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   35490	     33851 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   35298	     33659 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 215249582 ns/op	  31.89 MB/s	159354390 B/op	   17013 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      42	  28362611 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   53546	     22383 ns/op	 365.99 MB/s
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2794201	       426 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  326170	      3654 ns/op
+BenchmarkPolygon-12    	  181320	      6626 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   67804	     17578 ns/op
+BenchmarkRegexMatch-12       	  848882	      1407 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    8310	    145537 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3745	    321708 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    3063	    390802 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  268941	      4446 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9805	    119686 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199501	      6008 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3172128	       375 ns/op
+BenchmarkParallelDirectSend-12    	 3123912	       379 ns/op
+BenchmarkParallelBrodcast-12      	 2162163	       555 ns/op
+BenchmarkMuxBrodcast-12           	 2084210	       566 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  753654	      1507 ns/op
+BenchmarkFtoaRegexTrailing-12    	  581491	      2088 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     913	   1316402 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.624 ns/op
+BenchmarkFPAQ-12    	      39	  29495467 ns/op
+BenchmarkLZ-12      	    1830	    642480 ns/op
+BenchmarkMTFT-12    	     256	   4631237 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     211	   5657134 ns/op
+BenchmarkRenderSpec-12                	     211	   5663813 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     322	   3728249 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     273	   4320075 ns/op	17865458 B/op	      74 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	      82	  14485794 ns/op	12076340 B/op	   52672 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 9570844	       125 ns/op
+BenchmarkBaseTest2KB-12              	 1982587	       602 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   66338	     18052 ns/op	    9984 B/op	      15 allocs/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     907	   1306639 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4588507	       258 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12     	50627532	        22.9 ns/op
+BenchmarkCompactToHex-12     	35617970	        33.8 ns/op
+BenchmarkKeybytesToHex-12    	33506048	        36.1 ns/op
+BenchmarkHexToKeybytes-12    	52202394	        22.9 ns/op
+BenchmarkGet-12              	 6889333	       175 ns/op
+BenchmarkGetDB-12            	 7437452	       160 ns/op
+BenchmarkUpdateBE-12         	 1000000	      1085 ns/op
+BenchmarkUpdateLE-12         	 1000000	      1380 ns/op
+BenchmarkHash-12             	  359521	      3534 ns/op	     669 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24413951248 ns/op
+BenchmarkRun/10k/16-12      	       1	5211100362 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  298214	      4017 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1402906	       855 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   31112	     38810 ns/op
+BenchmarkDgeev/Circulant100-12        	     120	   9864328 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  61295035 ns/op
+BenchmarkScaleVec10000Inc20-12                	   52165	     22294 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1512438	       791 ns/op	     248 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  422055	      2755 ns/op
+BenchmarkReaderContains-12    	  217987	      5514 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  169350	      7024 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  194635	      6354 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      15	  76867338 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      56	  21075859 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  425007	      2934 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     127	   9426965 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2830	    422477 ns/op
+BenchmarkGrowth_MultiSegment-12            	      99	  11836379 ns/op	  88.59 MB/s	 1648630 B/op	      21 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  898974	      1252 ns/op
+BenchmarkAddingFields/apex/log-12          	   41532	     28974 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   35956	     33924 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   35277	     33738 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 216491251 ns/op	  31.71 MB/s	159353283 B/op	   17011 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      43	  27897965 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   53503	     22428 ns/op	 365.26 MB/s
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2819048	       426 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  327452	      3656 ns/op
+BenchmarkPolygon-12    	  181341	      6612 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   67911	     17538 ns/op
+BenchmarkRegexMatch-12       	  851826	      1409 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    8086	    145932 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3694	    321867 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    3034	    392399 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  269240	      4435 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9738	    119697 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199538	      6009 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3232976	       372 ns/op
+BenchmarkParallelDirectSend-12    	 3047562	       381 ns/op
+BenchmarkParallelBrodcast-12      	 2139081	       554 ns/op
+BenchmarkMuxBrodcast-12           	 2101152	       583 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  771386	      1506 ns/op
+BenchmarkFtoaRegexTrailing-12    	  580272	      2098 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     912	   1310693 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.623 ns/op
+BenchmarkFPAQ-12    	      39	  29623625 ns/op
+BenchmarkLZ-12      	    1834	    643471 ns/op
+BenchmarkMTFT-12    	     258	   4638263 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     211	   5644844 ns/op
+BenchmarkRenderSpec-12                	     212	   5649921 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     320	   3731349 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     274	   4297365 ns/op	17865181 B/op	      75 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	      84	  14364314 ns/op	12033173 B/op	   52459 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 9606748	       125 ns/op
+BenchmarkBaseTest2KB-12              	 1994676	       603 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   66034	     18046 ns/op	    9984 B/op	      15 allocs/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     926	   1301321 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4652432	       259 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12     	50203842	        22.9 ns/op
+BenchmarkCompactToHex-12     	35261887	        33.7 ns/op
+BenchmarkKeybytesToHex-12    	33093756	        36.1 ns/op
+BenchmarkHexToKeybytes-12    	52295806	        22.9 ns/op
+BenchmarkGet-12              	 6867404	       175 ns/op
+BenchmarkGetDB-12            	 7442098	       162 ns/op
+BenchmarkUpdateBE-12         	 1000000	      1102 ns/op
+BenchmarkUpdateLE-12         	 1000000	      1348 ns/op
+BenchmarkHash-12             	  361857	      3541 ns/op	     668 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24489513846 ns/op
+BenchmarkRun/10k/16-12      	       1	5253607812 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  298011	      4018 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1402836	       855 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   30860	     38847 ns/op
+BenchmarkDgeev/Circulant100-12        	     121	   9882958 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  61341303 ns/op
+BenchmarkScaleVec10000Inc20-12                	   51277	     22146 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1511001	       799 ns/op	     248 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  430245	      2746 ns/op
+BenchmarkReaderContains-12    	  218965	      5500 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  172252	      7017 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  196374	      6341 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      15	  76847917 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      56	  21046245 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  419626	      2948 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     127	   9370217 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2830	    422265 ns/op
+BenchmarkGrowth_MultiSegment-12            	      99	  11851887 ns/op	  88.48 MB/s	 1648630 B/op	      21 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  959142	      1251 ns/op
+BenchmarkAddingFields/apex/log-12          	   41122	     28869 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   35648	     33745 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   35394	     33869 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 215715402 ns/op	  31.82 MB/s	159353257 B/op	   17008 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      42	  27675421 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   53629	     22389 ns/op	 365.90 MB/s
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2817732	       428 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  327817	      3646 ns/op
+BenchmarkPolygon-12    	  181071	      6628 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   67788	     17560 ns/op
+BenchmarkRegexMatch-12       	  860253	      1422 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    8122	    145725 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3718	    321821 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    3054	    390944 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  269277	      4435 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9811	    119579 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199278	      6009 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3227289	       373 ns/op
+BenchmarkParallelDirectSend-12    	 3121958	       378 ns/op
+BenchmarkParallelBrodcast-12      	 2161982	       555 ns/op
+BenchmarkMuxBrodcast-12           	 2187178	       571 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  751162	      1508 ns/op
+BenchmarkFtoaRegexTrailing-12    	  580608	      2097 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     914	   1311622 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.623 ns/op
+BenchmarkFPAQ-12    	      39	  29540863 ns/op
+BenchmarkLZ-12      	    1836	    642473 ns/op
+BenchmarkMTFT-12    	     258	   4639685 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     211	   5649845 ns/op
+BenchmarkRenderSpec-12                	     211	   5652865 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     321	   3725358 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     278	   4385101 ns/op	17864358 B/op	      74 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	      88	  14394315 ns/op	12037993 B/op	   52493 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 9620172	       125 ns/op
+BenchmarkBaseTest2KB-12              	 1994040	       603 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   66050	     18101 ns/op	    9984 B/op	      15 allocs/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     925	   1294864 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4610827	       258 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12     	51428822	        22.9 ns/op
+BenchmarkCompactToHex-12     	35079567	        33.8 ns/op
+BenchmarkKeybytesToHex-12    	32973184	        36.7 ns/op
+BenchmarkHexToKeybytes-12    	52342484	        22.9 ns/op
+BenchmarkGet-12              	 6878167	       174 ns/op
+BenchmarkGetDB-12            	 7429014	       161 ns/op
+BenchmarkUpdateBE-12         	 1000000	      1092 ns/op
+BenchmarkUpdateLE-12         	 1000000	      1382 ns/op
+BenchmarkHash-12             	  355879	      3462 ns/op	     669 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24345510763 ns/op
+BenchmarkRun/10k/16-12      	       1	5322918186 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  298063	      4018 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1403140	       855 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   31008	     38602 ns/op
+BenchmarkDgeev/Circulant100-12        	     121	   9847033 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  61375078 ns/op
+BenchmarkScaleVec10000Inc20-12                	   52249	     22463 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1509571	       800 ns/op	     248 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  425816	      2773 ns/op
+BenchmarkReaderContains-12    	  218950	      5515 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  170804	      7024 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  195862	      6315 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      14	  76947913 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      56	  21054416 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  425466	      2928 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     126	   9420863 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2822	    424371 ns/op
+BenchmarkGrowth_MultiSegment-12            	      99	  11818604 ns/op	  88.72 MB/s	 1648649 B/op	      21 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  890227	      1251 ns/op
+BenchmarkAddingFields/apex/log-12          	   41743	     28955 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   35654	     34096 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   35115	     34046 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 218057124 ns/op	  31.48 MB/s	159353608 B/op	   17013 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      42	  27770229 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   53584	     22402 ns/op	 365.68 MB/s
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2814372	       425 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  328393	      3643 ns/op
+BenchmarkPolygon-12    	  180331	      6648 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   68256	     17811 ns/op
+BenchmarkRegexMatch-12       	  857247	      1385 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    8119	    145354 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3729	    321753 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    3061	    391581 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  271724	      4435 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9770	    119403 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  198988	      6012 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3250348	       372 ns/op
+BenchmarkParallelDirectSend-12    	 3070286	       384 ns/op
+BenchmarkParallelBrodcast-12      	 2151931	       557 ns/op
+BenchmarkMuxBrodcast-12           	 2174646	       550 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  735001	      1507 ns/op
+BenchmarkFtoaRegexTrailing-12    	  575517	      2080 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     912	   1316745 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.623 ns/op
+BenchmarkFPAQ-12    	      40	  29510246 ns/op
+BenchmarkLZ-12      	    1838	    642753 ns/op
+BenchmarkMTFT-12    	     258	   4642041 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     211	   5652492 ns/op
+BenchmarkRenderSpec-12                	     211	   5658278 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     321	   3726878 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     276	   4292175 ns/op	17865525 B/op	      75 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	      86	  14391454 ns/op	12070488 B/op	   52650 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 9593011	       125 ns/op
+BenchmarkBaseTest2KB-12              	 1992206	       601 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   66604	     18069 ns/op	    9984 B/op	      15 allocs/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     927	   1294457 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4559096	       263 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12     	51629773	        22.9 ns/op
+BenchmarkCompactToHex-12     	34831473	        33.8 ns/op
+BenchmarkKeybytesToHex-12    	32392977	        36.2 ns/op
+BenchmarkHexToKeybytes-12    	52151106	        23.2 ns/op
+BenchmarkGet-12              	 6847563	       174 ns/op
+BenchmarkGetDB-12            	 7375881	       162 ns/op
+BenchmarkUpdateBE-12         	 1000000	      1088 ns/op
+BenchmarkUpdateLE-12         	 1000000	      1374 ns/op
+BenchmarkHash-12             	  365262	      3440 ns/op	     668 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24649805355 ns/op
+BenchmarkRun/10k/16-12      	       1	5336548568 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  297952	      4017 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1403056	       855 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   31249	     38388 ns/op
+BenchmarkDgeev/Circulant100-12        	     121	   9907233 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  61444031 ns/op
+BenchmarkScaleVec10000Inc20-12                	   51524	     22198 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1515946	       792 ns/op	     248 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  435949	      2747 ns/op
+BenchmarkReaderContains-12    	  216685	      5508 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  168061	      6972 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  196347	      6325 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      14	  77000114 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      55	  21400079 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  421322	      2943 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     127	   9364627 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2829	    424853 ns/op
+BenchmarkGrowth_MultiSegment-12            	      99	  11824122 ns/op	  88.68 MB/s	 1648609 B/op	      21 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  918811	      1255 ns/op
+BenchmarkAddingFields/apex/log-12          	   41959	     28949 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   35024	     34246 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   35847	     33889 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 216952340 ns/op	  31.64 MB/s	159354136 B/op	   17012 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      42	  27651440 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   53517	     22427 ns/op	 365.27 MB/s
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2812563	       426 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  326709	      3660 ns/op
+BenchmarkPolygon-12    	  181040	      6619 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   68100	     17494 ns/op
+BenchmarkRegexMatch-12       	  859231	      1423 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    8067	    145497 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3744	    321491 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    3052	    389462 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  269564	      4438 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9786	    119396 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199339	      6010 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3214149	       369 ns/op
+BenchmarkParallelDirectSend-12    	 3151622	       381 ns/op
+BenchmarkParallelBrodcast-12      	 2164986	       552 ns/op
+BenchmarkMuxBrodcast-12           	 2206089	       579 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  759890	      1506 ns/op
+BenchmarkFtoaRegexTrailing-12    	  582103	      2085 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     913	   1314965 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.623 ns/op
+BenchmarkFPAQ-12    	      39	  29729002 ns/op
+BenchmarkLZ-12      	    1837	    642801 ns/op
+BenchmarkMTFT-12    	     256	   4627919 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     211	   5664204 ns/op
+BenchmarkRenderSpec-12                	     211	   5659126 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     320	   3736011 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     278	   4257463 ns/op	17865209 B/op	      75 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	      85	  14617398 ns/op	12069352 B/op	   52621 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 9591724	       125 ns/op
+BenchmarkBaseTest2KB-12              	 1996369	       602 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   66406	     18182 ns/op	    9984 B/op	      15 allocs/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     920	   1302087 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4539346	       262 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12     	50601322	        22.9 ns/op
+BenchmarkCompactToHex-12     	35532812	        33.9 ns/op
+BenchmarkKeybytesToHex-12    	33441518	        36.1 ns/op
+BenchmarkHexToKeybytes-12    	51756134	        22.9 ns/op
+BenchmarkGet-12              	 6866515	       175 ns/op
+BenchmarkGetDB-12            	 7197412	       162 ns/op
+BenchmarkUpdateBE-12         	 1000000	      1100 ns/op
+BenchmarkUpdateLE-12         	 1000000	      1386 ns/op
+BenchmarkHash-12             	  366394	      3459 ns/op	     668 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24593502545 ns/op
+BenchmarkRun/10k/16-12      	       1	5284909114 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  298440	      4016 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1402771	       855 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   31032	     38633 ns/op
+BenchmarkDgeev/Circulant100-12        	     121	   9861050 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  61286834 ns/op
+BenchmarkScaleVec10000Inc20-12                	   52225	     22513 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1511918	       798 ns/op	     248 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  426477	      2753 ns/op
+BenchmarkReaderContains-12    	  217174	      5521 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  169461	      7221 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  194019	      6396 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      14	  78224819 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      54	  22472543 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  427504	      2978 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     126	   9548196 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2820	    425137 ns/op
+BenchmarkGrowth_MultiSegment-12            	      99	  11831959 ns/op	  88.62 MB/s	 1648629 B/op	      21 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  784455	      1424 ns/op
+BenchmarkAddingFields/apex/log-12          	   41704	     28911 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   35614	     33148 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   35916	     33218 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 216838767 ns/op	  31.66 MB/s	159353436 B/op	   17015 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      40	  29628563 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   53569	     22410 ns/op	 365.54 MB/s
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2815176	       427 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  327910	      3657 ns/op
+BenchmarkPolygon-12    	  181209	      6879 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   67914	     17846 ns/op
+BenchmarkRegexMatch-12       	  861314	      1388 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    8108	    145857 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3710	    329678 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    3074	    437037 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  268614	      4430 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9680	    137487 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199442	      6013 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3189189	       363 ns/op
+BenchmarkParallelDirectSend-12    	 3194937	       373 ns/op
+BenchmarkParallelBrodcast-12      	 2185342	       551 ns/op
+BenchmarkMuxBrodcast-12           	 2120355	       554 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  759513	      1691 ns/op
+BenchmarkFtoaRegexTrailing-12    	  578048	      2114 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     913	   1311872 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.632 ns/op
+BenchmarkFPAQ-12    	      39	  29547317 ns/op
+BenchmarkLZ-12      	    1828	    643913 ns/op
+BenchmarkMTFT-12    	     258	   4633198 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     190	   5945959 ns/op
+BenchmarkRenderSpec-12                	     199	   6032159 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     296	   4043730 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     268	   4372688 ns/op	17864987 B/op	      75 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	      86	  15174221 ns/op	12033111 B/op	   52489 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 9594609	       125 ns/op
+BenchmarkBaseTest2KB-12              	 1995968	       602 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   58548	     19307 ns/op	    9984 B/op	      15 allocs/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     909	   1324657 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4206600	       287 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12     	50832075	        25.4 ns/op
+BenchmarkCompactToHex-12     	35582545	        36.4 ns/op
+BenchmarkKeybytesToHex-12    	27306812	        38.9 ns/op
+BenchmarkHexToKeybytes-12    	51696964	        23.9 ns/op
+BenchmarkGet-12              	 6255348	       195 ns/op
+BenchmarkGetDB-12            	 6960118	       164 ns/op
+BenchmarkUpdateBE-12         	 1000000	      1154 ns/op
+BenchmarkUpdateLE-12         	 1000000	      1445 ns/op
+BenchmarkHash-12             	  337858	      3471 ns/op	     672 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24637882111 ns/op
+BenchmarkRun/10k/16-12      	       1	5746891797 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  298306	      4017 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1402510	       859 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   31107	     38696 ns/op
+BenchmarkDgeev/Circulant100-12        	     121	   9855359 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  66503182 ns/op
+BenchmarkScaleVec10000Inc20-12                	   51268	     22575 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1436400	       877 ns/op	     248 B/op	       9 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  413118	      3126 ns/op
+BenchmarkReaderContains-12    	  216226	      6059 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  144106	      7819 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  186446	      6380 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      13	  78415706 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      45	  22541676 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  407281	      3048 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     123	   9618363 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2827	    424078 ns/op
+BenchmarkGrowth_MultiSegment-12            	      96	  11904145 ns/op	  88.09 MB/s	 1648633 B/op	      21 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  728046	      1434 ns/op
+BenchmarkAddingFields/apex/log-12          	   41701	     29179 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   35676	     33895 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   36238	     33564 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 226802439 ns/op	  30.27 MB/s	159354588 B/op	   17017 allocs/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      38	  29587667 ns/op
+PASS
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   53562	     22783 ns/op	 359.57 MB/s
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2713056	       426 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  325160	      3685 ns/op
+BenchmarkPolygon-12    	  179420	      6720 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   63393	     18764 ns/op
+BenchmarkRegexMatch-12       	  856888	      1396 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    7977	    155219 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3321	    373161 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    2144	    468807 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  269721	      4543 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9574	    121402 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199492	      6011 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3147480	       373 ns/op
+BenchmarkParallelDirectSend-12    	 3183469	       375 ns/op
+BenchmarkParallelBrodcast-12      	 2177319	       550 ns/op
+BenchmarkMuxBrodcast-12           	 2079038	       582 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  757772	      1603 ns/op
+BenchmarkFtoaRegexTrailing-12    	  577707	      2120 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     908	   1317497 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.624 ns/op
+BenchmarkFPAQ-12    	      39	  29868215 ns/op
+BenchmarkLZ-12      	    1831	    673209 ns/op
+BenchmarkMTFT-12    	     258	   4634756 ns/op
+PASS
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     211	   5948908 ns/op
+BenchmarkRenderSpec-12                	     200	   6202862 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     290	   4054587 ns/op
+PASS

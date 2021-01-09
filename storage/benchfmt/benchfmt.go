@@ -5,6 +5,13 @@
 // Package benchfmt provides readers and writers for the Go benchmark format.
 //
 // The format is documented at https://golang.org/design/14313-benchmark-format
+//
+// This package only parses file configuration lines, not benchmark
+// result lines. Parsing the result lines is left to the caller.
+//
+// Deprecated: See the golang.org/x/perf/benchfmt package, which
+// implements readers and writers for the full Go benchmark format.
+// It is also higher performance.
 package benchfmt
 
 import (

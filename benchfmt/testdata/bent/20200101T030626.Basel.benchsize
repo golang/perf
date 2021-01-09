@@ -1,0 +1,280 @@
+goos: linux
+goarch: amd64
+Benchmarkuber_zap_total 1 10138651 total-bytes
+Benchmarkuber_zap_text 1 3621945 text-bytes
+Benchmarkuber_zap_data 1 45712 data-bytes
+Benchmarkuber_zap_rodata 1 1537561 rodata-bytes
+Benchmarkuber_zap_pclntab 1 2375559 pclntab-bytes
+Benchmarkuber_zap_zdebug_total 1 2165358 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkethereum_core_total 1 15812843 total-bytes
+Benchmarkethereum_core_text 1 5472977 text-bytes
+Benchmarkethereum_core_data 1 53328 data-bytes
+Benchmarkethereum_core_rodata 1 3349704 rodata-bytes
+Benchmarkethereum_core_pclntab 1 3479432 pclntab-bytes
+Benchmarkethereum_core_zdebug_total 1 2876603 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkethereum_ethash_total 1 11881879 total-bytes
+Benchmarkethereum_ethash_text 1 4310289 text-bytes
+Benchmarkethereum_ethash_data 1 53008 data-bytes
+Benchmarkethereum_ethash_rodata 1 1892456 rodata-bytes
+Benchmarkethereum_ethash_pclntab 1 2766075 pclntab-bytes
+Benchmarkethereum_ethash_zdebug_total 1 2402992 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkk8s_api_total 1 35910191 total-bytes
+Benchmarkk8s_api_text 1 14320777 text-bytes
+Benchmarkk8s_api_data 1 61520 data-bytes
+Benchmarkk8s_api_rodata 1 4691657 rodata-bytes
+Benchmarkk8s_api_pclntab 1 9602208 pclntab-bytes
+Benchmarkk8s_api_zdebug_total 1 6646386 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarksemver_total 1 3759014 total-bytes
+Benchmarksemver_text 1 1243385 text-bytes
+Benchmarksemver_data 1 33680 data-bytes
+Benchmarksemver_rodata 1 599929 rodata-bytes
+Benchmarksemver_pclntab 1 856547 pclntab-bytes
+Benchmarksemver_zdebug_total 1 820880 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkhugo_helpers_total 1 23566169 total-bytes
+Benchmarkhugo_helpers_text 1 9162025 text-bytes
+Benchmarkhugo_helpers_data 1 136576 data-bytes
+Benchmarkhugo_helpers_rodata 1 4581376 rodata-bytes
+Benchmarkhugo_helpers_pclntab 1 5060593 pclntab-bytes
+Benchmarkhugo_helpers_zdebug_total 1 4030899 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkgonum_path_total 1 3763071 total-bytes
+Benchmarkgonum_path_text 1 1228265 text-bytes
+Benchmarkgonum_path_data 1 50672 data-bytes
+Benchmarkgonum_path_rodata 1 595886 rodata-bytes
+Benchmarkgonum_path_pclntab 1 851436 pclntab-bytes
+Benchmarkgonum_path_zdebug_total 1 807683 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkk8s_schedulercache_total 1 33833253 total-bytes
+Benchmarkk8s_schedulercache_text 1 13508633 text-bytes
+Benchmarkk8s_schedulercache_data 1 64400 data-bytes
+Benchmarkk8s_schedulercache_rodata 1 4668045 rodata-bytes
+Benchmarkk8s_schedulercache_pclntab 1 8770193 pclntab-bytes
+Benchmarkk8s_schedulercache_zdebug_total 1 6232479 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkgonum_topo_total 1 3648181 total-bytes
+Benchmarkgonum_topo_text 1 1181353 text-bytes
+Benchmarkgonum_topo_data 1 39408 data-bytes
+Benchmarkgonum_topo_rodata 1 586347 rodata-bytes
+Benchmarkgonum_topo_pclntab 1 819418 pclntab-bytes
+Benchmarkgonum_topo_zdebug_total 1 795622 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkspexs2_total 1 3650651 total-bytes
+Benchmarkspexs2_text 1 1196025 text-bytes
+Benchmarkspexs2_data 1 32560 data-bytes
+Benchmarkspexs2_rodata 1 563376 rodata-bytes
+Benchmarkspexs2_pclntab 1 834148 pclntab-bytes
+Benchmarkspexs2_zdebug_total 1 819013 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkcapnproto2_total 1 4888401 total-bytes
+Benchmarkcapnproto2_text 1 1657625 text-bytes
+Benchmarkcapnproto2_data 1 36272 data-bytes
+Benchmarkcapnproto2_rodata 1 864000 rodata-bytes
+Benchmarkcapnproto2_pclntab 1 1151860 pclntab-bytes
+Benchmarkcapnproto2_zdebug_total 1 958298 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkgonum_traverse_total 1 3341070 total-bytes
+Benchmarkgonum_traverse_text 1 1056041 text-bytes
+Benchmarkgonum_traverse_data 1 33680 data-bytes
+Benchmarkgonum_traverse_rodata 1 534150 rodata-bytes
+Benchmarkgonum_traverse_pclntab 1 754308 pclntab-bytes
+Benchmarkgonum_traverse_zdebug_total 1 741138 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkgonum_blas_native_total 1 4888778 total-bytes
+Benchmarkgonum_blas_native_text 1 1774569 text-bytes
+Benchmarkgonum_blas_native_data 1 72600 data-bytes
+Benchmarkgonum_blas_native_rodata 1 832732 rodata-bytes
+Benchmarkgonum_blas_native_pclntab 1 972584 pclntab-bytes
+Benchmarkgonum_blas_native_zdebug_total 1 987272 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkajstarks_deck_generate_total 1 3406810 total-bytes
+Benchmarkajstarks_deck_generate_text 1 1100763 text-bytes
+Benchmarkajstarks_deck_generate_data 1 32688 data-bytes
+Benchmarkajstarks_deck_generate_rodata 1 539680 rodata-bytes
+Benchmarkajstarks_deck_generate_pclntab 1 767193 pclntab-bytes
+Benchmarkajstarks_deck_generate_zdebug_total 1 755837 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkethereum_trie_total 1 7638880 total-bytes
+Benchmarkethereum_trie_text 1 2757265 text-bytes
+Benchmarkethereum_trie_data 1 37872 data-bytes
+Benchmarkethereum_trie_rodata 1 1120104 rodata-bytes
+Benchmarkethereum_trie_pclntab 1 1843141 pclntab-bytes
+Benchmarkethereum_trie_zdebug_total 1 1620170 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkdustin_humanize_total 1 4410008 total-bytes
+Benchmarkdustin_humanize_text 1 1485001 text-bytes
+Benchmarkdustin_humanize_data 1 34064 data-bytes
+Benchmarkdustin_humanize_rodata 1 676885 rodata-bytes
+Benchmarkdustin_humanize_pclntab 1 1030057 pclntab-bytes
+Benchmarkdustin_humanize_zdebug_total 1 965896 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkgonum_mat_total 1 6345380 total-bytes
+Benchmarkgonum_mat_text 1 2490617 text-bytes
+Benchmarkgonum_mat_data 1 54352 data-bytes
+Benchmarkgonum_mat_rodata 1 942533 rodata-bytes
+Benchmarkgonum_mat_pclntab 1 1324242 pclntab-bytes
+Benchmarkgonum_mat_zdebug_total 1 1295315 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkrcrowley_metrics_total 1 4408349 total-bytes
+Benchmarkrcrowley_metrics_text 1 1454841 text-bytes
+Benchmarkrcrowley_metrics_data 1 35280 data-bytes
+Benchmarkrcrowley_metrics_rodata 1 664355 rodata-bytes
+Benchmarkrcrowley_metrics_pclntab 1 1078676 pclntab-bytes
+Benchmarkrcrowley_metrics_zdebug_total 1 947899 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkericlagergren_decimal_total 1 3965825 total-bytes
+Benchmarkericlagergren_decimal_text 1 1300169 text-bytes
+Benchmarkericlagergren_decimal_data 1 34352 data-bytes
+Benchmarkericlagergren_decimal_rodata 1 597519 rodata-bytes
+Benchmarkericlagergren_decimal_pclntab 1 910895 pclntab-bytes
+Benchmarkericlagergren_decimal_zdebug_total 1 892577 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkgonum_community_total 1 3972613 total-bytes
+Benchmarkgonum_community_text 1 1350985 text-bytes
+Benchmarkgonum_community_data 1 56432 data-bytes
+Benchmarkgonum_community_rodata 1 621446 rodata-bytes
+Benchmarkgonum_community_pclntab 1 870595 pclntab-bytes
+Benchmarkgonum_community_zdebug_total 1 844670 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkethereum_storage_total 1 11650972 total-bytes
+Benchmarkethereum_storage_text 1 4275473 text-bytes
+Benchmarkethereum_storage_data 1 46640 data-bytes
+Benchmarkethereum_storage_rodata 1 1760656 rodata-bytes
+Benchmarkethereum_storage_pclntab 1 2772093 pclntab-bytes
+Benchmarkethereum_storage_zdebug_total 1 2376314 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkkanzi_total 1 3778311 total-bytes
+Benchmarkkanzi_text 1 1205657 text-bytes
+Benchmarkkanzi_data 1 32112 data-bytes
+Benchmarkkanzi_rodata 1 549122 rodata-bytes
+Benchmarkkanzi_pclntab 1 824776 pclntab-bytes
+Benchmarkkanzi_zdebug_total 1 845739 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkbenhoyt_goawk_total 1 4501969 total-bytes
+Benchmarkbenhoyt_goawk_text 1 1485483 text-bytes
+Benchmarkbenhoyt_goawk_data 1 33936 data-bytes
+Benchmarkbenhoyt_goawk_rodata 1 752352 rodata-bytes
+Benchmarkbenhoyt_goawk_pclntab 1 1045186 pclntab-bytes
+Benchmarkbenhoyt_goawk_zdebug_total 1 968375 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkminio_total 1 51973742 total-bytes
+Benchmarkminio_text 1 17924577 text-bytes
+Benchmarkminio_data 1 132120 data-bytes
+Benchmarkminio_rodata 1 7733240 rodata-bytes
+Benchmarkminio_pclntab 1 11208723 pclntab-bytes
+Benchmarkminio_zdebug_total 1 9047976 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkcespare_xxhash_total 1 3192926 total-bytes
+Benchmarkcespare_xxhash_text 1 1021929 text-bytes
+Benchmarkcespare_xxhash_data 1 31536 data-bytes
+Benchmarkcespare_xxhash_rodata 1 497120 rodata-bytes
+Benchmarkcespare_xxhash_pclntab 1 725556 pclntab-bytes
+Benchmarkcespare_xxhash_zdebug_total 1 713872 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkcespare_mph_total 1 3193223 total-bytes
+Benchmarkcespare_mph_text 1 1020409 text-bytes
+Benchmarkcespare_mph_data 1 32080 data-bytes
+Benchmarkcespare_mph_rodata 1 498682 rodata-bytes
+Benchmarkcespare_mph_pclntab 1 723663 pclntab-bytes
+Benchmarkcespare_mph_zdebug_total 1 715376 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkcommonmark_markdown_total 1 4959177 total-bytes
+Benchmarkcommonmark_markdown_text 1 1619657 text-bytes
+Benchmarkcommonmark_markdown_data 1 51280 data-bytes
+Benchmarkcommonmark_markdown_rodata 1 860672 rodata-bytes
+Benchmarkcommonmark_markdown_pclntab 1 1108421 pclntab-bytes
+Benchmarkcommonmark_markdown_zdebug_total 1 1054674 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkaws_jsonutil_total 1 9439064 total-bytes
+Benchmarkaws_jsonutil_text 1 3342329 text-bytes
+Benchmarkaws_jsonutil_data 1 46096 data-bytes
+Benchmarkaws_jsonutil_rodata 1 2136864 rodata-bytes
+Benchmarkaws_jsonutil_pclntab 1 1845639 pclntab-bytes
+Benchmarkaws_jsonutil_zdebug_total 1 1686614 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkgonum_lapack_native_total 1 7162986 total-bytes
+Benchmarkgonum_lapack_native_text 1 2623993 text-bytes
+Benchmarkgonum_lapack_native_data 1 36176 data-bytes
+Benchmarkgonum_lapack_native_rodata 1 1503232 rodata-bytes
+Benchmarkgonum_lapack_native_pclntab 1 1260232 pclntab-bytes
+Benchmarkgonum_lapack_native_zdebug_total 1 1339620 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkgtank_blake2s_total 1 3551639 total-bytes
+Benchmarkgtank_blake2s_text 1 1173545 text-bytes
+Benchmarkgtank_blake2s_data 1 32944 data-bytes
+Benchmarkgtank_blake2s_rodata 1 540869 rodata-bytes
+Benchmarkgtank_blake2s_pclntab 1 805041 pclntab-bytes
+Benchmarkgtank_blake2s_zdebug_total 1 795135 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarknelsam_gxui_interval_total 1 3297142 total-bytes
+Benchmarknelsam_gxui_interval_text 1 1068809 text-bytes
+Benchmarknelsam_gxui_interval_data 1 32400 data-bytes
+Benchmarknelsam_gxui_interval_rodata 1 509092 rodata-bytes
+Benchmarknelsam_gxui_interval_pclntab 1 750568 pclntab-bytes
+Benchmarknelsam_gxui_interval_zdebug_total 1 728212 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkethereum_corevm_total 1 7541089 total-bytes
+Benchmarkethereum_corevm_text 1 2558753 text-bytes
+Benchmarkethereum_corevm_data 1 44080 data-bytes
+Benchmarkethereum_corevm_rodata 1 1356136 rodata-bytes
+Benchmarkethereum_corevm_pclntab 1 1710781 pclntab-bytes
+Benchmarkethereum_corevm_zdebug_total 1 1494211 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkdustin_broadcast_total 1 3210429 total-bytes
+Benchmarkdustin_broadcast_text 1 1023129 text-bytes
+Benchmarkdustin_broadcast_data 1 31632 data-bytes
+Benchmarkdustin_broadcast_rodata 1 504517 rodata-bytes
+Benchmarkdustin_broadcast_pclntab 1 727552 pclntab-bytes
+Benchmarkdustin_broadcast_zdebug_total 1 720542 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkethereum_bitutil_total 1 3515555 total-bytes
+Benchmarkethereum_bitutil_text 1 1147209 text-bytes
+Benchmarkethereum_bitutil_data 1 33488 data-bytes
+Benchmarkethereum_bitutil_rodata 1 534118 rodata-bytes
+Benchmarkethereum_bitutil_pclntab 1 801440 pclntab-bytes
+Benchmarkethereum_bitutil_zdebug_total 1 787423 zdebug-bytes
+goos: linux
+goarch: amd64
+Benchmarkbindata_total 1 4185014 total-bytes
+Benchmarkbindata_text 1 1415673 text-bytes
+Benchmarkbindata_data 1 33872 data-bytes
+Benchmarkbindata_rodata 1 640354 rodata-bytes
+Benchmarkbindata_pclntab 1 957441 pclntab-bytes
+Benchmarkbindata_zdebug_total 1 923077 zdebug-bytes
