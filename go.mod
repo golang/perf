@@ -6,7 +6,7 @@ require (
 	cloud.google.com/go v0.0.0-20170206221025-ce650573d812
 	github.com/GoogleCloudPlatform/cloudsql-proxy v0.0.0-20190129172621-c8b1d7a94ddf
 	github.com/aclements/go-gg v0.0.0-20170118225347-6dbb4e4fefb0
-	github.com/aclements/go-moremath v0.0.0-20161014184102-0ff62e0875ff // indirect
+	github.com/aclements/go-moremath v0.0.0-20210112150236-f10218a38794
 	github.com/go-sql-driver/mysql v1.4.1
 	github.com/gonum/blas v0.0.0-20181208220705-f22b278b28ac // indirect
 	github.com/gonum/floats v0.0.0-20181209220543-c233463c7e82 // indirect
