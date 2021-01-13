@@ -15,6 +15,9 @@ result data.
 [cmd/benchstat](cmd/benchstat) computes statistical summaries and A/B
 comparisons of Go benchmarks.
 
+[cmd/benchfilter](cmd/benchfilter) filters the contents of benchmark
+result files.
+
 [cmd/benchsave](cmd/benchsave) publishes benchmark results to
 [perf.golang.org](https://perf.golang.org).
 
