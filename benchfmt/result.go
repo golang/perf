@@ -244,7 +244,7 @@ func (n Name) Base() []byte {
 // 2. "/<string>" indicates a positional configuration pair.
 //
 // 3. "-<gomaxprocs>" indicates the GOMAXPROCS of this benchmark. This
-// component can only appear last.
+// part can only appear last.
 //
 // Concatenating the base name and the configuration parts
 // reconstructs the full name.

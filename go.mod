@@ -1,6 +1,6 @@
 module golang.org/x/perf
 
-go 1.11
+go 1.13
 
 require (
 	cloud.google.com/go v0.0.0-20170206221025-ce650573d812
