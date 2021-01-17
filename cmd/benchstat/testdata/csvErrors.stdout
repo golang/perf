@@ -1,0 +1,7 @@
+goos: linux
+goarch: amd64
+pkg: golang.org/x/perf/cmd/benchstat/testdata
+,new.txt
+,sec/op,CI
+Encode,2.2530000000000003e-06,37%
+geomean,2.2530000000000016e-06

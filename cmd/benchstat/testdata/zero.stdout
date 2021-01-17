@@ -1,0 +1,31 @@
+               │    before    │           after            │
+               │   a-bytes    │   a-bytes     vs base      │
+Imperceptible    1.150Gi ± 0%   1.150Gi ± 0%   0.00% (n=1)
+Imperceptible2   1.150Gi ± 0%   1.150Gi ± 0%   0.00% (n=1)
+geomean          1.150Gi        1.150Gi       +0.00%
+
+               │    before    │           after            │
+               │   b-bytes    │   b-bytes     vs base      │
+Imperceptible    159.9Gi ± 0%   159.9Gi ± 0%  +0.00% (n=1)
+Imperceptible2   159.9Gi ± 0%   159.9Gi ± 0%  +0.00% (n=1)
+geomean          159.9Gi        159.9Gi       +0.00%
+
+               │    before    │           after            │
+               │   c-bytes    │   c-bytes     vs base      │
+Imperceptible    95.37Mi ± 0%   95.37Mi ± 0%  -0.00% (n=1)
+Imperceptible2   95.37Mi ± 0%   95.37Mi ± 0%  -0.00% (n=1)
+geomean          95.37Mi        95.37Mi       -0.00%
+
+              │    before    │           after            │
+              │      x       │     x       vs base        │
+ZeroOverZero    0.000 ± 0%     0.000 ± 0%   0.00% (n=1)
+ZeroOverZero2   0.000 ± 0%     0.000 ± 0%   0.00% (n=1)
+geomean                    ¹               +0.00%       ¹
+¹ summaries must be >0 to compute geomean
+
+                 │   before   │        after        │
+                 │     y      │     y       vs base │
+NonZeroOverZero    0.0 ± 0%     100.0 ± 0%  ? (n=1)
+NonZeroOverZero2   0.0 ± 0%     100.0 ± 0%  ? (n=1)
+geomean                     ¹   100.0       ?
+¹ summaries must be >0 to compute geomean

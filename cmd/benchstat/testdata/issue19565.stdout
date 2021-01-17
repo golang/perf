@@ -1,0 +1,8 @@
+        │   before    │                after                │
+        │   sec/op    │   sec/op     vs base                │
+A         100.0n ± 0%   100.0n ± 0%       ~ (p=1.000 n=6) ¹
+B         10.00µ ± 0%
+C                       10.00µ ± 0%
+geomean   1.000µ        1.000µ       +0.00%               ²
+¹ all samples are equal
+² benchmark set differs from baseline; geomeans may not be comparable

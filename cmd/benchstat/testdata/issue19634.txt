@@ -1,0 +1,15 @@
+note: before
+
+BenchmarkFloatSub/100-4         20000000           115 ns/op
+BenchmarkFloatSub/100-4         20000000           114 ns/op
+BenchmarkFloatSub/100-4         20000000           115 ns/op
+BenchmarkFloatSub/100-4         20000000           115 ns/op
+BenchmarkFloatSub/100-4         20000000           115 ns/op
+
+note: after
+
+BenchmarkFloatSub/100-4         20000000            78.8 ns/op
+BenchmarkFloatSub/100-4         20000000            78.8 ns/op
+BenchmarkFloatSub/100-4         20000000            78.8 ns/op
+BenchmarkFloatSub/100-4         20000000            78.8 ns/op
+BenchmarkFloatSub/100-4         20000000            78.8 ns/op

@@ -1,0 +1,8 @@
+goos: linux
+goarch: amd64
+pkg: golang.org/x/perf/cmd/benchstat/testdata
+,old.txt,,new.txt
+,sec/op,CI,sec/op,CI,vs base,P
+Encode/format=json-48,1.7180000000000001e-06,1%,1.4225000000000001e-06,1%,-17.20%,p=0.000 n=10
+Encode/format=gob-48,3.0655e-06,0%,3.0700000000000003e-06,2%,~,p=0.446 n=10
+geomean,2.294891936453654e-06,,2.089754770302007e-06,,-8.94%

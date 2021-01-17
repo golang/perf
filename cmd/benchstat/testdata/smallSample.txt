@@ -1,0 +1,7 @@
+note: before
+
+BenchmarkX 1 100 ns/op
+
+note: after
+
+BenchmarkX 1 101 ns/op

@@ -1,0 +1,6 @@
+         │    before    │          after           │
+         │  text-bytes  │ text-bytes  vs base      │
+Size       100.0 ± 0%     105.0 ± 0%  +5.00% (n=1)
+NonExact   101.0 ± 1% ¹   101.0 ± 0%   0.00% (n=3)
+geomean    100.5          103.0       +2.47%
+¹ exact distribution expected, but values range from 100 to 101

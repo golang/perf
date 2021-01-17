@@ -1,0 +1,29 @@
+note: before
+
+BenchmarkA 10 100 ns/op
+BenchmarkA 10 100 ns/op
+BenchmarkA 10 100 ns/op
+BenchmarkA 10 100 ns/op
+BenchmarkA 10 100 ns/op
+BenchmarkA 10 100 ns/op
+BenchmarkB 10 10000 ns/op
+BenchmarkB 10 10000 ns/op
+BenchmarkB 10 10000 ns/op
+BenchmarkB 10 10000 ns/op
+BenchmarkB 10 10000 ns/op
+BenchmarkB 10 10000 ns/op
+
+note: after
+
+BenchmarkA 10 100 ns/op
+BenchmarkA 10 100 ns/op
+BenchmarkA 10 100 ns/op
+BenchmarkA 10 100 ns/op
+BenchmarkA 10 100 ns/op
+BenchmarkA 10 100 ns/op
+BenchmarkC 10 10000 ns/op
+BenchmarkC 10 10000 ns/op
+BenchmarkC 10 10000 ns/op
+BenchmarkC 10 10000 ns/op
+BenchmarkC 10 10000 ns/op
+BenchmarkC 10 10000 ns/op

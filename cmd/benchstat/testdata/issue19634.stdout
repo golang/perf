@@ -1,0 +1,4 @@
+               │    before     │                after                │
+               │    sec/op     │    sec/op     vs base               │
+FloatSub/100-4   115.00n ± ∞ ¹   78.80n ± ∞ ¹  -31.48% (p=0.008 n=5)
+¹ need >= 6 samples for confidence interval at level 0.95

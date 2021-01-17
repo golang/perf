@@ -1,0 +1,27 @@
+Unit a-bytes assume=exact
+Unit b-bytes assume=exact
+Unit c-bytes assume=exact
+Unit x assume=exact
+Unit y assume=exact
+
+note: before
+
+# We double each benchmark so benchstat shows a geomean row.
+
+BenchmarkImperceptible 1 1234567890 a-bytes 171717171716 b-bytes 99999930 c-bytes
+BenchmarkImperceptible2 1 1234567890 a-bytes 171717171716 b-bytes 99999930 c-bytes
+# Ratio should be treated as 1.
+BenchmarkZeroOverZero 1 0 x
+BenchmarkZeroOverZero2 1 0 x
+# Ratio should be treated as uncomputable.
+BenchmarkNonZeroOverZero 1 0 y
+BenchmarkNonZeroOverZero2 1 0 y
+
+note: after
+
+BenchmarkImperceptible 1 1234567890 a-bytes 171717171717 b-bytes 99999929 c-bytes
+BenchmarkImperceptible2 1 1234567890 a-bytes 171717171717 b-bytes 99999929 c-bytes
+BenchmarkZeroOverZero 1 0 x
+BenchmarkZeroOverZero2 1 0 x
+BenchmarkNonZeroOverZero 1 100 y
+BenchmarkNonZeroOverZero2 1 100 y

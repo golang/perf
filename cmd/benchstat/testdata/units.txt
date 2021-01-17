@@ -1,0 +1,17 @@
+Unit text-bytes assume=exact
+
+note: before
+
+BenchmarkSize 1 100 text-bytes
+
+BenchmarkNonExact 1 100 text-bytes
+BenchmarkNonExact 1 101 text-bytes
+BenchmarkNonExact 1 101 text-bytes
+
+note: after
+
+BenchmarkSize 1 105 text-bytes
+
+BenchmarkNonExact 1 101 text-bytes
+BenchmarkNonExact 1 101 text-bytes
+BenchmarkNonExact 1 101 text-bytes
