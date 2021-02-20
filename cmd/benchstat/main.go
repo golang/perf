@@ -79,7 +79,6 @@
 //	name        time/op
 //	GobEncode   13.6ms ± 1%
 //	JSONEncode  32.1ms ± 1%
-//	$
 //
 // If run with two input files, benchstat summarizes and compares:
 //
@@ -87,11 +86,77 @@
 //	name        old time/op  new time/op  delta
 //	GobEncode   13.6ms ± 1%  11.8ms ± 1%  -13.31% (p=0.016 n=4+5)
 //	JSONEncode  32.1ms ± 1%  31.8ms ± 1%     ~    (p=0.286 n=4+5)
-//	$
 //
 // Note that the JSONEncode result is reported as
 // statistically insignificant instead of a -0.93% delta.
 //
+// An example benchmarking workflow in Unix shell language:
+//
+//	oldBin=/tmp/benchmarkBinaryOld
+//	newBin=/tmp/benchmarkBinaryNew
+//	old=/tmp/benchmarkReportOld
+//	new=/tmp/benchmarkReportNew
+//	result=/tmp/benchstatReport
+//	
+//	# Create first test executable.
+//	go test -c -o "$oldBin" -bench .
+//	
+//	# Apply code patch now
+//	git checkout fixes
+//	
+//	# Create the other test executable.
+//	go test -c -o "$newBin" -bench .
+//	
+//	# Test and benchmark.
+//	for i in 0 1 2 3 4 5 6 7 8 9 10 11 12 13; do
+//		printf 'Tests %s starting.\n' "$i"
+//		"$oldBin" -test.bench . >> "$old"
+//		"$newBin" -test.bench . >> "$new"
+//	done
+//	
+//	# Create final report with benchstat.
+//	benchstat "$old" "$new" > "$result"
+//
+// Possible variations include disabling tests (done with the command
+// line arguments "-run -"), running three instead of two benchmark
+// executables in the loop or increasing niceness or, even better,
+// running the binaries under a real time scheduling policy (see
+// sched_setscheduler and SCHED_FIFO). If you are on Linux and have
+// the chrt program, to run the test binary under a real time
+// scheduling policy run it like so:
+//
+//	chrt -f 50 testBinary -test.bench regexp >> out
+//
+// Be aware, though, that since a real time scheduling policy gives a
+// process or thread as much time as it "wants" to take, a thread of
+// the running testBinary process or one of its children can take up
+// all the time of a CPU core, and thus testBinary and its children
+// could, if malicious or simply buggy, effectively make a denial of
+// service attack on your computer.
+//
+// Other general benchmarking tips for reducing noise, Linux specific,
+// include disabling address space randomization and disabling Intel
+// turbo mode:
+//
+//	printf 0 > /proc/sys/kernel/randomize_va_space
+//	printf 1 > /sys/devices/system/cpu/intel_pstate/no_turbo
+//
+// If your computer has sufficient cooling, set the Linux "performance"
+// frequency scaling governor for all cores:
+//
+//	for f in /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor; do
+//		printf performance > "$f"
+//	done
+//
+// If your computer has insufficient cooling, lower the maximum
+// frequency of all CPU cores:
+//
+//	# Get minimum frequency.
+//	cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+//	
+//	for f in /sys/devices/system/cpu/cpu*/cpufreq/scaling_max_freq; do
+//		printf minimumFrequency > "$f"
+//	done
 package main
 
 import (
