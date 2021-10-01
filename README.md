@@ -21,8 +21,8 @@ Both storage and analysis can be run locally; the following commands will run
 the complete stack on your machine with an in-memory datastore.
 
 ```
-go get -u golang.org/x/perf/storage/localperfdata
-go get -u golang.org/x/perf/analysis/localperf
+go install golang.org/x/perf/storage/localperfdata@latest
+go install golang.org/x/perf/analysis/localperf@latest
 localperfdata -addr=:8081 -view_url_base=http://localhost:8080/search?q=upload: &
 localperf -addr=:8080 -storage=http://localhost:8081
 ```
@@ -34,8 +34,9 @@ tools to be written against the API. A client can be found in the
 
 ## Download/Install
 
-The easiest way to install is to run `go get golang.org/x/perf/cmd/...`.
-You can also manually git clone the repository and run `go install ./cmd/...`.
+The easiest way to install is to run `go install
+golang.org/x/perf/cmd/...@latest`. You can also manually git clone the
+repository and run `go install golang.org/x/perf/cmd/...`.
 
 ## Report Issues / Send Patches
 
