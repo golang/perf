@@ -29,8 +29,15 @@ type Reader struct {
 	s   *bufio.Scanner
 	err error // current I/O error
 
-	result    Result
-	resultErr *SyntaxError
+	// q is the queue of records to return before processing the next
+	// input line. qPos is the index of the current record in q. We
+	// track the index explicitly rather than slicing q so that we can
+	// reuse the q slice when we reach the end.
+	q    []Record
+	qPos int
+
+	result Result
+	units  UnitMetadataMap
 
 	interns map[string]string
 }
@@ -68,6 +75,7 @@ func (r *Reader) newSyntaxError(msg string) *SyntaxError {
 
 // Reset resets the reader to begin reading from a new input.
 // It also resets all accumulated configuration values.
+// It does NOT reset unit metadata because it carries across files.
 //
 // initConfig is an alternating sequence of keys and values.
 // Reset will install these as the initial internal configuration
@@ -78,10 +86,17 @@ func (r *Reader) Reset(ior io.Reader, fileName string, initConfig ...string) {
 		fileName = "<unknown>"
 	}
 	r.err = nil
-	r.resultErr = noResult
 	if r.interns == nil {
 		r.interns = make(map[string]string)
 	}
+	if r.units == nil {
+		r.units = make(map[UnitMetadataKey]*UnitMetadata)
+	}
+
+	// Wipe the queue in case the user hasn't consumed everything from
+	// this file.
+	r.qPos = 0
+	r.q = r.q[:0]
 
 	// Wipe the Result.
 	r.result.Config = r.result.Config[:0]
@@ -103,7 +118,10 @@ func (r *Reader) Reset(ior io.Reader, fileName string, initConfig ...string) {
 	}
 }
 
-var benchmarkPrefix = []byte("Benchmark")
+var (
+	benchmarkPrefix = []byte("Benchmark")
+	unitPrefix      = []byte("Unit")
+)
 
 // Scan advances the reader to the next result and reports whether a
 // result was read.
@@ -115,7 +133,19 @@ func (r *Reader) Scan() bool {
 		return false
 	}
 
-	for r.s.Scan() {
+	// If there's anything in the queue from an earlier line, just pop
+	// the queue and return without consuming any more input.
+	if r.qPos+1 < len(r.q) {
+		r.qPos++
+		return true
+	}
+	// Otherwise, we've drained the queue and need to parse more input
+	// to refill it. Reset it to 0 so we can reuse the space.
+	r.qPos = 0
+	r.q = r.q[:0]
+
+	// Process lines until we add something to the queue or hit EOF.
+	for len(r.q) == 0 && r.s.Scan() {
 		r.result.line++
 		// We do everything in byte buffers to avoid allocation.
 		line := r.s.Bytes()
@@ -125,8 +155,20 @@ func (r *Reader) Scan() bool {
 			// At this point we commit to this being a
 			// benchmark line. If it's malformed, we treat
 			// that as an error.
-			r.resultErr = r.parseBenchmarkLine(line)
-			return true
+			if err := r.parseBenchmarkLine(line); err != nil {
+				r.q = append(r.q, err)
+			} else {
+				r.q = append(r.q, &r.result)
+			}
+			continue
+		}
+		if len(line) > 0 && line[0] == 'U' {
+			if nLine, ok := r.isUnitLine(line); ok {
+				// Parse unit metadata line. This queues up its own
+				// records and errors.
+				r.parseUnitLine(nLine)
+				continue
+			}
 		}
 		if key, val, ok := parseKeyValueLine(line); ok {
 			// Intern key, since there tend to be few
@@ -143,6 +185,12 @@ func (r *Reader) Scan() bool {
 		// Ignore the line.
 	}
 
+	if len(r.q) > 0 {
+		// We queued something up to return.
+		return true
+	}
+
+	// We hit EOF. Check for IO errors.
 	if err := r.s.Err(); err != nil {
 		r.err = fmt.Errorf("%s:%d: %w", r.result.fileName, r.result.line, err)
 		return false
@@ -257,6 +305,68 @@ func (r *Reader) parseBenchmarkLine(line []byte) *SyntaxError {
 	return nil
 }
 
+// isUnitLine tests whether line is a unit metadata line. If it is, it
+// returns the line after the "Unit" literal and true.
+func (r *Reader) isUnitLine(line []byte) (rest []byte, ok bool) {
+	var f []byte
+	// Is this a unit metadata line?
+	f, line = splitField(line)
+	if bytes.Equal(f, unitPrefix) {
+		return line, true
+	}
+	return nil, false
+}
+
+// parseUnitLine parses line as a unit metadata line, starting
+// after "Unit". It updates r.q.
+// If there are syntax errors on the line, it will attempt to parse
+// what it can and return a non-nil error.
+func (r *Reader) parseUnitLine(line []byte) {
+	var f []byte
+	// isUnitLine already consumed the literal "Unit".
+	// Consume the next field, which is the unit.
+	f, line = splitField(line)
+	if len(f) == 0 {
+		r.q = append(r.q, r.newSyntaxError("missing unit"))
+		return
+	}
+	unit := r.intern(f)
+
+	// The metadata map is indexed by tidied units because we want to
+	// support lookups by tidy units and there's no way to "untidy" a
+	// unit.
+	_, tidyUnit := benchunit.Tidy(1, unit)
+
+	// Consume key=value pairs.
+	for {
+		f, line = splitField(line)
+		if len(f) == 0 {
+			break
+		}
+		eq := bytes.IndexByte(f, '=')
+		if eq <= 0 {
+			r.q = append(r.q, r.newSyntaxError("expected key=value"))
+			continue
+		}
+		key := UnitMetadataKey{tidyUnit, r.intern(f[:eq])}
+		value := r.intern(f[eq+1:])
+
+		if have, ok := r.units[key]; ok {
+			if have.Value == value {
+				// We already have this unit metadata. Ignore.
+				continue
+			}
+			// Report incompatible unit metadata.
+			r.q = append(r.q, r.newSyntaxError(fmt.Sprintf("metadata %s of unit %s already set to %s", key.Key, unit, have.Value)))
+			continue
+		}
+
+		metadata := &UnitMetadata{key, unit, value, r.result.fileName, r.result.line}
+		r.units[key] = metadata
+		r.q = append(r.q, metadata)
+	}
+}
+
 func (r *Reader) intern(x []byte) string {
 	const maxIntern = 1024
 	if s, ok := r.interns[string(x)]; ok {
@@ -289,9 +399,10 @@ type Record interface {
 
 var _ Record = (*Result)(nil)
 var _ Record = (*SyntaxError)(nil)
+var _ Record = (*UnitMetadata)(nil)
 
 // Result returns the record that was just read by Scan. This is either
-// a *Result or a *SyntaxError indicating a parse error.
+// a *Result, a *UnitMetadata, or a *SyntaxError indicating a parse error.
 // It may return more types in the future.
 //
 // Parse errors are non-fatal, so the caller can continue to call
@@ -300,16 +411,26 @@ var _ Record = (*SyntaxError)(nil)
 // If this returns a *Result, the caller should not retain the Result,
 // as it will be overwritten by the next call to Scan.
 func (r *Reader) Result() Record {
-	if r.resultErr != nil {
-		return r.resultErr
+	if r.qPos >= len(r.q) {
+		// This should only happen if Scan has never been called.
+		return noResult
 	}
-	return &r.result
+	return r.q[r.qPos]
 }
 
 // Err returns the first non-EOF I/O error that was encountered by the
 // Reader.
 func (r *Reader) Err() error {
 	return r.err
+}
+
+// Units returns the accumulated unit metadata.
+//
+// Callers that want to consume the entire stream of benchmark results
+// and then process units can use this instead of monitoring
+// *UnitMetadata Records.
+func (r *Reader) Units() UnitMetadataMap {
+	return r.units
 }
 
 // Parsing helpers.

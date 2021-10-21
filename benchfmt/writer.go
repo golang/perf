@@ -33,15 +33,24 @@ func NewWriter(w io.Writer) *Writer {
 func (w *Writer) Write(rec Record) error {
 	switch rec := rec.(type) {
 	case *Result:
-		return w.writeResult(rec)
+		w.writeResult(rec)
+	case *UnitMetadata:
+		w.writeUnitMetadata(rec)
 	case *SyntaxError:
 		// Ignore
 		return nil
+	default:
+		return fmt.Errorf("unknown Record type %T", rec)
 	}
-	return fmt.Errorf("unknown Record type %T", rec)
+
+	// Flush the buffer out to the io.Writer. Write to the buffer
+	// can't fail, so we only have to check if this fails.
+	_, err := w.w.Write(w.buf.Bytes())
+	w.buf.Reset()
+	return err
 }
 
-func (w *Writer) writeResult(res *Result) error {
+func (w *Writer) writeResult(res *Result) {
 	// If any file config changed, write out the changes.
 	if len(w.fileConfig) != len(res.Config) {
 		w.writeFileConfig(res)
@@ -66,12 +75,6 @@ func (w *Writer) writeResult(res *Result) error {
 	w.buf.WriteByte('\n')
 
 	w.first = false
-
-	// Flush the buffer out to the io.Writer. Write to the buffer
-	// can't fail, so we only have to check if this fails.
-	_, err := w.w.Write(w.buf.Bytes())
-	w.buf.Reset()
-	return err
 }
 
 func (w *Writer) writeFileConfig(res *Result) {
@@ -126,4 +129,8 @@ func (w *Writer) writeFileConfig(res *Result) {
 	}
 
 	w.buf.WriteByte('\n')
+}
+
+func (w *Writer) writeUnitMetadata(m *UnitMetadata) {
+	fmt.Fprintf(&w.buf, "Unit %s %s=%s\n", m.OrigUnit, m.Key, m.Value)
 }

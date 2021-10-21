@@ -17,7 +17,7 @@ import (
 	"time"
 )
 
-func parseAll(t *testing.T, data string, setup ...func(r *Reader, sr io.Reader)) []Record {
+func parseAll(t *testing.T, data string, setup ...func(r *Reader, sr io.Reader)) ([]Record, *Reader) {
 	sr := strings.NewReader(data)
 	r := NewReader(sr, "test")
 	for _, f := range setup {
@@ -32,7 +32,7 @@ func parseAll(t *testing.T, data string, setup ...func(r *Reader, sr io.Reader))
 			res.fileName = ""
 			res.line = 0
 			out = append(out, res)
-		case *SyntaxError:
+		case *SyntaxError, *UnitMetadata:
 			out = append(out, rec)
 		default:
 			t.Fatalf("unexpected result type %T", rec)
@@ -41,7 +41,7 @@ func parseAll(t *testing.T, data string, setup ...func(r *Reader, sr io.Reader))
 	if err := r.Err(); err != nil {
 		t.Fatal("parsing failed: ", err)
 	}
-	return out
+	return out, r
 }
 
 func printRecord(w io.Writer, r Record) {
@@ -55,6 +55,8 @@ func printRecord(w io.Writer, r Record) {
 			fmt.Fprintf(w, " %v %s", val.Value, val.Unit)
 		}
 		fmt.Fprintf(w, "\n")
+	case *UnitMetadata:
+		fmt.Fprintf(w, "Unit: %+v\n", r)
 	case *SyntaxError:
 		fmt.Fprintf(w, "SyntaxError: %s\n", r)
 	default:
@@ -186,6 +188,10 @@ BenchmarkBadVal 100 abc
 BenchmarkMissingUnit 100 1
 BenchmarkMissingUnit2 100 1 ns/op 2
 also not a benchmark
+Unit
+Unit ns/op blah
+Unit ns/op a=1
+Unit ns/op a=2
 `,
 			[]Record{
 				&SyntaxError{"test", 2, "missing iteration count"},
@@ -195,6 +201,10 @@ also not a benchmark
 				&SyntaxError{"test", 6, "parsing measurement: invalid syntax"},
 				&SyntaxError{"test", 7, "missing units"},
 				&SyntaxError{"test", 8, "missing units"},
+				&SyntaxError{"test", 10, "missing unit"},
+				&SyntaxError{"test", 11, "expected key=value"},
+				&UnitMetadata{UnitMetadataKey{"sec/op", "a"}, "ns/op", "1", "test", 12},
+				&SyntaxError{"test", 13, "metadata a of unit ns/op already set to 1"},
 			},
 		},
 		{
@@ -221,16 +231,36 @@ BenchmarkOne 100 1 ns/op
 					v(1, "ns/op").res,
 			},
 		},
+		{
+			"unit metadata",
+			`Unit ns/op a=1 b=2
+Unit ns/op c=3 error d=4
+# Repeated unit should report nothing
+Unit ns/op d=4
+# Starts like a unit line but actually isn't
+Unitx
+BenchmarkOne 100 1 ns/op
+`,
+			[]Record{
+				&UnitMetadata{UnitMetadataKey{"sec/op", "a"}, "ns/op", "1", "test", 1},
+				&UnitMetadata{UnitMetadataKey{"sec/op", "b"}, "ns/op", "2", "test", 1},
+				&UnitMetadata{UnitMetadataKey{"sec/op", "c"}, "ns/op", "3", "test", 2},
+				&SyntaxError{"test", 2, "expected key=value"},
+				&UnitMetadata{UnitMetadataKey{"sec/op", "d"}, "ns/op", "4", "test", 2},
+				r("One", 100).
+					v(1, "ns/op").res,
+			},
+		},
 	} {
 		t.Run(test.name, func(t *testing.T) {
-			got := parseAll(t, test.input)
+			got, _ := parseAll(t, test.input)
 			compareRecords(t, got, test.want)
 		})
 	}
 }
 
 func TestReaderInternalConfig(t *testing.T) {
-	got := parseAll(t, `
+	got, _ := parseAll(t, `
 # Test initial internal config
 Benchmark1 100 1 ns/op
 # Overwrite internal config with file config

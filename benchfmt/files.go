@@ -177,3 +177,9 @@ func (f *Files) Result() Record {
 func (f *Files) Err() error {
 	return f.err
 }
+
+// Units returns the accumulated unit metadata.
+// See Reader.Units.
+func (f *Files) Units() map[UnitMetadataKey]*UnitMetadata {
+	return f.reader.Units()
+}

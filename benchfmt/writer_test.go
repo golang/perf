@@ -12,6 +12,9 @@ import (
 
 func TestWriter(t *testing.T) {
 	const input = `BenchmarkOne 1 1 ns/op
+Unit ns/op a=1
+Unit ns/op b=2
+Unit MB/s c=3
 
 key: val
 key1: val1
