@@ -1,42 +1,57 @@
-# Go performance measurement, storage, and analysis tools
+# Go benchmark analysis tools
 
 [![Go Reference](https://pkg.go.dev/badge/golang.org/x/perf.svg)](https://pkg.go.dev/golang.org/x/perf)
 
-This subrepository holds the source for various packages and tools
-related to performance measurement, storage, and analysis.
+This subrepository holds tools and packages for analyzing [Go
+benchmark results](https://golang.org/design/14313-benchmark-format),
+such as the output of [testing package
+benchmarks](https://pkg.go.dev/testing).
 
-[cmd/benchstat](cmd/benchstat) contains a command-line tool that
-computes and compares statistics about benchmarks.
+## Tools
 
-[cmd/benchsave](cmd/benchsave) contains a command-line tool for
-publishing benchmark results.
+This subrepository contains command-line tools for analyzing benchmark
+result data.
 
-[storage](storage) contains the https://perfdata.golang.org/ benchmark
-result storage system.
+[cmd/benchstat](cmd/benchstat) computes statistical summaries and A/B
+comparisons of Go benchmarks.
 
-[analysis](analysis) contains the https://perf.golang.org/ benchmark
-result analysis system.
+[cmd/benchsave](cmd/benchsave) publishes benchmark results to
+[perf.golang.org](https://perf.golang.org).
 
-Both storage and analysis can be run locally; the following commands will run
-the complete stack on your machine with an in-memory datastore.
+To install all of these commands, run
+`go install golang.org/x/perf/cmd/...@latest`.
+You can also
+`git clone https://go.googlesource.com/perf` and run
+`go install ./cmd/...` in the checkout.
 
-```
-go install golang.org/x/perf/storage/localperfdata@latest
-go install golang.org/x/perf/analysis/localperf@latest
-localperfdata -addr=:8081 -view_url_base=http://localhost:8080/search?q=upload: &
-localperf -addr=:8080 -storage=http://localhost:8081
-```
+## Packages
 
-The storage system is designed to have a [standardized
-API](https://perfdata.golang.org/), and we encourage additional analysis
-tools to be written against the API. A client can be found in the
-[storage](https://godoc.org/golang.org/x/perf/storage) package.
+Underlying the above tools are several packages for working with
+benchmark data. These are designed to work together, but can also be
+used independently.
 
-## Download/Install
+[benchfmt](benchfmt) reads and writes the Go benchmark format.
 
-The easiest way to install is to run `go install
-golang.org/x/perf/cmd/...@latest`. You can also manually git clone the
-repository and run `go install golang.org/x/perf/cmd/...`.
+[benchunit](benchunit) manipulates benchmark units and formats numbers
+in those units.
+
+[benchproc](benchproc) provides tools for filtering, grouping, and
+sorting benchmark results.
+
+[benchmath](benchmath) provides tools for computing statistics over
+distributions of benchmark measurements.
+
+## Deprecated packages
+
+The following packages are deprecated and no longer supported:
+
+[storage](storage) contains a deprecated version of the
+https://perfdata.golang.org/ benchmark result storage system. These
+packages have moved to https://golang.org/x/build.
+
+[analysis](analysis) contains a deprecated version of the
+https://perf.golang.org/ benchmark result analysis system. These
+packages have moved to https://golang.org/x/build.
 
 ## Report Issues / Send Patches
 

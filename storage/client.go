@@ -3,6 +3,8 @@
 // license that can be found in the LICENSE file.
 
 // Package storage contains a client for the performance data storage server.
+//
+// Deprecated: Moved to golang.org/x/build/perfdata.
 package storage
 
 import (
