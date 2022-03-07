@@ -27,7 +27,7 @@ import (
 )
 
 // trend handles /trend.
-// With no query, it prints the list of recent uploads containg a "trend" key.
+// With no query, it prints the list of recent uploads containing a "trend" key.
 // With a query, it shows a graph of the matching benchmark results.
 func (a *App) trend(w http.ResponseWriter, r *http.Request) {
 	ctx := requestContext(r)
@@ -407,7 +407,7 @@ func (ci colIndex) F(g table.Grouping) table.Grouping {
 	})
 }
 
-// removeNaNs returns a new Grouping with rows containg NaN in col removed.
+// removeNaNs returns a new Grouping with rows containing NaN in col removed.
 func removeNaNs(g table.Grouping, col string) table.Grouping {
 	return table.Filter(g, func(result float64) bool {
 		return !math.IsNaN(result)
