@@ -1,0 +1,2267 @@
+toolchain: Tip
+suite: bent-cron
+bentstamp: 20211122T112021
+tip: 6275b54a2a
+base: 4a842985bf
+numerator_branch: master
+numerator_hash: 6275b54a2a
+numerator_stamp: 2021-11-22T16:15:36+00:00
+denominator_branch: Go1.17
+denominator_hash: 4a842985bf
+builder_id: drchase1.cam.corp.google.com
+builder_type: Xeon-E5-1650v3@3.5Ghz*12
+runstamp: 20211122T112021
+goos: linux
+goarch: amd64
+BenchmarkGonum_topo 1 3096182517 build-real-ns/op 10639453000 build-user-ns/op 1076005000 build-sys-ns/op
+BenchmarkAjstarks_deck_generate 1 320699906 build-real-ns/op 566621000 build-user-ns/op 150671000 build-sys-ns/op
+BenchmarkGonum_lapack_native 1 2965993894 build-real-ns/op 8553805000 build-user-ns/op 613652000 build-sys-ns/op
+BenchmarkMinio 1 38993957490 build-real-ns/op 279420528000 build-user-ns/op 19782421000 build-sys-ns/op
+BenchmarkDustin_humanize 1 372446483 build-real-ns/op 700740000 build-user-ns/op 164420000 build-sys-ns/op
+BenchmarkUber_zap 1 1861719065 build-real-ns/op 6357903000 build-user-ns/op 671326000 build-sys-ns/op
+BenchmarkSemver 1 352162283 build-real-ns/op 668888000 build-user-ns/op 147848000 build-sys-ns/op
+BenchmarkShopify_sarama 1 3433016182 build-real-ns/op 12794200000 build-user-ns/op 1135299000 build-sys-ns/op
+BenchmarkBloom_bloom 1 378019685 build-real-ns/op 776240000 build-user-ns/op 163800000 build-sys-ns/op
+BenchmarkBenhoyt_goawk 1 694089044 build-real-ns/op 1347273000 build-user-ns/op 284730000 build-sys-ns/op
+BenchmarkSpexs2 1 483545122 build-real-ns/op 1327286000 build-user-ns/op 290797000 build-sys-ns/op
+BenchmarkK8s_workqueue 1 881629316 build-real-ns/op 2669055000 build-user-ns/op 417090000 build-sys-ns/op
+BenchmarkEriclagergren_decimal 1 590278311 build-real-ns/op 2043245000 build-user-ns/op 341427000 build-sys-ns/op
+BenchmarkKlauspost 1 274876737 build-real-ns/op 420944000 build-user-ns/op 179595000 build-sys-ns/op
+BenchmarkGonum_path 1 3061580465 build-real-ns/op 10414338000 build-user-ns/op 939008000 build-sys-ns/op
+BenchmarkAws_restxml 1 3201190090 build-real-ns/op 9103323000 build-user-ns/op 1027909000 build-sys-ns/op
+BenchmarkK8s_cache 1 7251790544 build-real-ns/op 33161325000 build-user-ns/op 2645693000 build-sys-ns/op
+BenchmarkCapnproto2 1 4667641169 build-real-ns/op 13068050000 build-user-ns/op 837333000 build-sys-ns/op
+BenchmarkAws_restjson 1 3238045229 build-real-ns/op 9081855000 build-user-ns/op 1026660000 build-sys-ns/op
+BenchmarkEthereum_storage 1 9468779385 build-real-ns/op 31569991000 build-user-ns/op 2974364000 build-sys-ns/op
+BenchmarkAws_jsonrpc 1 2925032568 build-real-ns/op 8314989000 build-user-ns/op 971087000 build-sys-ns/op
+BenchmarkEthereum_corevm 1 7678625094 build-real-ns/op 19304585000 build-user-ns/op 1824679000 build-sys-ns/op
+BenchmarkTidwall_tile38 1 9035544178 build-real-ns/op 65542878000 build-user-ns/op 5564892000 build-sys-ns/op
+BenchmarkHugo_hugolib 1 16763123327 build-real-ns/op 115251405000 build-user-ns/op 8345822000 build-sys-ns/op
+BenchmarkGonum_blas_native 1 1774273551 build-real-ns/op 5453058000 build-user-ns/op 496216000 build-sys-ns/op
+BenchmarkEthereum_ethash 1 7659500992 build-real-ns/op 19404560000 build-user-ns/op 1906748000 build-sys-ns/op
+BenchmarkCespare_mph 1 290398759 build-real-ns/op 457236000 build-user-ns/op 162533000 build-sys-ns/op
+BenchmarkAws_jsonutil 1 2043147700 build-real-ns/op 4407444000 build-user-ns/op 501807000 build-sys-ns/op
+BenchmarkGonum_community 1 3246007878 build-real-ns/op 10673101000 build-user-ns/op 942018000 build-sys-ns/op
+BenchmarkGonum_mat 1 3504627903 build-real-ns/op 12223703000 build-user-ns/op 790357000 build-sys-ns/op
+BenchmarkCespare_xxhash 1 289173152 build-real-ns/op 570434000 build-user-ns/op 217369000 build-sys-ns/op
+BenchmarkEthereum_ecies 1 5530115525 build-real-ns/op 6613708000 build-user-ns/op 544957000 build-sys-ns/op
+BenchmarkNelsam_gxui_interval 1 370514812 build-real-ns/op 630037000 build-user-ns/op 201914000 build-sys-ns/op
+BenchmarkHugo_helpers 1 9839583560 build-real-ns/op 65992248000 build-user-ns/op 4042933000 build-sys-ns/op
+BenchmarkEthereum_bitutil 1 357734933 build-real-ns/op 690064000 build-user-ns/op 144601000 build-sys-ns/op
+BenchmarkEthereum_core 1 9245025711 build-real-ns/op 25815635000 build-user-ns/op 2230263000 build-sys-ns/op
+BenchmarkGtank_blake2s 1 285738856 build-real-ns/op 549067000 build-user-ns/op 178680000 build-sys-ns/op
+BenchmarkCommonmark_markdown 1 4883178588 build-real-ns/op 7153201000 build-user-ns/op 402132000 build-sys-ns/op
+BenchmarkGonum_traverse 1 2804704785 build-real-ns/op 9456460000 build-user-ns/op 959851000 build-sys-ns/op
+BenchmarkUber_tally 1 1250237957 build-real-ns/op 3606053000 build-user-ns/op 475836000 build-sys-ns/op
+BenchmarkKanzi 1 739328695 build-real-ns/op 1838706000 build-user-ns/op 340756000 build-sys-ns/op
+BenchmarkDustin_broadcast 1 281185637 build-real-ns/op 499419000 build-user-ns/op 119956000 build-sys-ns/op
+BenchmarkBindata 1 874173687 build-real-ns/op 1308269000 build-user-ns/op 245011000 build-sys-ns/op
+BenchmarkEthereum_trie 1 7028285466 build-real-ns/op 16428898000 build-user-ns/op 1413937000 build-sys-ns/op
+BenchmarkMinio 1 35520774019 build-real-ns/op 274052839000 build-user-ns/op 19445931000 build-sys-ns/op
+BenchmarkEthereum_ecies 1 5177184229 build-real-ns/op 6058247000 build-user-ns/op 587837000 build-sys-ns/op
+BenchmarkEriclagergren_decimal 1 404001366 build-real-ns/op 1787078000 build-user-ns/op 322579000 build-sys-ns/op
+BenchmarkUber_tally 1 968223048 build-real-ns/op 3354562000 build-user-ns/op 338645000 build-sys-ns/op
+BenchmarkGonum_path 1 2845655663 build-real-ns/op 10118329000 build-user-ns/op 871172000 build-sys-ns/op
+BenchmarkTidwall_tile38 1 7944627089 build-real-ns/op 63464549000 build-user-ns/op 5779168000 build-sys-ns/op
+BenchmarkEthereum_bitutil 1 177637695 build-real-ns/op 478620000 build-user-ns/op 123684000 build-sys-ns/op
+BenchmarkKanzi 1 603900621 build-real-ns/op 1660073000 build-user-ns/op 272656000 build-sys-ns/op
+BenchmarkGonum_topo 1 2901058787 build-real-ns/op 10587217000 build-user-ns/op 989687000 build-sys-ns/op
+BenchmarkGonum_community 1 3041776007 build-real-ns/op 10599301000 build-user-ns/op 876052000 build-sys-ns/op
+BenchmarkKlauspost 1 102606632 build-real-ns/op 226994000 build-user-ns/op 138946000 build-sys-ns/op
+BenchmarkDustin_broadcast 1 139144839 build-real-ns/op 249383000 build-user-ns/op 127724000 build-sys-ns/op
+BenchmarkAjstarks_deck_generate 1 205610037 build-real-ns/op 395356000 build-user-ns/op 107332000 build-sys-ns/op
+BenchmarkDustin_humanize 1 217746418 build-real-ns/op 484692000 build-user-ns/op 149167000 build-sys-ns/op
+BenchmarkAws_restjson 1 2817190667 build-real-ns/op 8428754000 build-user-ns/op 1040952000 build-sys-ns/op
+BenchmarkCespare_mph 1 168559274 build-real-ns/op 313535000 build-user-ns/op 95139000 build-sys-ns/op
+BenchmarkEthereum_ethash 1 6927381998 build-real-ns/op 18424014000 build-user-ns/op 1739051000 build-sys-ns/op
+BenchmarkEthereum_trie 1 6417449742 build-real-ns/op 15716261000 build-user-ns/op 1513264000 build-sys-ns/op
+BenchmarkAws_restxml 1 2761713813 build-real-ns/op 8443830000 build-user-ns/op 919284000 build-sys-ns/op
+BenchmarkHugo_hugolib 1 15593663617 build-real-ns/op 114114786000 build-user-ns/op 7635189000 build-sys-ns/op
+BenchmarkAws_jsonrpc 1 2561870262 build-real-ns/op 7708625000 build-user-ns/op 888627000 build-sys-ns/op
+BenchmarkBenhoyt_goawk 1 507770998 build-real-ns/op 1204307000 build-user-ns/op 210232000 build-sys-ns/op
+BenchmarkHugo_helpers 1 8991010308 build-real-ns/op 64828542000 build-user-ns/op 3725470000 build-sys-ns/op
+BenchmarkAws_jsonutil 1 1859477625 build-real-ns/op 4170552000 build-user-ns/op 486308000 build-sys-ns/op
+BenchmarkGonum_traverse 1 2666232189 build-real-ns/op 9070946000 build-user-ns/op 881630000 build-sys-ns/op
+BenchmarkK8s_cache 1 6446817059 build-real-ns/op 32395374000 build-user-ns/op 2224810000 build-sys-ns/op
+BenchmarkCapnproto2 1 4476000281 build-real-ns/op 13138371000 build-user-ns/op 749043000 build-sys-ns/op
+BenchmarkUber_zap 1 1498470568 build-real-ns/op 5824413000 build-user-ns/op 721529000 build-sys-ns/op
+BenchmarkK8s_workqueue 1 587412954 build-real-ns/op 2230231000 build-user-ns/op 404745000 build-sys-ns/op
+BenchmarkCommonmark_markdown 1 4669252169 build-real-ns/op 7041229000 build-user-ns/op 294943000 build-sys-ns/op
+BenchmarkNelsam_gxui_interval 1 229790353 build-real-ns/op 457649000 build-user-ns/op 135633000 build-sys-ns/op
+BenchmarkBloom_bloom 1 220051200 build-real-ns/op 564633000 build-user-ns/op 130373000 build-sys-ns/op
+BenchmarkGonum_blas_native 1 1594633454 build-real-ns/op 5191015000 build-user-ns/op 343886000 build-sys-ns/op
+BenchmarkGtank_blake2s 1 144317018 build-real-ns/op 336571000 build-user-ns/op 109923000 build-sys-ns/op
+BenchmarkShopify_sarama 1 2974663763 build-real-ns/op 12086964000 build-user-ns/op 1186144000 build-sys-ns/op
+BenchmarkGonum_lapack_native 1 2684628133 build-real-ns/op 8096759000 build-user-ns/op 550822000 build-sys-ns/op
+BenchmarkCespare_xxhash 1 187984744 build-real-ns/op 419158000 build-user-ns/op 140885000 build-sys-ns/op
+BenchmarkEthereum_core 1 8107885542 build-real-ns/op 24387801000 build-user-ns/op 2145924000 build-sys-ns/op
+BenchmarkEthereum_corevm 1 7021706149 build-real-ns/op 18633663000 build-user-ns/op 1645796000 build-sys-ns/op
+BenchmarkBindata 1 718817749 build-real-ns/op 1051317000 build-user-ns/op 184467000 build-sys-ns/op
+BenchmarkEthereum_storage 1 8831604625 build-real-ns/op 30958417000 build-user-ns/op 2770309000 build-sys-ns/op
+BenchmarkGonum_mat 1 3284087738 build-real-ns/op 11956009000 build-user-ns/op 870943000 build-sys-ns/op
+BenchmarkSpexs2 1 344578809 build-real-ns/op 1113622000 build-user-ns/op 229438000 build-sys-ns/op
+BenchmarkSemver 1 232351546 build-real-ns/op 473300000 build-user-ns/op 127384000 build-sys-ns/op
+BenchmarkDustin_humanize 1 189620342 build-real-ns/op 494590000 build-user-ns/op 131635000 build-sys-ns/op
+BenchmarkUber_tally 1 1011107642 build-real-ns/op 3382212000 build-user-ns/op 414561000 build-sys-ns/op
+BenchmarkKlauspost 1 135887790 build-real-ns/op 282665000 build-user-ns/op 92264000 build-sys-ns/op
+BenchmarkCapnproto2 1 4421896228 build-real-ns/op 12623375000 build-user-ns/op 799675000 build-sys-ns/op
+BenchmarkGonum_path 1 2869692500 build-real-ns/op 10283102000 build-user-ns/op 859295000 build-sys-ns/op
+BenchmarkCespare_xxhash 1 182485075 build-real-ns/op 429686000 build-user-ns/op 120462000 build-sys-ns/op
+BenchmarkCommonmark_markdown 1 4764973434 build-real-ns/op 7067793000 build-user-ns/op 375987000 build-sys-ns/op
+BenchmarkBenhoyt_goawk 1 594320790 build-real-ns/op 1319464000 build-user-ns/op 203327000 build-sys-ns/op
+BenchmarkKanzi 1 627319808 build-real-ns/op 1737764000 build-user-ns/op 225947000 build-sys-ns/op
+BenchmarkEthereum_ethash 1 7121292342 build-real-ns/op 18896125000 build-user-ns/op 1818908000 build-sys-ns/op
+BenchmarkUber_zap 1 1581889023 build-real-ns/op 6100389000 build-user-ns/op 650997000 build-sys-ns/op
+BenchmarkCespare_mph 1 111763191 build-real-ns/op 242121000 build-user-ns/op 115497000 build-sys-ns/op
+BenchmarkAws_jsonutil 1 1835350979 build-real-ns/op 4250583000 build-user-ns/op 417660000 build-sys-ns/op
+BenchmarkK8s_cache 1 6866167771 build-real-ns/op 32860337000 build-user-ns/op 2530939000 build-sys-ns/op
+BenchmarkGonum_lapack_native 1 2918497052 build-real-ns/op 8655650000 build-user-ns/op 588439000 build-sys-ns/op
+BenchmarkHugo_hugolib 1 15930743623 build-real-ns/op 114286562000 build-user-ns/op 8058143000 build-sys-ns/op
+BenchmarkBindata 1 715451669 build-real-ns/op 1113231000 build-user-ns/op 153909000 build-sys-ns/op
+BenchmarkBloom_bloom 1 205930256 build-real-ns/op 550246000 build-user-ns/op 157201000 build-sys-ns/op
+BenchmarkAws_jsonrpc 1 2545045653 build-real-ns/op 7707349000 build-user-ns/op 1021060000 build-sys-ns/op
+BenchmarkK8s_workqueue 1 595828774 build-real-ns/op 2135511000 build-user-ns/op 454387000 build-sys-ns/op
+BenchmarkDustin_broadcast 1 127103156 build-real-ns/op 276627000 build-user-ns/op 112056000 build-sys-ns/op
+BenchmarkGonum_traverse 1 2661777641 build-real-ns/op 9275090000 build-user-ns/op 865596000 build-sys-ns/op
+BenchmarkGtank_blake2s 1 181524112 build-real-ns/op 316317000 build-user-ns/op 137131000 build-sys-ns/op
+BenchmarkEthereum_trie 1 6397983954 build-real-ns/op 15685310000 build-user-ns/op 1541311000 build-sys-ns/op
+BenchmarkNelsam_gxui_interval 1 197795972 build-real-ns/op 444879000 build-user-ns/op 129021000 build-sys-ns/op
+BenchmarkAws_restxml 1 2824564824 build-real-ns/op 8495241000 build-user-ns/op 1012278000 build-sys-ns/op
+BenchmarkTidwall_tile38 1 7940082151 build-real-ns/op 64076470000 build-user-ns/op 5758013000 build-sys-ns/op
+BenchmarkEthereum_core 1 8107787360 build-real-ns/op 24631877000 build-user-ns/op 2029713000 build-sys-ns/op
+BenchmarkEthereum_ecies 1 5164430358 build-real-ns/op 6108269000 build-user-ns/op 507587000 build-sys-ns/op
+BenchmarkGonum_community 1 3085959182 build-real-ns/op 10606014000 build-user-ns/op 867328000 build-sys-ns/op
+BenchmarkEthereum_bitutil 1 211996869 build-real-ns/op 445073000 build-user-ns/op 163109000 build-sys-ns/op
+BenchmarkSpexs2 1 346992363 build-real-ns/op 1096288000 build-user-ns/op 253277000 build-sys-ns/op
+BenchmarkGonum_blas_native 1 1567886953 build-real-ns/op 5105578000 build-user-ns/op 395585000 build-sys-ns/op
+BenchmarkHugo_helpers 1 9145752396 build-real-ns/op 64788960000 build-user-ns/op 4037631000 build-sys-ns/op
+BenchmarkGonum_topo 1 2913462210 build-real-ns/op 10637374000 build-user-ns/op 946799000 build-sys-ns/op
+BenchmarkShopify_sarama 1 2987538020 build-real-ns/op 12219514000 build-user-ns/op 1134896000 build-sys-ns/op
+BenchmarkEthereum_corevm 1 7126815776 build-real-ns/op 18917466000 build-user-ns/op 1776605000 build-sys-ns/op
+BenchmarkMinio 1 35473778317 build-real-ns/op 275509035000 build-user-ns/op 19522115000 build-sys-ns/op
+BenchmarkGonum_mat 1 3319289157 build-real-ns/op 12101790000 build-user-ns/op 811474000 build-sys-ns/op
+BenchmarkEthereum_storage 1 8806650534 build-real-ns/op 30740745000 build-user-ns/op 3063229000 build-sys-ns/op
+BenchmarkEriclagergren_decimal 1 421344461 build-real-ns/op 1804895000 build-user-ns/op 262259000 build-sys-ns/op
+BenchmarkAjstarks_deck_generate 1 205358143 build-real-ns/op 388736000 build-user-ns/op 124323000 build-sys-ns/op
+BenchmarkAws_restjson 1 2805221383 build-real-ns/op 8391084000 build-user-ns/op 900565000 build-sys-ns/op
+BenchmarkSemver 1 212558502 build-real-ns/op 448637000 build-user-ns/op 145452000 build-sys-ns/op
+shortname: klauspost
+goos: linux
+goarch: amd64
+pkg: github.com/dr2chase/benchmarks/klauspost
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+Benchmark_tokens_EstimatedBits-12    	 1550222	       774.8 ns/op	   1.29 MB/s
+shortname: minio
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkDecodehealingTracker-12            	 1767838	       677.7 ns/op	 458.89 MB/s	       0 B/op	       0 allocs/op
+BenchmarkAppendMsgReplicateDecision-12      	1000000000	         0.5744 ns/op	1740.86 MB/s	       0 B/op	       0 allocs/op
+BenchmarkAppendMsgResyncTargetsInfo-12      	189984744	         6.326 ns/op	1580.67 MB/s	       0 B/op	       0 allocs/op
+BenchmarkDataUpdateTracker-12               	  556178	      2193 ns/op	   0.46 MB/s	     339 B/op	       9 allocs/op
+BenchmarkMarshalMsgdataUsageCacheInfo-12    	16960669	        67.83 ns/op	      96 B/op	       1 allocs/op
+shortname: hugo_hugolib
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/hugolib
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkGetPage-12                     	 5113078	       235.5 ns/op
+BenchmarkMergeByLanguage-12             	 1942743	       598.2 ns/op
+BenchmarkResourceChainPostProcess-12    	      21	  55754608 ns/op
+BenchmarkReplaceShortcodeTokens-12      	  512806	      2396 ns/op
+shortname: ethereum_core
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkPendingDemotion10000-12         	 8742709	       136.9 ns/op
+BenchmarkFuturePromotion10000-12         	463435728	         2.587 ns/op
+BenchmarkPoolBatchInsert10000-12         	       1	1118836883 ns/op
+BenchmarkPoolBatchLocalInsert10000-12    	       2	1041648825 ns/op
+shortname: shopify_sarama
+goos: linux
+goarch: amd64
+pkg: github.com/Shopify/sarama
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBroker_Open-12               	    7558	    180268 ns/op
+BenchmarkBroker_No_Metrics_Open-12    	    9690	    113125 ns/op
+shortname: aws_restjson
+shortname: aws_restxml
+shortname: aws_jsonrpc
+shortname: aws_jsonutil
+goos: linux
+goarch: amd64
+pkg: github.com/aws/aws-sdk-go/private/protocol/json/jsonutil
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBuildJSON-12     	  271960	      4297 ns/op
+BenchmarkStdlibJSON-12    	  284930	      4165 ns/op
+shortname: tidwall_tile38
+goos: linux
+goarch: amd64
+pkg: github.com/tidwall/tile38/tests
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkAll/search/KNN-12     	    3554	    351000 ns/op
+shortname: ethereum_bitutil
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkFastTest2KB-12              	 9627588	       124.4 ns/op
+BenchmarkBaseTest2KB-12              	 1591916	       752.8 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   76802	     15480 ns/op	    9984 B/op	      15 allocs/op
+shortname: ethereum_storage
+shortname: ethereum_ethash
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkHashimotoLight-12    	     998	   1199547 ns/op
+shortname: ethereum_ecies
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/crypto/ecies
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkGenerateKeyP256-12     	   64004	     18570 ns/op
+BenchmarkGenSharedKeyP256-12    	   16868	     70988 ns/op
+BenchmarkGenSharedKeyS256-12    	   18163	     65953 ns/op
+shortname: ethereum_corevm
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkOpDiv128-12    	10936357	       110.1 ns/op
+shortname: ethereum_trie
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkHashFixedSize/10K-12           	     176	   6729900 ns/op	 6328316 B/op	   77162 allocs/op
+BenchmarkCommitAfterHashFixedSize/10K-12         	      79	  14542628 ns/op	 9044514 B/op	   79989 allocs/op
+shortname: spexs2
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkRun/10k/1-12       	       1	24527275506 ns/op
+BenchmarkRun/10k/16-12      	       1	5398668578 ns/op
+shortname: gonum_blas_native
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkDnrm2MediumPosInc-12        	  297462	      4023 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1404580	       853.8 ns/op
+shortname: gonum_lapack_native
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkDgeev/Circulant10-12         	   26948	     42511 ns/op
+BenchmarkDgeev/Circulant100-12        	      72	  16398823 ns/op
+shortname: gonum_mat
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	 116027131 ns/op
+BenchmarkScaleVec10000Inc20-12                	   50433	     23081 ns/op
+shortname: semver
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkValidateVersionTildeFail-12    	 1882899	       637.2 ns/op
+shortname: hugo_helpers
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkStripHTML-12                           	  371034	      3198 ns/op
+BenchmarkTestTruncateWordsToWholeSentence-12    	16700538	        71.88 ns/op
+BenchmarkEmojiKyokomiSprint-12                  	   32546	     36319 ns/op
+shortname: k8s_cache
+goos: linux
+goarch: amd64
+pkg: k8s.io/client-go/tools/cache
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkListener-12                   	 1440111	       878.5 ns/op	      39 B/op	       1 allocs/op
+BenchmarkReflectorResyncChanMany-12    	 2538004	       454.6 ns/op
+shortname: k8s_workqueue
+goos: linux
+goarch: amd64
+pkg: k8s.io/client-go/util/workqueue
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkParallelizeUntil/pieces:1000,workers:10,chunkSize:1-12         	    3800	    306706 ns/op
+BenchmarkParallelizeUntil/pieces:1000,workers:10,chunkSize:10-12        	   22792	     53094 ns/op
+BenchmarkParallelizeUntil/pieces:1000,workers:10,chunkSize:100-12       	   29865	     40009 ns/op
+BenchmarkParallelizeUntil/pieces:999,workers:10,chunkSize:13-12         	   24968	     47886 ns/op
+shortname: gonum_topo
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkTarjanSCCGnp_10_tenth-12     	  148404	      7940 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      13	  88975172 ns/op
+shortname: gonum_path
+shortname: gonum_community
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkLouvainDirectedMultiplex-12    	      60	  19765696 ns/op
+shortname: gonum_traverse
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  308216	      3817 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	      92	  12326158 ns/op
+shortname: capnproto2
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkTextMovementBetweenSegments-12    	    3045	    393696 ns/op
+BenchmarkGrowth_MultiSegment-12            	      98	  12081570 ns/op	  86.79 MB/s	 1648619 B/op	      21 allocs/op
+shortname: uber_zap
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/zapcore
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBufferedWriteSyncer/write_file_with_buffer-12         	 4187326	       279.2 ns/op
+BenchmarkMultiWriteSyncer/2_discarder-12                       	117476139	        11.02 ns/op
+BenchmarkMultiWriteSyncer/4_discarder-12                       	80411432	        13.58 ns/op
+BenchmarkMultiWriteSyncer/4_discarder_with_buffer-12           	 5041682	       248.5 ns/op
+BenchmarkWriteSyncer/write_file_with_no_buffer-12              	  621367	      2021 ns/op
+BenchmarkZapConsole-12                                         	 1809685	       663.8 ns/op
+BenchmarkJSONLogMarshalerFunc-12                               	 1536738	       761.5 ns/op
+BenchmarkZapJSON-12                                            	 2606266	       458.8 ns/op
+BenchmarkStandardJSON-12                                       	 1000000	      1035 ns/op
+BenchmarkSampler_Check/7_keys-12                               	100000000	        11.48 ns/op
+BenchmarkSampler_Check/50_keys-12                              	100000000	        11.74 ns/op
+BenchmarkSampler_Check/100_keys-12                             	95466790	        11.77 ns/op
+BenchmarkSampler_CheckWithHook/7_keys-12                       	54190280	        21.49 ns/op
+BenchmarkSampler_CheckWithHook/50_keys-12                      	53114625	        22.67 ns/op
+BenchmarkSampler_CheckWithHook/100_keys-12                     	53514745	        22.02 ns/op
+BenchmarkTeeCheck-12                                           	 6746772	       171.4 ns/op
+shortname: uber_tally
+goos: linux
+goarch: amd64
+pkg: github.com/uber-go/tally
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBucketsEqual/same_20_values-12     	76768255	        15.26 ns/op
+BenchmarkBucketsEqual/same_20_durations-12  	75954471	        15.83 ns/op
+BenchmarkScopeTaggedNoCachedSubscopes-12    	  346820	      3592 ns/op
+BenchmarkHistogramAllocation-12             	  865309	      1729 ns/op	    1215 B/op	      20 allocs/op
+shortname: bindata
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBindata-12         	       4	 261761346 ns/op	  26.23 MB/s	171267984 B/op	    6898 allocs/op
+shortname: cespare_mph
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBuild-12    	      44	  26871860 ns/op
+shortname: cespare_xxhash
+shortname: gtank_blake2s
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkHash8K-12    	   52252	     22891 ns/op	 357.87 MB/s
+shortname: nelsam_gxui_interval
+goos: linux
+goarch: amd64
+pkg: git.sr.ht/~nelsam/gxui/interval
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkGeneral-12    	 3532292	       339.3 ns/op
+shortname: ajstarks_deck_generate
+shortname: benhoyt_goawk
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkRecursiveFunc-12    	   75984	     15733 ns/op
+BenchmarkRegexMatch-12       	  956887	      1238 ns/op
+shortname: ericlagergren_decimal
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    8416	    136434 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    4008	    290114 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    2791	    420329 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  326311	      3674 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9526	    118726 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199190	      6016 ns/op
+shortname: dustin_broadcast
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkDirectSend-12            	 3136762	       368.6 ns/op
+BenchmarkParallelDirectSend-12    	 3180543	       371.5 ns/op
+BenchmarkParallelBrodcast-12      	 2248178	       531.1 ns/op
+BenchmarkMuxBrodcast-12           	 2373607	       551.0 ns/op
+shortname: dustin_humanize
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkParseBigBytes-12        	  717022	      1514 ns/op
+BenchmarkFtoaRegexTrailing-12    	  566888	      2093 ns/op
+shortname: bloom_bloom
+goos: linux
+goarch: amd64
+pkg: github.com/bits-and-blooms/bloom/v3
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkSeparateTestAndAdd-12    	 2936215	       406.1 ns/op
+BenchmarkCombinedTestAndAdd-12    	 2843116	       431.3 ns/op
+shortname: kanzi
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBWTS-12    	1000000000	         0.6151 ns/op
+BenchmarkFPAQ-12    	      62	  18347241 ns/op
+BenchmarkLZ-12      	     848	   1437447 ns/op
+BenchmarkMTFT-12    	    1165	   1022117 ns/op
+shortname: commonmark_markdown
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkRenderSpecNoHTML-12          	     208	   5725048 ns/op
+BenchmarkRenderSpec-12                	     210	   5698755 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     321	   3739020 ns/op
+shortname: klauspost
+goos: linux
+goarch: amd64
+pkg: github.com/dr2chase/benchmarks/klauspost
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+Benchmark_tokens_EstimatedBits-12    	 1549540	       791.9 ns/op	   1.26 MB/s
+shortname: minio
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkDecodehealingTracker-12            	 1767039	       671.6 ns/op	 463.04 MB/s	       0 B/op	       0 allocs/op
+BenchmarkAppendMsgReplicateDecision-12      	1000000000	         0.5743 ns/op	1741.31 MB/s	       0 B/op	       0 allocs/op
+BenchmarkAppendMsgResyncTargetsInfo-12      	181730274	         6.322 ns/op	1581.76 MB/s	       0 B/op	       0 allocs/op
+BenchmarkDataUpdateTracker-12               	  550311	      2188 ns/op	   0.46 MB/s	     338 B/op	       9 allocs/op
+BenchmarkMarshalMsgdataUsageCacheInfo-12    	16755562	        67.30 ns/op	      96 B/op	       1 allocs/op
+shortname: hugo_hugolib
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/hugolib
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkGetPage-12                     	 5131984	       234.7 ns/op
+BenchmarkMergeByLanguage-12             	 1971322	       584.1 ns/op
+BenchmarkResourceChainPostProcess-12    	      21	  55972678 ns/op
+BenchmarkReplaceShortcodeTokens-12      	  508981	      2391 ns/op
+shortname: ethereum_core
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkPendingDemotion10000-12         	 8767692	       136.9 ns/op
+BenchmarkFuturePromotion10000-12         	463832974	         2.583 ns/op
+BenchmarkPoolBatchInsert10000-12         	       1	1147726130 ns/op
+BenchmarkPoolBatchLocalInsert10000-12    	       2	1032343588 ns/op
+shortname: shopify_sarama
+goos: linux
+goarch: amd64
+pkg: github.com/Shopify/sarama
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBroker_Open-12               	    7213	    182097 ns/op
+BenchmarkBroker_No_Metrics_Open-12    	    9914	    112088 ns/op
+shortname: aws_restjson
+shortname: aws_restxml
+shortname: aws_jsonrpc
+shortname: aws_jsonutil
+goos: linux
+goarch: amd64
+pkg: github.com/aws/aws-sdk-go/private/protocol/json/jsonutil
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBuildJSON-12     	  268366	      4300 ns/op
+BenchmarkStdlibJSON-12    	  283772	      4170 ns/op
+shortname: tidwall_tile38
+goos: linux
+goarch: amd64
+pkg: github.com/tidwall/tile38/tests
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkAll/search/KNN-12     	    3607	    350316 ns/op
+shortname: ethereum_bitutil
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkFastTest2KB-12              	 9634803	       126.7 ns/op
+BenchmarkBaseTest2KB-12              	 1593650	       752.8 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   77125	     15471 ns/op	    9984 B/op	      15 allocs/op
+shortname: ethereum_storage
+shortname: ethereum_ethash
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkHashimotoLight-12    	     998	   1191496 ns/op
+shortname: ethereum_ecies
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/crypto/ecies
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkGenerateKeyP256-12     	   64174	     18534 ns/op
+BenchmarkGenSharedKeyP256-12    	   16220	     71056 ns/op
+BenchmarkGenSharedKeyS256-12    	   18140	     65950 ns/op
+shortname: ethereum_corevm
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkOpDiv128-12    	10836060	       110.5 ns/op
+shortname: ethereum_trie
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkHashFixedSize/10K-12           	     175	   6639914 ns/op	 6328768 B/op	   77162 allocs/op
+BenchmarkCommitAfterHashFixedSize/10K-12         	      79	  14757510 ns/op	 9044820 B/op	   79990 allocs/op
+shortname: spexs2
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkRun/10k/1-12       	       1	24771103686 ns/op
+BenchmarkRun/10k/16-12      	       1	5448312471 ns/op
+shortname: gonum_blas_native
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkDnrm2MediumPosInc-12        	  297621	      4024 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1404597	       861.1 ns/op
+shortname: gonum_lapack_native
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkDgeev/Circulant10-12         	   27504	     42790 ns/op
+BenchmarkDgeev/Circulant100-12        	      67	  17063084 ns/op
+shortname: gonum_mat
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	 117493649 ns/op
+BenchmarkScaleVec10000Inc20-12                	   50385	     23514 ns/op
+shortname: semver
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkValidateVersionTildeFail-12    	 1878650	       638.8 ns/op
+shortname: hugo_helpers
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkStripHTML-12                           	  370820	      3233 ns/op
+BenchmarkTestTruncateWordsToWholeSentence-12    	16617985	        72.00 ns/op
+BenchmarkEmojiKyokomiSprint-12                  	   32715	     36143 ns/op
+shortname: k8s_cache
+goos: linux
+goarch: amd64
+pkg: k8s.io/client-go/tools/cache
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkListener-12                   	 1371058	       872.7 ns/op	      40 B/op	       1 allocs/op
+BenchmarkReflectorResyncChanMany-12    	 2517889	       455.3 ns/op
+shortname: k8s_workqueue
+goos: linux
+goarch: amd64
+pkg: k8s.io/client-go/util/workqueue
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkParallelizeUntil/pieces:1000,workers:10,chunkSize:1-12         	    3680	    312238 ns/op
+BenchmarkParallelizeUntil/pieces:1000,workers:10,chunkSize:10-12        	   22708	     52616 ns/op
+BenchmarkParallelizeUntil/pieces:1000,workers:10,chunkSize:100-12       	   30078	     39798 ns/op
+BenchmarkParallelizeUntil/pieces:999,workers:10,chunkSize:13-12         	   25113	     48279 ns/op
+shortname: gonum_topo
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkTarjanSCCGnp_10_tenth-12     	  150158	      7954 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      13	  89093197 ns/op
+shortname: gonum_path
+shortname: gonum_community
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkLouvainDirectedMultiplex-12    	      61	  19491478 ns/op
+shortname: gonum_traverse
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  310578	      3807 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	      93	  12389342 ns/op
+shortname: capnproto2
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkTextMovementBetweenSegments-12    	    3027	    394151 ns/op
+BenchmarkGrowth_MultiSegment-12            	      99	  12025056 ns/op	  87.20 MB/s	 1648621 B/op	      21 allocs/op
+shortname: uber_zap
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/zapcore
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBufferedWriteSyncer/write_file_with_buffer-12         	 4187870	       278.2 ns/op
+BenchmarkMultiWriteSyncer/2_discarder-12                       	117987654	        10.82 ns/op
+BenchmarkMultiWriteSyncer/4_discarder-12                       	88889178	        13.77 ns/op
+BenchmarkMultiWriteSyncer/4_discarder_with_buffer-12           	 5302479	       249.4 ns/op
+BenchmarkWriteSyncer/write_file_with_no_buffer-12              	  616618	      2004 ns/op
+BenchmarkZapConsole-12                                         	 1800079	       661.5 ns/op
+BenchmarkJSONLogMarshalerFunc-12                               	 1560478	       758.6 ns/op
+BenchmarkZapJSON-12                                            	 2594529	       459.4 ns/op
+BenchmarkStandardJSON-12                                       	 1000000	      1040 ns/op
+BenchmarkSampler_Check/7_keys-12                               	100000000	        11.33 ns/op
+BenchmarkSampler_Check/50_keys-12                              	100000000	        11.63 ns/op
+BenchmarkSampler_Check/100_keys-12                             	100000000	        11.76 ns/op
+BenchmarkSampler_CheckWithHook/7_keys-12                       	53619144	        21.74 ns/op
+BenchmarkSampler_CheckWithHook/50_keys-12                      	53113459	        22.32 ns/op
+BenchmarkSampler_CheckWithHook/100_keys-12                     	50169807	        22.15 ns/op
+BenchmarkTeeCheck-12                                           	 6792249	       172.5 ns/op
+shortname: uber_tally
+goos: linux
+goarch: amd64
+pkg: github.com/uber-go/tally
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBucketsEqual/same_20_values-12     	75966987	        15.27 ns/op
+BenchmarkBucketsEqual/same_20_durations-12  	75395804	        15.84 ns/op
+BenchmarkScopeTaggedNoCachedSubscopes-12    	  348798	      3627 ns/op
+BenchmarkHistogramAllocation-12             	  842907	      1664 ns/op	    1141 B/op	      20 allocs/op
+shortname: bindata
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBindata-12         	       4	 261609328 ns/op	  26.24 MB/s	171266970 B/op	    6891 allocs/op
+shortname: cespare_mph
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBuild-12    	      44	  26864992 ns/op
+shortname: cespare_xxhash
+shortname: gtank_blake2s
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkHash8K-12    	   52291	     22928 ns/op	 357.29 MB/s
+shortname: nelsam_gxui_interval
+goos: linux
+goarch: amd64
+pkg: git.sr.ht/~nelsam/gxui/interval
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkGeneral-12    	 3286002	       338.6 ns/op
+shortname: ajstarks_deck_generate
+shortname: benhoyt_goawk
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkRecursiveFunc-12    	   76032	     15738 ns/op
+BenchmarkRegexMatch-12       	  962358	      1247 ns/op
+shortname: ericlagergren_decimal
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    8479	    136145 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3994	    291405 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    2763	    425104 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  325719	      3676 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9454	    117851 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199412	      6014 ns/op
+shortname: dustin_broadcast
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkDirectSend-12            	 3294051	       377.3 ns/op
+BenchmarkParallelDirectSend-12    	 3222236	       371.4 ns/op
+BenchmarkParallelBrodcast-12      	 2266321	       531.3 ns/op
+BenchmarkMuxBrodcast-12           	 2152819	       531.2 ns/op
+shortname: dustin_humanize
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkParseBigBytes-12        	  737174	      1509 ns/op
+BenchmarkFtoaRegexTrailing-12    	  564310	      2114 ns/op
+shortname: bloom_bloom
+goos: linux
+goarch: amd64
+pkg: github.com/bits-and-blooms/bloom/v3
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkSeparateTestAndAdd-12    	 2935680	       410.0 ns/op
+BenchmarkCombinedTestAndAdd-12    	 2843070	       425.4 ns/op
+shortname: kanzi
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBWTS-12    	1000000000	         0.6104 ns/op
+BenchmarkFPAQ-12    	      67	  17827120 ns/op
+BenchmarkLZ-12      	     846	   1393453 ns/op
+BenchmarkMTFT-12    	    1162	   1020336 ns/op
+shortname: commonmark_markdown
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkRenderSpecNoHTML-12          	     207	   5708603 ns/op
+BenchmarkRenderSpec-12                	     210	   5742278 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     319	   3746341 ns/op
+shortname: klauspost
+goos: linux
+goarch: amd64
+pkg: github.com/dr2chase/benchmarks/klauspost
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+Benchmark_tokens_EstimatedBits-12    	 1549147	       773.6 ns/op	   1.29 MB/s
+shortname: minio
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkDecodehealingTracker-12            	 1774944	       669.6 ns/op	 464.43 MB/s	       0 B/op	       0 allocs/op
+BenchmarkAppendMsgReplicateDecision-12      	1000000000	         0.5745 ns/op	1740.70 MB/s	       0 B/op	       0 allocs/op
+BenchmarkAppendMsgResyncTargetsInfo-12      	189828118	         6.326 ns/op	1580.72 MB/s	       0 B/op	       0 allocs/op
+BenchmarkDataUpdateTracker-12               	  548814	      2197 ns/op	   0.46 MB/s	     338 B/op	       9 allocs/op
+BenchmarkMarshalMsgdataUsageCacheInfo-12    	17089838	        67.74 ns/op	      96 B/op	       1 allocs/op
+shortname: hugo_hugolib
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/hugolib
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkGetPage-12                     	 5143058	       233.8 ns/op
+BenchmarkMergeByLanguage-12             	 1968474	       584.1 ns/op
+BenchmarkResourceChainPostProcess-12    	      20	  55900498 ns/op
+BenchmarkReplaceShortcodeTokens-12      	  504129	      2400 ns/op
+shortname: ethereum_core
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkPendingDemotion10000-12         	 8753192	       137.1 ns/op
+BenchmarkFuturePromotion10000-12         	464458450	         2.584 ns/op
+BenchmarkPoolBatchInsert10000-12         	       1	1119166368 ns/op
+BenchmarkPoolBatchLocalInsert10000-12    	       2	1032526844 ns/op
+shortname: shopify_sarama
+goos: linux
+goarch: amd64
+pkg: github.com/Shopify/sarama
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBroker_Open-12               	    6966	    177907 ns/op
+BenchmarkBroker_No_Metrics_Open-12    	   10000	    112346 ns/op
+shortname: aws_restjson
+shortname: aws_restxml
+shortname: aws_jsonrpc
+shortname: aws_jsonutil
+goos: linux
+goarch: amd64
+pkg: github.com/aws/aws-sdk-go/private/protocol/json/jsonutil
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBuildJSON-12     	  268575	      4303 ns/op
+BenchmarkStdlibJSON-12    	  286230	      4170 ns/op
+shortname: tidwall_tile38
+shortname: ethereum_bitutil
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkFastTest2KB-12              	 9608720	       124.9 ns/op
+BenchmarkBaseTest2KB-12              	 1542711	       752.7 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   76868	     15471 ns/op	    9984 B/op	      15 allocs/op
+shortname: ethereum_storage
+shortname: ethereum_ethash
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkHashimotoLight-12    	    1002	   1198769 ns/op
+shortname: ethereum_ecies
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/crypto/ecies
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkGenerateKeyP256-12     	   64008	     18566 ns/op
+BenchmarkGenSharedKeyP256-12    	   16891	     71112 ns/op
+BenchmarkGenSharedKeyS256-12    	   18187	     65835 ns/op
+shortname: ethereum_corevm
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkOpDiv128-12    	10884164	       110.7 ns/op
+shortname: ethereum_trie
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkHashFixedSize/10K-12           	     180	   6707546 ns/op	 6328154 B/op	   77159 allocs/op
+BenchmarkCommitAfterHashFixedSize/10K-12         	      76	  14591756 ns/op	 9046046 B/op	   79994 allocs/op
+shortname: spexs2
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkRun/10k/1-12       	       1	24521155360 ns/op
+BenchmarkRun/10k/16-12      	       1	5552533765 ns/op
+shortname: gonum_blas_native
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkDnrm2MediumPosInc-12        	  296935	      4021 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1405090	       853.5 ns/op
+shortname: gonum_lapack_native
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkDgeev/Circulant10-12         	   27988	     42583 ns/op
+BenchmarkDgeev/Circulant100-12        	      70	  16571813 ns/op
+shortname: gonum_mat
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	 115997310 ns/op
+BenchmarkScaleVec10000Inc20-12                	   50946	     22851 ns/op
+shortname: semver
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkValidateVersionTildeFail-12    	 1839760	       636.8 ns/op
+shortname: hugo_helpers
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkStripHTML-12                           	  371012	      3190 ns/op
+BenchmarkTestTruncateWordsToWholeSentence-12    	16608342	        71.80 ns/op
+BenchmarkEmojiKyokomiSprint-12                  	   32949	     36151 ns/op
+shortname: k8s_cache
+goos: linux
+goarch: amd64
+pkg: k8s.io/client-go/tools/cache
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkListener-12                   	 1441863	       875.9 ns/op	      39 B/op	       1 allocs/op
+BenchmarkReflectorResyncChanMany-12    	 2558139	       453.7 ns/op
+shortname: k8s_workqueue
+goos: linux
+goarch: amd64
+pkg: k8s.io/client-go/util/workqueue
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkParallelizeUntil/pieces:1000,workers:10,chunkSize:1-12         	    3870	    311392 ns/op
+BenchmarkParallelizeUntil/pieces:1000,workers:10,chunkSize:10-12        	   22585	     53301 ns/op
+BenchmarkParallelizeUntil/pieces:1000,workers:10,chunkSize:100-12       	   29911	     40220 ns/op
+BenchmarkParallelizeUntil/pieces:999,workers:10,chunkSize:13-12         	   24764	     48352 ns/op
+shortname: gonum_topo
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkTarjanSCCGnp_10_tenth-12     	  149073	      8018 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      13	  88975120 ns/op
+shortname: gonum_path
+shortname: gonum_community
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkLouvainDirectedMultiplex-12    	      61	  19949863 ns/op
+shortname: gonum_traverse
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  316924	      3801 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	      93	  12368346 ns/op
+shortname: capnproto2
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkTextMovementBetweenSegments-12    	    2851	    422250 ns/op
+BenchmarkGrowth_MultiSegment-12            	      99	  12040632 ns/op	  87.09 MB/s	 1648617 B/op	      21 allocs/op
+shortname: uber_zap
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/zapcore
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBufferedWriteSyncer/write_file_with_buffer-12         	 4423608	       278.3 ns/op
+BenchmarkMultiWriteSyncer/2_discarder-12                       	100000000	        10.64 ns/op
+BenchmarkMultiWriteSyncer/4_discarder-12                       	88464357	        13.72 ns/op
+BenchmarkMultiWriteSyncer/4_discarder_with_buffer-12           	 5467915	       245.5 ns/op
+BenchmarkWriteSyncer/write_file_with_no_buffer-12              	  579195	      2034 ns/op
+BenchmarkZapConsole-12                                         	 1788396	       662.8 ns/op
+BenchmarkJSONLogMarshalerFunc-12                               	 1548985	       774.8 ns/op
+BenchmarkZapJSON-12                                            	 2642095	       461.5 ns/op
+BenchmarkStandardJSON-12                                       	 1000000	      1031 ns/op
+BenchmarkSampler_Check/7_keys-12                               	100000000	        11.88 ns/op
+BenchmarkSampler_Check/50_keys-12                              	100000000	        11.71 ns/op
+BenchmarkSampler_Check/100_keys-12                             	100000000	        12.13 ns/op
+BenchmarkSampler_CheckWithHook/7_keys-12                       	54060484	        21.55 ns/op
+BenchmarkSampler_CheckWithHook/50_keys-12                      	53476756	        22.23 ns/op
+BenchmarkSampler_CheckWithHook/100_keys-12                     	46585546	        22.48 ns/op
+BenchmarkTeeCheck-12                                           	 7009416	       175.0 ns/op
+shortname: uber_tally
+goos: linux
+goarch: amd64
+pkg: github.com/uber-go/tally
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBucketsEqual/same_20_values-12     	78008859	        15.26 ns/op
+BenchmarkBucketsEqual/same_20_durations-12  	75839222	        15.91 ns/op
+BenchmarkScopeTaggedNoCachedSubscopes-12    	  341071	      3652 ns/op
+BenchmarkHistogramAllocation-12             	  876691	      1832 ns/op	    1212 B/op	      20 allocs/op
+shortname: bindata
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBindata-12         	       4	 260341312 ns/op	  26.37 MB/s	171266926 B/op	    6888 allocs/op
+shortname: cespare_mph
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBuild-12    	      44	  26748174 ns/op
+shortname: cespare_xxhash
+shortname: gtank_blake2s
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkHash8K-12    	   52144	     22877 ns/op	 358.08 MB/s
+shortname: nelsam_gxui_interval
+goos: linux
+goarch: amd64
+pkg: git.sr.ht/~nelsam/gxui/interval
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkGeneral-12    	 3540217	       338.6 ns/op
+shortname: ajstarks_deck_generate
+shortname: benhoyt_goawk
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkRecursiveFunc-12    	   75886	     15759 ns/op
+BenchmarkRegexMatch-12       	  951618	      1237 ns/op
+shortname: ericlagergren_decimal
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    8619	    136074 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    4038	    291594 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    2776	    418462 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  324267	      3671 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9342	    116598 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199288	      6015 ns/op
+shortname: dustin_broadcast
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkDirectSend-12            	 3191772	       365.2 ns/op
+BenchmarkParallelDirectSend-12    	 3152631	       375.8 ns/op
+BenchmarkParallelBrodcast-12      	 2240059	       531.1 ns/op
+BenchmarkMuxBrodcast-12           	 2273785	       536.8 ns/op
+shortname: dustin_humanize
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkParseBigBytes-12        	  742296	      1512 ns/op
+BenchmarkFtoaRegexTrailing-12    	  564892	      2110 ns/op
+shortname: bloom_bloom
+goos: linux
+goarch: amd64
+pkg: github.com/bits-and-blooms/bloom/v3
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkSeparateTestAndAdd-12    	 2919517	       408.3 ns/op
+BenchmarkCombinedTestAndAdd-12    	 2825304	       423.9 ns/op
+shortname: kanzi
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBWTS-12    	1000000000	         0.6100 ns/op
+BenchmarkFPAQ-12    	      66	  17879900 ns/op
+BenchmarkLZ-12      	     856	   1381006 ns/op
+BenchmarkMTFT-12    	    1162	   1025967 ns/op
+shortname: commonmark_markdown
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkRenderSpecNoHTML-12          	     207	   5714084 ns/op
+BenchmarkRenderSpec-12                	     210	   5731287 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     319	   3734575 ns/op
+shortname: klauspost
+goos: linux
+goarch: amd64
+pkg: github.com/dr2chase/benchmarks/klauspost
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+Benchmark_tokens_EstimatedBits-12    	 1550719	       791.2 ns/op	   1.26 MB/s
+shortname: minio
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkDecodehealingTracker-12            	 1785651	       659.6 ns/op	 471.48 MB/s	       0 B/op	       0 allocs/op
+BenchmarkAppendMsgReplicateDecision-12      	1000000000	         0.5749 ns/op	1739.54 MB/s	       0 B/op	       0 allocs/op
+BenchmarkAppendMsgResyncTargetsInfo-12      	190010400	         6.313 ns/op	1584.03 MB/s	       0 B/op	       0 allocs/op
+BenchmarkDataUpdateTracker-12               	  543800	      2191 ns/op	   0.46 MB/s	     338 B/op	       9 allocs/op
+BenchmarkMarshalMsgdataUsageCacheInfo-12    	16819688	        67.00 ns/op	      96 B/op	       1 allocs/op
+shortname: hugo_hugolib
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/hugolib
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkGetPage-12                     	 5134370	       235.3 ns/op
+BenchmarkMergeByLanguage-12             	 1946438	       588.6 ns/op
+BenchmarkResourceChainPostProcess-12    	      21	  55326963 ns/op
+BenchmarkReplaceShortcodeTokens-12      	  515601	      2400 ns/op
+shortname: ethereum_core
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkPendingDemotion10000-12         	 8758807	       137.0 ns/op
+BenchmarkFuturePromotion10000-12         	463734226	         2.585 ns/op
+BenchmarkPoolBatchInsert10000-12         	       1	1116786193 ns/op
+BenchmarkPoolBatchLocalInsert10000-12    	       2	1034547149 ns/op
+shortname: shopify_sarama
+goos: linux
+goarch: amd64
+pkg: github.com/Shopify/sarama
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBroker_Open-12               	    7383	    180739 ns/op
+BenchmarkBroker_No_Metrics_Open-12    	    9904	    113489 ns/op
+shortname: aws_restjson
+shortname: aws_restxml
+shortname: aws_jsonrpc
+shortname: aws_jsonutil
+goos: linux
+goarch: amd64
+pkg: github.com/aws/aws-sdk-go/private/protocol/json/jsonutil
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBuildJSON-12     	  270555	      4318 ns/op
+BenchmarkStdlibJSON-12    	  278055	      4182 ns/op
+shortname: tidwall_tile38
+goos: linux
+goarch: amd64
+pkg: github.com/tidwall/tile38/tests
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkAll/search/KNN-12     	    3632	    353644 ns/op
+shortname: ethereum_bitutil
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkFastTest2KB-12              	 8618775	       124.3 ns/op
+BenchmarkBaseTest2KB-12              	 1590728	       753.7 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   74115	     15467 ns/op	    9984 B/op	      15 allocs/op
+shortname: ethereum_storage
+shortname: ethereum_ethash
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkHashimotoLight-12    	    1000	   1192012 ns/op
+shortname: ethereum_ecies
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/crypto/ecies
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkGenerateKeyP256-12     	   64858	     18568 ns/op
+BenchmarkGenSharedKeyP256-12    	   16881	     71029 ns/op
+BenchmarkGenSharedKeyS256-12    	   18168	     65844 ns/op
+shortname: ethereum_corevm
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkOpDiv128-12    	10843864	       110.1 ns/op
+shortname: ethereum_trie
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkHashFixedSize/10K-12           	     177	   6734587 ns/op	 6328024 B/op	   77158 allocs/op
+BenchmarkCommitAfterHashFixedSize/10K-12         	      81	  14443885 ns/op	 9045111 B/op	   79991 allocs/op
+shortname: spexs2
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkRun/10k/1-12       	       1	24442570932 ns/op
+BenchmarkRun/10k/16-12      	       1	5538873339 ns/op
+shortname: gonum_blas_native
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkDnrm2MediumPosInc-12        	  297446	      4022 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1405864	       854.1 ns/op
+shortname: gonum_lapack_native
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkDgeev/Circulant10-12         	   28278	     43303 ns/op
+BenchmarkDgeev/Circulant100-12        	      70	  16366630 ns/op
+shortname: gonum_mat
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	 115394282 ns/op
+BenchmarkScaleVec10000Inc20-12                	   51250	     23100 ns/op
+shortname: semver
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkValidateVersionTildeFail-12    	 1872849	       642.7 ns/op
+shortname: hugo_helpers
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkStripHTML-12                           	  373045	      3199 ns/op
+BenchmarkTestTruncateWordsToWholeSentence-12    	16643644	        71.95 ns/op
+BenchmarkEmojiKyokomiSprint-12                  	   33064	     36162 ns/op
+shortname: k8s_cache
+goos: linux
+goarch: amd64
+pkg: k8s.io/client-go/tools/cache
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkListener-12                   	 1405177	       876.2 ns/op	      39 B/op	       1 allocs/op
+BenchmarkReflectorResyncChanMany-12    	 2593544	       459.9 ns/op
+shortname: k8s_workqueue
+goos: linux
+goarch: amd64
+pkg: k8s.io/client-go/util/workqueue
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkParallelizeUntil/pieces:1000,workers:10,chunkSize:1-12         	    3720	    308146 ns/op
+BenchmarkParallelizeUntil/pieces:1000,workers:10,chunkSize:10-12        	   22872	     52853 ns/op
+BenchmarkParallelizeUntil/pieces:1000,workers:10,chunkSize:100-12       	   29886	     39917 ns/op
+BenchmarkParallelizeUntil/pieces:999,workers:10,chunkSize:13-12         	   25052	     48277 ns/op
+shortname: gonum_topo
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkTarjanSCCGnp_10_tenth-12     	  149941	      7949 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      13	  89040156 ns/op
+shortname: gonum_path
+shortname: gonum_community
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkLouvainDirectedMultiplex-12    	      61	  19378833 ns/op
+shortname: gonum_traverse
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  312234	      3879 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	      93	  12322478 ns/op
+shortname: capnproto2
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkTextMovementBetweenSegments-12    	    2856	    426768 ns/op
+BenchmarkGrowth_MultiSegment-12            	      98	  12024508 ns/op	  87.21 MB/s	 1648595 B/op	      21 allocs/op
+shortname: uber_zap
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/zapcore
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBufferedWriteSyncer/write_file_with_buffer-12         	 4419820	       283.0 ns/op
+BenchmarkMultiWriteSyncer/2_discarder-12                       	100000000	        10.42 ns/op
+BenchmarkMultiWriteSyncer/4_discarder-12                       	85521848	        13.60 ns/op
+BenchmarkMultiWriteSyncer/4_discarder_with_buffer-12           	 4931923	       243.6 ns/op
+BenchmarkWriteSyncer/write_file_with_no_buffer-12              	  611971	      2024 ns/op
+BenchmarkZapConsole-12                                         	 1823794	       656.5 ns/op
+BenchmarkJSONLogMarshalerFunc-12                               	 1544181	       758.4 ns/op
+BenchmarkZapJSON-12                                            	 2616079	       453.4 ns/op
+BenchmarkStandardJSON-12                                       	 1000000	      1038 ns/op
+BenchmarkSampler_Check/7_keys-12                               	100000000	        11.25 ns/op
+BenchmarkSampler_Check/50_keys-12                              	97738342	        11.69 ns/op
+BenchmarkSampler_Check/100_keys-12                             	100000000	        11.75 ns/op
+BenchmarkSampler_CheckWithHook/7_keys-12                       	54677751	        21.61 ns/op
+BenchmarkSampler_CheckWithHook/50_keys-12                      	53108588	        22.25 ns/op
+BenchmarkSampler_CheckWithHook/100_keys-12                     	50487902	        22.32 ns/op
+BenchmarkTeeCheck-12                                           	 7164206	       167.2 ns/op
+shortname: uber_tally
+goos: linux
+goarch: amd64
+pkg: github.com/uber-go/tally
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBucketsEqual/same_20_values-12     	78265597	        15.24 ns/op
+BenchmarkBucketsEqual/same_20_durations-12  	75598341	        16.16 ns/op
+BenchmarkScopeTaggedNoCachedSubscopes-12    	  351805	      3603 ns/op
+BenchmarkHistogramAllocation-12             	  895078	      1731 ns/op	    1208 B/op	      20 allocs/op
+shortname: bindata
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBindata-12         	       4	 260334557 ns/op	  26.37 MB/s	171267396 B/op	    6894 allocs/op
+shortname: cespare_mph
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBuild-12    	      44	  26697716 ns/op
+shortname: cespare_xxhash
+shortname: gtank_blake2s
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkHash8K-12    	   52345	     22875 ns/op	 358.12 MB/s
+shortname: nelsam_gxui_interval
+goos: linux
+goarch: amd64
+pkg: git.sr.ht/~nelsam/gxui/interval
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkGeneral-12    	 3546722	       345.8 ns/op
+shortname: ajstarks_deck_generate
+shortname: benhoyt_goawk
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkRecursiveFunc-12    	   75440	     15765 ns/op
+BenchmarkRegexMatch-12       	  962540	      1238 ns/op
+shortname: ericlagergren_decimal
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    8527	    135907 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3991	    289390 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    2817	    419133 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  324471	      3798 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	   10279	    116905 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199345	      6013 ns/op
+shortname: dustin_broadcast
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkDirectSend-12            	 3139308	       362.7 ns/op
+BenchmarkParallelDirectSend-12    	 3218286	       374.4 ns/op
+BenchmarkParallelBrodcast-12      	 2268987	       530.6 ns/op
+BenchmarkMuxBrodcast-12           	 2164305	       531.6 ns/op
+shortname: dustin_humanize
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkParseBigBytes-12        	  722733	      1516 ns/op
+BenchmarkFtoaRegexTrailing-12    	  562765	      2107 ns/op
+shortname: bloom_bloom
+goos: linux
+goarch: amd64
+pkg: github.com/bits-and-blooms/bloom/v3
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkSeparateTestAndAdd-12    	 2926676	       408.7 ns/op
+BenchmarkCombinedTestAndAdd-12    	 2830166	       423.6 ns/op
+shortname: kanzi
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBWTS-12    	1000000000	         0.6103 ns/op
+BenchmarkFPAQ-12    	      66	  17915048 ns/op
+BenchmarkLZ-12      	     859	   1404693 ns/op
+BenchmarkMTFT-12    	    1162	   1020323 ns/op
+shortname: commonmark_markdown
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkRenderSpecNoHTML-12          	     211	   5682311 ns/op
+BenchmarkRenderSpec-12                	     210	   5747552 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     319	   3745238 ns/op
+shortname: klauspost
+goos: linux
+goarch: amd64
+pkg: github.com/dr2chase/benchmarks/klauspost
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+Benchmark_tokens_EstimatedBits-12    	 1550571	       773.6 ns/op	   1.29 MB/s
+shortname: minio
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkDecodehealingTracker-12            	 1825350	       662.3 ns/op	 469.56 MB/s	       0 B/op	       0 allocs/op
+BenchmarkAppendMsgReplicateDecision-12      	1000000000	         0.5747 ns/op	1739.94 MB/s	       0 B/op	       0 allocs/op
+BenchmarkAppendMsgResyncTargetsInfo-12      	189759213	         6.316 ns/op	1583.34 MB/s	       0 B/op	       0 allocs/op
+BenchmarkDataUpdateTracker-12               	  546012	      2192 ns/op	   0.46 MB/s	     339 B/op	       9 allocs/op
+BenchmarkMarshalMsgdataUsageCacheInfo-12    	17037015	        67.28 ns/op	      96 B/op	       1 allocs/op
+shortname: hugo_hugolib
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/hugolib
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkGetPage-12                     	 5103510	       234.0 ns/op
+BenchmarkMergeByLanguage-12             	 1932499	       584.1 ns/op
+BenchmarkResourceChainPostProcess-12    	      24	  55153466 ns/op
+BenchmarkReplaceShortcodeTokens-12      	  506248	      2405 ns/op
+shortname: ethereum_core
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkPendingDemotion10000-12         	 8760177	       137.0 ns/op
+BenchmarkFuturePromotion10000-12         	463848994	         2.583 ns/op
+BenchmarkPoolBatchInsert10000-12         	       1	1118579433 ns/op
+BenchmarkPoolBatchLocalInsert10000-12    	       2	1038018332 ns/op
+shortname: shopify_sarama
+goos: linux
+goarch: amd64
+pkg: github.com/Shopify/sarama
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBroker_Open-12               	    7395	    178406 ns/op
+BenchmarkBroker_No_Metrics_Open-12    	    9914	    112985 ns/op
+shortname: aws_restjson
+shortname: aws_restxml
+shortname: aws_jsonrpc
+shortname: aws_jsonutil
+goos: linux
+goarch: amd64
+pkg: github.com/aws/aws-sdk-go/private/protocol/json/jsonutil
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBuildJSON-12     	  269661	      4317 ns/op
+BenchmarkStdlibJSON-12    	  286732	      4169 ns/op
+shortname: tidwall_tile38
+goos: linux
+goarch: amd64
+pkg: github.com/tidwall/tile38/tests
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkAll/search/KNN-12     	    3662	    347220 ns/op
+shortname: ethereum_bitutil
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkFastTest2KB-12              	 9648996	       124.3 ns/op
+BenchmarkBaseTest2KB-12              	 1594249	       754.8 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   77145	     15490 ns/op	    9984 B/op	      15 allocs/op
+shortname: ethereum_storage
+shortname: ethereum_ethash
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkHashimotoLight-12    	     996	   1199420 ns/op
+shortname: ethereum_ecies
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/crypto/ecies
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkGenerateKeyP256-12     	   64414	     18566 ns/op
+BenchmarkGenSharedKeyP256-12    	   16810	     71070 ns/op
+BenchmarkGenSharedKeyS256-12    	   18126	     65796 ns/op
+shortname: ethereum_corevm
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkOpDiv128-12    	10834635	       114.2 ns/op
+shortname: ethereum_trie
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkHashFixedSize/10K-12           	     177	   6646909 ns/op	 6328611 B/op	   77163 allocs/op
+BenchmarkCommitAfterHashFixedSize/10K-12         	      76	  14595452 ns/op	 9045756 B/op	   79993 allocs/op
+shortname: spexs2
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkRun/10k/1-12       	       1	24756621246 ns/op
+BenchmarkRun/10k/16-12      	       1	5631163876 ns/op
+shortname: gonum_blas_native
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkDnrm2MediumPosInc-12        	  297518	      4024 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1404687	       854.5 ns/op
+shortname: gonum_lapack_native
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkDgeev/Circulant10-12         	   27362	     42520 ns/op
+BenchmarkDgeev/Circulant100-12        	      72	  16374248 ns/op
+shortname: gonum_mat
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	 115315021 ns/op
+BenchmarkScaleVec10000Inc20-12                	   50180	     23050 ns/op
+shortname: semver
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkValidateVersionTildeFail-12    	 1892287	       635.0 ns/op
+shortname: hugo_helpers
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkStripHTML-12                           	  364647	      3189 ns/op
+BenchmarkTestTruncateWordsToWholeSentence-12    	16654520	        71.98 ns/op
+BenchmarkEmojiKyokomiSprint-12                  	   32859	     36366 ns/op
+shortname: k8s_cache
+goos: linux
+goarch: amd64
+pkg: k8s.io/client-go/tools/cache
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkListener-12                   	 1409442	       843.7 ns/op	      39 B/op	       1 allocs/op
+BenchmarkReflectorResyncChanMany-12    	 2436072	       458.7 ns/op
+shortname: k8s_workqueue
+goos: linux
+goarch: amd64
+pkg: k8s.io/client-go/util/workqueue
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkParallelizeUntil/pieces:1000,workers:10,chunkSize:1-12         	    3886	    309748 ns/op
+BenchmarkParallelizeUntil/pieces:1000,workers:10,chunkSize:10-12        	   22706	     53424 ns/op
+BenchmarkParallelizeUntil/pieces:1000,workers:10,chunkSize:100-12       	   30132	     40033 ns/op
+BenchmarkParallelizeUntil/pieces:999,workers:10,chunkSize:13-12         	   24868	     48178 ns/op
+shortname: gonum_topo
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkTarjanSCCGnp_10_tenth-12     	  147096	      7935 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      13	  89085019 ns/op
+shortname: gonum_path
+shortname: gonum_community
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkLouvainDirectedMultiplex-12    	      61	  19392323 ns/op
+shortname: gonum_traverse
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  302870	      3800 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	      92	  12409921 ns/op
+shortname: capnproto2
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkTextMovementBetweenSegments-12    	    3024	    395260 ns/op
+BenchmarkGrowth_MultiSegment-12            	      99	  12286009 ns/op	  85.35 MB/s	 1648642 B/op	      21 allocs/op
+shortname: uber_zap
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/zapcore
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBufferedWriteSyncer/write_file_with_buffer-12         	 4396020	       283.3 ns/op
+BenchmarkMultiWriteSyncer/2_discarder-12                       	100000000	        10.37 ns/op
+BenchmarkMultiWriteSyncer/4_discarder-12                       	89482648	        13.49 ns/op
+BenchmarkMultiWriteSyncer/4_discarder_with_buffer-12           	 5111587	       251.2 ns/op
+BenchmarkWriteSyncer/write_file_with_no_buffer-12              	  604609	      2025 ns/op
+BenchmarkZapConsole-12                                         	 1791885	       668.0 ns/op
+BenchmarkJSONLogMarshalerFunc-12                               	 1566462	       756.7 ns/op
+BenchmarkZapJSON-12                                            	 2674012	       459.7 ns/op
+BenchmarkStandardJSON-12                                       	 1000000	      1037 ns/op
+BenchmarkSampler_Check/7_keys-12                               	100000000	        11.44 ns/op
+BenchmarkSampler_Check/50_keys-12                              	100000000	        11.74 ns/op
+BenchmarkSampler_Check/100_keys-12                             	88905951	        11.83 ns/op
+BenchmarkSampler_CheckWithHook/7_keys-12                       	51807438	        21.60 ns/op
+BenchmarkSampler_CheckWithHook/50_keys-12                      	53519198	        22.16 ns/op
+BenchmarkSampler_CheckWithHook/100_keys-12                     	53470833	        22.16 ns/op
+BenchmarkTeeCheck-12                                           	 6913443	       170.4 ns/op
+shortname: uber_tally
+goos: linux
+goarch: amd64
+pkg: github.com/uber-go/tally
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBucketsEqual/same_20_values-12     	77856844	        15.30 ns/op
+BenchmarkBucketsEqual/same_20_durations-12  	75534994	        15.80 ns/op
+BenchmarkScopeTaggedNoCachedSubscopes-12    	  349024	      3601 ns/op
+BenchmarkHistogramAllocation-12             	  759960	      1604 ns/op	    1151 B/op	      20 allocs/op
+shortname: bindata
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBindata-12         	       4	 261669687 ns/op	  26.23 MB/s	171267238 B/op	    6892 allocs/op
+shortname: cespare_mph
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBuild-12    	      44	  26661033 ns/op
+shortname: cespare_xxhash
+shortname: gtank_blake2s
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkHash8K-12    	   52287	     22895 ns/op	 357.81 MB/s
+shortname: nelsam_gxui_interval
+goos: linux
+goarch: amd64
+pkg: git.sr.ht/~nelsam/gxui/interval
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkGeneral-12    	 3539628	       338.6 ns/op
+shortname: ajstarks_deck_generate
+shortname: benhoyt_goawk
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkRecursiveFunc-12    	   75968	     15692 ns/op
+BenchmarkRegexMatch-12       	  962377	      1248 ns/op
+shortname: ericlagergren_decimal
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    8540	    138078 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    4020	    293548 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    2388	    424351 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  324367	      3791 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9313	    127979 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199086	      6018 ns/op
+shortname: dustin_broadcast
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkDirectSend-12            	 3259209	       386.2 ns/op
+BenchmarkParallelDirectSend-12    	 3194356	       374.0 ns/op
+BenchmarkParallelBrodcast-12      	 2254062	       531.7 ns/op
+BenchmarkMuxBrodcast-12           	 2273673	       524.3 ns/op
+shortname: dustin_humanize
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkParseBigBytes-12        	  743671	      1513 ns/op
+BenchmarkFtoaRegexTrailing-12    	  566788	      2102 ns/op
+shortname: bloom_bloom
+goos: linux
+goarch: amd64
+pkg: github.com/bits-and-blooms/bloom/v3
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkSeparateTestAndAdd-12    	 2922062	       407.7 ns/op
+BenchmarkCombinedTestAndAdd-12    	 2823351	       436.7 ns/op
+shortname: kanzi
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkBWTS-12    	1000000000	         0.6088 ns/op
+BenchmarkFPAQ-12    	      67	  17806050 ns/op
+BenchmarkLZ-12      	     856	   1381077 ns/op
+BenchmarkMTFT-12    	    1162	   1021604 ns/op
+shortname: commonmark_markdown
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+cpu: Intel(R) Xeon(R) CPU E5-1650 v3 @ 3.50GHz
+BenchmarkRenderSpecNoHTML-12          	     210	   5703268 ns/op
+BenchmarkRenderSpec-12                	     210	   5720922 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     318	   3750531 ns/op
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkgonum_topo_total 1 3598461 total-bytes
+Benchmarkgonum_topo_text 1 1153061 text-bytes
+Benchmarkgonum_topo_data 1 43536 data-bytes
+Benchmarkgonum_topo_rodata 1 464257 rodata-bytes
+Benchmarkgonum_topo_pclntab 1 679984 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkajstarks_deck_generate_total 1 3179273 total-bytes
+Benchmarkajstarks_deck_generate_text 1 1003210 text-bytes
+Benchmarkajstarks_deck_generate_data 1 35888 data-bytes
+Benchmarkajstarks_deck_generate_rodata 1 397315 rodata-bytes
+Benchmarkajstarks_deck_generate_pclntab 1 605360 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkgonum_lapack_native_total 1 6012495 total-bytes
+Benchmarkgonum_lapack_native_text 1 2281829 text-bytes
+Benchmarkgonum_lapack_native_data 1 39600 data-bytes
+Benchmarkgonum_lapack_native_rodata 1 730154 rodata-bytes
+Benchmarkgonum_lapack_native_pclntab 1 965360 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkminio_total 1 111221408 total-bytes
+Benchmarkminio_text 1 36171434 text-bytes
+Benchmarkminio_data 1 376656 data-bytes
+Benchmarkminio_rodata 1 31462251 rodata-bytes
+Benchmarkminio_pclntab 1 21999152 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkdustin_humanize_total 1 3661288 total-bytes
+Benchmarkdustin_humanize_text 1 1201413 text-bytes
+Benchmarkdustin_humanize_data 1 37424 data-bytes
+Benchmarkdustin_humanize_rodata 1 449230 rodata-bytes
+Benchmarkdustin_humanize_pclntab 1 698128 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkuber_zap_total 1 6497947 total-bytes
+Benchmarkuber_zap_text 1 2261594 text-bytes
+Benchmarkuber_zap_data 1 47824 data-bytes
+Benchmarkuber_zap_rodata 1 843271 rodata-bytes
+Benchmarkuber_zap_pclntab 1 1265144 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarksemver_total 1 3594103 total-bytes
+Benchmarksemver_text 1 1170149 text-bytes
+Benchmarksemver_data 1 37360 data-bytes
+Benchmarksemver_rodata 1 438803 rodata-bytes
+Benchmarksemver_pclntab 1 694416 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkshopify_sarama_total 1 11132989 total-bytes
+Benchmarkshopify_sarama_text 1 4127845 text-bytes
+Benchmarkshopify_sarama_data 1 69840 data-bytes
+Benchmarkshopify_sarama_rodata 1 1600477 rodata-bytes
+Benchmarkshopify_sarama_pclntab 1 2178232 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkbloom_bloom_total 1 3980001 total-bytes
+Benchmarkbloom_bloom_text 1 1322437 text-bytes
+Benchmarkbloom_bloom_data 1 37552 data-bytes
+Benchmarkbloom_bloom_rodata 1 477818 rodata-bytes
+Benchmarkbloom_bloom_pclntab 1 778336 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkbenhoyt_goawk_total 1 3885101 total-bytes
+Benchmarkbenhoyt_goawk_text 1 1251050 text-bytes
+Benchmarkbenhoyt_goawk_data 1 36816 data-bytes
+Benchmarkbenhoyt_goawk_rodata 1 538000 rodata-bytes
+Benchmarkbenhoyt_goawk_pclntab 1 743232 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkspexs2_total 1 3581395 total-bytes
+Benchmarkspexs2_text 1 1160357 text-bytes
+Benchmarkspexs2_data 1 36432 data-bytes
+Benchmarkspexs2_rodata 1 427973 rodata-bytes
+Benchmarkspexs2_pclntab 1 698088 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkk8s_workqueue_total 1 7299152 total-bytes
+Benchmarkk8s_workqueue_text 1 2579338 text-bytes
+Benchmarkk8s_workqueue_data 1 42288 data-bytes
+Benchmarkk8s_workqueue_rodata 1 892948 rodata-bytes
+Benchmarkk8s_workqueue_pclntab 1 1480704 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkericlagergren_decimal_total 1 3670126 total-bytes
+Benchmarkericlagergren_decimal_text 1 1172965 text-bytes
+Benchmarkericlagergren_decimal_data 1 37712 data-bytes
+Benchmarkericlagergren_decimal_rodata 1 439810 rodata-bytes
+Benchmarkericlagergren_decimal_pclntab 1 711992 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkklauspost_total 1 3104875 total-bytes
+Benchmarkklauspost_text 1 975653 text-bytes
+Benchmarkklauspost_data 1 35568 data-bytes
+Benchmarkklauspost_rodata 1 373504 rodata-bytes
+Benchmarkklauspost_pclntab 1 592744 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkgonum_path_total 1 3730993 total-bytes
+Benchmarkgonum_path_text 1 1209669 text-bytes
+Benchmarkgonum_path_data 1 56128 data-bytes
+Benchmarkgonum_path_rodata 1 464950 rodata-bytes
+Benchmarkgonum_path_pclntab 1 714376 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkaws_restxml_total 1 11679873 total-bytes
+Benchmarkaws_restxml_text 1 4363461 text-bytes
+Benchmarkaws_restxml_data 1 54832 data-bytes
+Benchmarkaws_restxml_rodata 1 2375005 rodata-bytes
+Benchmarkaws_restxml_pclntab 1 1940408 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkk8s_cache_total 1 19705276 total-bytes
+Benchmarkk8s_cache_text 1 7363370 text-bytes
+Benchmarkk8s_cache_data 1 57520 data-bytes
+Benchmarkk8s_cache_rodata 1 2619572 rodata-bytes
+Benchmarkk8s_cache_pclntab 1 4410160 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkcapnproto2_total 1 4380620 total-bytes
+Benchmarkcapnproto2_text 1 1488613 text-bytes
+Benchmarkcapnproto2_data 1 39856 data-bytes
+Benchmarkcapnproto2_rodata 1 593159 rodata-bytes
+Benchmarkcapnproto2_pclntab 1 819616 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkaws_restjson_total 1 11593241 total-bytes
+Benchmarkaws_restjson_text 1 4319717 text-bytes
+Benchmarkaws_restjson_data 1 54384 data-bytes
+Benchmarkaws_restjson_rodata 1 2371334 rodata-bytes
+Benchmarkaws_restjson_pclntab 1 1930152 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkethereum_storage_total 1 7994375 total-bytes
+Benchmarkethereum_storage_text 1 2713985 text-bytes
+Benchmarkethereum_storage_data 1 138544 data-bytes
+Benchmarkethereum_storage_rodata 1 1154256 rodata-bytes
+Benchmarkethereum_storage_pclntab 1 1542280 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkaws_jsonrpc_total 1 11269717 total-bytes
+Benchmarkaws_jsonrpc_text 1 4167365 text-bytes
+Benchmarkaws_jsonrpc_data 1 53616 data-bytes
+Benchmarkaws_jsonrpc_rodata 1 2301887 rodata-bytes
+Benchmarkaws_jsonrpc_pclntab 1 1869512 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkethereum_corevm_total 1 6327898 total-bytes
+Benchmarkethereum_corevm_text 1 2235553 text-bytes
+Benchmarkethereum_corevm_data 1 44624 data-bytes
+Benchmarkethereum_corevm_rodata 1 796648 rodata-bytes
+Benchmarkethereum_corevm_pclntab 1 1266056 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarktidwall_tile38_total 1 30090538 total-bytes
+Benchmarktidwall_tile38_text 1 11000901 text-bytes
+Benchmarktidwall_tile38_data 1 107856 data-bytes
+Benchmarktidwall_tile38_rodata 1 5409493 rodata-bytes
+Benchmarktidwall_tile38_pclntab 1 6165448 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkhugo_hugolib_total 1 46783374 total-bytes
+Benchmarkhugo_hugolib_text 1 19951045 text-bytes
+Benchmarkhugo_hugolib_data 1 238560 data-bytes
+Benchmarkhugo_hugolib_rodata 1 9143914 rodata-bytes
+Benchmarkhugo_hugolib_pclntab 1 8088408 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkgonum_blas_native_total 1 4755865 total-bytes
+Benchmarkgonum_blas_native_text 1 1785413 text-bytes
+Benchmarkgonum_blas_native_data 1 76728 data-bytes
+Benchmarkgonum_blas_native_rodata 1 525871 rodata-bytes
+Benchmarkgonum_blas_native_pclntab 1 813728 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkethereum_ethash_total 1 9256800 total-bytes
+Benchmarkethereum_ethash_text 1 3280513 text-bytes
+Benchmarkethereum_ethash_data 1 55792 data-bytes
+Benchmarkethereum_ethash_rodata 1 1353960 rodata-bytes
+Benchmarkethereum_ethash_pclntab 1 1794264 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkcespare_mph_total 1 3123234 total-bytes
+Benchmarkcespare_mph_text 1 985669 text-bytes
+Benchmarkcespare_mph_data 1 36208 data-bytes
+Benchmarkcespare_mph_rodata 1 373999 rodata-bytes
+Benchmarkcespare_mph_pclntab 1 596048 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkaws_jsonutil_total 1 7044724 total-bytes
+Benchmarkaws_jsonutil_text 1 2568837 text-bytes
+Benchmarkaws_jsonutil_data 1 43344 data-bytes
+Benchmarkaws_jsonutil_rodata 1 1595363 rodata-bytes
+Benchmarkaws_jsonutil_pclntab 1 1033480 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkgonum_community_total 1 3909382 total-bytes
+Benchmarkgonum_community_text 1 1310117 text-bytes
+Benchmarkgonum_community_data 1 60656 data-bytes
+Benchmarkgonum_community_rodata 1 477278 rodata-bytes
+Benchmarkgonum_community_pclntab 1 727664 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkgonum_mat_total 1 6621951 total-bytes
+Benchmarkgonum_mat_text 1 2620293 text-bytes
+Benchmarkgonum_mat_data 1 58928 data-bytes
+Benchmarkgonum_mat_rodata 1 744316 rodata-bytes
+Benchmarkgonum_mat_pclntab 1 1159336 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkcespare_xxhash_total 1 3129415 total-bytes
+Benchmarkcespare_xxhash_text 1 985093 text-bytes
+Benchmarkcespare_xxhash_data 1 35664 data-bytes
+Benchmarkcespare_xxhash_rodata 1 375981 rodata-bytes
+Benchmarkcespare_xxhash_pclntab 1 599096 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkethereum_ecies_total 1 4120936 total-bytes
+Benchmarkethereum_ecies_text 1 1403297 text-bytes
+Benchmarkethereum_ecies_data 1 36624 data-bytes
+Benchmarkethereum_ecies_rodata 1 550088 rodata-bytes
+Benchmarkethereum_ecies_pclntab 1 743608 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarknelsam_gxui_interval_total 1 3205660 total-bytes
+Benchmarknelsam_gxui_interval_text 1 1020709 text-bytes
+Benchmarknelsam_gxui_interval_data 1 36528 data-bytes
+Benchmarknelsam_gxui_interval_rodata 1 382012 rodata-bytes
+Benchmarknelsam_gxui_interval_pclntab 1 620520 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkhugo_helpers_total 1 26571089 total-bytes
+Benchmarkhugo_helpers_text 1 11938629 text-bytes
+Benchmarkhugo_helpers_data 1 130176 data-bytes
+Benchmarkhugo_helpers_rodata 1 6020440 rodata-bytes
+Benchmarkhugo_helpers_pclntab 1 3856856 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkethereum_bitutil_total 1 3280612 total-bytes
+Benchmarkethereum_bitutil_text 1 1043685 text-bytes
+Benchmarkethereum_bitutil_data 1 36752 data-bytes
+Benchmarkethereum_bitutil_rodata 1 390569 rodata-bytes
+Benchmarkethereum_bitutil_pclntab 1 628912 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkethereum_core_total 1 13821494 total-bytes
+Benchmarkethereum_core_text 1 5075617 text-bytes
+Benchmarkethereum_core_data 1 62072 data-bytes
+Benchmarkethereum_core_rodata 1 2181032 rodata-bytes
+Benchmarkethereum_core_pclntab 1 2741616 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkgtank_blake2s_total 1 3511017 total-bytes
+Benchmarkgtank_blake2s_text 1 1139333 text-bytes
+Benchmarkgtank_blake2s_data 1 36816 data-bytes
+Benchmarkgtank_blake2s_rodata 1 412319 rodata-bytes
+Benchmarkgtank_blake2s_pclntab 1 676336 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkcommonmark_markdown_total 1 4782752 total-bytes
+Benchmarkcommonmark_markdown_text 1 1548389 text-bytes
+Benchmarkcommonmark_markdown_data 1 55152 data-bytes
+Benchmarkcommonmark_markdown_rodata 1 698104 rodata-bytes
+Benchmarkcommonmark_markdown_pclntab 1 915584 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkgonum_traverse_total 1 3288888 total-bytes
+Benchmarkgonum_traverse_text 1 1028293 text-bytes
+Benchmarkgonum_traverse_data 1 38288 data-bytes
+Benchmarkgonum_traverse_rodata 1 405345 rodata-bytes
+Benchmarkgonum_traverse_pclntab 1 630016 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkuber_tally_total 1 5238686 total-bytes
+Benchmarkuber_tally_text 1 1757477 text-bytes
+Benchmarkuber_tally_data 1 43120 data-bytes
+Benchmarkuber_tally_rodata 1 661962 rodata-bytes
+Benchmarkuber_tally_pclntab 1 995184 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkkanzi_total 1 3678927 total-bytes
+Benchmarkkanzi_text 1 1161605 text-bytes
+Benchmarkkanzi_data 1 36336 data-bytes
+Benchmarkkanzi_rodata 1 416906 rodata-bytes
+Benchmarkkanzi_pclntab 1 677560 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkdustin_broadcast_total 1 3146558 total-bytes
+Benchmarkdustin_broadcast_text 1 990853 text-bytes
+Benchmarkdustin_broadcast_data 1 35760 data-bytes
+Benchmarkdustin_broadcast_rodata 1 381415 rodata-bytes
+Benchmarkdustin_broadcast_pclntab 1 603416 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkbindata_total 1 10875523 total-bytes
+Benchmarkbindata_text 1 1349253 text-bytes
+Benchmarkbindata_data 1 38224 data-bytes
+Benchmarkbindata_rodata 1 486751 rodata-bytes
+Benchmarkbindata_pclntab 1 781304 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkethereum_trie_total 1 6660485 total-bytes
+Benchmarkethereum_trie_text 1 2432033 text-bytes
+Benchmarkethereum_trie_data 1 44080 data-bytes
+Benchmarkethereum_trie_rodata 1 801640 rodata-bytes
+Benchmarkethereum_trie_pclntab 1 1323256 pclntab-bytes
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-24268
+tmp dwarf args quality wc =  6 tmp-bench-dwarf-24268
+tmp stmt args quality wc =  2 tmp-bench-dwarf-24268
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-24268
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-26084
+tmp dwarf args quality wc =  6 tmp-bench-dwarf-26084
+tmp stmt args quality wc =  2 tmp-bench-dwarf-26084
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-26084
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-26492
+tmp dwarf args quality wc =  7 tmp-bench-dwarf-26492
+tmp stmt args quality wc =  2 tmp-bench-dwarf-26492
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-26492
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-34083
+tmp dwarf args quality wc =  159 tmp-bench-dwarf-34083
+tmp stmt args quality wc =  2 tmp-bench-dwarf-34083
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-34083
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-38423
+tmp dwarf args quality wc =  6 tmp-bench-dwarf-38423
+tmp stmt args quality wc =  2 tmp-bench-dwarf-38423
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-38423
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-38889
+tmp dwarf args quality wc =  10 tmp-bench-dwarf-38889
+tmp stmt args quality wc =  2 tmp-bench-dwarf-38889
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-38889
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-39169
+tmp dwarf args quality wc =  6 tmp-bench-dwarf-39169
+tmp stmt args quality wc =  2 tmp-bench-dwarf-39169
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-39169
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-40431
+tmp dwarf args quality wc =  24 tmp-bench-dwarf-40431
+tmp stmt args quality wc =  2 tmp-bench-dwarf-40431
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-40431
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-40725
+tmp dwarf args quality wc =  6 tmp-bench-dwarf-40725
+tmp stmt args quality wc =  2 tmp-bench-dwarf-40725
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-40725
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-41041
+tmp dwarf args quality wc =  8 tmp-bench-dwarf-41041
+tmp stmt args quality wc =  2 tmp-bench-dwarf-41041
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-41041
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-42067
+tmp dwarf args quality wc =  6 tmp-bench-dwarf-42067
+tmp stmt args quality wc =  2 tmp-bench-dwarf-42067
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-42067
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-45825
+tmp dwarf args quality wc =  17 tmp-bench-dwarf-45825
+tmp stmt args quality wc =  2 tmp-bench-dwarf-45825
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-45825
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-47517
+tmp dwarf args quality wc =  8 tmp-bench-dwarf-47517
+tmp stmt args quality wc =  2 tmp-bench-dwarf-47517
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-47517
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-47809
+tmp dwarf args quality wc =  6 tmp-bench-dwarf-47809
+tmp stmt args quality wc =  2 tmp-bench-dwarf-47809
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-47809
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-48790
+tmp dwarf args quality wc =  6 tmp-bench-dwarf-48790
+tmp stmt args quality wc =  2 tmp-bench-dwarf-48790
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-48790
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-54085
+tmp dwarf args quality wc =  19 tmp-bench-dwarf-54085
+tmp stmt args quality wc =  2 tmp-bench-dwarf-54085
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-54085
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-55878
+tmp dwarf args quality wc =  23 tmp-bench-dwarf-55878
+tmp stmt args quality wc =  2 tmp-bench-dwarf-55878
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-55878
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-56757
+tmp dwarf args quality wc =  6 tmp-bench-dwarf-56757
+tmp stmt args quality wc =  2 tmp-bench-dwarf-56757
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-56757
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-57547
+tmp dwarf args quality wc =  19 tmp-bench-dwarf-57547
+tmp stmt args quality wc =  2 tmp-bench-dwarf-57547
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-57547
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-59323
+tmp dwarf args quality wc =  54 tmp-bench-dwarf-59323
+tmp stmt args quality wc =  2 tmp-bench-dwarf-59323
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-59323
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-60169
+tmp dwarf args quality wc =  20 tmp-bench-dwarf-60169
+tmp stmt args quality wc =  2 tmp-bench-dwarf-60169
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-60169
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-61169
+tmp dwarf args quality wc =  30 tmp-bench-dwarf-61169
+tmp stmt args quality wc =  2 tmp-bench-dwarf-61169
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-61169
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-66312
+tmp dwarf args quality wc =  189 tmp-bench-dwarf-66312
+tmp stmt args quality wc =  2 tmp-bench-dwarf-66312
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-66312
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-70529
+tmp dwarf args quality wc =  90 tmp-bench-dwarf-70529
+tmp stmt args quality wc =  2 tmp-bench-dwarf-70529
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-70529
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-70972
+tmp dwarf args quality wc =  7 tmp-bench-dwarf-70972
+tmp stmt args quality wc =  2 tmp-bench-dwarf-70972
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-70972
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-72022
+tmp dwarf args quality wc =  37 tmp-bench-dwarf-72022
+tmp stmt args quality wc =  2 tmp-bench-dwarf-72022
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-72022
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-72648
+tmp dwarf args quality wc =  6 tmp-bench-dwarf-72648
+tmp stmt args quality wc =  2 tmp-bench-dwarf-72648
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-72648
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-73077
+tmp dwarf args quality wc =  9 tmp-bench-dwarf-73077
+tmp stmt args quality wc =  2 tmp-bench-dwarf-73077
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-73077
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-73721
+tmp dwarf args quality wc =  6 tmp-bench-dwarf-73721
+tmp stmt args quality wc =  2 tmp-bench-dwarf-73721
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-73721
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-74863
+tmp dwarf args quality wc =  11 tmp-bench-dwarf-74863
+tmp stmt args quality wc =  2 tmp-bench-dwarf-74863
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-74863
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-75163
+tmp dwarf args quality wc =  6 tmp-bench-dwarf-75163
+tmp stmt args quality wc =  2 tmp-bench-dwarf-75163
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-75163
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-83682
+tmp dwarf args quality wc =  24 tmp-bench-dwarf-83682
+tmp stmt args quality wc =  2 tmp-bench-dwarf-83682
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-83682
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-83949
+tmp dwarf args quality wc =  6 tmp-bench-dwarf-83949
+tmp stmt args quality wc =  2 tmp-bench-dwarf-83949
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-83949
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-85897
+tmp dwarf args quality wc =  20 tmp-bench-dwarf-85897
+tmp stmt args quality wc =  2 tmp-bench-dwarf-85897
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-85897
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-86189
+tmp dwarf args quality wc =  6 tmp-bench-dwarf-86189
+tmp stmt args quality wc =  2 tmp-bench-dwarf-86189
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-86189
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-87371
+tmp dwarf args quality wc =  41 tmp-bench-dwarf-87371
+tmp stmt args quality wc =  2 tmp-bench-dwarf-87371
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-87371
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-89325
+tmp dwarf args quality wc =  6 tmp-bench-dwarf-89325
+tmp stmt args quality wc =  2 tmp-bench-dwarf-89325
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-89325
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-90693
+tmp dwarf args quality wc =  6 tmp-bench-dwarf-90693
+tmp stmt args quality wc =  2 tmp-bench-dwarf-90693
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-90693
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-91307
+tmp dwarf args quality wc =  6 tmp-bench-dwarf-91307
+tmp stmt args quality wc =  2 tmp-bench-dwarf-91307
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-91307
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-91673
+tmp dwarf args quality wc =  24 tmp-bench-dwarf-91673
+tmp stmt args quality wc =  2 tmp-bench-dwarf-91673
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-91673
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-95283
+tmp dwarf args quality wc =  6 tmp-bench-dwarf-95283
+tmp stmt args quality wc =  2 tmp-bench-dwarf-95283
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-95283
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-95655
+tmp dwarf args quality wc =  6 tmp-bench-dwarf-95655
+tmp stmt args quality wc =  2 tmp-bench-dwarf-95655
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-95655
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-95937
+tmp dwarf args quality wc =  8 tmp-bench-dwarf-95937
+tmp stmt args quality wc =  2 tmp-bench-dwarf-95937
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-95937
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-97125
+tmp dwarf args quality wc =  29 tmp-bench-dwarf-97125
+tmp stmt args quality wc =  2 tmp-bench-dwarf-97125
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-97125
+goos: linux
+goarch: amd64
+pkg:

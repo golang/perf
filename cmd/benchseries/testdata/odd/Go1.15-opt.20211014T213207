@@ -1,0 +1,2408 @@
+builder_id: drchase1.cam.corp.google.com
+builder_type: Xeon-E5-1650v3@3.5Ghz*12
+numerator_branch: master
+denominator_hash: f50cde9a70
+numerator_hash: 9e8ed86813
+runstamp: 20211014T213207
+toolchain: Base
+suite: bent-cron
+bentstamp: 20211014T213207
+tip: 9e8ed86813
+base: f50cde9a70
+goos: linux
+goarch: amd64
+BenchmarkRcrowley_metrics 1 510000000 build-real-ns/op 1100000000 build-user-ns/op 160000000 build-sys-ns/op
+BenchmarkBindata 1 830000000 build-real-ns/op 1210000000 build-user-ns/op 200000000 build-sys-ns/op
+BenchmarkSemver 1 340000000 build-real-ns/op 660000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkGtank_blake2s 1 270000000 build-real-ns/op 490000000 build-user-ns/op 90000000 build-sys-ns/op
+BenchmarkEthereum_bitutil 1 1630000000 build-real-ns/op 830000000 build-user-ns/op 300000000 build-sys-ns/op
+BenchmarkCespare_xxhash 1 240000000 build-real-ns/op 390000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkEthereum_storage 1 14050000000 build-real-ns/op 28400000000 build-user-ns/op 3170000000 build-sys-ns/op
+BenchmarkCespare_mph 1 230000000 build-real-ns/op 380000000 build-user-ns/op 110000000 build-sys-ns/op
+BenchmarkKanzi 1 540000000 build-real-ns/op 1720000000 build-user-ns/op 250000000 build-sys-ns/op
+BenchmarkEthereum_ethash 1 10350000000 build-real-ns/op 14510000000 build-user-ns/op 1660000000 build-sys-ns/op
+BenchmarkUber_zap 1 2600000000 build-real-ns/op 4870000000 build-user-ns/op 700000000 build-sys-ns/op
+BenchmarkAws_jsonutil 1 2060000000 build-real-ns/op 3580000000 build-user-ns/op 510000000 build-sys-ns/op
+BenchmarkK8s_schedulercache 1 14400000000 build-real-ns/op 68250000000 build-user-ns/op 5630000000 build-sys-ns/op
+BenchmarkGonum_lapack_native 1 2910000000 build-real-ns/op 7050000000 build-user-ns/op 680000000 build-sys-ns/op
+BenchmarkGonum_mat 1 3340000000 build-real-ns/op 9890000000 build-user-ns/op 730000000 build-sys-ns/op
+BenchmarkGonum_topo 1 3000000000 build-real-ns/op 8570000000 build-user-ns/op 940000000 build-sys-ns/op
+BenchmarkGonum_traverse 1 2810000000 build-real-ns/op 7400000000 build-user-ns/op 890000000 build-sys-ns/op
+BenchmarkEriclagergren_decimal 1 1260000000 build-real-ns/op 2050000000 build-user-ns/op 340000000 build-sys-ns/op
+BenchmarkEthereum_trieg 1 9770000000 build-real-ns/op 13950000000 build-user-ns/op 1370000000 build-sys-ns/op
+BenchmarkDustin_broadcast 1 220000000 build-real-ns/op 380000000 build-user-ns/op 90000000 build-sys-ns/op
+BenchmarkCommonmark_markdown 1 6580000000 build-real-ns/op 7900000000 build-user-ns/op 660000000 build-sys-ns/op
+BenchmarkEthereum_trie 1 9750000000 build-real-ns/op 14040000000 build-user-ns/op 1420000000 build-sys-ns/op
+BenchmarkHugo_helpers 1 10000000000 build-real-ns/op 36090000000 build-user-ns/op 3370000000 build-sys-ns/op
+BenchmarkEthereum_core 1 11380000000 build-real-ns/op 21470000000 build-user-ns/op 2060000000 build-sys-ns/op
+BenchmarkGonum_blas_native 1 2160000000 build-real-ns/op 4540000000 build-user-ns/op 490000000 build-sys-ns/op
+BenchmarkMinio 1 21210000000 build-real-ns/op 95310000000 build-user-ns/op 8440000000 build-sys-ns/op
+BenchmarkKlauspost 1 220000000 build-real-ns/op 390000000 build-user-ns/op 70000000 build-sys-ns/op
+BenchmarkCapnproto2 1 2660000000 build-real-ns/op 7310000000 build-user-ns/op 520000000 build-sys-ns/op
+BenchmarkGonum_path 1 2950000000 build-real-ns/op 8390000000 build-user-ns/op 810000000 build-sys-ns/op
+BenchmarkAjstarks_deck_generate 1 270000000 build-real-ns/op 490000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkNelsam_gxui_interval 1 300000000 build-real-ns/op 580000000 build-user-ns/op 80000000 build-sys-ns/op
+BenchmarkGonum_community 1 3080000000 build-real-ns/op 8740000000 build-user-ns/op 730000000 build-sys-ns/op
+BenchmarkK8s_api 1 13730000000 build-real-ns/op 66700000000 build-user-ns/op 6020000000 build-sys-ns/op
+BenchmarkDustin_humanize 1 310000000 build-real-ns/op 560000000 build-user-ns/op 170000000 build-sys-ns/op
+BenchmarkBenhoyt_goawk 1 560000000 build-real-ns/op 1190000000 build-user-ns/op 210000000 build-sys-ns/op
+BenchmarkEthereum_corevm 1 10220000000 build-real-ns/op 16390000000 build-user-ns/op 1660000000 build-sys-ns/op
+BenchmarkSpexs2 1 1050000000 build-real-ns/op 1330000000 build-user-ns/op 310000000 build-sys-ns/op
+BenchmarkUber_zap 1 2550000000 build-real-ns/op 4710000000 build-user-ns/op 670000000 build-sys-ns/op
+BenchmarkCespare_mph 1 230000000 build-real-ns/op 360000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkEthereum_bitutil 1 1620000000 build-real-ns/op 900000000 build-user-ns/op 240000000 build-sys-ns/op
+BenchmarkEriclagergren_decimal 1 1270000000 build-real-ns/op 2029999999 build-user-ns/op 390000000 build-sys-ns/op
+BenchmarkGtank_blake2s 1 270000000 build-real-ns/op 480000000 build-user-ns/op 110000000 build-sys-ns/op
+BenchmarkGonum_blas_native 1 2190000000 build-real-ns/op 4460000000 build-user-ns/op 550000000 build-sys-ns/op
+BenchmarkKanzi 1 520000000 build-real-ns/op 1670000000 build-user-ns/op 220000000 build-sys-ns/op
+BenchmarkGonum_traverse 1 2790000000 build-real-ns/op 7440000000 build-user-ns/op 920000000 build-sys-ns/op
+BenchmarkGonum_mat 1 3370000000 build-real-ns/op 9840000000 build-user-ns/op 780000000 build-sys-ns/op
+BenchmarkNelsam_gxui_interval 1 300000000 build-real-ns/op 540000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkGonum_topo 1 3060000000 build-real-ns/op 8680000000 build-user-ns/op 950000000 build-sys-ns/op
+BenchmarkEthereum_trie 1 9680000000 build-real-ns/op 14120000000 build-user-ns/op 1380000000 build-sys-ns/op
+BenchmarkGonum_lapack_native 1 2950000000 build-real-ns/op 7110000000 build-user-ns/op 660000000 build-sys-ns/op
+BenchmarkCommonmark_markdown 1 6510000000 build-real-ns/op 7910000000 build-user-ns/op 570000000 build-sys-ns/op
+BenchmarkEthereum_core 1 11330000000 build-real-ns/op 21200000000 build-user-ns/op 2150000000 build-sys-ns/op
+BenchmarkBenhoyt_goawk 1 560000000 build-real-ns/op 1140000000 build-user-ns/op 230000000 build-sys-ns/op
+BenchmarkEthereum_trieg 1 9830000000 build-real-ns/op 14050000000 build-user-ns/op 1310000000 build-sys-ns/op
+BenchmarkK8s_schedulercache 1 14480000000 build-real-ns/op 68520000000 build-user-ns/op 5740000000 build-sys-ns/op
+BenchmarkCespare_xxhash 1 240000000 build-real-ns/op 410000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkCapnproto2 1 2740000000 build-real-ns/op 7490000000 build-user-ns/op 580000000 build-sys-ns/op
+BenchmarkMinio 1 21750000000 build-real-ns/op 96710000000 build-user-ns/op 8790000000 build-sys-ns/op
+BenchmarkAjstarks_deck_generate 1 270000000 build-real-ns/op 490000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkSemver 1 360000000 build-real-ns/op 700000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkK8s_api 1 14410000000 build-real-ns/op 68940000000 build-user-ns/op 5690000000 build-sys-ns/op
+BenchmarkDustin_humanize 1 340000000 build-real-ns/op 600000000 build-user-ns/op 170000000 build-sys-ns/op
+BenchmarkGonum_path 1 3010000000 build-real-ns/op 8189999999 build-user-ns/op 970000000 build-sys-ns/op
+BenchmarkHugo_helpers 1 10020000000 build-real-ns/op 35760000000 build-user-ns/op 3500000000 build-sys-ns/op
+BenchmarkGonum_community 1 3090000000 build-real-ns/op 8670000000 build-user-ns/op 840000000 build-sys-ns/op
+BenchmarkEthereum_storage 1 14000000000 build-real-ns/op 28410000000 build-user-ns/op 3200000000 build-sys-ns/op
+BenchmarkDustin_broadcast 1 220000000 build-real-ns/op 360000000 build-user-ns/op 110000000 build-sys-ns/op
+BenchmarkAws_jsonutil 1 1880000000 build-real-ns/op 3820000000 build-user-ns/op 420000000 build-sys-ns/op
+BenchmarkSpexs2 1 910000000 build-real-ns/op 1300000000 build-user-ns/op 310000000 build-sys-ns/op
+BenchmarkRcrowley_metrics 1 500000000 build-real-ns/op 1100000000 build-user-ns/op 170000000 build-sys-ns/op
+BenchmarkEthereum_ethash 1 10180000000 build-real-ns/op 14710000000 build-user-ns/op 1420000000 build-sys-ns/op
+BenchmarkBindata 1 830000000 build-real-ns/op 1230000000 build-user-ns/op 160000000 build-sys-ns/op
+BenchmarkEthereum_corevm 1 10260000000 build-real-ns/op 16270000000 build-user-ns/op 1870000000 build-sys-ns/op
+BenchmarkKlauspost 1 220000000 build-real-ns/op 370000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkHugo_helpers 1 10010000000 build-real-ns/op 35850000000 build-user-ns/op 3520000000 build-sys-ns/op
+BenchmarkSemver 1 320000000 build-real-ns/op 610000000 build-user-ns/op 150000000 build-sys-ns/op
+BenchmarkEthereum_trieg 1 9820000000 build-real-ns/op 14120000000 build-user-ns/op 1460000000 build-sys-ns/op
+BenchmarkK8s_api 1 13800000000 build-real-ns/op 67410000000 build-user-ns/op 5400000000 build-sys-ns/op
+BenchmarkEthereum_corevm 1 10260000000 build-real-ns/op 16370000000 build-user-ns/op 1700000000 build-sys-ns/op
+BenchmarkGonum_community 1 3120000000 build-real-ns/op 8780000000 build-user-ns/op 910000000 build-sys-ns/op
+BenchmarkGonum_topo 1 3050000000 build-real-ns/op 8840000000 build-user-ns/op 940000000 build-sys-ns/op
+BenchmarkRcrowley_metrics 1 540000000 build-real-ns/op 1110000000 build-user-ns/op 140000000 build-sys-ns/op
+BenchmarkAws_jsonutil 1 2000000000 build-real-ns/op 3540000000 build-user-ns/op 670000000 build-sys-ns/op
+BenchmarkGonum_traverse 1 2790000000 build-real-ns/op 7420000000 build-user-ns/op 800000000 build-sys-ns/op
+BenchmarkEthereum_trie 1 9720000000 build-real-ns/op 13990000000 build-user-ns/op 1390000000 build-sys-ns/op
+BenchmarkCapnproto2 1 2640000000 build-real-ns/op 7270000000 build-user-ns/op 550000000 build-sys-ns/op
+BenchmarkBindata 1 840000000 build-real-ns/op 1230000000 build-user-ns/op 200000000 build-sys-ns/op
+BenchmarkGonum_mat 1 3340000000 build-real-ns/op 9900000000 build-user-ns/op 750000000 build-sys-ns/op
+BenchmarkGtank_blake2s 1 270000000 build-real-ns/op 530000000 build-user-ns/op 70000000 build-sys-ns/op
+BenchmarkDustin_humanize 1 310000000 build-real-ns/op 630000000 build-user-ns/op 90000000 build-sys-ns/op
+BenchmarkDustin_broadcast 1 220000000 build-real-ns/op 360000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkEthereum_bitutil 1 1590000000 build-real-ns/op 810000000 build-user-ns/op 330000000 build-sys-ns/op
+BenchmarkNelsam_gxui_interval 1 310000000 build-real-ns/op 550000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkCommonmark_markdown 1 6480000000 build-real-ns/op 7840000000 build-user-ns/op 530000000 build-sys-ns/op
+BenchmarkCespare_mph 1 230000000 build-real-ns/op 390000000 build-user-ns/op 80000000 build-sys-ns/op
+BenchmarkCespare_xxhash 1 250000000 build-real-ns/op 430000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkEthereum_storage 1 14060000000 build-real-ns/op 28450000000 build-user-ns/op 3000000000 build-sys-ns/op
+BenchmarkEthereum_core 1 11300000000 build-real-ns/op 21440000000 build-user-ns/op 2170000000 build-sys-ns/op
+BenchmarkGonum_blas_native 1 2220000000 build-real-ns/op 4680000000 build-user-ns/op 450000000 build-sys-ns/op
+BenchmarkEthereum_ethash 1 10390000000 build-real-ns/op 14650000000 build-user-ns/op 1630000000 build-sys-ns/op
+BenchmarkGonum_path 1 2970000000 build-real-ns/op 8520000000 build-user-ns/op 830000000 build-sys-ns/op
+BenchmarkEriclagergren_decimal 1 1280000000 build-real-ns/op 1980000000 build-user-ns/op 370000000 build-sys-ns/op
+BenchmarkK8s_schedulercache 1 15250000000 build-real-ns/op 69650000000 build-user-ns/op 5630000000 build-sys-ns/op
+BenchmarkAjstarks_deck_generate 1 290000000 build-real-ns/op 510000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkUber_zap 1 2720000000 build-real-ns/op 4720000000 build-user-ns/op 740000000 build-sys-ns/op
+BenchmarkKlauspost 1 220000000 build-real-ns/op 380000000 build-user-ns/op 70000000 build-sys-ns/op
+BenchmarkGonum_lapack_native 1 2990000000 build-real-ns/op 7020000000 build-user-ns/op 690000000 build-sys-ns/op
+BenchmarkSpexs2 1 970000000 build-real-ns/op 1280000000 build-user-ns/op 280000000 build-sys-ns/op
+BenchmarkBenhoyt_goawk 1 600000000 build-real-ns/op 1240000000 build-user-ns/op 180000000 build-sys-ns/op
+BenchmarkKanzi 1 580000000 build-real-ns/op 1780000000 build-user-ns/op 200000000 build-sys-ns/op
+BenchmarkMinio 1 21170000000 build-real-ns/op 94920000000 build-user-ns/op 8520000000 build-sys-ns/op
+BenchmarkBenhoyt_goawk 1 570000000 build-real-ns/op 1180000000 build-user-ns/op 240000000 build-sys-ns/op
+BenchmarkGtank_blake2s 1 270000000 build-real-ns/op 510000000 build-user-ns/op 90000000 build-sys-ns/op
+BenchmarkCapnproto2 1 2680000000 build-real-ns/op 7300000000 build-user-ns/op 600000000 build-sys-ns/op
+BenchmarkKlauspost 1 220000000 build-real-ns/op 380000000 build-user-ns/op 90000000 build-sys-ns/op
+BenchmarkEthereum_core 1 11130000000 build-real-ns/op 21570000000 build-user-ns/op 2050000000 build-sys-ns/op
+BenchmarkEthereum_trieg 1 9810000000 build-real-ns/op 14080000000 build-user-ns/op 1430000000 build-sys-ns/op
+BenchmarkNelsam_gxui_interval 1 330000000 build-real-ns/op 590000000 build-user-ns/op 110000000 build-sys-ns/op
+BenchmarkGonum_mat 1 3450000000 build-real-ns/op 9930000000 build-user-ns/op 720000000 build-sys-ns/op
+BenchmarkGonum_path 1 3180000000 build-real-ns/op 8540000000 build-user-ns/op 950000000 build-sys-ns/op
+BenchmarkAjstarks_deck_generate 1 290000000 build-real-ns/op 470000000 build-user-ns/op 150000000 build-sys-ns/op
+BenchmarkAws_jsonutil 1 2070000000 build-real-ns/op 3650000000 build-user-ns/op 530000000 build-sys-ns/op
+BenchmarkDustin_broadcast 1 230000000 build-real-ns/op 440000000 build-user-ns/op 70000000 build-sys-ns/op
+BenchmarkEriclagergren_decimal 1 1280000000 build-real-ns/op 2110000000 build-user-ns/op 270000000 build-sys-ns/op
+BenchmarkGonum_blas_native 1 2230000000 build-real-ns/op 4700000000 build-user-ns/op 420000000 build-sys-ns/op
+BenchmarkUber_zap 1 2610000000 build-real-ns/op 4900000000 build-user-ns/op 680000000 build-sys-ns/op
+BenchmarkKanzi 1 530000000 build-real-ns/op 1630000000 build-user-ns/op 270000000 build-sys-ns/op
+BenchmarkEthereum_ethash 1 10330000000 build-real-ns/op 14830000000 build-user-ns/op 1470000000 build-sys-ns/op
+BenchmarkGonum_lapack_native 1 2980000000 build-real-ns/op 7190000000 build-user-ns/op 570000000 build-sys-ns/op
+BenchmarkK8s_api 1 14630000000 build-real-ns/op 68360000000 build-user-ns/op 5490000000 build-sys-ns/op
+BenchmarkCespare_xxhash 1 250000000 build-real-ns/op 440000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkHugo_helpers 1 9990000000 build-real-ns/op 35830000000 build-user-ns/op 3350000000 build-sys-ns/op
+BenchmarkEthereum_trie 1 9790000000 build-real-ns/op 14140000000 build-user-ns/op 1300000000 build-sys-ns/op
+BenchmarkGonum_topo 1 3040000000 build-real-ns/op 8440000000 build-user-ns/op 1020000000 build-sys-ns/op
+BenchmarkBindata 1 820000000 build-real-ns/op 1190000000 build-user-ns/op 190000000 build-sys-ns/op
+BenchmarkCommonmark_markdown 1 6520000000 build-real-ns/op 8029999999 build-user-ns/op 530000000 build-sys-ns/op
+BenchmarkSpexs2 1 1010000000 build-real-ns/op 1260000000 build-user-ns/op 360000000 build-sys-ns/op
+BenchmarkK8s_schedulercache 1 14350000000 build-real-ns/op 68520000000 build-user-ns/op 5800000000 build-sys-ns/op
+BenchmarkEthereum_corevm 1 10290000000 build-real-ns/op 16250000000 build-user-ns/op 1760000000 build-sys-ns/op
+BenchmarkRcrowley_metrics 1 510000000 build-real-ns/op 1120000000 build-user-ns/op 180000000 build-sys-ns/op
+BenchmarkMinio 1 20990000000 build-real-ns/op 94580000000 build-user-ns/op 8760000000 build-sys-ns/op
+BenchmarkEthereum_bitutil 1 1610000000 build-real-ns/op 870000000 build-user-ns/op 270000000 build-sys-ns/op
+BenchmarkEthereum_storage 1 14030000000 build-real-ns/op 28500000000 build-user-ns/op 3050000000 build-sys-ns/op
+BenchmarkDustin_humanize 1 310000000 build-real-ns/op 640000000 build-user-ns/op 80000000 build-sys-ns/op
+BenchmarkGonum_traverse 1 2830000000 build-real-ns/op 7690000000 build-user-ns/op 800000000 build-sys-ns/op
+BenchmarkSemver 1 310000000 build-real-ns/op 670000000 build-user-ns/op 90000000 build-sys-ns/op
+BenchmarkGonum_community 1 3090000000 build-real-ns/op 8570000000 build-user-ns/op 910000000 build-sys-ns/op
+BenchmarkCespare_mph 1 230000000 build-real-ns/op 350000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkK8s_api 1 13750000000 build-real-ns/op 67350000000 build-user-ns/op 5800000000 build-sys-ns/op
+BenchmarkEthereum_ethash 1 10180000000 build-real-ns/op 14270000000 build-user-ns/op 1770000000 build-sys-ns/op
+BenchmarkKanzi 1 530000000 build-real-ns/op 1640000000 build-user-ns/op 250000000 build-sys-ns/op
+BenchmarkBindata 1 830000000 build-real-ns/op 1220000000 build-user-ns/op 180000000 build-sys-ns/op
+BenchmarkEthereum_core 1 11510000000 build-real-ns/op 21390000000 build-user-ns/op 2170000000 build-sys-ns/op
+BenchmarkEthereum_trie 1 9800000000 build-real-ns/op 13920000000 build-user-ns/op 1490000000 build-sys-ns/op
+BenchmarkMinio 1 20650000000 build-real-ns/op 95380000000 build-user-ns/op 8670000000 build-sys-ns/op
+BenchmarkBenhoyt_goawk 1 560000000 build-real-ns/op 1190000000 build-user-ns/op 200000000 build-sys-ns/op
+BenchmarkRcrowley_metrics 1 530000000 build-real-ns/op 1150000000 build-user-ns/op 140000000 build-sys-ns/op
+BenchmarkGtank_blake2s 1 260000000 build-real-ns/op 470000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkNelsam_gxui_interval 1 310000000 build-real-ns/op 560000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkUber_zap 1 2580000000 build-real-ns/op 4760000000 build-user-ns/op 740000000 build-sys-ns/op
+BenchmarkSemver 1 320000000 build-real-ns/op 620000000 build-user-ns/op 150000000 build-sys-ns/op
+BenchmarkGonum_mat 1 3160000000 build-real-ns/op 9790000000 build-user-ns/op 770000000 build-sys-ns/op
+BenchmarkEthereum_bitutil 1 1630000000 build-real-ns/op 840000000 build-user-ns/op 290000000 build-sys-ns/op
+BenchmarkCespare_mph 1 230000000 build-real-ns/op 380000000 build-user-ns/op 110000000 build-sys-ns/op
+BenchmarkGonum_blas_native 1 2170000000 build-real-ns/op 4610000000 build-user-ns/op 480000000 build-sys-ns/op
+BenchmarkEthereum_storage 1 13920000000 build-real-ns/op 28600000000 build-user-ns/op 3070000000 build-sys-ns/op
+BenchmarkSpexs2 1 960000000 build-real-ns/op 1310000000 build-user-ns/op 300000000 build-sys-ns/op
+BenchmarkEthereum_trieg 1 9660000000 build-real-ns/op 14260000000 build-user-ns/op 1320000000 build-sys-ns/op
+BenchmarkCapnproto2 1 2670000000 build-real-ns/op 7350000000 build-user-ns/op 560000000 build-sys-ns/op
+BenchmarkHugo_helpers 1 9920000000 build-real-ns/op 36350000000 build-user-ns/op 3260000000 build-sys-ns/op
+BenchmarkDustin_humanize 1 310000000 build-real-ns/op 620000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkAws_jsonutil 1 2100000000 build-real-ns/op 3800000000 build-user-ns/op 470000000 build-sys-ns/op
+BenchmarkCespare_xxhash 1 240000000 build-real-ns/op 410000000 build-user-ns/op 110000000 build-sys-ns/op
+BenchmarkKlauspost 1 220000000 build-real-ns/op 380000000 build-user-ns/op 80000000 build-sys-ns/op
+BenchmarkEriclagergren_decimal 1 1260000000 build-real-ns/op 2070000000 build-user-ns/op 310000000 build-sys-ns/op
+BenchmarkGonum_lapack_native 1 2900000000 build-real-ns/op 7020000000 build-user-ns/op 640000000 build-sys-ns/op
+BenchmarkEthereum_corevm 1 10250000000 build-real-ns/op 16390000000 build-user-ns/op 1660000000 build-sys-ns/op
+BenchmarkGonum_traverse 1 2870000000 build-real-ns/op 7720000000 build-user-ns/op 860000000 build-sys-ns/op
+BenchmarkK8s_schedulercache 1 14230000000 build-real-ns/op 68740000000 build-user-ns/op 5510000000 build-sys-ns/op
+BenchmarkAjstarks_deck_generate 1 270000000 build-real-ns/op 480000000 build-user-ns/op 90000000 build-sys-ns/op
+BenchmarkGonum_community 1 3150000000 build-real-ns/op 8630000000 build-user-ns/op 900000000 build-sys-ns/op
+BenchmarkCommonmark_markdown 1 6530000000 build-real-ns/op 8000000000 build-user-ns/op 530000000 build-sys-ns/op
+BenchmarkGonum_topo 1 3010000000 build-real-ns/op 8340000000 build-user-ns/op 1130000000 build-sys-ns/op
+BenchmarkDustin_broadcast 1 220000000 build-real-ns/op 400000000 build-user-ns/op 80000000 build-sys-ns/op
+BenchmarkGonum_path 1 2990000000 build-real-ns/op 8400000000 build-user-ns/op 1000000000 build-sys-ns/op
+BenchmarkCespare_mph 1 230000000 build-real-ns/op 390000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkDustin_humanize 1 310000000 build-real-ns/op 580000000 build-user-ns/op 150000000 build-sys-ns/op
+BenchmarkSemver 1 330000000 build-real-ns/op 680000000 build-user-ns/op 90000000 build-sys-ns/op
+BenchmarkGonum_community 1 3130000000 build-real-ns/op 8480000000 build-user-ns/op 1010000000 build-sys-ns/op
+BenchmarkKanzi 1 540000000 build-real-ns/op 1690000000 build-user-ns/op 260000000 build-sys-ns/op
+BenchmarkGonum_traverse 1 2800000000 build-real-ns/op 7630000000 build-user-ns/op 740000000 build-sys-ns/op
+BenchmarkNelsam_gxui_interval 1 310000000 build-real-ns/op 560000000 build-user-ns/op 140000000 build-sys-ns/op
+BenchmarkEthereum_bitutil 1 1580000000 build-real-ns/op 860000000 build-user-ns/op 280000000 build-sys-ns/op
+BenchmarkSpexs2 1 950000000 build-real-ns/op 1380000000 build-user-ns/op 310000000 build-sys-ns/op
+BenchmarkK8s_schedulercache 1 14250000000 build-real-ns/op 68690000000 build-user-ns/op 5740000000 build-sys-ns/op
+BenchmarkBindata 1 840000000 build-real-ns/op 1210000000 build-user-ns/op 180000000 build-sys-ns/op
+BenchmarkGonum_blas_native 1 2130000000 build-real-ns/op 4390000000 build-user-ns/op 580000000 build-sys-ns/op
+BenchmarkUber_zap 1 2610000000 build-real-ns/op 4740000000 build-user-ns/op 690000000 build-sys-ns/op
+BenchmarkK8s_api 1 13810000000 build-real-ns/op 66620000000 build-user-ns/op 5940000000 build-sys-ns/op
+BenchmarkCommonmark_markdown 1 6700000000 build-real-ns/op 7900000000 build-user-ns/op 600000000 build-sys-ns/op
+BenchmarkEthereum_trieg 1 9730000000 build-real-ns/op 13970000000 build-user-ns/op 1490000000 build-sys-ns/op
+BenchmarkGonum_path 1 3010000000 build-real-ns/op 8650000000 build-user-ns/op 810000000 build-sys-ns/op
+BenchmarkHugo_helpers 1 10280000000 build-real-ns/op 36010000000 build-user-ns/op 3270000000 build-sys-ns/op
+BenchmarkEriclagergren_decimal 1 1300000000 build-real-ns/op 2029999999 build-user-ns/op 320000000 build-sys-ns/op
+BenchmarkEthereum_storage 1 14240000000 build-real-ns/op 28720000000 build-user-ns/op 3080000000 build-sys-ns/op
+BenchmarkBenhoyt_goawk 1 570000000 build-real-ns/op 1210000000 build-user-ns/op 200000000 build-sys-ns/op
+BenchmarkEthereum_ethash 1 10340000000 build-real-ns/op 14530000000 build-user-ns/op 1580000000 build-sys-ns/op
+BenchmarkKlauspost 1 220000000 build-real-ns/op 380000000 build-user-ns/op 70000000 build-sys-ns/op
+BenchmarkEthereum_corevm 1 10330000000 build-real-ns/op 16250000000 build-user-ns/op 1690000000 build-sys-ns/op
+BenchmarkRcrowley_metrics 1 520000000 build-real-ns/op 1130000000 build-user-ns/op 150000000 build-sys-ns/op
+BenchmarkGonum_mat 1 3340000000 build-real-ns/op 9730000000 build-user-ns/op 880000000 build-sys-ns/op
+BenchmarkEthereum_trie 1 9750000000 build-real-ns/op 14000000000 build-user-ns/op 1400000000 build-sys-ns/op
+BenchmarkCespare_xxhash 1 240000000 build-real-ns/op 440000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkEthereum_core 1 11020000000 build-real-ns/op 21160000000 build-user-ns/op 2200000000 build-sys-ns/op
+BenchmarkGonum_topo 1 3010000000 build-real-ns/op 8730000000 build-user-ns/op 870000000 build-sys-ns/op
+BenchmarkGtank_blake2s 1 260000000 build-real-ns/op 500000000 build-user-ns/op 70000000 build-sys-ns/op
+BenchmarkAws_jsonutil 1 2080000000 build-real-ns/op 3780000000 build-user-ns/op 490000000 build-sys-ns/op
+BenchmarkGonum_lapack_native 1 2960000000 build-real-ns/op 7120000000 build-user-ns/op 590000000 build-sys-ns/op
+BenchmarkDustin_broadcast 1 220000000 build-real-ns/op 380000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkAjstarks_deck_generate 1 270000000 build-real-ns/op 500000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkCapnproto2 1 2680000000 build-real-ns/op 7340000000 build-user-ns/op 580000000 build-sys-ns/op
+BenchmarkMinio 1 20850000000 build-real-ns/op 94740000000 build-user-ns/op 8670000000 build-sys-ns/op
+BenchmarkEthereum_core 1 11530000000 build-real-ns/op 21350000000 build-user-ns/op 2180000000 build-sys-ns/op
+BenchmarkKanzi 1 520000000 build-real-ns/op 1630000000 build-user-ns/op 280000000 build-sys-ns/op
+BenchmarkGonum_lapack_native 1 2870000000 build-real-ns/op 6980000000 build-user-ns/op 610000000 build-sys-ns/op
+BenchmarkBindata 1 840000000 build-real-ns/op 1240000000 build-user-ns/op 170000000 build-sys-ns/op
+BenchmarkCespare_mph 1 220000000 build-real-ns/op 360000000 build-user-ns/op 90000000 build-sys-ns/op
+BenchmarkGonum_community 1 3060000000 build-real-ns/op 8580000000 build-user-ns/op 840000000 build-sys-ns/op
+BenchmarkBenhoyt_goawk 1 570000000 build-real-ns/op 1160000000 build-user-ns/op 240000000 build-sys-ns/op
+BenchmarkKlauspost 1 220000000 build-real-ns/op 370000000 build-user-ns/op 110000000 build-sys-ns/op
+BenchmarkCapnproto2 1 2680000000 build-real-ns/op 7430000000 build-user-ns/op 530000000 build-sys-ns/op
+BenchmarkHugo_helpers 1 10040000000 build-real-ns/op 35960000000 build-user-ns/op 3520000000 build-sys-ns/op
+BenchmarkNelsam_gxui_interval 1 300000000 build-real-ns/op 530000000 build-user-ns/op 140000000 build-sys-ns/op
+BenchmarkUber_zap 1 2510000000 build-real-ns/op 4680000000 build-user-ns/op 800000000 build-sys-ns/op
+BenchmarkMinio 1 20450000000 build-real-ns/op 95220000000 build-user-ns/op 8420000000 build-sys-ns/op
+BenchmarkSpexs2 1 850000000 build-real-ns/op 1320000000 build-user-ns/op 300000000 build-sys-ns/op
+BenchmarkEthereum_bitutil 1 1690000000 build-real-ns/op 830000000 build-user-ns/op 340000000 build-sys-ns/op
+BenchmarkEthereum_trieg 1 9720000000 build-real-ns/op 14090000000 build-user-ns/op 1310000000 build-sys-ns/op
+BenchmarkGonum_path 1 3080000000 build-real-ns/op 8530000000 build-user-ns/op 890000000 build-sys-ns/op
+BenchmarkGonum_mat 1 3300000000 build-real-ns/op 9590000000 build-user-ns/op 750000000 build-sys-ns/op
+BenchmarkEriclagergren_decimal 1 1270000000 build-real-ns/op 2009999999 build-user-ns/op 380000000 build-sys-ns/op
+BenchmarkEthereum_trie 1 9710000000 build-real-ns/op 14070000000 build-user-ns/op 1540000000 build-sys-ns/op
+BenchmarkK8s_schedulercache 1 14480000000 build-real-ns/op 68020000000 build-user-ns/op 5970000000 build-sys-ns/op
+BenchmarkDustin_humanize 1 310000000 build-real-ns/op 640000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkCommonmark_markdown 1 6640000000 build-real-ns/op 8100000000 build-user-ns/op 530000000 build-sys-ns/op
+BenchmarkDustin_broadcast 1 230000000 build-real-ns/op 390000000 build-user-ns/op 110000000 build-sys-ns/op
+BenchmarkGtank_blake2s 1 270000000 build-real-ns/op 470000000 build-user-ns/op 110000000 build-sys-ns/op
+BenchmarkAjstarks_deck_generate 1 270000000 build-real-ns/op 470000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkAws_jsonutil 1 2110000000 build-real-ns/op 3730000000 build-user-ns/op 560000000 build-sys-ns/op
+BenchmarkSemver 1 320000000 build-real-ns/op 680000000 build-user-ns/op 80000000 build-sys-ns/op
+BenchmarkEthereum_ethash 1 10220000000 build-real-ns/op 14490000000 build-user-ns/op 1720000000 build-sys-ns/op
+BenchmarkRcrowley_metrics 1 510000000 build-real-ns/op 1090000000 build-user-ns/op 190000000 build-sys-ns/op
+BenchmarkEthereum_storage 1 14050000000 build-real-ns/op 28870000000 build-user-ns/op 2880000000 build-sys-ns/op
+BenchmarkGonum_traverse 1 2810000000 build-real-ns/op 7530000000 build-user-ns/op 870000000 build-sys-ns/op
+BenchmarkGonum_topo 1 3070000000 build-real-ns/op 8790000000 build-user-ns/op 940000000 build-sys-ns/op
+BenchmarkCespare_xxhash 1 250000000 build-real-ns/op 410000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkGonum_blas_native 1 2160000000 build-real-ns/op 4470000000 build-user-ns/op 560000000 build-sys-ns/op
+BenchmarkK8s_api 1 13770000000 build-real-ns/op 67190000000 build-user-ns/op 5760000000 build-sys-ns/op
+BenchmarkEthereum_corevm 1 10170000000 build-real-ns/op 16160000000 build-user-ns/op 1720000000 build-sys-ns/op
+BenchmarkEthereum_corevm 1 10200000000 build-real-ns/op 16480000000 build-user-ns/op 1680000000 build-sys-ns/op
+BenchmarkRcrowley_metrics 1 490000000 build-real-ns/op 1060000000 build-user-ns/op 180000000 build-sys-ns/op
+BenchmarkSpexs2 1 1040000000 build-real-ns/op 1170000000 build-user-ns/op 420000000 build-sys-ns/op
+BenchmarkDustin_humanize 1 300000000 build-real-ns/op 620000000 build-user-ns/op 90000000 build-sys-ns/op
+BenchmarkCespare_xxhash 1 240000000 build-real-ns/op 420000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkEthereum_trie 1 9590000000 build-real-ns/op 13940000000 build-user-ns/op 1370000000 build-sys-ns/op
+BenchmarkAjstarks_deck_generate 1 270000000 build-real-ns/op 470000000 build-user-ns/op 150000000 build-sys-ns/op
+BenchmarkKanzi 1 530000000 build-real-ns/op 1690000000 build-user-ns/op 240000000 build-sys-ns/op
+BenchmarkCommonmark_markdown 1 6600000000 build-real-ns/op 8000000000 build-user-ns/op 590000000 build-sys-ns/op
+BenchmarkUber_zap 1 2690000000 build-real-ns/op 4800000000 build-user-ns/op 820000000 build-sys-ns/op
+BenchmarkEthereum_ethash 1 10230000000 build-real-ns/op 14280000000 build-user-ns/op 1590000000 build-sys-ns/op
+BenchmarkCapnproto2 1 2660000000 build-real-ns/op 7230000000 build-user-ns/op 570000000 build-sys-ns/op
+BenchmarkEthereum_core 1 11390000000 build-real-ns/op 21180000000 build-user-ns/op 2170000000 build-sys-ns/op
+BenchmarkSemver 1 320000000 build-real-ns/op 610000000 build-user-ns/op 160000000 build-sys-ns/op
+BenchmarkGonum_blas_native 1 2120000000 build-real-ns/op 4470000000 build-user-ns/op 500000000 build-sys-ns/op
+BenchmarkGonum_lapack_native 1 2850000000 build-real-ns/op 6950000000 build-user-ns/op 620000000 build-sys-ns/op
+BenchmarkDustin_broadcast 1 220000000 build-real-ns/op 420000000 build-user-ns/op 70000000 build-sys-ns/op
+BenchmarkMinio 1 20620000000 build-real-ns/op 95010000000 build-user-ns/op 8760000000 build-sys-ns/op
+BenchmarkGtank_blake2s 1 270000000 build-real-ns/op 470000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkGonum_path 1 2970000000 build-real-ns/op 8540000000 build-user-ns/op 870000000 build-sys-ns/op
+BenchmarkAws_jsonutil 1 2029999999 build-real-ns/op 3600000000 build-user-ns/op 610000000 build-sys-ns/op
+BenchmarkEthereum_bitutil 1 1260000000 build-real-ns/op 840000000 build-user-ns/op 270000000 build-sys-ns/op
+BenchmarkBindata 1 840000000 build-real-ns/op 1250000000 build-user-ns/op 200000000 build-sys-ns/op
+BenchmarkGonum_traverse 1 2600000000 build-real-ns/op 7640000000 build-user-ns/op 860000000 build-sys-ns/op
+BenchmarkCespare_mph 1 230000000 build-real-ns/op 380000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkBenhoyt_goawk 1 570000000 build-real-ns/op 1210000000 build-user-ns/op 230000000 build-sys-ns/op
+BenchmarkHugo_helpers 1 10060000000 build-real-ns/op 36190000000 build-user-ns/op 3440000000 build-sys-ns/op
+BenchmarkK8s_api 1 13720000000 build-real-ns/op 67410000000 build-user-ns/op 5590000000 build-sys-ns/op
+BenchmarkEriclagergren_decimal 1 1240000000 build-real-ns/op 2040000000 build-user-ns/op 370000000 build-sys-ns/op
+BenchmarkGonum_topo 1 3050000000 build-real-ns/op 8670000000 build-user-ns/op 1010000000 build-sys-ns/op
+BenchmarkKlauspost 1 220000000 build-real-ns/op 350000000 build-user-ns/op 110000000 build-sys-ns/op
+BenchmarkK8s_schedulercache 1 14200000000 build-real-ns/op 68270000000 build-user-ns/op 5550000000 build-sys-ns/op
+BenchmarkNelsam_gxui_interval 1 300000000 build-real-ns/op 550000000 build-user-ns/op 110000000 build-sys-ns/op
+BenchmarkGonum_mat 1 3320000000 build-real-ns/op 9910000000 build-user-ns/op 760000000 build-sys-ns/op
+BenchmarkEthereum_trieg 1 9720000000 build-real-ns/op 14010000000 build-user-ns/op 1410000000 build-sys-ns/op
+BenchmarkEthereum_storage 1 14100000000 build-real-ns/op 28480000000 build-user-ns/op 3280000000 build-sys-ns/op
+BenchmarkGonum_community 1 3050000000 build-real-ns/op 8530000000 build-user-ns/op 880000000 build-sys-ns/op
+BenchmarkEriclagergren_decimal 1 1170000000 build-real-ns/op 1980000000 build-user-ns/op 400000000 build-sys-ns/op
+BenchmarkEthereum_ethash 1 10210000000 build-real-ns/op 14680000000 build-user-ns/op 1560000000 build-sys-ns/op
+BenchmarkGonum_lapack_native 1 2850000000 build-real-ns/op 6900000000 build-user-ns/op 540000000 build-sys-ns/op
+BenchmarkEthereum_trie 1 9830000000 build-real-ns/op 14170000000 build-user-ns/op 1370000000 build-sys-ns/op
+BenchmarkGonum_topo 1 3000000000 build-real-ns/op 8620000000 build-user-ns/op 880000000 build-sys-ns/op
+BenchmarkCapnproto2 1 2640000000 build-real-ns/op 7160000000 build-user-ns/op 550000000 build-sys-ns/op
+BenchmarkHugo_helpers 1 9850000000 build-real-ns/op 36020000000 build-user-ns/op 3320000000 build-sys-ns/op
+BenchmarkEthereum_storage 1 14280000000 build-real-ns/op 28260000000 build-user-ns/op 3170000000 build-sys-ns/op
+BenchmarkMinio 1 20900000000 build-real-ns/op 95030000000 build-user-ns/op 8890000000 build-sys-ns/op
+BenchmarkGonum_community 1 3100000000 build-real-ns/op 8560000000 build-user-ns/op 950000000 build-sys-ns/op
+BenchmarkAws_jsonutil 1 2060000000 build-real-ns/op 3640000000 build-user-ns/op 610000000 build-sys-ns/op
+BenchmarkRcrowley_metrics 1 500000000 build-real-ns/op 1050000000 build-user-ns/op 150000000 build-sys-ns/op
+BenchmarkCommonmark_markdown 1 6610000000 build-real-ns/op 7970000000 build-user-ns/op 570000000 build-sys-ns/op
+BenchmarkSpexs2 1 770000000 build-real-ns/op 1320000000 build-user-ns/op 250000000 build-sys-ns/op
+BenchmarkKlauspost 1 220000000 build-real-ns/op 350000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkEthereum_core 1 11790000000 build-real-ns/op 21480000000 build-user-ns/op 2180000000 build-sys-ns/op
+BenchmarkGonum_path 1 3100000000 build-real-ns/op 8660000000 build-user-ns/op 920000000 build-sys-ns/op
+BenchmarkBenhoyt_goawk 1 560000000 build-real-ns/op 1190000000 build-user-ns/op 180000000 build-sys-ns/op
+BenchmarkDustin_broadcast 1 220000000 build-real-ns/op 380000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkK8s_api 1 13980000000 build-real-ns/op 67680000000 build-user-ns/op 5790000000 build-sys-ns/op
+BenchmarkK8s_schedulercache 1 14290000000 build-real-ns/op 68380000000 build-user-ns/op 5610000000 build-sys-ns/op
+BenchmarkEthereum_bitutil 1 1690000000 build-real-ns/op 900000000 build-user-ns/op 270000000 build-sys-ns/op
+BenchmarkNelsam_gxui_interval 1 300000000 build-real-ns/op 580000000 build-user-ns/op 90000000 build-sys-ns/op
+BenchmarkGonum_mat 1 3320000000 build-real-ns/op 9760000000 build-user-ns/op 820000000 build-sys-ns/op
+BenchmarkUber_zap 1 2540000000 build-real-ns/op 4650000000 build-user-ns/op 790000000 build-sys-ns/op
+BenchmarkEthereum_trieg 1 9760000000 build-real-ns/op 14120000000 build-user-ns/op 1310000000 build-sys-ns/op
+BenchmarkCespare_mph 1 230000000 build-real-ns/op 380000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkGonum_traverse 1 2830000000 build-real-ns/op 7650000000 build-user-ns/op 820000000 build-sys-ns/op
+BenchmarkEthereum_corevm 1 9850000000 build-real-ns/op 16260000000 build-user-ns/op 1640000000 build-sys-ns/op
+BenchmarkSemver 1 310000000 build-real-ns/op 630000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkDustin_humanize 1 310000000 build-real-ns/op 640000000 build-user-ns/op 90000000 build-sys-ns/op
+BenchmarkGtank_blake2s 1 270000000 build-real-ns/op 480000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkCespare_xxhash 1 240000000 build-real-ns/op 430000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkGonum_blas_native 1 2110000000 build-real-ns/op 4490000000 build-user-ns/op 470000000 build-sys-ns/op
+BenchmarkBindata 1 830000000 build-real-ns/op 1190000000 build-user-ns/op 200000000 build-sys-ns/op
+BenchmarkKanzi 1 530000000 build-real-ns/op 1740000000 build-user-ns/op 180000000 build-sys-ns/op
+BenchmarkAjstarks_deck_generate 1 270000000 build-real-ns/op 460000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkRcrowley_metrics 1 510000000 build-real-ns/op 1080000000 build-user-ns/op 170000000 build-sys-ns/op
+BenchmarkDustin_broadcast 1 220000000 build-real-ns/op 370000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkCespare_mph 1 230000000 build-real-ns/op 350000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkUber_zap 1 2650000000 build-real-ns/op 4690000000 build-user-ns/op 790000000 build-sys-ns/op
+BenchmarkSpexs2 1 930000000 build-real-ns/op 1240000000 build-user-ns/op 350000000 build-sys-ns/op
+BenchmarkEthereum_storage 1 13920000000 build-real-ns/op 28290000000 build-user-ns/op 3350000000 build-sys-ns/op
+BenchmarkEthereum_bitutil 1 1600000000 build-real-ns/op 860000000 build-user-ns/op 270000000 build-sys-ns/op
+BenchmarkBenhoyt_goawk 1 570000000 build-real-ns/op 1200000000 build-user-ns/op 190000000 build-sys-ns/op
+BenchmarkBindata 1 830000000 build-real-ns/op 1240000000 build-user-ns/op 190000000 build-sys-ns/op
+BenchmarkEthereum_ethash 1 10290000000 build-real-ns/op 14540000000 build-user-ns/op 1650000000 build-sys-ns/op
+BenchmarkAjstarks_deck_generate 1 280000000 build-real-ns/op 470000000 build-user-ns/op 160000000 build-sys-ns/op
+BenchmarkEthereum_corevm 1 10290000000 build-real-ns/op 16390000000 build-user-ns/op 1790000000 build-sys-ns/op
+BenchmarkMinio 1 20970000000 build-real-ns/op 94760000000 build-user-ns/op 8620000000 build-sys-ns/op
+BenchmarkEthereum_core 1 11480000000 build-real-ns/op 21500000000 build-user-ns/op 2230000000 build-sys-ns/op
+BenchmarkKanzi 1 540000000 build-real-ns/op 1640000000 build-user-ns/op 290000000 build-sys-ns/op
+BenchmarkGonum_community 1 3060000000 build-real-ns/op 8640000000 build-user-ns/op 780000000 build-sys-ns/op
+BenchmarkK8s_api 1 13870000000 build-real-ns/op 67700000000 build-user-ns/op 5820000000 build-sys-ns/op
+BenchmarkCommonmark_markdown 1 6590000000 build-real-ns/op 7910000000 build-user-ns/op 510000000 build-sys-ns/op
+BenchmarkGonum_topo 1 3010000000 build-real-ns/op 8620000000 build-user-ns/op 970000000 build-sys-ns/op
+BenchmarkSemver 1 320000000 build-real-ns/op 630000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkGonum_mat 1 3230000000 build-real-ns/op 9510000000 build-user-ns/op 730000000 build-sys-ns/op
+BenchmarkGonum_lapack_native 1 2810000000 build-real-ns/op 6750000000 build-user-ns/op 540000000 build-sys-ns/op
+BenchmarkKlauspost 1 220000000 build-real-ns/op 390000000 build-user-ns/op 80000000 build-sys-ns/op
+BenchmarkHugo_helpers 1 10030000000 build-real-ns/op 35900000000 build-user-ns/op 3310000000 build-sys-ns/op
+BenchmarkEriclagergren_decimal 1 1270000000 build-real-ns/op 2040000000 build-user-ns/op 300000000 build-sys-ns/op
+BenchmarkGonum_path 1 3000000000 build-real-ns/op 8510000000 build-user-ns/op 880000000 build-sys-ns/op
+BenchmarkEthereum_trieg 1 9660000000 build-real-ns/op 14000000000 build-user-ns/op 1410000000 build-sys-ns/op
+BenchmarkGonum_traverse 1 2760000000 build-real-ns/op 7550000000 build-user-ns/op 830000000 build-sys-ns/op
+BenchmarkK8s_schedulercache 1 14460000000 build-real-ns/op 68010000000 build-user-ns/op 5740000000 build-sys-ns/op
+BenchmarkGtank_blake2s 1 270000000 build-real-ns/op 470000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkEthereum_trie 1 9740000000 build-real-ns/op 14080000000 build-user-ns/op 1260000000 build-sys-ns/op
+BenchmarkDustin_humanize 1 310000000 build-real-ns/op 630000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkNelsam_gxui_interval 1 310000000 build-real-ns/op 570000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkGonum_blas_native 1 2130000000 build-real-ns/op 4530000000 build-user-ns/op 460000000 build-sys-ns/op
+BenchmarkAws_jsonutil 1 1900000000 build-real-ns/op 3730000000 build-user-ns/op 520000000 build-sys-ns/op
+BenchmarkCapnproto2 1 2640000000 build-real-ns/op 7260000000 build-user-ns/op 550000000 build-sys-ns/op
+BenchmarkCespare_xxhash 1 250000000 build-real-ns/op 420000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkHugo_helpers 1 9860000000 build-real-ns/op 35750000000 build-user-ns/op 3460000000 build-sys-ns/op
+BenchmarkEthereum_trieg 1 9700000000 build-real-ns/op 14080000000 build-user-ns/op 1410000000 build-sys-ns/op
+BenchmarkCespare_mph 1 230000000 build-real-ns/op 410000000 build-user-ns/op 80000000 build-sys-ns/op
+BenchmarkGtank_blake2s 1 270000000 build-real-ns/op 520000000 build-user-ns/op 90000000 build-sys-ns/op
+BenchmarkK8s_schedulercache 1 14440000000 build-real-ns/op 68420000000 build-user-ns/op 5750000000 build-sys-ns/op
+BenchmarkEthereum_storage 1 14200000000 build-real-ns/op 28600000000 build-user-ns/op 3060000000 build-sys-ns/op
+BenchmarkEthereum_core 1 11440000000 build-real-ns/op 21600000000 build-user-ns/op 2040000000 build-sys-ns/op
+BenchmarkAws_jsonutil 1 2020000000 build-real-ns/op 3660000000 build-user-ns/op 500000000 build-sys-ns/op
+BenchmarkK8s_api 1 13810000000 build-real-ns/op 67480000000 build-user-ns/op 5780000000 build-sys-ns/op
+BenchmarkSpexs2 1 770000000 build-real-ns/op 1330000000 build-user-ns/op 290000000 build-sys-ns/op
+BenchmarkDustin_broadcast 1 220000000 build-real-ns/op 390000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkGonum_path 1 3010000000 build-real-ns/op 8460000000 build-user-ns/op 970000000 build-sys-ns/op
+BenchmarkCommonmark_markdown 1 6600000000 build-real-ns/op 8020000000 build-user-ns/op 570000000 build-sys-ns/op
+BenchmarkEthereum_bitutil 1 1590000000 build-real-ns/op 780000000 build-user-ns/op 370000000 build-sys-ns/op
+BenchmarkRcrowley_metrics 1 520000000 build-real-ns/op 1120000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkSemver 1 320000000 build-real-ns/op 630000000 build-user-ns/op 140000000 build-sys-ns/op
+BenchmarkEthereum_corevm 1 10070000000 build-real-ns/op 16320000000 build-user-ns/op 1620000000 build-sys-ns/op
+BenchmarkCapnproto2 1 2610000000 build-real-ns/op 6960000000 build-user-ns/op 570000000 build-sys-ns/op
+BenchmarkBindata 1 820000000 build-real-ns/op 1160000000 build-user-ns/op 250000000 build-sys-ns/op
+BenchmarkCespare_xxhash 1 240000000 build-real-ns/op 410000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkNelsam_gxui_interval 1 310000000 build-real-ns/op 540000000 build-user-ns/op 140000000 build-sys-ns/op
+BenchmarkKlauspost 1 220000000 build-real-ns/op 330000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkGonum_blas_native 1 2100000000 build-real-ns/op 4510000000 build-user-ns/op 470000000 build-sys-ns/op
+BenchmarkGonum_community 1 3060000000 build-real-ns/op 8630000000 build-user-ns/op 920000000 build-sys-ns/op
+BenchmarkGonum_mat 1 3250000000 build-real-ns/op 9840000000 build-user-ns/op 840000000 build-sys-ns/op
+BenchmarkGonum_lapack_native 1 2820000000 build-real-ns/op 6920000000 build-user-ns/op 690000000 build-sys-ns/op
+BenchmarkGonum_topo 1 3040000000 build-real-ns/op 8450000000 build-user-ns/op 1070000000 build-sys-ns/op
+BenchmarkEthereum_trie 1 9410000000 build-real-ns/op 14040000000 build-user-ns/op 1300000000 build-sys-ns/op
+BenchmarkAjstarks_deck_generate 1 280000000 build-real-ns/op 500000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkBenhoyt_goawk 1 570000000 build-real-ns/op 1160000000 build-user-ns/op 230000000 build-sys-ns/op
+BenchmarkGonum_traverse 1 2790000000 build-real-ns/op 7530000000 build-user-ns/op 820000000 build-sys-ns/op
+BenchmarkDustin_humanize 1 320000000 build-real-ns/op 610000000 build-user-ns/op 150000000 build-sys-ns/op
+BenchmarkEthereum_ethash 1 10180000000 build-real-ns/op 14360000000 build-user-ns/op 1700000000 build-sys-ns/op
+BenchmarkMinio 1 20500000000 build-real-ns/op 95240000000 build-user-ns/op 8920000000 build-sys-ns/op
+BenchmarkKanzi 1 510000000 build-real-ns/op 1590000000 build-user-ns/op 270000000 build-sys-ns/op
+BenchmarkEriclagergren_decimal 1 1320000000 build-real-ns/op 1990000000 build-user-ns/op 390000000 build-sys-ns/op
+BenchmarkUber_zap 1 2640000000 build-real-ns/op 4790000000 build-user-ns/op 800000000 build-sys-ns/op
+BenchmarkAws_jsonutil 1 2029999999 build-real-ns/op 3640000000 build-user-ns/op 490000000 build-sys-ns/op
+BenchmarkUber_zap 1 2500000000 build-real-ns/op 4810000000 build-user-ns/op 670000000 build-sys-ns/op
+BenchmarkCommonmark_markdown 1 6640000000 build-real-ns/op 7940000000 build-user-ns/op 630000000 build-sys-ns/op
+BenchmarkGonum_lapack_native 1 2910000000 build-real-ns/op 6990000000 build-user-ns/op 560000000 build-sys-ns/op
+BenchmarkDustin_broadcast 1 230000000 build-real-ns/op 380000000 build-user-ns/op 110000000 build-sys-ns/op
+BenchmarkCapnproto2 1 2620000000 build-real-ns/op 7120000000 build-user-ns/op 600000000 build-sys-ns/op
+BenchmarkGonum_path 1 2980000000 build-real-ns/op 8400000000 build-user-ns/op 790000000 build-sys-ns/op
+BenchmarkGonum_traverse 1 2800000000 build-real-ns/op 7560000000 build-user-ns/op 870000000 build-sys-ns/op
+BenchmarkCespare_xxhash 1 240000000 build-real-ns/op 410000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkEthereum_trie 1 9710000000 build-real-ns/op 13890000000 build-user-ns/op 1410000000 build-sys-ns/op
+BenchmarkEthereum_storage 1 14150000000 build-real-ns/op 28370000000 build-user-ns/op 3220000000 build-sys-ns/op
+BenchmarkCespare_mph 1 230000000 build-real-ns/op 350000000 build-user-ns/op 110000000 build-sys-ns/op
+BenchmarkEthereum_trieg 1 9780000000 build-real-ns/op 14050000000 build-user-ns/op 1440000000 build-sys-ns/op
+BenchmarkGonum_blas_native 1 2090000000 build-real-ns/op 4470000000 build-user-ns/op 530000000 build-sys-ns/op
+BenchmarkEthereum_ethash 1 10220000000 build-real-ns/op 14420000000 build-user-ns/op 1630000000 build-sys-ns/op
+BenchmarkEthereum_corevm 1 10110000000 build-real-ns/op 16360000000 build-user-ns/op 1640000000 build-sys-ns/op
+BenchmarkBenhoyt_goawk 1 560000000 build-real-ns/op 1200000000 build-user-ns/op 200000000 build-sys-ns/op
+BenchmarkRcrowley_metrics 1 520000000 build-real-ns/op 1100000000 build-user-ns/op 180000000 build-sys-ns/op
+BenchmarkAjstarks_deck_generate 1 270000000 build-real-ns/op 470000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkHugo_helpers 1 9920000000 build-real-ns/op 35900000000 build-user-ns/op 3390000000 build-sys-ns/op
+BenchmarkKanzi 1 530000000 build-real-ns/op 1660000000 build-user-ns/op 240000000 build-sys-ns/op
+BenchmarkGonum_topo 1 3060000000 build-real-ns/op 8770000000 build-user-ns/op 970000000 build-sys-ns/op
+BenchmarkEthereum_bitutil 1 1630000000 build-real-ns/op 820000000 build-user-ns/op 320000000 build-sys-ns/op
+BenchmarkK8s_api 1 13650000000 build-real-ns/op 67790000000 build-user-ns/op 5530000000 build-sys-ns/op
+BenchmarkSpexs2 1 980000000 build-real-ns/op 1280000000 build-user-ns/op 360000000 build-sys-ns/op
+BenchmarkGtank_blake2s 1 270000000 build-real-ns/op 490000000 build-user-ns/op 110000000 build-sys-ns/op
+BenchmarkGonum_mat 1 3320000000 build-real-ns/op 9910000000 build-user-ns/op 840000000 build-sys-ns/op
+BenchmarkNelsam_gxui_interval 1 300000000 build-real-ns/op 570000000 build-user-ns/op 90000000 build-sys-ns/op
+BenchmarkEthereum_core 1 11330000000 build-real-ns/op 21150000000 build-user-ns/op 2280000000 build-sys-ns/op
+BenchmarkSemver 1 320000000 build-real-ns/op 600000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkGonum_community 1 3090000000 build-real-ns/op 8650000000 build-user-ns/op 830000000 build-sys-ns/op
+BenchmarkK8s_schedulercache 1 14140000000 build-real-ns/op 68170000000 build-user-ns/op 5680000000 build-sys-ns/op
+BenchmarkKlauspost 1 220000000 build-real-ns/op 380000000 build-user-ns/op 70000000 build-sys-ns/op
+BenchmarkBindata 1 820000000 build-real-ns/op 1230000000 build-user-ns/op 170000000 build-sys-ns/op
+BenchmarkDustin_humanize 1 310000000 build-real-ns/op 600000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkEriclagergren_decimal 1 1200000000 build-real-ns/op 2009999999 build-user-ns/op 350000000 build-sys-ns/op
+BenchmarkMinio 1 21160000000 build-real-ns/op 95040000000 build-user-ns/op 8640000000 build-sys-ns/op
+BenchmarkBindata 1 830000000 build-real-ns/op 1180000000 build-user-ns/op 220000000 build-sys-ns/op
+BenchmarkEthereum_ethash 1 10140000000 build-real-ns/op 14620000000 build-user-ns/op 1490000000 build-sys-ns/op
+BenchmarkK8s_schedulercache 1 14660000000 build-real-ns/op 68230000000 build-user-ns/op 5740000000 build-sys-ns/op
+BenchmarkCespare_xxhash 1 240000000 build-real-ns/op 410000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkGtank_blake2s 1 270000000 build-real-ns/op 520000000 build-user-ns/op 90000000 build-sys-ns/op
+BenchmarkEthereum_storage 1 14200000000 build-real-ns/op 28600000000 build-user-ns/op 3110000000 build-sys-ns/op
+BenchmarkDustin_humanize 1 310000000 build-real-ns/op 600000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkEthereum_trieg 1 9780000000 build-real-ns/op 13870000000 build-user-ns/op 1490000000 build-sys-ns/op
+BenchmarkEthereum_core 1 11500000000 build-real-ns/op 21480000000 build-user-ns/op 2100000000 build-sys-ns/op
+BenchmarkNelsam_gxui_interval 1 310000000 build-real-ns/op 570000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkRcrowley_metrics 1 500000000 build-real-ns/op 1110000000 build-user-ns/op 110000000 build-sys-ns/op
+BenchmarkCespare_mph 1 230000000 build-real-ns/op 360000000 build-user-ns/op 110000000 build-sys-ns/op
+BenchmarkKlauspost 1 220000000 build-real-ns/op 370000000 build-user-ns/op 80000000 build-sys-ns/op
+BenchmarkDustin_broadcast 1 220000000 build-real-ns/op 390000000 build-user-ns/op 80000000 build-sys-ns/op
+BenchmarkGonum_topo 1 3010000000 build-real-ns/op 8720000000 build-user-ns/op 940000000 build-sys-ns/op
+BenchmarkCapnproto2 1 2590000000 build-real-ns/op 7170000000 build-user-ns/op 500000000 build-sys-ns/op
+BenchmarkAws_jsonutil 1 2020000000 build-real-ns/op 3720000000 build-user-ns/op 510000000 build-sys-ns/op
+BenchmarkMinio 1 21530000000 build-real-ns/op 95230000000 build-user-ns/op 8720000000 build-sys-ns/op
+BenchmarkK8s_api 1 13320000000 build-real-ns/op 66970000000 build-user-ns/op 5630000000 build-sys-ns/op
+BenchmarkEthereum_corevm 1 9840000000 build-real-ns/op 16120000000 build-user-ns/op 1670000000 build-sys-ns/op
+BenchmarkHugo_helpers 1 10010000000 build-real-ns/op 36100000000 build-user-ns/op 3410000000 build-sys-ns/op
+BenchmarkGonum_mat 1 3350000000 build-real-ns/op 10000000000 build-user-ns/op 730000000 build-sys-ns/op
+BenchmarkUber_zap 1 2590000000 build-real-ns/op 4730000000 build-user-ns/op 790000000 build-sys-ns/op
+BenchmarkCommonmark_markdown 1 6540000000 build-real-ns/op 7970000000 build-user-ns/op 690000000 build-sys-ns/op
+BenchmarkSpexs2 1 910000000 build-real-ns/op 1260000000 build-user-ns/op 310000000 build-sys-ns/op
+BenchmarkGonum_blas_native 1 2140000000 build-real-ns/op 4550000000 build-user-ns/op 470000000 build-sys-ns/op
+BenchmarkBenhoyt_goawk 1 560000000 build-real-ns/op 1190000000 build-user-ns/op 200000000 build-sys-ns/op
+BenchmarkEriclagergren_decimal 1 1260000000 build-real-ns/op 2060000000 build-user-ns/op 350000000 build-sys-ns/op
+BenchmarkEthereum_bitutil 1 1630000000 build-real-ns/op 850000000 build-user-ns/op 300000000 build-sys-ns/op
+BenchmarkEthereum_trie 1 9870000000 build-real-ns/op 13950000000 build-user-ns/op 1370000000 build-sys-ns/op
+BenchmarkGonum_community 1 3070000000 build-real-ns/op 8580000000 build-user-ns/op 910000000 build-sys-ns/op
+BenchmarkSemver 1 320000000 build-real-ns/op 640000000 build-user-ns/op 140000000 build-sys-ns/op
+BenchmarkGonum_lapack_native 1 2920000000 build-real-ns/op 7090000000 build-user-ns/op 650000000 build-sys-ns/op
+BenchmarkKanzi 1 530000000 build-real-ns/op 1700000000 build-user-ns/op 230000000 build-sys-ns/op
+BenchmarkGonum_path 1 2960000000 build-real-ns/op 8189999999 build-user-ns/op 960000000 build-sys-ns/op
+BenchmarkGonum_traverse 1 2840000000 build-real-ns/op 7820000000 build-user-ns/op 740000000 build-sys-ns/op
+BenchmarkAjstarks_deck_generate 1 280000000 build-real-ns/op 480000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkDustin_humanize 1 310000000 build-real-ns/op 600000000 build-user-ns/op 150000000 build-sys-ns/op
+BenchmarkAjstarks_deck_generate 1 270000000 build-real-ns/op 500000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkRcrowley_metrics 1 530000000 build-real-ns/op 1140000000 build-user-ns/op 160000000 build-sys-ns/op
+BenchmarkK8s_schedulercache 1 14190000000 build-real-ns/op 68000000000 build-user-ns/op 5830000000 build-sys-ns/op
+BenchmarkGonum_topo 1 3020000000 build-real-ns/op 8560000000 build-user-ns/op 950000000 build-sys-ns/op
+BenchmarkKlauspost 1 230000000 build-real-ns/op 340000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkSemver 1 320000000 build-real-ns/op 630000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkCommonmark_markdown 1 6600000000 build-real-ns/op 8020000000 build-user-ns/op 560000000 build-sys-ns/op
+BenchmarkUber_zap 1 2560000000 build-real-ns/op 4740000000 build-user-ns/op 770000000 build-sys-ns/op
+BenchmarkCapnproto2 1 2600000000 build-real-ns/op 7060000000 build-user-ns/op 520000000 build-sys-ns/op
+BenchmarkAws_jsonutil 1 2070000000 build-real-ns/op 3690000000 build-user-ns/op 600000000 build-sys-ns/op
+BenchmarkEthereum_ethash 1 10200000000 build-real-ns/op 14650000000 build-user-ns/op 1620000000 build-sys-ns/op
+BenchmarkCespare_xxhash 1 240000000 build-real-ns/op 380000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkEthereum_core 1 11450000000 build-real-ns/op 21440000000 build-user-ns/op 2310000000 build-sys-ns/op
+BenchmarkCespare_mph 1 230000000 build-real-ns/op 380000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkGonum_community 1 3090000000 build-real-ns/op 8580000000 build-user-ns/op 950000000 build-sys-ns/op
+BenchmarkEthereum_trieg 1 9650000000 build-real-ns/op 13810000000 build-user-ns/op 1440000000 build-sys-ns/op
+BenchmarkGonum_path 1 3080000000 build-real-ns/op 8520000000 build-user-ns/op 970000000 build-sys-ns/op
+BenchmarkEthereum_storage 1 14300000000 build-real-ns/op 28570000000 build-user-ns/op 3170000000 build-sys-ns/op
+BenchmarkSpexs2 1 960000000 build-real-ns/op 1250000000 build-user-ns/op 400000000 build-sys-ns/op
+BenchmarkGonum_mat 1 3380000000 build-real-ns/op 9910000000 build-user-ns/op 830000000 build-sys-ns/op
+BenchmarkGonum_lapack_native 1 2890000000 build-real-ns/op 7100000000 build-user-ns/op 620000000 build-sys-ns/op
+BenchmarkK8s_api 1 14090000000 build-real-ns/op 66960000000 build-user-ns/op 5910000000 build-sys-ns/op
+BenchmarkBenhoyt_goawk 1 570000000 build-real-ns/op 1170000000 build-user-ns/op 220000000 build-sys-ns/op
+BenchmarkGtank_blake2s 1 260000000 build-real-ns/op 470000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkHugo_helpers 1 9680000000 build-real-ns/op 35580000000 build-user-ns/op 3560000000 build-sys-ns/op
+BenchmarkKanzi 1 550000000 build-real-ns/op 1780000000 build-user-ns/op 200000000 build-sys-ns/op
+BenchmarkMinio 1 20370000000 build-real-ns/op 95150000000 build-user-ns/op 8700000000 build-sys-ns/op
+BenchmarkEthereum_corevm 1 10130000000 build-real-ns/op 16620000000 build-user-ns/op 1490000000 build-sys-ns/op
+BenchmarkEthereum_bitutil 1 1670000000 build-real-ns/op 880000000 build-user-ns/op 270000000 build-sys-ns/op
+BenchmarkGonum_blas_native 1 2140000000 build-real-ns/op 4540000000 build-user-ns/op 550000000 build-sys-ns/op
+BenchmarkEriclagergren_decimal 1 1260000000 build-real-ns/op 2140000000 build-user-ns/op 270000000 build-sys-ns/op
+BenchmarkGonum_traverse 1 2860000000 build-real-ns/op 7640000000 build-user-ns/op 900000000 build-sys-ns/op
+BenchmarkEthereum_trie 1 9720000000 build-real-ns/op 14120000000 build-user-ns/op 1370000000 build-sys-ns/op
+BenchmarkNelsam_gxui_interval 1 310000000 build-real-ns/op 550000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkDustin_broadcast 1 220000000 build-real-ns/op 360000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkBindata 1 820000000 build-real-ns/op 1200000000 build-user-ns/op 180000000 build-sys-ns/op
+BenchmarkUber_zap 1 2440000000 build-real-ns/op 4700000000 build-user-ns/op 770000000 build-sys-ns/op
+BenchmarkKanzi 1 520000000 build-real-ns/op 1700000000 build-user-ns/op 210000000 build-sys-ns/op
+BenchmarkSemver 1 310000000 build-real-ns/op 640000000 build-user-ns/op 110000000 build-sys-ns/op
+BenchmarkEthereum_core 1 11540000000 build-real-ns/op 21120000000 build-user-ns/op 2230000000 build-sys-ns/op
+BenchmarkEthereum_ethash 1 10310000000 build-real-ns/op 14450000000 build-user-ns/op 1570000000 build-sys-ns/op
+BenchmarkK8s_api 1 13670000000 build-real-ns/op 66900000000 build-user-ns/op 5640000000 build-sys-ns/op
+BenchmarkCapnproto2 1 2640000000 build-real-ns/op 7200000000 build-user-ns/op 600000000 build-sys-ns/op
+BenchmarkDustin_broadcast 1 230000000 build-real-ns/op 380000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkKlauspost 1 220000000 build-real-ns/op 360000000 build-user-ns/op 90000000 build-sys-ns/op
+BenchmarkMinio 1 21370000000 build-real-ns/op 95100000000 build-user-ns/op 8650000000 build-sys-ns/op
+BenchmarkRcrowley_metrics 1 470000000 build-real-ns/op 1000000000 build-user-ns/op 190000000 build-sys-ns/op
+BenchmarkCespare_mph 1 230000000 build-real-ns/op 360000000 build-user-ns/op 90000000 build-sys-ns/op
+BenchmarkGonum_community 1 3090000000 build-real-ns/op 8530000000 build-user-ns/op 930000000 build-sys-ns/op
+BenchmarkEthereum_bitutil 1 1580000000 build-real-ns/op 880000000 build-user-ns/op 240000000 build-sys-ns/op
+BenchmarkGonum_blas_native 1 2160000000 build-real-ns/op 4630000000 build-user-ns/op 480000000 build-sys-ns/op
+BenchmarkAws_jsonutil 1 2090000000 build-real-ns/op 3610000000 build-user-ns/op 510000000 build-sys-ns/op
+BenchmarkGonum_mat 1 3320000000 build-real-ns/op 9970000000 build-user-ns/op 800000000 build-sys-ns/op
+BenchmarkBenhoyt_goawk 1 580000000 build-real-ns/op 1230000000 build-user-ns/op 190000000 build-sys-ns/op
+BenchmarkGonum_path 1 3040000000 build-real-ns/op 8420000000 build-user-ns/op 950000000 build-sys-ns/op
+BenchmarkNelsam_gxui_interval 1 310000000 build-real-ns/op 580000000 build-user-ns/op 110000000 build-sys-ns/op
+BenchmarkEthereum_storage 1 14090000000 build-real-ns/op 28620000000 build-user-ns/op 2990000000 build-sys-ns/op
+BenchmarkEthereum_trieg 1 9790000000 build-real-ns/op 14140000000 build-user-ns/op 1260000000 build-sys-ns/op
+BenchmarkEthereum_trie 1 9640000000 build-real-ns/op 13980000000 build-user-ns/op 1410000000 build-sys-ns/op
+BenchmarkSpexs2 1 1000000000 build-real-ns/op 1280000000 build-user-ns/op 330000000 build-sys-ns/op
+BenchmarkHugo_helpers 1 9910000000 build-real-ns/op 35390000000 build-user-ns/op 3760000000 build-sys-ns/op
+BenchmarkGonum_traverse 1 2760000000 build-real-ns/op 7610000000 build-user-ns/op 800000000 build-sys-ns/op
+BenchmarkEriclagergren_decimal 1 1270000000 build-real-ns/op 1930000000 build-user-ns/op 470000000 build-sys-ns/op
+BenchmarkCommonmark_markdown 1 6310000000 build-real-ns/op 7900000000 build-user-ns/op 560000000 build-sys-ns/op
+BenchmarkBindata 1 830000000 build-real-ns/op 1200000000 build-user-ns/op 220000000 build-sys-ns/op
+BenchmarkK8s_schedulercache 1 14410000000 build-real-ns/op 68220000000 build-user-ns/op 5960000000 build-sys-ns/op
+BenchmarkDustin_humanize 1 310000000 build-real-ns/op 660000000 build-user-ns/op 90000000 build-sys-ns/op
+BenchmarkEthereum_corevm 1 10180000000 build-real-ns/op 16149999999 build-user-ns/op 1780000000 build-sys-ns/op
+BenchmarkGtank_blake2s 1 270000000 build-real-ns/op 460000000 build-user-ns/op 140000000 build-sys-ns/op
+BenchmarkAjstarks_deck_generate 1 270000000 build-real-ns/op 500000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkGonum_lapack_native 1 2870000000 build-real-ns/op 6840000000 build-user-ns/op 630000000 build-sys-ns/op
+BenchmarkCespare_xxhash 1 240000000 build-real-ns/op 440000000 build-user-ns/op 90000000 build-sys-ns/op
+BenchmarkGonum_topo 1 3050000000 build-real-ns/op 8670000000 build-user-ns/op 1020000000 build-sys-ns/op
+BenchmarkK8s_api 1 13850000000 build-real-ns/op 67310000000 build-user-ns/op 5720000000 build-sys-ns/op
+BenchmarkBindata 1 820000000 build-real-ns/op 1230000000 build-user-ns/op 160000000 build-sys-ns/op
+BenchmarkK8s_schedulercache 1 14100000000 build-real-ns/op 68420000000 build-user-ns/op 5620000000 build-sys-ns/op
+BenchmarkMinio 1 20820000000 build-real-ns/op 94240000000 build-user-ns/op 8830000000 build-sys-ns/op
+BenchmarkAws_jsonutil 1 2080000000 build-real-ns/op 3600000000 build-user-ns/op 640000000 build-sys-ns/op
+BenchmarkEthereum_trieg 1 9780000000 build-real-ns/op 14170000000 build-user-ns/op 1410000000 build-sys-ns/op
+BenchmarkAjstarks_deck_generate 1 270000000 build-real-ns/op 440000000 build-user-ns/op 140000000 build-sys-ns/op
+BenchmarkGonum_traverse 1 2880000000 build-real-ns/op 7720000000 build-user-ns/op 780000000 build-sys-ns/op
+BenchmarkUber_zap 1 2660000000 build-real-ns/op 4720000000 build-user-ns/op 730000000 build-sys-ns/op
+BenchmarkSpexs2 1 940000000 build-real-ns/op 1280000000 build-user-ns/op 310000000 build-sys-ns/op
+BenchmarkEthereum_trie 1 9760000000 build-real-ns/op 13970000000 build-user-ns/op 1440000000 build-sys-ns/op
+BenchmarkKlauspost 1 220000000 build-real-ns/op 410000000 build-user-ns/op 50000000 build-sys-ns/op
+BenchmarkDustin_humanize 1 310000000 build-real-ns/op 620000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkGonum_blas_native 1 2140000000 build-real-ns/op 4490000000 build-user-ns/op 520000000 build-sys-ns/op
+BenchmarkCommonmark_markdown 1 6690000000 build-real-ns/op 8330000000 build-user-ns/op 470000000 build-sys-ns/op
+BenchmarkEthereum_core 1 11400000000 build-real-ns/op 21430000000 build-user-ns/op 2140000000 build-sys-ns/op
+BenchmarkSemver 1 320000000 build-real-ns/op 610000000 build-user-ns/op 150000000 build-sys-ns/op
+BenchmarkEthereum_ethash 1 9970000000 build-real-ns/op 14700000000 build-user-ns/op 1510000000 build-sys-ns/op
+BenchmarkGonum_path 1 2980000000 build-real-ns/op 8350000000 build-user-ns/op 920000000 build-sys-ns/op
+BenchmarkCespare_mph 1 230000000 build-real-ns/op 390000000 build-user-ns/op 90000000 build-sys-ns/op
+BenchmarkGtank_blake2s 1 270000000 build-real-ns/op 460000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkBenhoyt_goawk 1 560000000 build-real-ns/op 1160000000 build-user-ns/op 210000000 build-sys-ns/op
+BenchmarkEriclagergren_decimal 1 1260000000 build-real-ns/op 2060000000 build-user-ns/op 350000000 build-sys-ns/op
+BenchmarkHugo_helpers 1 9870000000 build-real-ns/op 36000000000 build-user-ns/op 3650000000 build-sys-ns/op
+BenchmarkEthereum_bitutil 1 1670000000 build-real-ns/op 890000000 build-user-ns/op 240000000 build-sys-ns/op
+BenchmarkCespare_xxhash 1 240000000 build-real-ns/op 420000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkGonum_topo 1 2980000000 build-real-ns/op 8590000000 build-user-ns/op 870000000 build-sys-ns/op
+BenchmarkRcrowley_metrics 1 490000000 build-real-ns/op 1070000000 build-user-ns/op 140000000 build-sys-ns/op
+BenchmarkEthereum_corevm 1 10200000000 build-real-ns/op 16340000000 build-user-ns/op 1640000000 build-sys-ns/op
+BenchmarkKanzi 1 530000000 build-real-ns/op 1650000000 build-user-ns/op 240000000 build-sys-ns/op
+BenchmarkGonum_community 1 3120000000 build-real-ns/op 8630000000 build-user-ns/op 900000000 build-sys-ns/op
+BenchmarkNelsam_gxui_interval 1 310000000 build-real-ns/op 550000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkCapnproto2 1 2640000000 build-real-ns/op 7310000000 build-user-ns/op 510000000 build-sys-ns/op
+BenchmarkGonum_lapack_native 1 2870000000 build-real-ns/op 7030000000 build-user-ns/op 660000000 build-sys-ns/op
+BenchmarkDustin_broadcast 1 220000000 build-real-ns/op 410000000 build-user-ns/op 70000000 build-sys-ns/op
+BenchmarkEthereum_storage 1 14200000000 build-real-ns/op 28680000000 build-user-ns/op 3100000000 build-sys-ns/op
+BenchmarkGonum_mat 1 3350000000 build-real-ns/op 9880000000 build-user-ns/op 810000000 build-sys-ns/op
+BenchmarkUber_zap 1 2680000000 build-real-ns/op 4710000000 build-user-ns/op 690000000 build-sys-ns/op
+BenchmarkGonum_mat 1 3290000000 build-real-ns/op 9710000000 build-user-ns/op 760000000 build-sys-ns/op
+BenchmarkGonum_path 1 3000000000 build-real-ns/op 8490000000 build-user-ns/op 840000000 build-sys-ns/op
+BenchmarkCespare_xxhash 1 240000000 build-real-ns/op 430000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkGtank_blake2s 1 270000000 build-real-ns/op 510000000 build-user-ns/op 90000000 build-sys-ns/op
+BenchmarkMinio 1 20840000000 build-real-ns/op 94710000000 build-user-ns/op 8710000000 build-sys-ns/op
+BenchmarkGonum_lapack_native 1 2890000000 build-real-ns/op 7090000000 build-user-ns/op 610000000 build-sys-ns/op
+BenchmarkCapnproto2 1 2630000000 build-real-ns/op 7410000000 build-user-ns/op 420000000 build-sys-ns/op
+BenchmarkEthereum_trieg 1 9750000000 build-real-ns/op 13940000000 build-user-ns/op 1550000000 build-sys-ns/op
+BenchmarkDustin_broadcast 1 220000000 build-real-ns/op 350000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkNelsam_gxui_interval 1 300000000 build-real-ns/op 510000000 build-user-ns/op 150000000 build-sys-ns/op
+BenchmarkEthereum_core 1 11480000000 build-real-ns/op 21330000000 build-user-ns/op 2080000000 build-sys-ns/op
+BenchmarkGonum_traverse 1 2870000000 build-real-ns/op 7720000000 build-user-ns/op 840000000 build-sys-ns/op
+BenchmarkEthereum_storage 1 13940000000 build-real-ns/op 28360000000 build-user-ns/op 2920000000 build-sys-ns/op
+BenchmarkK8s_api 1 13690000000 build-real-ns/op 67650000000 build-user-ns/op 5770000000 build-sys-ns/op
+BenchmarkSemver 1 320000000 build-real-ns/op 610000000 build-user-ns/op 140000000 build-sys-ns/op
+BenchmarkK8s_schedulercache 1 14160000000 build-real-ns/op 67910000000 build-user-ns/op 5680000000 build-sys-ns/op
+BenchmarkAws_jsonutil 1 2110000000 build-real-ns/op 3790000000 build-user-ns/op 470000000 build-sys-ns/op
+BenchmarkSpexs2 1 970000000 build-real-ns/op 1300000000 build-user-ns/op 320000000 build-sys-ns/op
+BenchmarkKanzi 1 530000000 build-real-ns/op 1650000000 build-user-ns/op 300000000 build-sys-ns/op
+BenchmarkGonum_blas_native 1 2160000000 build-real-ns/op 4540000000 build-user-ns/op 540000000 build-sys-ns/op
+BenchmarkHugo_helpers 1 9920000000 build-real-ns/op 35780000000 build-user-ns/op 3400000000 build-sys-ns/op
+BenchmarkGonum_topo 1 3020000000 build-real-ns/op 8630000000 build-user-ns/op 960000000 build-sys-ns/op
+BenchmarkRcrowley_metrics 1 500000000 build-real-ns/op 1170000000 build-user-ns/op 140000000 build-sys-ns/op
+BenchmarkDustin_humanize 1 310000000 build-real-ns/op 640000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkEthereum_ethash 1 10310000000 build-real-ns/op 14510000000 build-user-ns/op 1650000000 build-sys-ns/op
+BenchmarkEriclagergren_decimal 1 1180000000 build-real-ns/op 2000000000 build-user-ns/op 390000000 build-sys-ns/op
+BenchmarkBenhoyt_goawk 1 560000000 build-real-ns/op 1250000000 build-user-ns/op 140000000 build-sys-ns/op
+BenchmarkEthereum_bitutil 1 1560000000 build-real-ns/op 940000000 build-user-ns/op 220000000 build-sys-ns/op
+BenchmarkKlauspost 1 220000000 build-real-ns/op 380000000 build-user-ns/op 70000000 build-sys-ns/op
+BenchmarkEthereum_trie 1 9640000000 build-real-ns/op 13810000000 build-user-ns/op 1480000000 build-sys-ns/op
+BenchmarkBindata 1 830000000 build-real-ns/op 1170000000 build-user-ns/op 270000000 build-sys-ns/op
+BenchmarkAjstarks_deck_generate 1 270000000 build-real-ns/op 500000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkGonum_community 1 3070000000 build-real-ns/op 8580000000 build-user-ns/op 990000000 build-sys-ns/op
+BenchmarkCespare_mph 1 230000000 build-real-ns/op 360000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkCommonmark_markdown 1 6590000000 build-real-ns/op 7940000000 build-user-ns/op 560000000 build-sys-ns/op
+BenchmarkEthereum_corevm 1 10230000000 build-real-ns/op 16390000000 build-user-ns/op 1620000000 build-sys-ns/op
+BenchmarkBenhoyt_goawk 1 560000000 build-real-ns/op 1160000000 build-user-ns/op 230000000 build-sys-ns/op
+BenchmarkK8s_schedulercache 1 14390000000 build-real-ns/op 68470000000 build-user-ns/op 5720000000 build-sys-ns/op
+BenchmarkSemver 1 320000000 build-real-ns/op 590000000 build-user-ns/op 170000000 build-sys-ns/op
+BenchmarkUber_zap 1 2490000000 build-real-ns/op 4690000000 build-user-ns/op 790000000 build-sys-ns/op
+BenchmarkCapnproto2 1 2620000000 build-real-ns/op 7200000000 build-user-ns/op 520000000 build-sys-ns/op
+BenchmarkGonum_mat 1 3260000000 build-real-ns/op 9620000000 build-user-ns/op 730000000 build-sys-ns/op
+BenchmarkCommonmark_markdown 1 6840000000 build-real-ns/op 8170000000 build-user-ns/op 550000000 build-sys-ns/op
+BenchmarkMinio 1 20990000000 build-real-ns/op 95250000000 build-user-ns/op 8640000000 build-sys-ns/op
+BenchmarkSpexs2 1 1010000000 build-real-ns/op 1240000000 build-user-ns/op 360000000 build-sys-ns/op
+BenchmarkBindata 1 820000000 build-real-ns/op 1210000000 build-user-ns/op 160000000 build-sys-ns/op
+BenchmarkGonum_traverse 1 2790000000 build-real-ns/op 7390000000 build-user-ns/op 1000000000 build-sys-ns/op
+BenchmarkGonum_path 1 2950000000 build-real-ns/op 8130000000 build-user-ns/op 1000000000 build-sys-ns/op
+BenchmarkEthereum_trieg 1 9720000000 build-real-ns/op 14020000000 build-user-ns/op 1420000000 build-sys-ns/op
+BenchmarkEthereum_bitutil 1 1580000000 build-real-ns/op 860000000 build-user-ns/op 250000000 build-sys-ns/op
+BenchmarkCespare_mph 1 230000000 build-real-ns/op 380000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkGonum_blas_native 1 2130000000 build-real-ns/op 4550000000 build-user-ns/op 440000000 build-sys-ns/op
+BenchmarkKanzi 1 530000000 build-real-ns/op 1710000000 build-user-ns/op 240000000 build-sys-ns/op
+BenchmarkAws_jsonutil 1 2080000000 build-real-ns/op 3820000000 build-user-ns/op 440000000 build-sys-ns/op
+BenchmarkK8s_api 1 13680000000 build-real-ns/op 67490000000 build-user-ns/op 5570000000 build-sys-ns/op
+BenchmarkGonum_topo 1 3030000000 build-real-ns/op 8560000000 build-user-ns/op 980000000 build-sys-ns/op
+BenchmarkAjstarks_deck_generate 1 270000000 build-real-ns/op 490000000 build-user-ns/op 80000000 build-sys-ns/op
+BenchmarkGonum_community 1 3080000000 build-real-ns/op 8550000000 build-user-ns/op 1000000000 build-sys-ns/op
+BenchmarkNelsam_gxui_interval 1 310000000 build-real-ns/op 530000000 build-user-ns/op 150000000 build-sys-ns/op
+BenchmarkEthereum_corevm 1 10140000000 build-real-ns/op 16390000000 build-user-ns/op 1700000000 build-sys-ns/op
+BenchmarkEthereum_core 1 11510000000 build-real-ns/op 21390000000 build-user-ns/op 2190000000 build-sys-ns/op
+BenchmarkEthereum_storage 1 14160000000 build-real-ns/op 28840000000 build-user-ns/op 3060000000 build-sys-ns/op
+BenchmarkEriclagergren_decimal 1 1240000000 build-real-ns/op 2020000000 build-user-ns/op 370000000 build-sys-ns/op
+BenchmarkRcrowley_metrics 1 510000000 build-real-ns/op 1120000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkEthereum_ethash 1 10330000000 build-real-ns/op 14710000000 build-user-ns/op 1570000000 build-sys-ns/op
+BenchmarkCespare_xxhash 1 240000000 build-real-ns/op 420000000 build-user-ns/op 110000000 build-sys-ns/op
+BenchmarkKlauspost 1 220000000 build-real-ns/op 330000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkEthereum_trie 1 9760000000 build-real-ns/op 13860000000 build-user-ns/op 1510000000 build-sys-ns/op
+BenchmarkDustin_broadcast 1 220000000 build-real-ns/op 360000000 build-user-ns/op 110000000 build-sys-ns/op
+BenchmarkDustin_humanize 1 310000000 build-real-ns/op 600000000 build-user-ns/op 140000000 build-sys-ns/op
+BenchmarkGonum_lapack_native 1 2970000000 build-real-ns/op 7120000000 build-user-ns/op 690000000 build-sys-ns/op
+BenchmarkHugo_helpers 1 10110000000 build-real-ns/op 36070000000 build-user-ns/op 3520000000 build-sys-ns/op
+BenchmarkGtank_blake2s 1 260000000 build-real-ns/op 440000000 build-user-ns/op 150000000 build-sys-ns/op
+BenchmarkCapnproto2 1 2630000000 build-real-ns/op 7290000000 build-user-ns/op 580000000 build-sys-ns/op
+BenchmarkGonum_traverse 1 2820000000 build-real-ns/op 7710000000 build-user-ns/op 840000000 build-sys-ns/op
+BenchmarkMinio 1 20500000000 build-real-ns/op 94710000000 build-user-ns/op 8750000000 build-sys-ns/op
+BenchmarkBenhoyt_goawk 1 570000000 build-real-ns/op 1210000000 build-user-ns/op 190000000 build-sys-ns/op
+BenchmarkGonum_community 1 3050000000 build-real-ns/op 8410000000 build-user-ns/op 960000000 build-sys-ns/op
+BenchmarkGonum_blas_native 1 2130000000 build-real-ns/op 4510000000 build-user-ns/op 560000000 build-sys-ns/op
+BenchmarkGonum_path 1 2990000000 build-real-ns/op 8450000000 build-user-ns/op 1000000000 build-sys-ns/op
+BenchmarkEthereum_storage 1 14020000000 build-real-ns/op 28430000000 build-user-ns/op 3000000000 build-sys-ns/op
+BenchmarkGonum_lapack_native 1 2890000000 build-real-ns/op 7020000000 build-user-ns/op 690000000 build-sys-ns/op
+BenchmarkEthereum_trie 1 9750000000 build-real-ns/op 14150000000 build-user-ns/op 1300000000 build-sys-ns/op
+BenchmarkEthereum_corevm 1 10160000000 build-real-ns/op 16309999999 build-user-ns/op 1740000000 build-sys-ns/op
+BenchmarkCespare_xxhash 1 250000000 build-real-ns/op 390000000 build-user-ns/op 160000000 build-sys-ns/op
+BenchmarkAjstarks_deck_generate 1 270000000 build-real-ns/op 490000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkNelsam_gxui_interval 1 310000000 build-real-ns/op 630000000 build-user-ns/op 60000000 build-sys-ns/op
+BenchmarkK8s_schedulercache 1 14220000000 build-real-ns/op 69110000000 build-user-ns/op 5700000000 build-sys-ns/op
+BenchmarkAws_jsonutil 1 2100000000 build-real-ns/op 3650000000 build-user-ns/op 620000000 build-sys-ns/op
+BenchmarkKlauspost 1 220000000 build-real-ns/op 380000000 build-user-ns/op 80000000 build-sys-ns/op
+BenchmarkGonum_mat 1 3270000000 build-real-ns/op 9660000000 build-user-ns/op 820000000 build-sys-ns/op
+BenchmarkEthereum_bitutil 1 1560000000 build-real-ns/op 890000000 build-user-ns/op 260000000 build-sys-ns/op
+BenchmarkGtank_blake2s 1 270000000 build-real-ns/op 480000000 build-user-ns/op 110000000 build-sys-ns/op
+BenchmarkEthereum_core 1 11390000000 build-real-ns/op 21190000000 build-user-ns/op 2270000000 build-sys-ns/op
+BenchmarkK8s_api 1 13910000000 build-real-ns/op 66620000000 build-user-ns/op 5920000000 build-sys-ns/op
+BenchmarkBindata 1 830000000 build-real-ns/op 1220000000 build-user-ns/op 170000000 build-sys-ns/op
+BenchmarkEthereum_ethash 1 10180000000 build-real-ns/op 14530000000 build-user-ns/op 1610000000 build-sys-ns/op
+BenchmarkCommonmark_markdown 1 6380000000 build-real-ns/op 7840000000 build-user-ns/op 500000000 build-sys-ns/op
+BenchmarkEthereum_trieg 1 9810000000 build-real-ns/op 13980000000 build-user-ns/op 1490000000 build-sys-ns/op
+BenchmarkKanzi 1 530000000 build-real-ns/op 1580000000 build-user-ns/op 310000000 build-sys-ns/op
+BenchmarkEriclagergren_decimal 1 1220000000 build-real-ns/op 2020000000 build-user-ns/op 330000000 build-sys-ns/op
+BenchmarkRcrowley_metrics 1 490000000 build-real-ns/op 1060000000 build-user-ns/op 140000000 build-sys-ns/op
+BenchmarkGonum_topo 1 3020000000 build-real-ns/op 8620000000 build-user-ns/op 900000000 build-sys-ns/op
+BenchmarkCespare_mph 1 230000000 build-real-ns/op 360000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkHugo_helpers 1 9920000000 build-real-ns/op 36020000000 build-user-ns/op 3260000000 build-sys-ns/op
+BenchmarkDustin_broadcast 1 220000000 build-real-ns/op 380000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkSemver 1 320000000 build-real-ns/op 660000000 build-user-ns/op 140000000 build-sys-ns/op
+BenchmarkUber_zap 1 2600000000 build-real-ns/op 4710000000 build-user-ns/op 780000000 build-sys-ns/op
+BenchmarkSpexs2 1 1030000000 build-real-ns/op 1350000000 build-user-ns/op 280000000 build-sys-ns/op
+BenchmarkDustin_humanize 1 320000000 build-real-ns/op 660000000 build-user-ns/op 110000000 build-sys-ns/op
+BenchmarkK8s_schedulercache 1 14390000000 build-real-ns/op 68460000000 build-user-ns/op 5680000000 build-sys-ns/op
+BenchmarkEthereum_corevm 1 10300000000 build-real-ns/op 16580000000 build-user-ns/op 1560000000 build-sys-ns/op
+BenchmarkHugo_helpers 1 9810000000 build-real-ns/op 35950000000 build-user-ns/op 3510000000 build-sys-ns/op
+BenchmarkGonum_lapack_native 1 2750000000 build-real-ns/op 7310000000 build-user-ns/op 610000000 build-sys-ns/op
+BenchmarkUber_zap 1 2560000000 build-real-ns/op 4780000000 build-user-ns/op 770000000 build-sys-ns/op
+BenchmarkMinio 1 20680000000 build-real-ns/op 95470000000 build-user-ns/op 8600000000 build-sys-ns/op
+BenchmarkRcrowley_metrics 1 500000000 build-real-ns/op 1100000000 build-user-ns/op 170000000 build-sys-ns/op
+BenchmarkGtank_blake2s 1 260000000 build-real-ns/op 460000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkBenhoyt_goawk 1 560000000 build-real-ns/op 1210000000 build-user-ns/op 170000000 build-sys-ns/op
+BenchmarkGonum_path 1 2950000000 build-real-ns/op 8260000000 build-user-ns/op 950000000 build-sys-ns/op
+BenchmarkKlauspost 1 220000000 build-real-ns/op 360000000 build-user-ns/op 110000000 build-sys-ns/op
+BenchmarkGonum_mat 1 3310000000 build-real-ns/op 9880000000 build-user-ns/op 780000000 build-sys-ns/op
+BenchmarkCommonmark_markdown 1 6540000000 build-real-ns/op 7830000000 build-user-ns/op 700000000 build-sys-ns/op
+BenchmarkGonum_blas_native 1 2120000000 build-real-ns/op 4540000000 build-user-ns/op 440000000 build-sys-ns/op
+BenchmarkGonum_community 1 3050000000 build-real-ns/op 8410000000 build-user-ns/op 1010000000 build-sys-ns/op
+BenchmarkEthereum_trie 1 9730000000 build-real-ns/op 13770000000 build-user-ns/op 1530000000 build-sys-ns/op
+BenchmarkCapnproto2 1 2640000000 build-real-ns/op 7260000000 build-user-ns/op 530000000 build-sys-ns/op
+BenchmarkSpexs2 1 950000000 build-real-ns/op 1210000000 build-user-ns/op 440000000 build-sys-ns/op
+BenchmarkEthereum_trieg 1 9890000000 build-real-ns/op 13880000000 build-user-ns/op 1540000000 build-sys-ns/op
+BenchmarkEthereum_bitutil 1 1590000000 build-real-ns/op 850000000 build-user-ns/op 290000000 build-sys-ns/op
+BenchmarkK8s_api 1 13810000000 build-real-ns/op 67130000000 build-user-ns/op 5790000000 build-sys-ns/op
+BenchmarkEthereum_storage 1 14160000000 build-real-ns/op 28370000000 build-user-ns/op 3240000000 build-sys-ns/op
+BenchmarkEthereum_core 1 11400000000 build-real-ns/op 21700000000 build-user-ns/op 2070000000 build-sys-ns/op
+BenchmarkNelsam_gxui_interval 1 310000000 build-real-ns/op 550000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkAjstarks_deck_generate 1 270000000 build-real-ns/op 500000000 build-user-ns/op 90000000 build-sys-ns/op
+BenchmarkDustin_broadcast 1 220000000 build-real-ns/op 430000000 build-user-ns/op 60000000 build-sys-ns/op
+BenchmarkDustin_humanize 1 310000000 build-real-ns/op 610000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkGonum_topo 1 2970000000 build-real-ns/op 8790000000 build-user-ns/op 810000000 build-sys-ns/op
+BenchmarkCespare_mph 1 230000000 build-real-ns/op 380000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkEthereum_ethash 1 10240000000 build-real-ns/op 14780000000 build-user-ns/op 1470000000 build-sys-ns/op
+BenchmarkEriclagergren_decimal 1 1280000000 build-real-ns/op 2110000000 build-user-ns/op 310000000 build-sys-ns/op
+BenchmarkAws_jsonutil 1 2080000000 build-real-ns/op 3710000000 build-user-ns/op 480000000 build-sys-ns/op
+BenchmarkKanzi 1 530000000 build-real-ns/op 1710000000 build-user-ns/op 220000000 build-sys-ns/op
+BenchmarkCespare_xxhash 1 240000000 build-real-ns/op 420000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkSemver 1 320000000 build-real-ns/op 620000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkGonum_traverse 1 2820000000 build-real-ns/op 7790000000 build-user-ns/op 870000000 build-sys-ns/op
+BenchmarkBindata 1 820000000 build-real-ns/op 1240000000 build-user-ns/op 150000000 build-sys-ns/op
+BenchmarkEthereum_trieg 1 9420000000 build-real-ns/op 13960000000 build-user-ns/op 1420000000 build-sys-ns/op
+BenchmarkMinio 1 20700000000 build-real-ns/op 94790000000 build-user-ns/op 8770000000 build-sys-ns/op
+BenchmarkSpexs2 1 930000000 build-real-ns/op 1300000000 build-user-ns/op 300000000 build-sys-ns/op
+BenchmarkCapnproto2 1 2610000000 build-real-ns/op 7330000000 build-user-ns/op 530000000 build-sys-ns/op
+BenchmarkEriclagergren_decimal 1 1200000000 build-real-ns/op 2040000000 build-user-ns/op 380000000 build-sys-ns/op
+BenchmarkKlauspost 1 230000000 build-real-ns/op 370000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkK8s_api 1 13730000000 build-real-ns/op 67130000000 build-user-ns/op 5630000000 build-sys-ns/op
+BenchmarkEthereum_ethash 1 10150000000 build-real-ns/op 14420000000 build-user-ns/op 1570000000 build-sys-ns/op
+BenchmarkGtank_blake2s 1 270000000 build-real-ns/op 510000000 build-user-ns/op 80000000 build-sys-ns/op
+BenchmarkGonum_traverse 1 2790000000 build-real-ns/op 7660000000 build-user-ns/op 800000000 build-sys-ns/op
+BenchmarkGonum_path 1 3000000000 build-real-ns/op 8500000000 build-user-ns/op 940000000 build-sys-ns/op
+BenchmarkKanzi 1 520000000 build-real-ns/op 1690000000 build-user-ns/op 200000000 build-sys-ns/op
+BenchmarkAws_jsonutil 1 2070000000 build-real-ns/op 3570000000 build-user-ns/op 600000000 build-sys-ns/op
+BenchmarkAjstarks_deck_generate 1 270000000 build-real-ns/op 500000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkCespare_xxhash 1 240000000 build-real-ns/op 430000000 build-user-ns/op 90000000 build-sys-ns/op
+BenchmarkGonum_topo 1 2970000000 build-real-ns/op 8470000000 build-user-ns/op 1010000000 build-sys-ns/op
+BenchmarkGonum_community 1 3090000000 build-real-ns/op 8520000000 build-user-ns/op 980000000 build-sys-ns/op
+BenchmarkHugo_helpers 1 10010000000 build-real-ns/op 35780000000 build-user-ns/op 3380000000 build-sys-ns/op
+BenchmarkEthereum_bitutil 1 1700000000 build-real-ns/op 740000000 build-user-ns/op 400000000 build-sys-ns/op
+BenchmarkSemver 1 320000000 build-real-ns/op 590000000 build-user-ns/op 180000000 build-sys-ns/op
+BenchmarkEthereum_trie 1 9630000000 build-real-ns/op 13990000000 build-user-ns/op 1460000000 build-sys-ns/op
+BenchmarkEthereum_corevm 1 10290000000 build-real-ns/op 16180000000 build-user-ns/op 1660000000 build-sys-ns/op
+BenchmarkCommonmark_markdown 1 6480000000 build-real-ns/op 7870000000 build-user-ns/op 630000000 build-sys-ns/op
+BenchmarkGonum_lapack_native 1 2830000000 build-real-ns/op 6950000000 build-user-ns/op 660000000 build-sys-ns/op
+BenchmarkUber_zap 1 2530000000 build-real-ns/op 4790000000 build-user-ns/op 720000000 build-sys-ns/op
+BenchmarkEthereum_core 1 11460000000 build-real-ns/op 21230000000 build-user-ns/op 2230000000 build-sys-ns/op
+BenchmarkCespare_mph 1 230000000 build-real-ns/op 400000000 build-user-ns/op 90000000 build-sys-ns/op
+BenchmarkDustin_humanize 1 310000000 build-real-ns/op 590000000 build-user-ns/op 150000000 build-sys-ns/op
+BenchmarkK8s_schedulercache 1 14420000000 build-real-ns/op 68550000000 build-user-ns/op 5650000000 build-sys-ns/op
+BenchmarkBenhoyt_goawk 1 570000000 build-real-ns/op 1170000000 build-user-ns/op 230000000 build-sys-ns/op
+BenchmarkEthereum_storage 1 13940000000 build-real-ns/op 28730000000 build-user-ns/op 2830000000 build-sys-ns/op
+BenchmarkDustin_broadcast 1 220000000 build-real-ns/op 350000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkGonum_mat 1 3320000000 build-real-ns/op 9900000000 build-user-ns/op 730000000 build-sys-ns/op
+BenchmarkRcrowley_metrics 1 510000000 build-real-ns/op 1090000000 build-user-ns/op 150000000 build-sys-ns/op
+BenchmarkNelsam_gxui_interval 1 310000000 build-real-ns/op 540000000 build-user-ns/op 140000000 build-sys-ns/op
+BenchmarkGonum_blas_native 1 2140000000 build-real-ns/op 4450000000 build-user-ns/op 540000000 build-sys-ns/op
+BenchmarkBindata 1 820000000 build-real-ns/op 1210000000 build-user-ns/op 170000000 build-sys-ns/op
+BenchmarkGonum_traverse 1 2800000000 build-real-ns/op 7520000000 build-user-ns/op 840000000 build-sys-ns/op
+BenchmarkNelsam_gxui_interval 1 310000000 build-real-ns/op 570000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkGonum_community 1 3060000000 build-real-ns/op 8530000000 build-user-ns/op 920000000 build-sys-ns/op
+BenchmarkSpexs2 1 1020000000 build-real-ns/op 1300000000 build-user-ns/op 340000000 build-sys-ns/op
+BenchmarkAjstarks_deck_generate 1 270000000 build-real-ns/op 480000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkCapnproto2 1 2630000000 build-real-ns/op 7360000000 build-user-ns/op 530000000 build-sys-ns/op
+BenchmarkK8s_schedulercache 1 14310000000 build-real-ns/op 67860000000 build-user-ns/op 5870000000 build-sys-ns/op
+BenchmarkBenhoyt_goawk 1 570000000 build-real-ns/op 1200000000 build-user-ns/op 180000000 build-sys-ns/op
+BenchmarkEthereum_trie 1 9640000000 build-real-ns/op 14010000000 build-user-ns/op 1420000000 build-sys-ns/op
+BenchmarkCespare_mph 1 220000000 build-real-ns/op 390000000 build-user-ns/op 70000000 build-sys-ns/op
+BenchmarkEthereum_bitutil 1 1670000000 build-real-ns/op 840000000 build-user-ns/op 310000000 build-sys-ns/op
+BenchmarkEthereum_core 1 11350000000 build-real-ns/op 21350000000 build-user-ns/op 2210000000 build-sys-ns/op
+BenchmarkMinio 1 21080000000 build-real-ns/op 95290000000 build-user-ns/op 8820000000 build-sys-ns/op
+BenchmarkEthereum_trieg 1 9750000000 build-real-ns/op 14010000000 build-user-ns/op 1560000000 build-sys-ns/op
+BenchmarkHugo_helpers 1 10050000000 build-real-ns/op 35910000000 build-user-ns/op 3450000000 build-sys-ns/op
+BenchmarkRcrowley_metrics 1 480000000 build-real-ns/op 1090000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkDustin_broadcast 1 220000000 build-real-ns/op 400000000 build-user-ns/op 70000000 build-sys-ns/op
+BenchmarkGtank_blake2s 1 260000000 build-real-ns/op 470000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkGonum_path 1 2910000000 build-real-ns/op 8290000000 build-user-ns/op 910000000 build-sys-ns/op
+BenchmarkSemver 1 320000000 build-real-ns/op 640000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkKanzi 1 530000000 build-real-ns/op 1610000000 build-user-ns/op 300000000 build-sys-ns/op
+BenchmarkGonum_topo 1 3010000000 build-real-ns/op 8400000000 build-user-ns/op 1040000000 build-sys-ns/op
+BenchmarkGonum_mat 1 3270000000 build-real-ns/op 9800000000 build-user-ns/op 630000000 build-sys-ns/op
+BenchmarkBindata 1 830000000 build-real-ns/op 1230000000 build-user-ns/op 200000000 build-sys-ns/op
+BenchmarkGonum_blas_native 1 2090000000 build-real-ns/op 4410000000 build-user-ns/op 570000000 build-sys-ns/op
+BenchmarkCespare_xxhash 1 240000000 build-real-ns/op 440000000 build-user-ns/op 90000000 build-sys-ns/op
+BenchmarkCommonmark_markdown 1 6510000000 build-real-ns/op 8020000000 build-user-ns/op 500000000 build-sys-ns/op
+BenchmarkEthereum_storage 1 14260000000 build-real-ns/op 28740000000 build-user-ns/op 3060000000 build-sys-ns/op
+BenchmarkEthereum_corevm 1 10200000000 build-real-ns/op 16320000000 build-user-ns/op 1640000000 build-sys-ns/op
+BenchmarkDustin_humanize 1 310000000 build-real-ns/op 620000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkK8s_api 1 13760000000 build-real-ns/op 67160000000 build-user-ns/op 5670000000 build-sys-ns/op
+BenchmarkEriclagergren_decimal 1 1450000000 build-real-ns/op 2100000000 build-user-ns/op 330000000 build-sys-ns/op
+BenchmarkUber_zap 1 2680000000 build-real-ns/op 4760000000 build-user-ns/op 750000000 build-sys-ns/op
+BenchmarkGonum_lapack_native 1 2860000000 build-real-ns/op 6880000000 build-user-ns/op 620000000 build-sys-ns/op
+BenchmarkAws_jsonutil 1 2080000000 build-real-ns/op 3730000000 build-user-ns/op 550000000 build-sys-ns/op
+BenchmarkKlauspost 1 210000000 build-real-ns/op 360000000 build-user-ns/op 80000000 build-sys-ns/op
+BenchmarkEthereum_ethash 1 10200000000 build-real-ns/op 14610000000 build-user-ns/op 1480000000 build-sys-ns/op
+BenchmarkCapnproto2 1 2610000000 build-real-ns/op 7300000000 build-user-ns/op 470000000 build-sys-ns/op
+BenchmarkDustin_humanize 1 320000000 build-real-ns/op 640000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkAws_jsonutil 1 2040000000 build-real-ns/op 3660000000 build-user-ns/op 560000000 build-sys-ns/op
+BenchmarkEthereum_trie 1 9770000000 build-real-ns/op 13980000000 build-user-ns/op 1400000000 build-sys-ns/op
+BenchmarkEthereum_trieg 1 9790000000 build-real-ns/op 14130000000 build-user-ns/op 1460000000 build-sys-ns/op
+BenchmarkDustin_broadcast 1 220000000 build-real-ns/op 410000000 build-user-ns/op 80000000 build-sys-ns/op
+BenchmarkEthereum_storage 1 14380000000 build-real-ns/op 28490000000 build-user-ns/op 3050000000 build-sys-ns/op
+BenchmarkGonum_lapack_native 1 2880000000 build-real-ns/op 6980000000 build-user-ns/op 690000000 build-sys-ns/op
+BenchmarkCommonmark_markdown 1 6660000000 build-real-ns/op 7900000000 build-user-ns/op 640000000 build-sys-ns/op
+BenchmarkCespare_mph 1 230000000 build-real-ns/op 370000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkNelsam_gxui_interval 1 300000000 build-real-ns/op 530000000 build-user-ns/op 150000000 build-sys-ns/op
+BenchmarkBindata 1 830000000 build-real-ns/op 1140000000 build-user-ns/op 250000000 build-sys-ns/op
+BenchmarkEriclagergren_decimal 1 1250000000 build-real-ns/op 2020000000 build-user-ns/op 410000000 build-sys-ns/op
+BenchmarkGonum_traverse 1 2810000000 build-real-ns/op 7510000000 build-user-ns/op 930000000 build-sys-ns/op
+BenchmarkSpexs2 1 910000000 build-real-ns/op 1210000000 build-user-ns/op 390000000 build-sys-ns/op
+BenchmarkEthereum_bitutil 1 1600000000 build-real-ns/op 880000000 build-user-ns/op 250000000 build-sys-ns/op
+BenchmarkSemver 1 320000000 build-real-ns/op 640000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkEthereum_core 1 11650000000 build-real-ns/op 21430000000 build-user-ns/op 2330000000 build-sys-ns/op
+BenchmarkGonum_community 1 3170000000 build-real-ns/op 8840000000 build-user-ns/op 960000000 build-sys-ns/op
+BenchmarkGonum_blas_native 1 2060000000 build-real-ns/op 4360000000 build-user-ns/op 530000000 build-sys-ns/op
+BenchmarkHugo_helpers 1 9900000000 build-real-ns/op 35910000000 build-user-ns/op 3530000000 build-sys-ns/op
+BenchmarkRcrowley_metrics 1 520000000 build-real-ns/op 1080000000 build-user-ns/op 140000000 build-sys-ns/op
+BenchmarkGonum_path 1 2970000000 build-real-ns/op 8330000000 build-user-ns/op 850000000 build-sys-ns/op
+BenchmarkCespare_xxhash 1 240000000 build-real-ns/op 410000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkMinio 1 21110000000 build-real-ns/op 94690000000 build-user-ns/op 8790000000 build-sys-ns/op
+BenchmarkEthereum_corevm 1 10250000000 build-real-ns/op 16260000000 build-user-ns/op 1790000000 build-sys-ns/op
+BenchmarkEthereum_ethash 1 10310000000 build-real-ns/op 14510000000 build-user-ns/op 1560000000 build-sys-ns/op
+BenchmarkGonum_mat 1 3260000000 build-real-ns/op 9720000000 build-user-ns/op 740000000 build-sys-ns/op
+BenchmarkKanzi 1 520000000 build-real-ns/op 1680000000 build-user-ns/op 220000000 build-sys-ns/op
+BenchmarkUber_zap 1 2570000000 build-real-ns/op 4900000000 build-user-ns/op 640000000 build-sys-ns/op
+BenchmarkK8s_schedulercache 1 14410000000 build-real-ns/op 68640000000 build-user-ns/op 5800000000 build-sys-ns/op
+BenchmarkGtank_blake2s 1 270000000 build-real-ns/op 510000000 build-user-ns/op 90000000 build-sys-ns/op
+BenchmarkKlauspost 1 220000000 build-real-ns/op 370000000 build-user-ns/op 110000000 build-sys-ns/op
+BenchmarkAjstarks_deck_generate 1 280000000 build-real-ns/op 480000000 build-user-ns/op 140000000 build-sys-ns/op
+BenchmarkGonum_topo 1 2970000000 build-real-ns/op 8480000000 build-user-ns/op 1040000000 build-sys-ns/op
+BenchmarkK8s_api 1 13780000000 build-real-ns/op 67220000000 build-user-ns/op 5630000000 build-sys-ns/op
+BenchmarkBenhoyt_goawk 1 560000000 build-real-ns/op 1210000000 build-user-ns/op 170000000 build-sys-ns/op
+BenchmarkSemver 1 320000000 build-real-ns/op 630000000 build-user-ns/op 140000000 build-sys-ns/op
+BenchmarkEthereum_core 1 11450000000 build-real-ns/op 21240000000 build-user-ns/op 2330000000 build-sys-ns/op
+BenchmarkGonum_traverse 1 2830000000 build-real-ns/op 7670000000 build-user-ns/op 900000000 build-sys-ns/op
+BenchmarkDustin_broadcast 1 230000000 build-real-ns/op 410000000 build-user-ns/op 80000000 build-sys-ns/op
+BenchmarkCapnproto2 1 2640000000 build-real-ns/op 7290000000 build-user-ns/op 530000000 build-sys-ns/op
+BenchmarkCespare_mph 1 230000000 build-real-ns/op 350000000 build-user-ns/op 120000000 build-sys-ns/op
+BenchmarkCespare_xxhash 1 240000000 build-real-ns/op 430000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkHugo_helpers 1 9830000000 build-real-ns/op 35700000000 build-user-ns/op 3420000000 build-sys-ns/op
+BenchmarkGonum_lapack_native 1 2860000000 build-real-ns/op 6850000000 build-user-ns/op 640000000 build-sys-ns/op
+BenchmarkCommonmark_markdown 1 6570000000 build-real-ns/op 7970000000 build-user-ns/op 590000000 build-sys-ns/op
+BenchmarkBenhoyt_goawk 1 560000000 build-real-ns/op 1180000000 build-user-ns/op 210000000 build-sys-ns/op
+BenchmarkAws_jsonutil 1 2029999999 build-real-ns/op 3720000000 build-user-ns/op 550000000 build-sys-ns/op
+BenchmarkK8s_api 1 13960000000 build-real-ns/op 66950000000 build-user-ns/op 5740000000 build-sys-ns/op
+BenchmarkSpexs2 1 990000000 build-real-ns/op 1290000000 build-user-ns/op 340000000 build-sys-ns/op
+BenchmarkRcrowley_metrics 1 500000000 build-real-ns/op 1050000000 build-user-ns/op 170000000 build-sys-ns/op
+BenchmarkEriclagergren_decimal 1 1230000000 build-real-ns/op 2060000000 build-user-ns/op 340000000 build-sys-ns/op
+BenchmarkEthereum_trieg 1 9710000000 build-real-ns/op 13830000000 build-user-ns/op 1620000000 build-sys-ns/op
+BenchmarkEthereum_storage 1 14200000000 build-real-ns/op 28840000000 build-user-ns/op 2960000000 build-sys-ns/op
+BenchmarkEthereum_trie 1 9680000000 build-real-ns/op 13900000000 build-user-ns/op 1370000000 build-sys-ns/op
+BenchmarkBindata 1 830000000 build-real-ns/op 1200000000 build-user-ns/op 200000000 build-sys-ns/op
+BenchmarkKanzi 1 520000000 build-real-ns/op 1680000000 build-user-ns/op 230000000 build-sys-ns/op
+BenchmarkGonum_mat 1 3070000000 build-real-ns/op 9940000000 build-user-ns/op 690000000 build-sys-ns/op
+BenchmarkEthereum_ethash 1 10260000000 build-real-ns/op 14490000000 build-user-ns/op 1620000000 build-sys-ns/op
+BenchmarkGonum_community 1 3120000000 build-real-ns/op 8510000000 build-user-ns/op 980000000 build-sys-ns/op
+BenchmarkGonum_topo 1 2990000000 build-real-ns/op 8380000000 build-user-ns/op 1030000000 build-sys-ns/op
+BenchmarkDustin_humanize 1 310000000 build-real-ns/op 620000000 build-user-ns/op 110000000 build-sys-ns/op
+BenchmarkK8s_schedulercache 1 14360000000 build-real-ns/op 68530000000 build-user-ns/op 5660000000 build-sys-ns/op
+BenchmarkEthereum_corevm 1 10080000000 build-real-ns/op 16239999999 build-user-ns/op 1740000000 build-sys-ns/op
+BenchmarkMinio 1 21050000000 build-real-ns/op 94440000000 build-user-ns/op 8760000000 build-sys-ns/op
+BenchmarkGonum_path 1 2940000000 build-real-ns/op 8390000000 build-user-ns/op 840000000 build-sys-ns/op
+BenchmarkNelsam_gxui_interval 1 310000000 build-real-ns/op 540000000 build-user-ns/op 140000000 build-sys-ns/op
+BenchmarkUber_zap 1 2550000000 build-real-ns/op 4820000000 build-user-ns/op 720000000 build-sys-ns/op
+BenchmarkGonum_blas_native 1 2150000000 build-real-ns/op 4520000000 build-user-ns/op 530000000 build-sys-ns/op
+BenchmarkGtank_blake2s 1 260000000 build-real-ns/op 450000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkKlauspost 1 220000000 build-real-ns/op 400000000 build-user-ns/op 60000000 build-sys-ns/op
+BenchmarkEthereum_bitutil 1 1620000000 build-real-ns/op 780000000 build-user-ns/op 360000000 build-sys-ns/op
+BenchmarkAjstarks_deck_generate 1 270000000 build-real-ns/op 490000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkEthereum_trieg 1 9600000000 build-real-ns/op 14020000000 build-user-ns/op 1260000000 build-sys-ns/op
+BenchmarkEthereum_bitutil 1 1630000000 build-real-ns/op 930000000 build-user-ns/op 210000000 build-sys-ns/op
+BenchmarkCespare_xxhash 1 240000000 build-real-ns/op 410000000 build-user-ns/op 110000000 build-sys-ns/op
+BenchmarkGonum_lapack_native 1 2830000000 build-real-ns/op 7030000000 build-user-ns/op 510000000 build-sys-ns/op
+BenchmarkHugo_helpers 1 10040000000 build-real-ns/op 35930000000 build-user-ns/op 3620000000 build-sys-ns/op
+BenchmarkNelsam_gxui_interval 1 310000000 build-real-ns/op 590000000 build-user-ns/op 90000000 build-sys-ns/op
+BenchmarkSemver 1 310000000 build-real-ns/op 600000000 build-user-ns/op 140000000 build-sys-ns/op
+BenchmarkGonum_community 1 3050000000 build-real-ns/op 8500000000 build-user-ns/op 900000000 build-sys-ns/op
+BenchmarkDustin_humanize 1 310000000 build-real-ns/op 630000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkBenhoyt_goawk 1 560000000 build-real-ns/op 1150000000 build-user-ns/op 240000000 build-sys-ns/op
+BenchmarkGtank_blake2s 1 260000000 build-real-ns/op 470000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkEthereum_core 1 11360000000 build-real-ns/op 21500000000 build-user-ns/op 2029999999 build-sys-ns/op
+BenchmarkCommonmark_markdown 1 6560000000 build-real-ns/op 7790000000 build-user-ns/op 640000000 build-sys-ns/op
+BenchmarkEriclagergren_decimal 1 1230000000 build-real-ns/op 2009999999 build-user-ns/op 320000000 build-sys-ns/op
+BenchmarkUber_zap 1 2490000000 build-real-ns/op 4720000000 build-user-ns/op 800000000 build-sys-ns/op
+BenchmarkDustin_broadcast 1 220000000 build-real-ns/op 340000000 build-user-ns/op 140000000 build-sys-ns/op
+BenchmarkBindata 1 820000000 build-real-ns/op 1230000000 build-user-ns/op 180000000 build-sys-ns/op
+BenchmarkGonum_topo 1 3010000000 build-real-ns/op 8680000000 build-user-ns/op 820000000 build-sys-ns/op
+BenchmarkEthereum_storage 1 14080000000 build-real-ns/op 28420000000 build-user-ns/op 3240000000 build-sys-ns/op
+BenchmarkSpexs2 1 960000000 build-real-ns/op 1290000000 build-user-ns/op 320000000 build-sys-ns/op
+BenchmarkKlauspost 1 220000000 build-real-ns/op 400000000 build-user-ns/op 60000000 build-sys-ns/op
+BenchmarkRcrowley_metrics 1 490000000 build-real-ns/op 1080000000 build-user-ns/op 130000000 build-sys-ns/op
+BenchmarkGonum_path 1 3010000000 build-real-ns/op 8390000000 build-user-ns/op 970000000 build-sys-ns/op
+BenchmarkEthereum_corevm 1 10140000000 build-real-ns/op 16420000000 build-user-ns/op 1610000000 build-sys-ns/op
+BenchmarkAws_jsonutil 1 2070000000 build-real-ns/op 3640000000 build-user-ns/op 550000000 build-sys-ns/op
+BenchmarkGonum_mat 1 3310000000 build-real-ns/op 9760000000 build-user-ns/op 770000000 build-sys-ns/op
+BenchmarkMinio 1 21410000000 build-real-ns/op 95340000000 build-user-ns/op 8340000000 build-sys-ns/op
+BenchmarkK8s_schedulercache 1 14350000000 build-real-ns/op 67930000000 build-user-ns/op 5990000000 build-sys-ns/op
+BenchmarkGonum_traverse 1 2840000000 build-real-ns/op 7700000000 build-user-ns/op 830000000 build-sys-ns/op
+BenchmarkEthereum_trie 1 9350000000 build-real-ns/op 14060000000 build-user-ns/op 1330000000 build-sys-ns/op
+BenchmarkKanzi 1 520000000 build-real-ns/op 1680000000 build-user-ns/op 250000000 build-sys-ns/op
+BenchmarkK8s_api 1 13940000000 build-real-ns/op 67350000000 build-user-ns/op 5710000000 build-sys-ns/op
+BenchmarkCapnproto2 1 2670000000 build-real-ns/op 7300000000 build-user-ns/op 590000000 build-sys-ns/op
+BenchmarkCespare_mph 1 230000000 build-real-ns/op 380000000 build-user-ns/op 100000000 build-sys-ns/op
+BenchmarkGonum_blas_native 1 2140000000 build-real-ns/op 4520000000 build-user-ns/op 510000000 build-sys-ns/op
+BenchmarkEthereum_ethash 1 10290000000 build-real-ns/op 14700000000 build-user-ns/op 1500000000 build-sys-ns/op
+BenchmarkAjstarks_deck_generate 1 270000000 build-real-ns/op 490000000 build-user-ns/op 110000000 build-sys-ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/dr2chase/benchmarks/klauspost
+Benchmark_tokens_EstimatedBits-12    	 1529688	       789 ns/op	   1.27 MB/s
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     272	   4360591 ns/op	17864597 B/op	      76 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	      94	  12582015 ns/op	11375456 B/op	   48123 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 9291522	       129 ns/op
+BenchmarkBaseTest2KB-12              	 1951760	       602 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   81014	     14761 ns/op	    9984 B/op	      15 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     925	   1288985 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4563954	       263 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12                	46784186	        23.3 ns/op
+BenchmarkCompactToHex-12                	32836746	        36.8 ns/op
+BenchmarkKeybytesToHex-12               	31142964	        38.4 ns/op
+BenchmarkHexToKeybytes-12               	51013938	        23.1 ns/op
+BenchmarkGet-12                         	 6356912	       190 ns/op
+BenchmarkGetDB-12                       	 6630619	       175 ns/op
+BenchmarkUpdateBE-12                    	 1000000	      1129 ns/op	    1804 B/op	       9 allocs/op
+BenchmarkUpdateLE-12                    	 1000000	      1400 ns/op	    1857 B/op	       9 allocs/op
+BenchmarkHash-12                        	 1000000	      1509 ns/op	    1019 B/op	      13 allocs/op
+BenchmarkCommitAfterHash/no-onleaf-12   	  908798	      1788 ns/op	     805 B/op	       7 allocs/op
+BenchmarkCommitAfterHash/with-onleaf-12 	  578427	      2023 ns/op	     977 B/op	      13 allocs/op
+BenchmarkHashFixedSize/10-12            	   19468	     62094 ns/op	   12670 B/op	     176 allocs/op
+BenchmarkHashFixedSize/100-12           	    6759	    201253 ns/op	   60110 B/op	     854 allocs/op
+BenchmarkHashFixedSize/1K-12            	     772	   1490108 ns/op	  644141 B/op	    8911 allocs/op
+BenchmarkHashFixedSize/10K-12           	     134	   8930323 ns/op	 6673879 B/op	   91207 allocs/op
+BenchmarkHashFixedSize/100K-12          	      14	  85026700 ns/op	65567956 B/op	  904807 allocs/op
+BenchmarkCommitAfterHashFixedSize/10-12 	   46386	     26012 ns/op	   17067 B/op	     162 allocs/op
+BenchmarkCommitAfterHashFixedSize/100-12         	    9830	    133430 ns/op	   81238 B/op	     769 allocs/op
+BenchmarkCommitAfterHashFixedSize/1K-12          	    1020	   1174626 ns/op	  797628 B/op	    7831 allocs/op
+BenchmarkCommitAfterHashFixedSize/10K-12         	      81	  14214778 ns/op	 9283762 B/op	   80138 allocs/op
+BenchmarkCommitAfterHashFixedSize/100K-12        	       6	 181032657 ns/op	85964778 B/op	  797920 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkGet-12      	 6300919	       189 ns/op
+BenchmarkGetDB-12    	 6685444	       175 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24917462350 ns/op
+BenchmarkRun/10k/16-12      	       1	5241021878 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  298231	      4035 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1400882	       856 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   31038	     38906 ns/op
+BenchmarkDgeev/Circulant100-12        	     121	   9930402 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  61153798 ns/op
+BenchmarkScaleVec10000Inc20-12                	   51542	     22377 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1565804	       767 ns/op	     229 B/op	       7 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  463569	      2578 ns/op
+BenchmarkReaderContains-12    	  220357	      5467 ns/op
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  162540	      7328 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  188665	      6624 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      14	  79352138 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      56	  21048371 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  417547	      3011 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     121	   9779893 ns/op
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2826	    425288 ns/op
+BenchmarkGrowth_MultiSegment-12            	     100	  11793607 ns/op	  88.91 MB/s	 1648609 B/op	      21 allocs/op
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  840814	      1268 ns/op
+BenchmarkAddingFields/apex/log-12          	   41868	     28831 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   36624	     32839 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   35964	     33576 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 219424706 ns/op	  31.29 MB/s	159337926 B/op	   15145 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      40	  28315469 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   52974	     22720 ns/op	 360.56 MB/s
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2770636	       434 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  326737	      3600 ns/op
+BenchmarkPolygon-12    	  178885	      6708 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   69625	     17112 ns/op
+BenchmarkRegexMatch-12       	  869626	      1396 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    7887	    147844 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3687	    325863 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    3001	    398601 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  284598	      4212 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9739	    120634 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199230	      6015 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3491011	       337 ns/op
+BenchmarkParallelDirectSend-12    	 3475491	       352 ns/op
+BenchmarkParallelBrodcast-12      	 2289741	       524 ns/op
+BenchmarkMuxBrodcast-12           	 2216812	       520 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  713922	      1568 ns/op
+BenchmarkFtoaRegexTrailing-12    	  572710	      2105 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     907	   1317581 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/aws/aws-sdk-go/private/protocol/json/jsonutil
+BenchmarkBuildJSON-12     	  301040	      3980 ns/op
+BenchmarkStdlibJSON-12    	  269120	      4478 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.626 ns/op
+BenchmarkFPAQ-12    	      58	  20185089 ns/op
+BenchmarkLZ-12      	     811	   1480240 ns/op
+BenchmarkMTFT-12    	     316	   3887056 ns/op
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     206	   5726902 ns/op
+BenchmarkRenderSpec-12                	     208	   5741492 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     316	   3772396 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/dr2chase/benchmarks/klauspost
+Benchmark_tokens_EstimatedBits-12    	 1533604	       783 ns/op	   1.28 MB/s
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     268	   4316736 ns/op	17863385 B/op	      76 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	      98	  12760384 ns/op	11384364 B/op	   48290 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 9311566	       129 ns/op
+BenchmarkBaseTest2KB-12              	 1990322	       603 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   80726	     14708 ns/op	    9984 B/op	      15 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     919	   1301311 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4576852	       262 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12                	49185397	        23.2 ns/op
+BenchmarkCompactToHex-12                	32970016	        36.5 ns/op
+BenchmarkKeybytesToHex-12               	31046805	        38.5 ns/op
+BenchmarkHexToKeybytes-12               	50975974	        23.1 ns/op
+BenchmarkGet-12                         	 6335826	       190 ns/op
+BenchmarkGetDB-12                       	 6755006	       176 ns/op
+BenchmarkUpdateBE-12                    	 1000000	      1128 ns/op	    1804 B/op	       9 allocs/op
+BenchmarkUpdateLE-12                    	 1000000	      1396 ns/op	    1857 B/op	       9 allocs/op
+BenchmarkHash-12                        	  989790	      1375 ns/op	    1019 B/op	      13 allocs/op
+BenchmarkCommitAfterHash/no-onleaf-12   	  886714	      1771 ns/op	     809 B/op	       7 allocs/op
+BenchmarkCommitAfterHash/with-onleaf-12 	  617430	      1992 ns/op	     970 B/op	      13 allocs/op
+BenchmarkHashFixedSize/10-12            	   19388	     62044 ns/op	   12671 B/op	     176 allocs/op
+BenchmarkHashFixedSize/100-12           	    6594	    203979 ns/op	   60128 B/op	     854 allocs/op
+BenchmarkHashFixedSize/1K-12            	     796	   1504335 ns/op	  644193 B/op	    8911 allocs/op
+BenchmarkHashFixedSize/10K-12           	     132	   9003445 ns/op	 6674206 B/op	   91209 allocs/op
+BenchmarkHashFixedSize/100K-12          	      13	  87145661 ns/op	65565829 B/op	  904793 allocs/op
+BenchmarkCommitAfterHashFixedSize/10-12 	   44953	     26328 ns/op	   17066 B/op	     162 allocs/op
+BenchmarkCommitAfterHashFixedSize/100-12         	    9559	    133652 ns/op	   81231 B/op	     769 allocs/op
+BenchmarkCommitAfterHashFixedSize/1K-12          	    1015	   1178870 ns/op	  797506 B/op	    7831 allocs/op
+BenchmarkCommitAfterHashFixedSize/10K-12         	      85	  14218995 ns/op	 9281946 B/op	   80133 allocs/op
+BenchmarkCommitAfterHashFixedSize/100K-12        	       6	 176159246 ns/op	85963880 B/op	  797918 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkGet-12      	 6347013	       191 ns/op
+BenchmarkGetDB-12    	 6831247	       176 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24965747632 ns/op
+BenchmarkRun/10k/16-12      	       1	5234984853 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  297787	      4018 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1401591	       856 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   31046	     38629 ns/op
+BenchmarkDgeev/Circulant100-12        	     121	   9864742 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  60819912 ns/op
+BenchmarkScaleVec10000Inc20-12                	   51624	     22131 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1550413	       777 ns/op	     229 B/op	       7 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  459174	      2588 ns/op
+BenchmarkReaderContains-12    	  221360	      5467 ns/op
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  159568	      7351 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  190045	      6546 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      14	  79258021 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      56	  21114284 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  413336	      2994 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     121	   9845993 ns/op
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2812	    426921 ns/op
+BenchmarkGrowth_MultiSegment-12            	     100	  11781169 ns/op	  89.01 MB/s	 1648656 B/op	      21 allocs/op
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  908974	      1272 ns/op
+BenchmarkAddingFields/apex/log-12          	   41899	     28806 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   36439	     32509 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   36202	     33190 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 220593617 ns/op	  31.12 MB/s	159337494 B/op	   15143 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      42	  28416974 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   52983	     22864 ns/op	 358.29 MB/s
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2776867	       430 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  332785	      3602 ns/op
+BenchmarkPolygon-12    	  178480	      6693 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   68540	     17075 ns/op
+BenchmarkRegexMatch-12       	  862406	      1375 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    7982	    147902 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3694	    326553 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    3015	    398851 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  284418	      4212 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9674	    120042 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199098	      6018 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3511107	       343 ns/op
+BenchmarkParallelDirectSend-12    	 3489718	       346 ns/op
+BenchmarkParallelBrodcast-12      	 2293916	       528 ns/op
+BenchmarkMuxBrodcast-12           	 2194783	       527 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  665847	      1587 ns/op
+BenchmarkFtoaRegexTrailing-12    	  569080	      2107 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     903	   1314835 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/aws/aws-sdk-go/private/protocol/json/jsonutil
+BenchmarkBuildJSON-12     	  296498	      3968 ns/op
+BenchmarkStdlibJSON-12    	  267802	      4482 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.623 ns/op
+BenchmarkFPAQ-12    	      58	  20295014 ns/op
+BenchmarkLZ-12      	     793	   1482518 ns/op
+BenchmarkMTFT-12    	     325	   3855312 ns/op
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     206	   5701786 ns/op
+BenchmarkRenderSpec-12                	     207	   5714206 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     319	   3768060 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/dr2chase/benchmarks/klauspost
+Benchmark_tokens_EstimatedBits-12    	 1524349	       782 ns/op	   1.28 MB/s
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     277	   4322135 ns/op	17865268 B/op	      77 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	     100	  12637820 ns/op	11386716 B/op	   48365 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 8643747	       129 ns/op
+BenchmarkBaseTest2KB-12              	 1988397	       603 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   80557	     14705 ns/op	    9984 B/op	      15 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     920	   1291181 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4561066	       263 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12                	49155884	        23.3 ns/op
+BenchmarkCompactToHex-12                	32658027	        36.5 ns/op
+BenchmarkKeybytesToHex-12               	31122610	        38.6 ns/op
+BenchmarkHexToKeybytes-12               	49966879	        23.1 ns/op
+BenchmarkGet-12                         	 6212710	       192 ns/op
+BenchmarkGetDB-12                       	 6833348	       176 ns/op
+BenchmarkUpdateBE-12                    	 1000000	      1118 ns/op	    1804 B/op	       9 allocs/op
+BenchmarkUpdateLE-12                    	 1000000	      1396 ns/op	    1857 B/op	       9 allocs/op
+BenchmarkHash-12                        	 1000000	      1316 ns/op	    1019 B/op	      13 allocs/op
+BenchmarkCommitAfterHash/no-onleaf-12   	  696122	      1829 ns/op	     861 B/op	       7 allocs/op
+BenchmarkCommitAfterHash/with-onleaf-12 	  659833	      2082 ns/op	    1105 B/op	      13 allocs/op
+BenchmarkHashFixedSize/10-12            	   19603	     61775 ns/op	   12672 B/op	     176 allocs/op
+BenchmarkHashFixedSize/100-12           	    6595	    202943 ns/op	   60130 B/op	     854 allocs/op
+BenchmarkHashFixedSize/1K-12            	     794	   1484424 ns/op	  644188 B/op	    8911 allocs/op
+BenchmarkHashFixedSize/10K-12           	     133	   8922131 ns/op	 6674597 B/op	   91210 allocs/op
+BenchmarkHashFixedSize/100K-12          	      13	  81918958 ns/op	65566331 B/op	  904798 allocs/op
+BenchmarkCommitAfterHashFixedSize/10-12 	   46375	     26073 ns/op	   17065 B/op	     162 allocs/op
+BenchmarkCommitAfterHashFixedSize/100-12         	    9588	    134059 ns/op	   81222 B/op	     769 allocs/op
+BenchmarkCommitAfterHashFixedSize/1K-12          	    1009	   1178382 ns/op	  797493 B/op	    7831 allocs/op
+BenchmarkCommitAfterHashFixedSize/10K-12         	      81	  14286755 ns/op	 9282319 B/op	   80134 allocs/op
+BenchmarkCommitAfterHashFixedSize/100K-12        	       6	 180184169 ns/op	85964293 B/op	  797919 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkGet-12      	 6271746	       193 ns/op
+BenchmarkGetDB-12    	 6817926	       177 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24901650076 ns/op
+BenchmarkRun/10k/16-12      	       1	5181705661 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  298108	      4018 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1402388	       856 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   30757	     38738 ns/op
+BenchmarkDgeev/Circulant100-12        	     120	   9869542 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  60958877 ns/op
+BenchmarkScaleVec10000Inc20-12                	   52395	     22456 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1543262	       778 ns/op	     229 B/op	       7 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  455113	      2588 ns/op
+BenchmarkReaderContains-12    	  220058	      5540 ns/op
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  161980	      7315 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  190464	      6536 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      14	  79270890 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      56	  21113758 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  420729	      2957 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     121	   9891851 ns/op
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2989	    400953 ns/op
+BenchmarkGrowth_MultiSegment-12            	     100	  11781456 ns/op	  89.00 MB/s	 1648610 B/op	      21 allocs/op
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  866683	      1261 ns/op
+BenchmarkAddingFields/apex/log-12          	   42261	     29007 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   36609	     32737 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   36252	     33491 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 218903997 ns/op	  31.36 MB/s	159337531 B/op	   15145 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      42	  28083579 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   52862	     22634 ns/op	 361.93 MB/s
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2770390	       431 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  328125	      3614 ns/op
+BenchmarkPolygon-12    	  179502	      6759 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   70050	     17027 ns/op
+BenchmarkRegexMatch-12       	  860872	      1448 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    7956	    148120 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3675	    326868 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    3007	    399265 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  282781	      4204 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9654	    120284 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199099	      6015 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3560479	       336 ns/op
+BenchmarkParallelDirectSend-12    	 3476065	       347 ns/op
+BenchmarkParallelBrodcast-12      	 2289807	       520 ns/op
+BenchmarkMuxBrodcast-12           	 2284526	       522 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  692673	      1567 ns/op
+BenchmarkFtoaRegexTrailing-12    	  564075	      2134 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     910	   1313850 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/aws/aws-sdk-go/private/protocol/json/jsonutil
+BenchmarkBuildJSON-12     	  298772	      3969 ns/op
+BenchmarkStdlibJSON-12    	  267579	      4486 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.625 ns/op
+BenchmarkFPAQ-12    	      58	  20180865 ns/op
+BenchmarkLZ-12      	     811	   1481688 ns/op
+BenchmarkMTFT-12    	     324	   3757401 ns/op
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     208	   5711171 ns/op
+BenchmarkRenderSpec-12                	     208	   5712126 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     319	   3776579 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/dr2chase/benchmarks/klauspost
+Benchmark_tokens_EstimatedBits-12    	 1531686	       785 ns/op	   1.27 MB/s
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     276	   4276139 ns/op	17865080 B/op	      76 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	     100	  12694012 ns/op	11388194 B/op	   48266 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 9317101	       129 ns/op
+BenchmarkBaseTest2KB-12              	 1942680	       601 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   81568	     14713 ns/op	    9984 B/op	      15 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     920	   1294021 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4587510	       262 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12                	50252991	        23.3 ns/op
+BenchmarkCompactToHex-12                	32593242	        36.5 ns/op
+BenchmarkKeybytesToHex-12               	31106616	        38.3 ns/op
+BenchmarkHexToKeybytes-12               	51740656	        23.1 ns/op
+BenchmarkGet-12                         	 6319530	       190 ns/op
+BenchmarkGetDB-12                       	 6769353	       176 ns/op
+BenchmarkUpdateBE-12                    	 1000000	      1134 ns/op	    1804 B/op	       9 allocs/op
+BenchmarkUpdateLE-12                    	 1000000	      1403 ns/op	    1857 B/op	       9 allocs/op
+BenchmarkHash-12                        	  996621	      1548 ns/op	    1019 B/op	      13 allocs/op
+BenchmarkCommitAfterHash/no-onleaf-12   	  902336	      1732 ns/op	     806 B/op	       7 allocs/op
+BenchmarkCommitAfterHash/with-onleaf-12 	  617844	      1975 ns/op	     970 B/op	      13 allocs/op
+BenchmarkHashFixedSize/10-12            	   19279	     61655 ns/op	   12671 B/op	     176 allocs/op
+BenchmarkHashFixedSize/100-12           	    6619	    202664 ns/op	   60147 B/op	     854 allocs/op
+BenchmarkHashFixedSize/1K-12            	     801	   1490224 ns/op	  644230 B/op	    8911 allocs/op
+BenchmarkHashFixedSize/10K-12           	     133	   9029078 ns/op	 6674142 B/op	   91208 allocs/op
+BenchmarkHashFixedSize/100K-12          	      14	  86829483 ns/op	65569369 B/op	  904815 allocs/op
+BenchmarkCommitAfterHashFixedSize/10-12 	   46161	     25826 ns/op	   17067 B/op	     162 allocs/op
+BenchmarkCommitAfterHashFixedSize/100-12         	    9690	    133663 ns/op	   81233 B/op	     769 allocs/op
+BenchmarkCommitAfterHashFixedSize/1K-12          	    1014	   1179063 ns/op	  797520 B/op	    7831 allocs/op
+BenchmarkCommitAfterHashFixedSize/10K-12         	      82	  14162229 ns/op	 9283313 B/op	   80137 allocs/op
+BenchmarkCommitAfterHashFixedSize/100K-12        	       6	 182679961 ns/op	85966829 B/op	  797926 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkGet-12      	 6262053	       190 ns/op
+BenchmarkGetDB-12    	 6797527	       175 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24934068448 ns/op
+BenchmarkRun/10k/16-12      	       1	5248399218 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  296913	      4019 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1402014	       856 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   29722	     39162 ns/op
+BenchmarkDgeev/Circulant100-12        	     120	   9873934 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  60737275 ns/op
+BenchmarkScaleVec10000Inc20-12                	   51304	     22551 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1523258	       779 ns/op	     229 B/op	       7 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  452443	      2585 ns/op
+BenchmarkReaderContains-12    	  219368	      5527 ns/op
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  161701	      7326 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  191829	      6547 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      14	  79243938 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      56	  20911351 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  406676	      3060 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     121	   9836183 ns/op
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2979	    400698 ns/op
+BenchmarkGrowth_MultiSegment-12            	     100	  11790981 ns/op	  88.93 MB/s	 1648631 B/op	      21 allocs/op
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  886675	      1278 ns/op
+BenchmarkAddingFields/apex/log-12          	   40636	     29036 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   36454	     32646 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   36334	     33311 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 220341639 ns/op	  31.16 MB/s	159338857 B/op	   15149 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      40	  28568157 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   52831	     22681 ns/op	 361.18 MB/s
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2783191	       431 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  330189	      3639 ns/op
+BenchmarkPolygon-12    	  179073	      6694 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   70153	     16983 ns/op
+BenchmarkRegexMatch-12       	  855577	      1406 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    7851	    148821 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3697	    327448 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    3015	    401659 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  284916	      4205 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9786	    119827 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  198558	      6018 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3599404	       334 ns/op
+BenchmarkParallelDirectSend-12    	 3451644	       345 ns/op
+BenchmarkParallelBrodcast-12      	 2283339	       520 ns/op
+BenchmarkMuxBrodcast-12           	 2228539	       523 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  691870	      1565 ns/op
+BenchmarkFtoaRegexTrailing-12    	  572316	      2120 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     908	   1324192 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/aws/aws-sdk-go/private/protocol/json/jsonutil
+BenchmarkBuildJSON-12     	  295002	      3970 ns/op
+BenchmarkStdlibJSON-12    	  266640	      4478 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.624 ns/op
+BenchmarkFPAQ-12    	      60	  20191384 ns/op
+BenchmarkLZ-12      	     811	   1482832 ns/op
+BenchmarkMTFT-12    	     320	   3799472 ns/op
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     208	   5723592 ns/op
+BenchmarkRenderSpec-12                	     208	   5741378 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     315	   3791410 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/dr2chase/benchmarks/klauspost
+Benchmark_tokens_EstimatedBits-12    	 1532734	       784 ns/op	   1.28 MB/s
+goos: linux
+goarch: amd64
+pkg: github.com/minio/minio/cmd
+BenchmarkGetObject5MbFS-12    	     274	   4377388 ns/op	17865279 B/op	      77 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core
+BenchmarkInsertChain_ring1000_memdb-12    	      97	  12676497 ns/op	11371431 B/op	   48200 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/common/bitutil
+BenchmarkFastTest2KB-12              	 9311583	       129 ns/op
+BenchmarkBaseTest2KB-12              	 1992990	       605 ns/op
+BenchmarkEncoding4KBVerySparse-12    	   80924	     14703 ns/op	    9984 B/op	      15 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/consensus/ethash
+BenchmarkHashimotoLight-12    	     924	   1288664 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/core/vm
+BenchmarkOpDiv128-12    	 4567287	       262 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkHexToCompact-12                	46281750	        23.5 ns/op
+BenchmarkCompactToHex-12                	32404747	        36.6 ns/op
+BenchmarkKeybytesToHex-12               	30528362	        38.3 ns/op
+BenchmarkHexToKeybytes-12               	51346974	        23.1 ns/op
+BenchmarkGet-12                         	 6346090	       190 ns/op
+BenchmarkGetDB-12                       	 6670214	       176 ns/op
+BenchmarkUpdateBE-12                    	 1000000	      1140 ns/op	    1804 B/op	       9 allocs/op
+BenchmarkUpdateLE-12                    	 1000000	      1405 ns/op	    1857 B/op	       9 allocs/op
+BenchmarkHash-12                        	 1000000	      1431 ns/op	    1019 B/op	      13 allocs/op
+BenchmarkCommitAfterHash/no-onleaf-12   	  874408	      1718 ns/op	     812 B/op	       7 allocs/op
+BenchmarkCommitAfterHash/with-onleaf-12 	  578491	      2021 ns/op	     977 B/op	      13 allocs/op
+BenchmarkHashFixedSize/10-12            	   19544	     61626 ns/op	   12673 B/op	     176 allocs/op
+BenchmarkHashFixedSize/100-12           	    6532	    202140 ns/op	   60132 B/op	     854 allocs/op
+BenchmarkHashFixedSize/1K-12            	     802	   1493757 ns/op	  644353 B/op	    8912 allocs/op
+BenchmarkHashFixedSize/10K-12           	     134	   8941367 ns/op	 6674681 B/op	   91211 allocs/op
+BenchmarkHashFixedSize/100K-12          	      12	  83506808 ns/op	65568070 B/op	  904811 allocs/op
+BenchmarkCommitAfterHashFixedSize/10-12 	   45822	     26370 ns/op	   17068 B/op	     162 allocs/op
+BenchmarkCommitAfterHashFixedSize/100-12         	    9765	    133195 ns/op	   81226 B/op	     769 allocs/op
+BenchmarkCommitAfterHashFixedSize/1K-12          	    1016	   1176090 ns/op	  797529 B/op	    7831 allocs/op
+BenchmarkCommitAfterHashFixedSize/10K-12         	      84	  14245397 ns/op	 9282405 B/op	   80134 allocs/op
+BenchmarkCommitAfterHashFixedSize/100K-12        	       6	 180082380 ns/op	85962296 B/op	  797913 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/ethereum/go-ethereum/trie
+BenchmarkGet-12      	 6279124	       192 ns/op
+BenchmarkGetDB-12    	 6752090	       177 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/egonelbre/spexs2/_benchmark
+BenchmarkRun/10k/1-12       	       1	24909111178 ns/op
+BenchmarkRun/10k/16-12      	       1	5195881173 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/blas/gonum
+BenchmarkDnrm2MediumPosInc-12        	  297829	      4020 ns/op
+BenchmarkDasumMediumUnitaryInc-12    	 1401950	       856 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/lapack/gonum
+BenchmarkDgeev/Circulant10-12         	   30236	     38906 ns/op
+BenchmarkDgeev/Circulant100-12        	     121	   9869065 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/mat
+BenchmarkMulWorkspaceDense1000Hundredth-12    	     100	  60789095 ns/op
+BenchmarkScaleVec10000Inc20-12                	   52143	     22436 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/Masterminds/semver/v3
+BenchmarkValidateVersionTildeFail-12    	 1557006	       770 ns/op	     229 B/op	       7 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/gohugoio/hugo/helpers
+BenchmarkStripHTML-12         	  460299	      2587 ns/op
+BenchmarkReaderContains-12    	  218590	      5470 ns/op
+goos: linux
+goarch: amd64
+pkg: k8s.io/kubernetes/pkg/api/testing
+BenchmarkEncodeCodecFromInternalProtobuf-12    	  163239	      7333 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/topo
+BenchmarkTarjanSCCGnp_10_tenth-12     	  189940	      6583 ns/op
+BenchmarkTarjanSCCGnp_1000_half-12    	      14	  79182300 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/community
+BenchmarkLouvainDirectedMultiplex-12    	      55	  21174722 ns/op
+goos: linux
+goarch: amd64
+pkg: gonum.org/v1/gonum/graph/traverse
+BenchmarkWalkAllBreadthFirstGnp_10_tenth-12      	  418798	      2990 ns/op
+BenchmarkWalkAllBreadthFirstGnp_1000_tenth-12    	     121	   9819044 ns/op
+goos: linux
+goarch: amd64
+pkg: zombiezen.com/go/capnproto2
+BenchmarkTextMovementBetweenSegments-12    	    2816	    427025 ns/op
+BenchmarkGrowth_MultiSegment-12            	     100	  11809450 ns/op	  88.79 MB/s	 1648632 B/op	      21 allocs/op
+goos: linux
+goarch: amd64
+pkg: go.uber.org/zap/benchmarks
+BenchmarkAddingFields/Zap.Sugar-12         	  838098	      1276 ns/op
+BenchmarkAddingFields/apex/log-12          	   41882	     28848 ns/op
+BenchmarkAddingFields/inconshreveable/log15-12         	   36712	     33158 ns/op
+BenchmarkAddingFields/sirupsen/logrus-12               	   35312	     33522 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/kevinburke/go-bindata
+BenchmarkBindata-12         	       5	 219780888 ns/op	  31.24 MB/s	159338856 B/op	   15150 allocs/op
+goos: linux
+goarch: amd64
+pkg: github.com/cespare/mph
+BenchmarkBuild-12    	      43	  28073009 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/gtank/blake2s
+BenchmarkHash8K-12    	   52825	     22693 ns/op	 360.99 MB/s
+goos: linux
+goarch: amd64
+pkg: github.com/nelsam/gxui/interval
+BenchmarkGeneral-12    	 2766753	       431 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/ajstarks/deck/generate
+BenchmarkArc-12        	  332847	      3599 ns/op
+BenchmarkPolygon-12    	  177618	      6697 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/benhoyt/goawk/interp
+BenchmarkRecursiveFunc-12    	   69840	     17094 ns/op
+BenchmarkRegexMatch-12       	  866992	      1391 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/ericlagergren/decimal/benchmarks
+BenchmarkPi/foo=ericlagergren_(Go)/prec=100-12         	    7878	    148456 ns/op
+BenchmarkPi/foo=ericlagergren_(GDA)/prec=100-12        	    3690	    326953 ns/op
+BenchmarkPi/foo=shopspring/prec=100-12                 	    2997	    396991 ns/op
+BenchmarkPi/foo=apmckinlay/prec=100-12                 	  284728	      4212 ns/op
+BenchmarkPi/foo=go-inf/prec=100-12                     	    9708	    119829 ns/op
+BenchmarkPi/foo=float64/prec=100-12                    	  199190	      6045 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-broadcast
+BenchmarkDirectSend-12            	 3620311	       334 ns/op
+BenchmarkParallelDirectSend-12    	 3481533	       344 ns/op
+BenchmarkParallelBrodcast-12      	 2297464	       521 ns/op
+BenchmarkMuxBrodcast-12           	 2363049	       518 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/dustin/go-humanize
+BenchmarkParseBigBytes-12        	  714385	      1567 ns/op
+BenchmarkFtoaRegexTrailing-12    	  565544	      2112 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/rcrowley/go-metrics
+BenchmarkCompute1000000-12    	     912	   1318504 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/aws/aws-sdk-go/private/protocol/json/jsonutil
+BenchmarkBuildJSON-12     	  293557	      3972 ns/op
+BenchmarkStdlibJSON-12    	  268208	      4495 ns/op
+goos: linux
+goarch: amd64
+pkg: github.com/flanglet/kanzi-go/benchmark
+BenchmarkBWTS-12    	1000000000	         0.624 ns/op
+BenchmarkFPAQ-12    	      58	  20255449 ns/op
+BenchmarkLZ-12      	     813	   1481238 ns/op
+BenchmarkMTFT-12    	     304	   3752120 ns/op
+goos: linux
+goarch: amd64
+pkg: gitlab.com/golang-commonmark/markdown
+BenchmarkRenderSpecNoHTML-12          	     208	   5729845 ns/op
+BenchmarkRenderSpec-12                	     208	   5732540 ns/op
+BenchmarkRenderSpecBlackFriday2-12    	     313	   3780939 ns/op
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkrcrowley_metrics_total 1 4015251 total-bytes
+Benchmarkrcrowley_metrics_text 1 1386708 text-bytes
+Benchmarkrcrowley_metrics_data 1 36016 data-bytes
+Benchmarkrcrowley_metrics_rodata 1 524821 rodata-bytes
+Benchmarkrcrowley_metrics_pclntab 1 809141 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkbindata_total 1 11082718 total-bytes
+Benchmarkbindata_text 1 1516404 text-bytes
+Benchmarkbindata_data 1 36688 data-bytes
+Benchmarkbindata_rodata 1 554992 rodata-bytes
+Benchmarkbindata_pclntab 1 806020 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarksemver_total 1 3786853 total-bytes
+Benchmarksemver_text 1 1317748 text-bytes
+Benchmarksemver_data 1 34512 data-bytes
+Benchmarksemver_rodata 1 515140 rodata-bytes
+Benchmarksemver_pclntab 1 723496 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkgtank_blake2s_total 1 3623400 total-bytes
+Benchmarkgtank_blake2s_text 1 1254164 text-bytes
+Benchmarkgtank_blake2s_data 1 33776 data-bytes
+Benchmarkgtank_blake2s_rodata 1 466512 rodata-bytes
+Benchmarkgtank_blake2s_pclntab 1 689662 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkethereum_bitutil_total 1 3517338 total-bytes
+Benchmarkethereum_bitutil_text 1 1203412 text-bytes
+Benchmarkethereum_bitutil_data 1 34256 data-bytes
+Benchmarkethereum_bitutil_rodata 1 451637 rodata-bytes
+Benchmarkethereum_bitutil_pclntab 1 674536 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkcespare_xxhash_total 1 3273689 total-bytes
+Benchmarkcespare_xxhash_text 1 1099956 text-bytes
+Benchmarkcespare_xxhash_data 1 32720 data-bytes
+Benchmarkcespare_xxhash_rodata 1 429117 rodata-bytes
+Benchmarkcespare_xxhash_pclntab 1 627731 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkethereum_storage_total 1 12226997 total-bytes
+Benchmarkethereum_storage_text 1 4498529 text-bytes
+Benchmarkethereum_storage_data 1 141648 data-bytes
+Benchmarkethereum_storage_rodata 1 1635088 rodata-bytes
+Benchmarkethereum_storage_pclntab 1 2302561 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkcespare_mph_total 1 3267404 total-bytes
+Benchmarkcespare_mph_text 1 1098932 text-bytes
+Benchmarkcespare_mph_data 1 33264 data-bytes
+Benchmarkcespare_mph_rodata 1 427449 rodata-bytes
+Benchmarkcespare_mph_pclntab 1 625119 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkkanzi_total 1 3838961 total-bytes
+Benchmarkkanzi_text 1 1290100 text-bytes
+Benchmarkkanzi_data 1 33328 data-bytes
+Benchmarkkanzi_rodata 1 472508 rodata-bytes
+Benchmarkkanzi_pclntab 1 708373 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkethereum_ethash_total 1 11354263 total-bytes
+Benchmarkethereum_ethash_text 1 4414177 text-bytes
+Benchmarkethereum_ethash_data 1 53904 data-bytes
+Benchmarkethereum_ethash_rodata 1 1618184 rodata-bytes
+Benchmarkethereum_ethash_pclntab 1 2213494 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkuber_zap_total 1 5769831 total-bytes
+Benchmarkuber_zap_text 1 2073236 text-bytes
+Benchmarkuber_zap_data 1 39120 data-bytes
+Benchmarkuber_zap_rodata 1 756911 rodata-bytes
+Benchmarkuber_zap_pclntab 1 1111462 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkaws_jsonutil_total 1 6171406 total-bytes
+Benchmarkaws_jsonutil_text 1 2477300 text-bytes
+Benchmarkaws_jsonutil_data 1 40144 data-bytes
+Benchmarkaws_jsonutil_rodata 1 1039617 rodata-bytes
+Benchmarkaws_jsonutil_pclntab 1 987893 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkk8s_schedulercache_total 1 32292722 total-bytes
+Benchmarkk8s_schedulercache_text 1 13755220 text-bytes
+Benchmarkk8s_schedulercache_data 1 64688 data-bytes
+Benchmarkk8s_schedulercache_rodata 1 4025984 rodata-bytes
+Benchmarkk8s_schedulercache_pclntab 1 7250872 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkgonum_lapack_native_total 1 6065290 total-bytes
+Benchmarkgonum_lapack_native_text 1 2461140 text-bytes
+Benchmarkgonum_lapack_native_data 1 36432 data-bytes
+Benchmarkgonum_lapack_native_rodata 1 759218 rodata-bytes
+Benchmarkgonum_lapack_native_pclntab 1 958099 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkgonum_mat_total 1 6639610 total-bytes
+Benchmarkgonum_mat_text 1 2775764 text-bytes
+Benchmarkgonum_mat_data 1 55568 data-bytes
+Benchmarkgonum_mat_rodata 1 816115 rodata-bytes
+Benchmarkgonum_mat_pclntab 1 1139531 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkgonum_topo_total 1 3702637 total-bytes
+Benchmarkgonum_topo_text 1 1266772 text-bytes
+Benchmarkgonum_topo_data 1 40592 data-bytes
+Benchmarkgonum_topo_rodata 1 508301 rodata-bytes
+Benchmarkgonum_topo_pclntab 1 696598 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkgonum_traverse_total 1 3417401 total-bytes
+Benchmarkgonum_traverse_text 1 1137172 text-bytes
+Benchmarkgonum_traverse_data 1 34864 data-bytes
+Benchmarkgonum_traverse_rodata 1 466035 rodata-bytes
+Benchmarkgonum_traverse_pclntab 1 651074 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkericlagergren_decimal_total 1 4003254 total-bytes
+Benchmarkericlagergren_decimal_text 1 1389396 text-bytes
+Benchmarkericlagergren_decimal_data 1 35152 data-bytes
+Benchmarkericlagergren_decimal_rodata 1 510628 rodata-bytes
+Benchmarkericlagergren_decimal_pclntab 1 773123 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkethereum_trieg_total 1 7381669 total-bytes
+Benchmarkethereum_trieg_text 1 2837409 text-bytes
+Benchmarkethereum_trieg_data 1 39056 data-bytes
+Benchmarkethereum_trieg_rodata 1 964392 rodata-bytes
+Benchmarkethereum_trieg_pclntab 1 1491466 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkdustin_broadcast_total 1 3285960 total-bytes
+Benchmarkdustin_broadcast_text 1 1101588 text-bytes
+Benchmarkdustin_broadcast_data 1 32816 data-bytes
+Benchmarkdustin_broadcast_rodata 1 433828 rodata-bytes
+Benchmarkdustin_broadcast_pclntab 1 630414 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkcommonmark_markdown_total 1 4961144 total-bytes
+Benchmarkcommonmark_markdown_text 1 1719828 text-bytes
+Benchmarkcommonmark_markdown_data 1 52112 data-bytes
+Benchmarkcommonmark_markdown_rodata 1 765760 rodata-bytes
+Benchmarkcommonmark_markdown_pclntab 1 931613 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkethereum_trie_total 1 7381669 total-bytes
+Benchmarkethereum_trie_text 1 2837409 text-bytes
+Benchmarkethereum_trie_data 1 39056 data-bytes
+Benchmarkethereum_trie_rodata 1 964392 rodata-bytes
+Benchmarkethereum_trie_pclntab 1 1491466 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkhugo_helpers_total 1 19671138 total-bytes
+Benchmarkhugo_helpers_text 1 8195412 text-bytes
+Benchmarkhugo_helpers_data 1 130592 data-bytes
+Benchmarkhugo_helpers_rodata 1 3591424 rodata-bytes
+Benchmarkhugo_helpers_pclntab 1 3463740 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkethereum_core_total 1 14507363 total-bytes
+Benchmarkethereum_core_text 1 5609569 text-bytes
+Benchmarkethereum_core_data 1 53968 data-bytes
+Benchmarkethereum_core_rodata 1 2333896 rodata-bytes
+Benchmarkethereum_core_pclntab 1 2784345 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkgonum_blas_native_total 1 4820862 total-bytes
+Benchmarkgonum_blas_native_text 1 1913460 text-bytes
+Benchmarkgonum_blas_native_data 1 73784 data-bytes
+Benchmarkgonum_blas_native_rodata 1 608387 rodata-bytes
+Benchmarkgonum_blas_native_pclntab 1 814420 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkminio_total 1 50031555 total-bytes
+Benchmarkminio_text 1 18754548 text-bytes
+Benchmarkminio_data 1 130936 data-bytes
+Benchmarkminio_rodata 1 6907064 rodata-bytes
+Benchmarkminio_pclntab 1 9043002 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkklauspost_total 1 3244043 total-bytes
+Benchmarkklauspost_text 1 1087028 text-bytes
+Benchmarkklauspost_data 1 32624 data-bytes
+Benchmarkklauspost_rodata 1 424575 rodata-bytes
+Benchmarkklauspost_pclntab 1 620750 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkcapnproto2_total 1 4734506 total-bytes
+Benchmarkcapnproto2_text 1 1717300 text-bytes
+Benchmarkcapnproto2_data 1 37424 data-bytes
+Benchmarkcapnproto2_rodata 1 671557 rodata-bytes
+Benchmarkcapnproto2_pclntab 1 908376 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkgonum_path_total 1 3829618 total-bytes
+Benchmarkgonum_path_text 1 1311860 text-bytes
+Benchmarkgonum_path_data 1 51824 data-bytes
+Benchmarkgonum_path_rodata 1 523145 rodata-bytes
+Benchmarkgonum_path_pclntab 1 729057 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkajstarks_deck_generate_total 1 3459058 total-bytes
+Benchmarkajstarks_deck_generate_text 1 1177962 text-bytes
+Benchmarkajstarks_deck_generate_data 1 33488 data-bytes
+Benchmarkajstarks_deck_generate_rodata 1 460282 rodata-bytes
+Benchmarkajstarks_deck_generate_pclntab 1 655783 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarknelsam_gxui_interval_total 1 3354005 total-bytes
+Benchmarknelsam_gxui_interval_text 1 1137940 text-bytes
+Benchmarknelsam_gxui_interval_data 1 33584 data-bytes
+Benchmarknelsam_gxui_interval_rodata 1 436022 rodata-bytes
+Benchmarknelsam_gxui_interval_pclntab 1 645949 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkgonum_community_total 1 4040030 total-bytes
+Benchmarkgonum_community_text 1 1444788 text-bytes
+Benchmarkgonum_community_data 1 57584 data-bytes
+Benchmarkgonum_community_rodata 1 534672 rodata-bytes
+Benchmarkgonum_community_pclntab 1 745607 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkk8s_api_total 1 34995728 total-bytes
+Benchmarkk8s_api_text 1 14833076 text-bytes
+Benchmarkk8s_api_data 1 62192 data-bytes
+Benchmarkk8s_api_rodata 1 4165710 rodata-bytes
+Benchmarkk8s_api_pclntab 1 8196838 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkdustin_humanize_total 1 3829785 total-bytes
+Benchmarkdustin_humanize_text 1 1351220 text-bytes
+Benchmarkdustin_humanize_data 1 34384 data-bytes
+Benchmarkdustin_humanize_rodata 1 512007 rodata-bytes
+Benchmarkdustin_humanize_pclntab 1 722966 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkbenhoyt_goawk_total 1 4037818 total-bytes
+Benchmarkbenhoyt_goawk_text 1 1391594 text-bytes
+Benchmarkbenhoyt_goawk_data 1 34288 data-bytes
+Benchmarkbenhoyt_goawk_rodata 1 601984 rodata-bytes
+Benchmarkbenhoyt_goawk_pclntab 1 759427 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkethereum_corevm_total 1 7178474 total-bytes
+Benchmarkethereum_corevm_text 1 2620833 text-bytes
+Benchmarkethereum_corevm_data 1 44688 data-bytes
+Benchmarkethereum_corevm_rodata 1 1065704 rodata-bytes
+Benchmarkethereum_corevm_pclntab 1 1395570 pclntab-bytes
+goos: linux
+goarch: amd64
+pkg:
+Benchmarkspexs2_total 1 3697042 total-bytes
+Benchmarkspexs2_text 1 1277108 text-bytes
+Benchmarkspexs2_data 1 33392 data-bytes
+Benchmarkspexs2_rodata 1 484381 rodata-bytes
+Benchmarkspexs2_pclntab 1 710972 pclntab-bytes
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-1897597
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-1897597
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1897597
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1897597
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-1900482
+tmp dwarf args quality wc =  6 tmp-bench-dwarf-1900482
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1900482
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1900482
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-1900721
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-1900721
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1900721
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1900721
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-1900960
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-1900960
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1900960
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1900960
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-1901212
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-1901212
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1901212
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1901212
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-1902202
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-1902202
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1902202
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1902202
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-1908094
+tmp dwarf args quality wc =  65 tmp-bench-dwarf-1908094
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1908094
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1908094
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-1909732
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-1909732
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1909732
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1909732
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-1910303
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-1910303
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1910303
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1910303
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-1911382
+tmp dwarf args quality wc =  50 tmp-bench-dwarf-1911382
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1911382
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1911382
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-1911869
+tmp dwarf args quality wc =  7 tmp-bench-dwarf-1911869
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1911869
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1911869
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-1912642
+tmp dwarf args quality wc =  7 tmp-bench-dwarf-1912642
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1912642
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1912642
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-1914956
+tmp dwarf args quality wc =  36 tmp-bench-dwarf-1914956
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1914956
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1914956
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-1916113
+tmp dwarf args quality wc =  5 tmp-bench-dwarf-1916113
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1916113
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1916113
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-1918124
+tmp dwarf args quality wc =  9 tmp-bench-dwarf-1918124
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1918124
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1918124
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-1921155
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-1921155
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1921155
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1921155
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-1922034
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-1922034
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1922034
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1922034
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-1923016
+tmp dwarf args quality wc =  6 tmp-bench-dwarf-1923016
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1923016
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1923016
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-1923772
+tmp dwarf args quality wc =  41 tmp-bench-dwarf-1923772
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1923772
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1923772
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-1924007
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-1924007
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1924007
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1924007
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-1924330
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-1924330
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1924330
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1924330
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-1925089
+tmp dwarf args quality wc =  41 tmp-bench-dwarf-1925089
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1925089
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1925089
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-1926754
+tmp dwarf args quality wc =  26 tmp-bench-dwarf-1926754
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1926754
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1926754
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-1927882
+tmp dwarf args quality wc =  52 tmp-bench-dwarf-1927882
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1927882
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1927882
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-1928545
+tmp dwarf args quality wc =  5 tmp-bench-dwarf-1928545
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1928545
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1928545
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-1933155
+tmp dwarf args quality wc =  128 tmp-bench-dwarf-1933155
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1933155
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1933155
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-1933751
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-1933751
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1933751
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1933751
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-1934150
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-1934150
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1934150
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1934150
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-1936393
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-1936393
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1936393
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1936393
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-1936643
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-1936643
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1936643
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1936643
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-1936885
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-1936885
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1936885
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1936885
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-1938040
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-1938040
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1938040
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1938040
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-1945589
+tmp dwarf args quality wc =  25 tmp-bench-dwarf-1945589
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1945589
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1945589
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-1945858
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-1945858
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1945858
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1945858
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-1946151
+tmp dwarf args quality wc =  6 tmp-bench-dwarf-1946151
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1946151
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1946151
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  3 tmp-bench-dwarf-1947352
+tmp dwarf args quality wc =  40 tmp-bench-dwarf-1947352
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1947352
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1947352
+goos: linux
+goarch: amd64
+pkg:
+tmp dwarf line quality wc =  2 tmp-bench-dwarf-1947744
+tmp dwarf args quality wc =  4 tmp-bench-dwarf-1947744
+tmp stmt args quality wc =  2 tmp-bench-dwarf-1947744
+tmp stmt args kind quality wc =  2 tmp-bench-dwarf-1947744
+goos: linux
+goarch: amd64
+pkg:
