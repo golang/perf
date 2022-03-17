@@ -5,9 +5,10 @@
 package benchfmt
 
 import (
+	"errors"
+	"io/fs"
 	"os"
 	"strings"
-	"syscall"
 	"testing"
 )
 
@@ -45,17 +46,17 @@ func TestFiles(t *testing.T) {
 		}
 
 		err := f.Err()
-		wantErr := ""
-		if len(want) == 1 && strings.HasPrefix(want[0], "err ") {
-			wantErr = want[0][len("err "):]
+		noent := errors.Is(err, fs.ErrNotExist)
+		wantNoent := len(want) == 1 && strings.HasPrefix(want[0], "ErrNotExist")
+		if wantNoent {
 			want = want[1:]
 		}
-		if err == nil && wantErr != "" {
-			t.Errorf("got success, want error %s", wantErr)
-		} else if err != nil && wantErr == "" {
-			t.Errorf("got error %s", err)
-		} else if err != nil && err.Error() != wantErr {
-			t.Errorf("got error %s, want error %s", err, wantErr)
+		if err != nil && !noent {
+			t.Errorf("got unexpected error %s", err)
+		} else if noent && !wantNoent {
+			t.Errorf("got %s, want success", err)
+		} else if !noent && wantNoent {
+			t.Errorf("got success, want ErrNotExist")
 		}
 
 		if len(want) != 0 {
@@ -70,7 +71,7 @@ func TestFiles(t *testing.T) {
 	)
 	check(
 		&Files{Paths: []string{"a", "b", "c", "d"}},
-		"a X", "a Y", "b Z", "err open c: "+syscall.ENOENT.Error(),
+		"a X", "a Y", "b Z", "ErrNotExist",
 	)
 
 	// Ambiguous paths.
@@ -82,7 +83,7 @@ func TestFiles(t *testing.T) {
 	// AllowStdin.
 	check(
 		&Files{Paths: []string{"-"}},
-		"err open -: "+syscall.ENOENT.Error(),
+		"ErrNotExist",
 	)
 	fakeStdin("BenchmarkIn 1 1 ns/op\n", func() {
 		check(
