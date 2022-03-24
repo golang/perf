@@ -16,7 +16,7 @@ import (
 	"testing"
 
 	"golang.org/x/perf/benchfmt"
-	"golang.org/x/perf/internal/benchseries"
+	"golang.org/x/perf/benchseries"
 )
 
 var bo *benchseries.BuilderOptions

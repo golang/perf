@@ -12,7 +12,7 @@ import (
 
 	// "github.com/dr2chase/debug-server/debug_client"
 	"golang.org/x/perf/benchfmt"
-	"golang.org/x/perf/internal/benchseries"
+	"golang.org/x/perf/benchseries"
 	// "runtime"
 )
 
