@@ -137,7 +137,7 @@ func main() {
 
 	// Bootstrap and add (missing, if some already supplied by JSON) summaries.
 	for _, c := range comparisons {
-		c.AddSummaries(os.Stdout, confidence, 1000)
+		c.AddSummaries(confidence, 1000)
 	}
 
 	// Generate some output.  Options include CSV, JSON, PNG, perhaps also PDF and SVG.

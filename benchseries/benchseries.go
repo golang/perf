@@ -6,7 +6,6 @@ package benchseries
 
 import (
 	"fmt"
-	"io"
 	"math"
 	"math/rand"
 	"os"
@@ -887,7 +886,7 @@ func (a *ComparisonSummary) HeurOverlap(b *ComparisonSummary, threshold float64)
 // confidence interval) for the comparison series cs.  The 3rd parameter N specifies
 // the number of sampled bootstraps to use; 1000 is recommended, but 500 is good enough
 // for testing.
-func (cs *ComparisonSeries) AddSummaries(out io.Writer, confidence float64, N int) {
+func (cs *ComparisonSeries) AddSummaries(confidence float64, N int) {
 	fn := withBootstrap(confidence, N)
 	var tab [][]*ComparisonSummary
 	for _, s := range cs.Series {

@@ -142,7 +142,7 @@ func combineFilesAndJson(t *testing.T, files []string, jsonFile string) []*bench
 	comparisons = builder.AllComparisonSeries(comparisons, benchseries.DUPE_REPLACE)
 
 	for _, c := range comparisons {
-		c.AddSummaries(os.Stdout, 0.95, 500) // 500 is faster than 1000.
+		c.AddSummaries(0.95, 500) // 500 is faster than 1000.
 	}
 
 	return comparisons
