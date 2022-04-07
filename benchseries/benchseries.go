@@ -138,15 +138,16 @@ type Builder struct {
 }
 
 type BuilderOptions struct {
-	Filter          string // how to filter benchmark results, as a benchproc option.  E.g. ".unit:/.*/"
+	Filter          string // how to filter benchmark results, as a benchproc option (e.g., ".unit:/.*/")
 	Series          string // the name of the benchmark key that contains the time of the last commit to the experiment branch (e.g. "numerator_stamp", "tip-commit-time")
+	Table           string // list of benchmark keys to group ComparisonSeries tables by, in addition to .unit (e.g., "goarch,goos", "" (none))
 	Experiment      string // the name of the benchmark key that contains the time at which the comparative benchmarks were run (e.g., "upload-time", "runstamp")
 	Compare         string // the name of the benchmark key that contains the id/role of the toolchain being compared (e.g., "toolchain", "role")
 	Numerator       string // the value of the Compare key that indicates the numerator in the ratios (i.e., "test", "tip", "experiment")
 	Denominator     string // the value of the Compare key that indicates the denominator in the ratios (i.e., "control", "base", "baseline")
 	NumeratorHash   string // the name of the benchmark key that contains the git hash of the numerator (test) toolchain
 	DenominatorHash string // the name of the benchmark key that contains the git hash of the denominator (control) toolchain
-	Ignore          string // hot to ignore benchmark keysm as a benchproc option.  E.g. "tip,base,bentstamp,suite"
+	Ignore          string // list of benchmark keys to ignore entirely (e.g. "tip,base,bentstamp,suite")
 	Warn            func(format string, args ...interface{})
 }
 
@@ -154,6 +155,7 @@ func BentBuilderOptions() *BuilderOptions {
 	return &BuilderOptions{
 		Filter:          ".unit:/.*/",
 		Series:          "numerator_stamp",
+		Table:           "goarch,goos,builder_id",
 		Experiment:      "runstamp",
 		Compare:         "toolchain",
 		Numerator:       "Tip",
@@ -171,13 +173,14 @@ func DefaultBuilderOptions() *BuilderOptions {
 	return &BuilderOptions{
 		Filter:          ".unit:/.*/",
 		Series:          "experiment-commit-time",
-		Experiment:      "runstamp", // Is this right?
+		Table:           "", // .unit only
+		Experiment:      "runstamp",
 		Compare:         "toolchain",
 		Numerator:       "experiment",
 		Denominator:     "baseline",
 		NumeratorHash:   "experiment-commit",
 		DenominatorHash: "baseline-commit",
-		Ignore:          "go,tip,base,bentstamp",
+		Ignore:          "go,tip,base,bentstamp,shortname,suite",
 		Warn: func(format string, args ...interface{}) {
 			fmt.Fprintf(os.Stderr, format, args...)
 		},
@@ -207,6 +210,12 @@ func NormalizeDateString(in string) string {
 	panic(err)
 }
 
+// ParseNormalizedDateString parses a time in the format returned by
+// NormalizeDateString.
+func ParseNormalizedDateString(in string) (time.Time, error) {
+	return time.Parse(RFC3339NanoNoZ, in)
+}
+
 // NewBuilder creates a new Builder for collecting benchmark results
 // into tables. Each result will be mapped to a Table by seriesBy.
 // Within each table, the results are mapped to cells by benchBy and
@@ -234,9 +243,9 @@ func NewBuilder(bo *BuilderOptions) (*Builder, error) {
 		panic("Couldn't parse the unit schema")
 	}
 
-	tableBy, err := parser.Parse("goarch,goos,builder_id", nil) // arguably we configure this too.
+	tableBy, err := parser.Parse(bo.Table, nil)
 	if err != nil {
-		panic("Couldn't parse 'goarch,goos' schema")
+		panic("Couldn't parse the table schema")
 	}
 
 	benchBy, err := parser.Parse(".fullname", nil)
@@ -431,7 +440,10 @@ func (b *Builder) AllComparisonSeries(existing []*ComparisonSeries, dupeHow int)
 	// Iterate over units.
 	for _, u := range sortTableKeys(b.tables) {
 		t := b.tables[u]
-		uString := u.unit.StringValues() + " " + u.table.StringValues()
+		uString := u.unit.StringValues()
+		if ts := u.table.StringValues(); ts != "" {
+			uString += " " + u.table.StringValues()
+		}
 		var cs *ComparisonSeries
 
 		sers := make(map[string]struct{})
