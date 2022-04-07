@@ -239,7 +239,7 @@ func NewBuilder(bo *BuilderOptions) (*Builder, error) {
 		panic("Couldn't parse 'goarch,goos' schema")
 	}
 
-	benchBy, err := parser.Parse(".name", nil)
+	benchBy, err := parser.Parse(".fullname", nil)
 	if err != nil {
 		panic("Couldn't parse the .name schema")
 	}
