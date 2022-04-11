@@ -9,7 +9,7 @@
 //	benchsave [-v] [-header file] [-server url] file...
 //
 // Each input file should contain the output from one or more runs of
-// ``go test -bench'', or another tool which uses the same format.
+// “go test -bench”, or another tool which uses the same format.
 //
 // Benchsave will upload the input files to the specified server and
 // print a URL where they can be viewed.

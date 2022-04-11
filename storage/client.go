@@ -69,15 +69,15 @@ func (c *Client) Query(ctx context.Context, q string) *Query {
 // A Query allows iteration over the results of a search query.
 // Use Next to advance through the results, making sure to call Close when done:
 //
-//   q := client.Query("key:value")
-//   defer q.Close()
-//   for q.Next() {
-//     res := q.Result()
-//     ...
-//   }
-//   if err = q.Err(); err != nil {
-//     // handle error encountered during query
-//   }
+//	q := client.Query("key:value")
+//	defer q.Close()
+//	for q.Next() {
+//	  res := q.Result()
+//	  ...
+//	}
+//	if err = q.Err(); err != nil {
+//	  // handle error encountered during query
+//	}
 type Query struct {
 	br   *benchfmt.Reader
 	body io.ReadCloser
@@ -160,15 +160,15 @@ func (c *Client) ListUploads(ctx context.Context, q string, extraLabels []string
 // UploadList is the result of ListUploads.
 // Use Next to advance through the rows, making sure to call Close when done:
 //
-//   q := db.ListUploads("key:value")
-//   defer q.Close()
-//   for q.Next() {
-//     id, count := q.Row()
-//     labels := q.LabelValues()
-//     ...
-//   }
-//   err = q.Err() // get any error encountered during iteration
-//   ...
+//	q := db.ListUploads("key:value")
+//	defer q.Close()
+//	for q.Next() {
+//	  id, count := q.Row()
+//	  labels := q.LabelValues()
+//	  ...
+//	}
+//	err = q.Err() // get any error encountered during iteration
+//	...
 type UploadList struct {
 	body io.Closer
 	dec  *json.Decoder
@@ -267,16 +267,16 @@ type UploadStatus struct {
 // An Upload is an in-progress upload.
 // Use CreateFile to upload one or more files, then call Commit or Abort.
 //
-//   u := client.NewUpload()
-//   w, err := u.CreateFile()
-//   if err != nil {
-//     u.Abort()
-//     return err
-//   }
-//   fmt.Fprintf(w, "BenchmarkResult 1 1 ns/op\n")
-//   if err := u.Commit(); err != nil {
-//     return err
-//   }
+//	u := client.NewUpload()
+//	w, err := u.CreateFile()
+//	if err != nil {
+//	  u.Abort()
+//	  return err
+//	}
+//	fmt.Fprintf(w, "BenchmarkResult 1 1 ns/op\n")
+//	if err := u.Commit(); err != nil {
+//	  return err
+//	}
 type Upload struct {
 	pw     io.WriteCloser
 	mpw    *multipart.Writer

@@ -28,13 +28,13 @@ import (
 // Reader reads benchmark results from an io.Reader.
 // Use Next to advance through the results.
 //
-//   br := benchfmt.NewReader(r)
-//   for br.Next() {
-//     res := br.Result()
-//     ...
-//   }
-//   err = br.Err() // get any error encountered during iteration
-//   ...
+//	br := benchfmt.NewReader(r)
+//	for br.Next() {
+//	  res := br.Result()
+//	  ...
+//	}
+//	err = br.Err() // get any error encountered during iteration
+//	...
 type Reader struct {
 	s      *bufio.Scanner
 	labels Labels

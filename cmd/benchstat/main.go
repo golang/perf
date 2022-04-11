@@ -9,7 +9,7 @@
 //	benchstat [-delta-test name] [-geomean] [-html] [-sort order] old.txt [new.txt] [more.txt ...]
 //
 // Each input file should contain the concatenated output of a number
-// of runs of ``go test -bench.'' For each different benchmark listed in an input file,
+// of runs of “go test -bench.” For each different benchmark listed in an input file,
 // benchstat computes the mean, minimum, and maximum run time,
 // after removing outliers using the interquartile range rule.
 //
@@ -41,9 +41,9 @@
 // none (input order), delta (percent improvement), or name (benchmark name).
 // A leading “-” prefix, as in “-delta”, reverses the order.
 //
-// Example
+// # Example
 //
-// Suppose we collect benchmark results from running ``go test -bench=Encode''
+// Suppose we collect benchmark results from running “go test -bench=Encode”
 // five times before and after a particular change.
 //
 // The file old.txt contains:
@@ -91,7 +91,6 @@
 //
 // Note that the JSONEncode result is reported as
 // statistically insignificant instead of a -0.93% delta.
-//
 package main
 
 import (

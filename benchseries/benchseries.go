@@ -844,8 +844,9 @@ func withBootstrap(confidence float64, N int) compareFn {
 // KSov returns the size-adjusted Kolmogorov-Smirnov statistic,
 // equal to D_{n,m} / sqrt((n+m)/n*m).  The result can be compared
 // to c(α) where α is the level at which the null hypothesis is rejected.
-//    α:  0.2   0.15  0.10  0.05  0.025 0.01  0.005 0.001
-// c(α):  1.073 1.138 1.224 1.358 1.48  1.628 1.731 1.949
+//
+//	   α:  0.2   0.15  0.10  0.05  0.025 0.01  0.005 0.001
+//	c(α):  1.073 1.138 1.224 1.358 1.48  1.628 1.731 1.949
 //
 // see
 // https://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Smirnov_test#Two-sample_Kolmogorov%E2%80%93Smirnov_test

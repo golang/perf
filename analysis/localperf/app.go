@@ -6,7 +6,7 @@
 //
 // Usage:
 //
-//     localperf [-addr address] [-storage url] [-base_dir ../appengine]
+//	localperf [-addr address] [-storage url] [-base_dir ../appengine]
 package main
 
 import (

@@ -17,19 +17,19 @@ package benchproc
 //
 // For example, given four keys:
 //
-//   K[0] = a:1 b:1 c:1
-//   K[1] = a:1 b:1 c:2
-//   K[2] = a:2 b:2 c:2
-//   K[3] = a:2 b:3 c:3
+//	K[0] = a:1 b:1 c:1
+//	K[1] = a:1 b:1 c:2
+//	K[2] = a:2 b:2 c:2
+//	K[3] = a:2 b:3 c:3
 //
 // the KeyHeader is as follows:
 //
-//   Level 0      a:1         a:2
-//                 |         /   \
-//   Level 1      b:1      b:2   b:3
-//               /   \      |     |
-//   Level 2   c:1   c:2   c:2   c:3
-//             K[0]  K[1]  K[2]  K[3]
+//	Level 0      a:1         a:2
+//	              |         /   \
+//	Level 1      b:1      b:2   b:3
+//	            /   \      |     |
+//	Level 2   c:1   c:2   c:2   c:3
+//	          K[0]  K[1]  K[2]  K[3]
 type KeyHeader struct {
 	// Keys is the sequence of keys at the leaf level of this tree.
 	// Each level subdivides this sequence.

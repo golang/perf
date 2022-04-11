@@ -11,7 +11,7 @@
 // several field, including a name, name-based configuration, and
 // file configuration pairs ("key: value" lines).
 //
-// Keys
+// # Keys
 //
 // Filters and projections share a common set of keys for referring to
 // these fields of a benchmark result:
@@ -54,45 +54,45 @@
 // - ".file" refers to the input file provided on the command line
 // (for command-line tools that use benchfmt.Files).
 //
-// Filters
+// # Filters
 //
 // Filters are boolean expressions that match or exclude benchmark
 // results or individual measurements.
 //
 // Filters are built from key-value terms:
 //
-// 	key:value     - Match if key's value is exactly "value".
-// 	key:"value"   - Same, but value is a double-quoted Go string that
-// 	                may contain spaces or other special characters.
-// 	"key":value   - Keys may also be double-quoted.
-// 	key:/regexp/  - Match if key's value matches a regular expression.
-// 	key:(val1 OR val2 OR ...)
-//                    - Short-hand for key:val1 OR key:val2. Values may be
-//                      double-quoted strings or regexps.
-// 	*             - Match everything.
+//	key:value     - Match if key's value is exactly "value".
+//	key:"value"   - Same, but value is a double-quoted Go string that
+//	                may contain spaces or other special characters.
+//	"key":value   - Keys may also be double-quoted.
+//	key:/regexp/  - Match if key's value matches a regular expression.
+//	key:(val1 OR val2 OR ...)
+//	              - Short-hand for key:val1 OR key:val2. Values may be
+//	                double-quoted strings or regexps.
+//	*             - Match everything.
 //
 // These terms can be combined into larger expressions as follows:
 //
-// 	x y ...       - Match if x, y, etc. all match.
-// 	x AND y       - Same as x y.
-// 	x OR y        - Match if x or y match.
-// 	-x            - Match if x does not match.
-// 	(...)         - Subexpression.
+//	x y ...       - Match if x, y, etc. all match.
+//	x AND y       - Same as x y.
+//	x OR y        - Match if x or y match.
+//	-x            - Match if x does not match.
+//	(...)         - Subexpression.
 //
 // Precise syntax:
 //
-//   expr     = andExpr {"OR" andExpr}
-//   andExpr  = match {"AND"? match}
-//   match    = "(" expr ")"
-//            | "-" match
-//            | "*"
-//            | key ":" value
-//            | key ":" "(" value {"OR" value} ")"
-//   key      = word
-//   value    = word
-//            | "/" regexp "/"
+//	expr     = andExpr {"OR" andExpr}
+//	andExpr  = match {"AND"? match}
+//	match    = "(" expr ")"
+//	         | "-" match
+//	         | "*"
+//	         | key ":" value
+//	         | key ":" "(" value {"OR" value} ")"
+//	key      = word
+//	value    = word
+//	         | "/" regexp "/"
 //
-// Projections
+// # Projections
 //
 // A projection expresses how to extract a tuple of data from a
 // benchmark result, as well as a sort order for projected tuples.
@@ -115,18 +115,18 @@
 //
 // Precise syntax:
 //
-//   expr     = part {","? part}
-//   part     = key
-//            | key "@" order
-//            | key "@" "(" word {word} ")"
-//   key      = word
-//   order    = word
+//	expr     = part {","? part}
+//	part     = key
+//	         | key "@" order
+//	         | key "@" "(" word {word} ")"
+//	key      = word
+//	order    = word
 //
-// Common syntax
+// # Common syntax
 //
 // Filters and projections share the following common base syntax:
 //
-//   word     = bareWord
-//            | double-quoted Go string
-//   bareWord = [^-*"():@,][^ ():@,]*
+//	word     = bareWord
+//	         | double-quoted Go string
+//	bareWord = [^-*"():@,][^ ():@,]*
 package syntax
