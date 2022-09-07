@@ -24,7 +24,7 @@ func TestResultSetConfig(t *testing.T) {
 
 		// Check the index.
 		for i, cfg := range r.Config {
-			gotI, ok := r.ConfigIndex(string(cfg.Key))
+			gotI, ok := r.ConfigIndex(cfg.Key)
 			if !ok {
 				t.Errorf("key %s missing from index", cfg.Key)
 			} else if i != gotI {
@@ -128,7 +128,7 @@ func TestNameParts(t *testing.T) {
 	check := func(fullName string, base string, parts ...string) {
 		t.Helper()
 		got, gotParts := Name(fullName).Parts()
-		fail := string(got) != string(base)
+		fail := string(got) != base
 		if len(gotParts) != len(parts) {
 			fail = true
 		} else {
