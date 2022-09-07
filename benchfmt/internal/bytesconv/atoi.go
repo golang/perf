@@ -234,7 +234,7 @@ func Atoi(s []byte) (int, error) {
 		}
 
 		n := 0
-		for _, ch := range []byte(s) {
+		for _, ch := range s {
 			ch -= '0'
 			if ch > 9 {
 				return 0, &NumError{fnAtoi, string(s0), ErrSyntax}
