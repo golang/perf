@@ -37,8 +37,14 @@ The -html option causes benchstat to print the results as an HTML table.
 
 ## Example
 
-Suppose we collect benchmark results from running `go test -bench=Encode`
-five times before and after a particular change.
+Suppose we collect results from running a set of benchmarks twenty times
+before a particular change:
+
+    go test -run='^$' -bench=. -count=20 > old.txt
+
+And the same benchmarks twenty times after:
+
+    go test -run='^$' -bench=. -count=20 > new.txt
 
 The file old.txt contains:
 
