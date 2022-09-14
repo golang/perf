@@ -9,7 +9,6 @@ import (
 	"encoding/json"
 	"flag"
 	"io"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 
@@ -72,7 +71,7 @@ func TestReference(t *testing.T) {
 	bo := writeJsonBytes(oddComparisons)
 
 	eref := filepath.Join("testdata", evenReference)
-	re, err := ioutil.ReadFile(eref)
+	re, err := os.ReadFile(eref)
 	if err != nil {
 		t.Log(err)
 		t.Fail()
@@ -80,7 +79,7 @@ func TestReference(t *testing.T) {
 	compareBytes(t, be, re, "calculated even bytes", eref)
 
 	oref := filepath.Join("testdata", oddReference)
-	ro, err := ioutil.ReadFile(oref)
+	ro, err := os.ReadFile(oref)
 	if err != nil {
 		t.Log(err)
 		t.Fail()

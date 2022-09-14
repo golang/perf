@@ -8,7 +8,6 @@ import (
 	"bytes"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"reflect"
@@ -283,7 +282,7 @@ Benchmark3 100 1 ns/op
 
 func BenchmarkReader(b *testing.B) {
 	path := "testdata/bent"
-	fileInfos, err := ioutil.ReadDir(path)
+	fileInfos, err := os.ReadDir(path)
 	if err != nil {
 		b.Fatal("reading test data directory: ", err)
 	}

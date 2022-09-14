@@ -9,8 +9,8 @@ import (
 	"errors"
 	"fmt"
 	"html/template"
-	"io/ioutil"
 	"net/http"
+	"os"
 	"path/filepath"
 	"sort"
 	"strconv"
@@ -163,7 +163,7 @@ func (a *App) compare(w http.ResponseWriter, r *http.Request) {
 
 	q := r.Form.Get("q")
 
-	tmpl, err := ioutil.ReadFile(filepath.Join(a.BaseDir, "template/compare.html"))
+	tmpl, err := os.ReadFile(filepath.Join(a.BaseDir, "template/compare.html"))
 	if err != nil {
 		http.Error(w, err.Error(), 500)
 		return

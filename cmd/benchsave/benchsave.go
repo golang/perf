@@ -21,7 +21,6 @@ import (
 	"flag"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"log"
 	"mime"
 	"net/http"
@@ -86,7 +85,7 @@ func main() {
 	var headerData []byte
 	if *header != "" {
 		var err error
-		headerData, err = ioutil.ReadFile(*header)
+		headerData, err = os.ReadFile(*header)
 		if err != nil {
 			log.Fatal(err)
 		}

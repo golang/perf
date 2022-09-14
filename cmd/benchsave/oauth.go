@@ -8,7 +8,6 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"os"
 	"os/user"
@@ -105,7 +104,7 @@ func tokenFilePath() string {
 // readToken obtains a token from the filesystem.
 // If there is no valid token found, it returns a nil token and a reason.
 func readToken() (*oauth2.Token, error) {
-	data, err := ioutil.ReadFile(tokenFilePath())
+	data, err := os.ReadFile(tokenFilePath())
 	if err != nil {
 		return nil, err
 	}
@@ -126,5 +125,5 @@ func writeToken(tok *oauth2.Token) (err error) {
 	if err != nil {
 		return err
 	}
-	return ioutil.WriteFile(p, data, 0600)
+	return os.WriteFile(p, data, 0600)
 }

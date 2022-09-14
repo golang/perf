@@ -6,14 +6,13 @@ package diff
 
 import (
 	"fmt"
-	"io/ioutil"
 	"os"
 	"os/exec"
 	"runtime"
 )
 
 func writeTempFile(dir, prefix string, data []byte) (string, error) {
-	file, err := ioutil.TempFile(dir, prefix)
+	file, err := os.CreateTemp(dir, prefix)
 	if err != nil {
 		return "", err
 	}
