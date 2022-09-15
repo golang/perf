@@ -6,8 +6,8 @@ package app
 
 import (
 	"html/template"
-	"io/ioutil"
 	"net/http"
+	"os"
 	"path/filepath"
 
 	"golang.org/x/perf/storage"
@@ -17,7 +17,7 @@ import (
 func (a *App) index(w http.ResponseWriter, r *http.Request) {
 	ctx := requestContext(r)
 
-	tmpl, err := ioutil.ReadFile(filepath.Join(a.BaseDir, "template/index.html"))
+	tmpl, err := os.ReadFile(filepath.Join(a.BaseDir, "template/index.html"))
 	if err != nil {
 		http.Error(w, err.Error(), 500)
 		return

@@ -5,8 +5,8 @@
 package benchstat
 
 import (
-	"io/ioutil"
 	"log"
+	"os"
 	"runtime"
 	"sort"
 	"testing"
@@ -76,11 +76,11 @@ func TestCompareCollection(t *testing.T) {
 		t.Skipf("files not available on GOOS=%s", runtime.GOOS)
 	}
 	sampleCompareCollection := Collection{Alpha: 0.05, AddGeoMean: false, DeltaTest: UTest}
-	file1Data, err := ioutil.ReadFile(file1)
+	file1Data, err := os.ReadFile(file1)
 	if err != nil {
 		log.Fatal(err)
 	}
-	file2Data, err := ioutil.ReadFile(file2)
+	file2Data, err := os.ReadFile(file2)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -101,7 +101,7 @@ func TestSingleCollection(t *testing.T) {
 		t.Skipf("files not available on GOOS=%s", runtime.GOOS)
 	}
 	sampleCollection := Collection{Alpha: 0.05, AddGeoMean: false, DeltaTest: UTest}
-	file1Data, err1 := ioutil.ReadFile(file1)
+	file1Data, err1 := os.ReadFile(file1)
 	if err1 != nil {
 		log.Fatal(err1)
 	}

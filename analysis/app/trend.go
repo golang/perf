@@ -11,9 +11,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"html/template"
-	"io/ioutil"
 	"math"
 	"net/http"
+	"os"
 	"path/filepath"
 	"sort"
 	"strconv"
@@ -39,7 +39,7 @@ func (a *App) trend(w http.ResponseWriter, r *http.Request) {
 
 	q := r.Form.Get("q")
 
-	tmpl, err := ioutil.ReadFile(filepath.Join(a.BaseDir, "template/trend.html"))
+	tmpl, err := os.ReadFile(filepath.Join(a.BaseDir, "template/trend.html"))
 	if err != nil {
 		http.Error(w, err.Error(), 500)
 		return

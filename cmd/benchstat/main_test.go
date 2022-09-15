@@ -7,7 +7,7 @@ package main
 import (
 	"bytes"
 	"flag"
-	"io/ioutil"
+	"io"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -69,7 +69,7 @@ func check(t *testing.T, name string, files ...string) {
 		}
 		c := make(chan []byte)
 		go func() {
-			data, err := ioutil.ReadAll(r)
+			data, err := io.ReadAll(r)
 			if err != nil {
 				t.Error(err)
 			}
@@ -94,7 +94,7 @@ func check(t *testing.T, name string, files ...string) {
 		exit = os.Exit
 
 		data := <-c
-		golden, err := ioutil.ReadFile(name + ".golden")
+		golden, err := os.ReadFile(name + ".golden")
 		if err != nil {
 			t.Fatal(err)
 		}
@@ -115,7 +115,7 @@ func diff(t *testing.T, old, new []byte) string {
 }
 
 func writeTemp(t *testing.T, data []byte) string {
-	f, err := ioutil.TempFile("", "benchstat_test")
+	f, err := os.CreateTemp("", "benchstat_test")
 	if err != nil {
 		t.Fatal(err)
 	}
