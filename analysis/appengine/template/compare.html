@@ -140,7 +140,7 @@ td.count {
                             {{else if eq .Value "…"}}
                               {{.Value}}
                             {{else}}
-                              <a href="/search?q={{addToQuery $.Q (printf "%s:%s" $label .Value)}}">
+                              <a href="/search?q={{addToQuery $.Q (printf '%s:%s' $label .Value)}}">
                                 {{printf "%q" .Value}}
                               </a>
                             {{end}}
