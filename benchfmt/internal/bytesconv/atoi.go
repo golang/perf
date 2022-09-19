@@ -6,6 +6,7 @@ package bytesconv
 
 import (
 	"errors"
+	"math"
 	"strconv"
 )
 
@@ -55,7 +56,6 @@ const intSize = 32 << (^uint(0) >> 63)
 // IntSize is the size in bits of an int or uint value.
 const IntSize = intSize
 
-const maxUint64 = 1<<64 - 1
 
 // ParseUint is like ParseInt but for unsigned numbers.
 func ParseUint(s []byte, base int, bitSize int) (uint64, error) {
@@ -107,11 +107,11 @@ func ParseUint(s []byte, base int, bitSize int) (uint64, error) {
 	var cutoff uint64
 	switch base {
 	case 10:
-		cutoff = maxUint64/10 + 1
+		cutoff = math.MaxUint64/10 + 1
 	case 16:
-		cutoff = maxUint64/16 + 1
+		cutoff = math.MaxUint64/16 + 1
 	default:
-		cutoff = maxUint64/uint64(base) + 1
+		cutoff = math.MaxUint64/uint64(base) + 1
 	}
 
 	maxVal := uint64(1)<<uint(bitSize) - 1
