@@ -42,6 +42,9 @@ var evenReference = filepath.Join("even", "reference.json")
 // TestReference ensures that each subdirectory generates its
 // reference file.
 func TestReference(t *testing.T) {
+	if testing.Short() {
+		t.Skipf("Skip test, for golang/go#53745")
+	}
 	evens, err := filepath.Glob("testdata/even/*-opt.*")
 	if err != nil {
 		t.Log(err)
@@ -144,7 +147,7 @@ func combineFilesAndJson(t *testing.T, files []string, jsonFile string) []*bench
 	}
 
 	for _, c := range comparisons {
-		c.AddSummaries(0.95, 500) // 500 is faster than 1000.
+		c.AddSummaries(0.95, 250) // 250 is faster than 1000.
 	}
 
 	return comparisons
