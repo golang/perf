@@ -197,17 +197,17 @@ const RFC3339NanoNoZ = "2006-01-02T15:04:05.999999999-07:00"
 
 // NormalizeDateString converts dates in two formats used in bent/benchmarking
 // into UTC, so that all sort properly into a single order with no confusion.
-func NormalizeDateString(in string) string {
+func NormalizeDateString(in string) (string, error) {
 	if noPuncDate.MatchString(in) {
 		//20211229T213212
 		//2021-12-29T21:32:12
 		in = in[0:4] + "-" + in[4:6] + "-" + in[6:11] + ":" + in[11:13] + ":" + in[13:15] + "+00:00"
 	}
 	t, err := time.Parse(time.RFC3339Nano, in)
-	if err == nil {
-		return t.UTC().Format(RFC3339NanoNoZ)
+	if err != nil {
+		return "", err
 	}
-	panic(err)
+	return t.UTC().Format(RFC3339NanoNoZ), nil
 }
 
 // ParseNormalizedDateString parses a time in the format returned by
@@ -430,7 +430,7 @@ const (
 // sensible order; this deals with that, including overlaps (depend on flag, either replaces old with
 // younger or combines, REPLACE IS PREFERRED and works properly with combining old summary data with
 // fresh benchmarking data) and possibly also with previously processed summaries.
-func (b *Builder) AllComparisonSeries(existing []*ComparisonSeries, dupeHow int) []*ComparisonSeries {
+func (b *Builder) AllComparisonSeries(existing []*ComparisonSeries, dupeHow int) ([]*ComparisonSeries, error) {
 	old := make(map[string]*ComparisonSeries)
 	for _, cs := range existing {
 		old[cs.Unit] = cs
@@ -484,13 +484,19 @@ func (b *Builder) AllComparisonSeries(existing []*ComparisonSeries, dupeHow int)
 		for tk, tr := range t.cells {
 			// tk == bench, experiment, tr == baseline, tests, tests == map hash -> cell.
 			bench := tk.Benchmark
-			dateString := NormalizeDateString(tk.Experiment.StringValues())
+			dateString, err := NormalizeDateString(tk.Experiment.StringValues())
+			if err != nil {
+				return nil, fmt.Errorf("error parsing experiment date %q: %w", tk.Experiment.StringValues(), err)
+			}
 			benchString := bench.StringValues()
 			benches[benchString] = struct{}{}
 			for hash, cell := range tr.tests {
 				hashString := hash.StringValues()
 				ser := b.hashToOrder[hash]
-				serString := NormalizeDateString(ser.StringValues())
+				serString, err := NormalizeDateString(ser.StringValues())
+				if err != nil {
+					return nil, fmt.Errorf("error parsing series date %q: %w", ser.StringValues(), err)
+				}
 				sers[serString] = struct{}{}
 				sk := SeriesKey{
 					Benchmark: benchString,
@@ -637,7 +643,7 @@ func (b *Builder) AllComparisonSeries(existing []*ComparisonSeries, dupeHow int)
 		}
 	}
 
-	return css
+	return css, nil
 }
 
 func sortStringSet(m map[string]struct{}) []string {

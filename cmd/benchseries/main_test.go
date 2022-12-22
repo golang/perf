@@ -138,7 +138,10 @@ func combineFilesAndJson(t *testing.T, files []string, jsonFile string) []*bench
 		f.Close()
 	}
 
-	comparisons = builder.AllComparisonSeries(comparisons, benchseries.DUPE_REPLACE)
+	comparisons, err = builder.AllComparisonSeries(comparisons, benchseries.DUPE_REPLACE)
+	if err != nil {
+		t.Fatalf("AllComparisonSeries(%+v) got err %v want nil", comparisons, err)
+	}
 
 	for _, c := range comparisons {
 		c.AddSummaries(0.95, 500) // 500 is faster than 1000.

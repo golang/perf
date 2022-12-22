@@ -98,7 +98,10 @@ func main() {
 	}
 
 	// Rearrange into comparisons (not yet doing the statistical work)
-	comparisons = seriesBuilder.AllComparisonSeries(comparisons, benchseries.DUPE_REPLACE)
+	comparisons, err = seriesBuilder.AllComparisonSeries(comparisons, benchseries.DUPE_REPLACE)
+	if err != nil {
+		fail("Error building comparison series: %v", err)
+	}
 
 	// Chat about residues, per-table
 	for _, t := range comparisons {
