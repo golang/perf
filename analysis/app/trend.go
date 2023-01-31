@@ -74,7 +74,7 @@ type trendData struct {
 	PlotType     template.JS
 }
 
-// trendData computes the values for the template and returns a trendData for display.
+// trendQuery computes the values for the template and returns a trendData for display.
 func (a *App) trendQuery(ctx context.Context, q string, opt plotOptions) *trendData {
 	d := &trendData{Q: q}
 	if q == "" {

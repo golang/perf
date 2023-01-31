@@ -901,7 +901,7 @@ func (a *ComparisonSummary) HeurOverlap(b *ComparisonSummary, threshold float64)
 	return ChangeScore(a.Low, a.Center, a.High, b.Low, b.Center, b.High)
 }
 
-// AddSumaries computes the summary data (bootstrapped estimated of the specified
+// AddSummaries computes the summary data (bootstrapped estimated of the specified
 // confidence interval) for the comparison series cs.  The 3rd parameter N specifies
 // the number of sampled bootstraps to use; 1000 is recommended, but 500 is good enough
 // for testing.
