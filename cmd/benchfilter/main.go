@@ -28,7 +28,7 @@ and writes filtered benchmark results to stdout. If no inputs are
 provided, it reads from stdin.
 
 The filter language is described at
-https://pkg.go.dev/golang.org/x/perf/cmd/benchstat#Filtering
+https://pkg.go.dev/golang.org/x/perf/cmd/benchstat#hdr-Filtering
 `)
 	flag.PrintDefaults()
 }
