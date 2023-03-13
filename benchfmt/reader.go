@@ -149,6 +149,11 @@ func (r *Reader) Scan() bool {
 		r.result.line++
 		// We do everything in byte buffers to avoid allocation.
 		line := r.s.Bytes()
+		// We only accept utf-8 encoded files.
+		if !utf8.Valid(line) {
+			r.err = fmt.Errorf("%s: invalid encode, only utf-8 encoded files are supported", r.result.fileName)
+			return false
+		}
 		// Most lines are benchmark lines, and we can check
 		// for that very quickly, so start with that.
 		if bytes.HasPrefix(line, benchmarkPrefix) {
