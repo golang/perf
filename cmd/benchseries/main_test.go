@@ -33,7 +33,7 @@ var update = flag.Bool("update", false, "update reference files")
 // The two tests here work with two subdirectories of testdata, one containing
 // benchmarks that were started on an even second, the other containing benchmarks
 // started on an odd second.  Each subdirectory contains a file "reference.json"
-// that in theory contains the the reference values for computer summaries (for
+// that in theory contains the reference values for computer summaries (for
 // an artifcially small bootstrap, to save time).
 
 var oddReference = filepath.Join("odd", "reference.json")
