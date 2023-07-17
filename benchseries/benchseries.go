@@ -362,7 +362,8 @@ func (b *Builder) Add(result *benchfmt.Result) {
 		newCell := func() *Cell {
 			return &Cell{Residues: make(map[benchproc.Key]struct{})}
 		}
-		if cmpCfg.StringValues() == b.denCompareVal {
+		switch cmpCfg.StringValues() {
+		case b.denCompareVal:
 			c = t.baseline
 			if c == nil {
 				c = newCell()
@@ -370,19 +371,24 @@ func (b *Builder) Add(result *benchfmt.Result) {
 				t.baselineHash = denHashCfg
 				t.baselineHashString = denHashCfg.StringValues()
 			}
-		} else {
+		case b.numCompareVal:
 			c = t.tests[numHashCfg]
 			if c == nil {
 				c = newCell()
 				t.tests[numHashCfg] = c
 				b.hashToOrder[numHashCfg] = serCfg
 			}
+		default:
+			// Compare field is set to an unknown value or
+			// completely unset. Don't add cell.
 		}
 
 		// Add to the cell.
-		c.Values = append(c.Values, result.Values[unitI].Value)
-		c.Residues[residueCfg] = struct{}{}
-		b.Residues[residueCfg] = struct{}{}
+		if c != nil {
+			c.Values = append(c.Values, result.Values[unitI].Value)
+			c.Residues[residueCfg] = struct{}{}
+			b.Residues[residueCfg] = struct{}{}
+		}
 	}
 }
 
