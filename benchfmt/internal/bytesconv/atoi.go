@@ -56,7 +56,6 @@ const intSize = 32 << (^uint(0) >> 63)
 // IntSize is the size in bits of an int or uint value.
 const IntSize = intSize
 
-
 // ParseUint is like ParseInt but for unsigned numbers.
 func ParseUint(s []byte, base int, bitSize int) (uint64, error) {
 	const fnParseUint = "ParseUint"
