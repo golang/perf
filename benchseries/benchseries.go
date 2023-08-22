@@ -303,9 +303,10 @@ func (b *Builder) AddFiles(files benchfmt.Files) error {
 			b.warn("%v\n", err)
 			continue
 		}
-		res := rec.(*benchfmt.Result)
-
-		b.Add(res)
+		res, ok := rec.(*benchfmt.Result)
+		if ok {
+			b.Add(res)
+		}
 	}
 	if err := files.Err(); err != nil {
 		return err
@@ -573,6 +574,9 @@ func (b *Builder) AllComparisonSeries(existing []*ComparisonSeries, dupeHow int)
 		for _, c := range cs.cells {
 			for _, f := range b.residue.FlattenedFields() {
 				if c.Numerator == nil {
+					continue
+				}
+				if c.Denominator == nil {
 					continue
 				}
 				for k, _ := range c.Numerator.Residues {

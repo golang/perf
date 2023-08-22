@@ -88,6 +88,10 @@ func Chart(cs []*ComparisonSeries, pngDir, pdfDir, svgDir string, logScale bool,
 			selectedPoints = append(selectedPoints, &Point{numHash: hp.NumHash, denHash: hp.DenHash, values: values, changes: changes, changeBVID: changeBenches})
 		}
 
+		if len(selectedPoints) == 0 {
+			continue
+		}
+
 		// Want lines that grab most of the data; it's outliers we worry about
 		sort.Float64s(allValues)
 		lav := len(allValues)
