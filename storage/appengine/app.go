@@ -6,6 +6,7 @@
 package main
 
 import (
+	"context"
 	"errors"
 	"fmt"
 	"log"
@@ -15,7 +16,6 @@ import (
 	"time"
 
 	_ "github.com/go-sql-driver/mysql"
-	"golang.org/x/net/context"
 	"golang.org/x/perf/storage/app"
 	"golang.org/x/perf/storage/db"
 	"golang.org/x/perf/storage/fs/gcs"

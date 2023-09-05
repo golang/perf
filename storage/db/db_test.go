@@ -3,12 +3,12 @@
 // license that can be found in the LICENSE file.
 
 //go:build cgo
-// +build cgo
 
 package db_test
 
 import (
 	"bytes"
+	"context"
 	"fmt"
 	"reflect"
 	"sort"
@@ -17,7 +17,6 @@ import (
 	"testing"
 	"time"
 
-	"golang.org/x/net/context"
 	"golang.org/x/perf/internal/diff"
 	"golang.org/x/perf/storage/benchfmt"
 	. "golang.org/x/perf/storage/db"

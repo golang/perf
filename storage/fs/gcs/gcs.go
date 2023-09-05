@@ -6,8 +6,9 @@
 package gcs
 
 import (
+	"context"
+
 	"cloud.google.com/go/storage"
-	"golang.org/x/net/context"
 	"golang.org/x/perf/storage/fs"
 )
 

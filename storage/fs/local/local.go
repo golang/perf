@@ -8,10 +8,10 @@
 package local
 
 import (
+	"context"
 	"os"
 	"path/filepath"
 
-	"golang.org/x/net/context"
 	"golang.org/x/perf/storage/fs"
 )
 

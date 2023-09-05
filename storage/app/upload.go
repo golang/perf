@@ -5,6 +5,7 @@
 package app
 
 import (
+	"context"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -17,7 +18,6 @@ import (
 	"strings"
 	"time"
 
-	"golang.org/x/net/context"
 	"golang.org/x/perf/storage/benchfmt"
 	"golang.org/x/perf/storage/db"
 )

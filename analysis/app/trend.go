@@ -8,6 +8,7 @@ package app
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"fmt"
 	"html/template"
@@ -22,7 +23,6 @@ import (
 	"github.com/aclements/go-gg/generic/slice"
 	"github.com/aclements/go-gg/ggstat"
 	"github.com/aclements/go-gg/table"
-	"golang.org/x/net/context"
 	"golang.org/x/perf/storage"
 )
 

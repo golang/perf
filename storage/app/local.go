@@ -3,15 +3,13 @@
 // license that can be found in the LICENSE file.
 
 //go:build !appengine
-// +build !appengine
 
 package app
 
 import (
+	"context"
 	"log"
 	"net/http"
-
-	"golang.org/x/net/context"
 )
 
 // requestContext returns the Context object for a given request.

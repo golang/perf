@@ -6,6 +6,7 @@ package app
 
 import (
 	"bytes"
+	"context"
 	"errors"
 	"fmt"
 	"html/template"
@@ -17,7 +18,6 @@ import (
 	"strings"
 	"unicode"
 
-	"golang.org/x/net/context"
 	"golang.org/x/perf/benchstat"
 	"golang.org/x/perf/storage/benchfmt"
 	"golang.org/x/perf/storage/query"

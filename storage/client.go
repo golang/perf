@@ -8,6 +8,7 @@
 package storage
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -15,7 +16,6 @@ import (
 	"net/http"
 	"net/url"
 
-	"golang.org/x/net/context"
 	"golang.org/x/net/context/ctxhttp"
 	"golang.org/x/perf/storage/benchfmt"
 )

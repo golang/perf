@@ -8,6 +8,7 @@ package db
 
 import (
 	"bytes"
+	"context"
 	"database/sql"
 	"fmt"
 	"io"
@@ -18,7 +19,6 @@ import (
 	"text/template"
 	"time"
 
-	"golang.org/x/net/context"
 	"golang.org/x/perf/storage"
 	"golang.org/x/perf/storage/benchfmt"
 	"golang.org/x/perf/storage/query"

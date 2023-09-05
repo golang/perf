@@ -6,12 +6,12 @@
 package main
 
 import (
+	"context"
 	"log"
 	"net/http"
 	"os"
 	"time"
 
-	"golang.org/x/net/context"
 	"golang.org/x/perf/analysis/app"
 	"golang.org/x/perf/storage"
 	"google.golang.org/appengine"

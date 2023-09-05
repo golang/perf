@@ -6,6 +6,7 @@ package storage
 
 import (
 	"bytes"
+	"context"
 	"fmt"
 	"io"
 	"net/http"
@@ -13,7 +14,6 @@ import (
 	"reflect"
 	"testing"
 
-	"golang.org/x/net/context"
 	"golang.org/x/perf/internal/diff"
 	"golang.org/x/perf/storage/benchfmt"
 )
