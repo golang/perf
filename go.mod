@@ -10,8 +10,8 @@ require (
 	github.com/go-sql-driver/mysql v1.4.1
 	github.com/google/safehtml v0.0.2
 	github.com/mattn/go-sqlite3 v1.14.14
-	golang.org/x/net v0.15.0
-	golang.org/x/oauth2 v0.12.0
+	golang.org/x/net v0.16.0
+	golang.org/x/oauth2 v0.13.0
 	gonum.org/v1/plot v0.10.1
 	google.golang.org/api v0.126.0
 	google.golang.org/appengine v1.6.7
@@ -41,10 +41,10 @@ require (
 	github.com/googleapis/enterprise-certificate-proxy v0.2.3 // indirect
 	github.com/googleapis/gax-go/v2 v2.11.0 // indirect
 	go.opencensus.io v0.24.0 // indirect
-	golang.org/x/crypto v0.13.0 // indirect
+	golang.org/x/crypto v0.14.0 // indirect
 	golang.org/x/exp v0.0.0-20220827204233-334a2380cb91 // indirect
-	golang.org/x/image v0.0.0-20220302094943-723b81ca9867 // indirect
-	golang.org/x/sys v0.12.0 // indirect
+	golang.org/x/image v0.13.0 // indirect
+	golang.org/x/sys v0.13.0 // indirect
 	golang.org/x/text v0.13.0 // indirect
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2 // indirect
 	gonum.org/v1/gonum v0.11.0 // indirect
