@@ -10,7 +10,7 @@ require (
 	github.com/go-sql-driver/mysql v1.4.1
 	github.com/google/safehtml v0.0.2
 	github.com/mattn/go-sqlite3 v1.14.14
-	golang.org/x/net v0.16.0
+	golang.org/x/net v0.17.0
 	golang.org/x/oauth2 v0.13.0
 	gonum.org/v1/plot v0.10.1
 	google.golang.org/api v0.126.0
