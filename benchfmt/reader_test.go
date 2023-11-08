@@ -179,7 +179,7 @@ BenchmarkOne 100 1 ns/op
 		{
 			"bad lines",
 			`not a benchmark
-BenchmarkMissingIter 
+BenchmarkTailingSpaceNoIter 
 BenchmarkBadIter abc
 BenchmarkHugeIter 9999999999999999999999999999999
 BenchmarkMissingVal 100
