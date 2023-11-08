@@ -179,7 +179,7 @@ BenchmarkOne 100 1 ns/op
 		{
 			"bad lines",
 			`not a benchmark
-BenchmarkMissingIter
+BenchmarkMissingIter 
 BenchmarkBadIter abc
 BenchmarkHugeIter 9999999999999999999999999999999
 BenchmarkMissingVal 100
@@ -246,6 +246,19 @@ BenchmarkOne 100 1 ns/op
 				&UnitMetadata{UnitMetadataKey{"sec/op", "c"}, "ns/op", "3", "test", 2},
 				&SyntaxError{"test", 2, "expected key=value"},
 				&UnitMetadata{UnitMetadataKey{"sec/op", "d"}, "ns/op", "4", "test", 2},
+				r("One", 100).
+					v(1, "ns/op").res,
+			},
+		},
+		{
+			// go test -v prints just the benchmark name
+			// on a line when starting each benchmark.
+			// Make sure we ignore it.
+			"verbose",
+			`BenchmarkOne
+BenchmarkOne 100 1 ns/op
+`,
+			[]Record{
 				r("One", 100).
 					v(1, "ns/op").res,
 			},

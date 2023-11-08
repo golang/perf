@@ -59,6 +59,7 @@ func (s *SyntaxError) Error() string {
 }
 
 var noResult = &SyntaxError{"", 0, "Reader.Scan has not been called"}
+var errSkip = &SyntaxError{"", 0, "skip line"}
 
 // NewReader constructs a reader to parse the Go benchmark format from r.
 // fileName is used in error messages; it is purely diagnostic.
@@ -152,13 +153,10 @@ func (r *Reader) Scan() bool {
 		// Most lines are benchmark lines, and we can check
 		// for that very quickly, so start with that.
 		if bytes.HasPrefix(line, benchmarkPrefix) {
-			// At this point we commit to this being a
-			// benchmark line. If it's malformed, we treat
-			// that as an error.
-			if err := r.parseBenchmarkLine(line); err != nil {
-				r.q = append(r.q, err)
-			} else {
+			if err := r.parseBenchmarkLine(line); err == nil {
 				r.q = append(r.q, &r.result)
+			} else if err != errSkip {
+				r.q = append(r.q, err)
 			}
 			continue
 		}
@@ -248,7 +246,16 @@ func (r *Reader) parseBenchmarkLine(line []byte) *SyntaxError {
 	line = line[len("Benchmark"):]
 
 	// Read the name.
+	lineLen := len(line)
 	r.result.Name, line = splitField(line)
+
+	// As a special case, if the name is the entire line, we
+	// ignore it. This happens in "go test -v" output, which
+	// prints the benchmark name immediately followed by a newline
+	// when the benchmark starts.
+	if len(line) == 0 && len(r.result.Name) == lineLen {
+		return errSkip
+	}
 
 	// Read the iteration count.
 	f, line = splitField(line)
