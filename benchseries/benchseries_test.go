@@ -187,3 +187,63 @@ func TestMissingCompare(t *testing.T) {
 		t.Errorf("len(Series) got %d want 0; Series: %+v", len(got.Series), got.Series)
 	}
 }
+
+// A test point with no denominator.
+func TestMissingDenominator(t *testing.T) {
+	results := []*benchfmt.Result{
+		{
+			Config: []benchfmt.Config{
+				makeConfig("compare", "numerator"),
+				makeConfig("runstamp", "2020-01-01T00:00:00Z"),
+				makeConfig("numerator-hash", "abcdef0123456789"),
+				makeConfig("denominator-hash", "9876543219fedcba"),
+				makeConfig("numerator-hash-time", "2020-02-02T00:00:00Z"),
+				makeConfig("residue", "foo"),
+			},
+			Name:  []byte("Foo"),
+			Iters: 10,
+			Values: []benchfmt.Value{
+				{Value: 10, Unit: "sec"},
+			},
+		},
+	}
+
+	opts := &BuilderOptions{
+		Filter:          ".unit:/.*/",
+		Series:          "numerator-hash-time",
+		Table:           "", // .unit only
+		Experiment:      "runstamp",
+		Compare:         "compare",
+		Numerator:       "numerator",
+		Denominator:     "denominator",
+		NumeratorHash:   "numerator-hash",
+		DenominatorHash: "denominator-hash",
+		Warn: func(format string, args ...interface{}) {
+			s := fmt.Sprintf(format, args...)
+			t.Errorf("benchseries warning: %s", s)
+		},
+	}
+	builder, err := NewBuilder(opts)
+	if err != nil {
+		t.Fatalf("NewBuilder get err %v, want err nil", err)
+	}
+
+	for _, r := range results {
+		builder.Add(r)
+	}
+
+	comparisons, err := builder.AllComparisonSeries(nil, DUPE_REPLACE)
+	if err != nil {
+		t.Fatalf("AllComparisonSeries got err %v want err nil", err)
+	}
+
+	if len(comparisons) != 1 {
+		t.Fatalf("len(comparisons) got %d want 1; comparisons: %+v", len(comparisons), comparisons)
+	}
+
+	got := comparisons[0]
+	got.AddSummaries(0.95, 1000)
+	if len(got.Summaries) != 1 {
+		t.Fatalf("Expect 1 comparison, got: %+v", len(got.Summaries))
+	}
+}

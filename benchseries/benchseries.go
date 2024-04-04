@@ -925,9 +925,11 @@ func (cs *ComparisonSeries) AddSummaries(confidence float64, N int) {
 				sum := c.Summary
 				if sum == nil || (!sum.Present && sum.comparison == nil) {
 					sum = &ComparisonSummary{comparison: c, Date: c.Date}
-					sum.Center, sum.Low, sum.High = fn(c)
-					sum.Present = true
 					c.Summary = sum
+					sum.Present = c.Denominator != nil
+					if sum.Present {
+						sum.Center, sum.Low, sum.High = fn(c)
+					}
 				}
 				row = append(row, sum)
 			} else {
