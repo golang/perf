@@ -188,7 +188,7 @@ func (p *ProjectionParser) makeProjection(s *Projection, q string, proj parse.Fi
 		// specific file keys.
 		if proj.Order == "fixed" {
 			// Fixed orders don't make sense for a whole tuple.
-			return nil, &parse.SyntaxError{q, proj.OrderOff, fmt.Sprintf("fixed order not allowed for .config")}
+			return nil, &parse.SyntaxError{q, proj.OrderOff, "fixed order not allowed for .config"}
 		}
 
 		p.haveConfig = true
