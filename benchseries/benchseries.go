@@ -191,7 +191,7 @@ var noPuncDate = regexp.MustCompile("^[0-9]{8}T[0-9]{6}$")
 
 // RFC3339NanoNoZ has the property that formatted date&time.000000000 < date&time.000000001,
 // unlike RFC3339Nano where date&timeZ > date&timeZ.000000001Z
-// i.e., "Z" > "."" but "+" < "." so if ".000000000" is elided must use "+00:00"
+// i.e., "Z" > "." but "+" < "." so if ".000000000" is elided must use "+00:00"
 // to express the Z time zone to get the sort right.
 const RFC3339NanoNoZ = "2006-01-02T15:04:05.999999999-07:00"
 
