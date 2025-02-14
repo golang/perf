@@ -1,6 +1,6 @@
 module golang.org/x/perf
 
-go 1.18
+go 1.23.0
 
 require (
 	cloud.google.com/go/storage v1.29.0
