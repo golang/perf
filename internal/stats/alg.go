@@ -10,20 +10,6 @@ import (
 	"fmt"
 )
 
-func maxint(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func minint(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
 func sumint(xs []int) int {
 	sum := 0
 	for _, x := range xs {

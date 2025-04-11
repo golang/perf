@@ -234,8 +234,8 @@ func makeUmemo(twoU, n1 int, t []int) []map[ukey]float64 {
 
 		// Construct A[k] from A[k+1].
 		for A_kplus1 := range A[k+1] {
-			rkLow := maxint(0, A_kplus1.n1-tsum)
-			rkHigh := minint(A_kplus1.n1, t[k])
+			rkLow := max(0, A_kplus1.n1-tsum)
+			rkHigh := min(A_kplus1.n1, t[k])
 			for rk := rkLow; rk <= rkHigh; rk++ {
 				twoU_k := A_kplus1.twoU - rk*(a[k+1]-2*A_kplus1.n1+rk)
 				n1_k := A_kplus1.n1 - rk
@@ -261,7 +261,7 @@ func makeUmemo(twoU, n1 int, t []int) []map[ukey]float64 {
 	N_2 := t[0] + t[1]
 	for A_2i := range A[2] {
 		Asum := 0.0
-		r2Low := maxint(0, A_2i.n1-t[0])
+		r2Low := max(0, A_2i.n1-t[0])
 		r2High := (A_2i.twoU - A_2i.n1*(t[0]-A_2i.n1)) / N_2
 		for r2 := r2Low; r2 <= r2High; r2++ {
 			Asum += mathChoose(t[0], A_2i.n1-r2) *
@@ -278,8 +278,8 @@ func makeUmemo(twoU, n1 int, t []int) []map[ukey]float64 {
 		// Compute A[k] counts from A[k-1] counts.
 		for A_ki := range A[k] {
 			Asum := 0.0
-			rkLow := maxint(0, A_ki.n1-tsum)
-			rkHigh := minint(A_ki.n1, t[k-1])
+			rkLow := max(0, A_ki.n1-tsum)
+			rkHigh := min(A_ki.n1, t[k-1])
 			for rk := rkLow; rk <= rkHigh; rk++ {
 				twoU_kminus1 := A_ki.twoU - rk*(a[k]-2*A_ki.n1+rk)
 				n1_kminus1 := A_ki.n1 - rk
@@ -301,7 +301,7 @@ func twoUmin(n1 int, t, a []int) int {
 	twoU := -n1 * n1
 	n1_k := n1
 	for k := 1; k <= K; k++ {
-		twoU_k := minint(n1_k, t[k-1])
+		twoU_k := min(n1_k, t[k-1])
 		twoU += twoU_k * a[k]
 		n1_k -= twoU_k
 	}
@@ -313,7 +313,7 @@ func twoUmax(n1 int, t, a []int) int {
 	twoU := -n1 * n1
 	n1_k := n1
 	for k := K; k > 0; k-- {
-		twoU_k := minint(n1_k, t[k-1])
+		twoU_k := min(n1_k, t[k-1])
 		twoU += twoU_k * a[k]
 		n1_k -= twoU_k
 	}

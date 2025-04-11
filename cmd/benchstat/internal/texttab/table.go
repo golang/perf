@@ -125,13 +125,6 @@ func (t *Table) SetShrink(col int, shrink bool) {
 	t.shrink[col] = shrink
 }
 
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
 // Format lays out table t and writes it to w.
 func (t *Table) Format(w io.Writer) error {
 	shrink := func(col int) bool {
