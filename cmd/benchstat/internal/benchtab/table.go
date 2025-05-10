@@ -362,6 +362,7 @@ func (t *Table) ToCSV(o *csv.Writer, startRow int, warnings io.Writer) (rowCount
 			clearTo(startCol(exp))
 			row = append(row, key.Get(field))
 		}
+		clearTo(startCol(len(t.Cols)))
 		emit()
 	}
 
@@ -424,6 +425,7 @@ func (t *Table) ToCSV(o *csv.Writer, startRow int, warnings io.Writer) (rowCount
 			}
 		}
 	}
+	clearTo(startCol(len(t.Cols)))
 	emit()
 
 	return
