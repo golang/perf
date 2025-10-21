@@ -163,7 +163,7 @@ func compareBytes(t *testing.T, a, b []byte, nameA, nameB string) {
 		t.Fail()
 	}
 
-	// Keep going after a length mismatch, the first diffence can be useful.
+	// Keep going after a length mismatch, the first difference can be useful.
 	if bytes.Compare(a, b) != 0 {
 		line := 1
 		lbegin := 0

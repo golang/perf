@@ -33,7 +33,7 @@ type Point struct {
 	changeBVID       []benchValID
 }
 
-// because there are holes in that data, the benchmark index can be larger than the valueIndex
+// Because there are holes in that data, the benchmark index can be larger than the valueIndex
 type benchValID struct {
 	benchIndex, valueIndex int
 }

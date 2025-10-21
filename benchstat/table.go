@@ -161,7 +161,7 @@ func metricOf(unit string) string {
 // addGeomean adds a "geomean" row to the table,
 // showing the geometric mean of all the benchmarks.
 func addGeomean(c *Collection, t *Table, unit string, delta bool) {
-	row := &Row{Benchmark: "[Geo mean]"}
+	row := &Row{Benchmark: "[Geomean]"}
 	key := Key{Unit: unit}
 	geomeans := []float64{}
 	maxCount := 0

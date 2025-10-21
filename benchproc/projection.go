@@ -119,7 +119,7 @@ func (p *ProjectionParser) ParseWithUnit(projection string, filter *Filter) (*Pr
 // meaningful order.
 //
 // For example, following calls to p.Parse("goos") and
-// p.Parse(".fullname"), Reside would return a Projection with fields
+// p.Parse(".fullname"), Residue would return a Projection with fields
 // for all file configuration fields except goos.
 //
 // The intended use of this is to report when a user may have

@@ -28,7 +28,7 @@ func Tidy(value float64, unit string) (tidiedValue float64, tidiedUnit string) {
 // tidyUnit normalizes common pre-scaled units like "ns" to "sec" and
 // "MB" to "B". It returns the tidied version of unit and the
 // multiplicative factor to convert a value in unit "unit" to a value in
-// unit "tidied". For example, to convert value x in the untidied unit
+// unit to "tidied". For example, to convert value x in the untidied unit
 // to the tidied unit, multiply x by factor.
 func tidyUnit(unit string) (tidied string, factor float64) {
 	// Fast path for units from testing package.
