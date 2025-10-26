@@ -178,7 +178,7 @@ func (p *ProjectionParser) makeProjection(s *Projection, q string, proj parse.Fi
 			field.cmp = cmp
 		}
 	} else {
-		return nil, &parse.SyntaxError{q, proj.OrderOff, fmt.Sprintf("unknown order %q", proj.Order)}
+		return nil, &parse.SyntaxError{Query: q, Off: proj.OrderOff, Msg: fmt.Sprintf("unknown order %q", proj.Order)}
 	}
 
 	var project func(*benchfmt.Result, *[]string)
@@ -188,7 +188,7 @@ func (p *ProjectionParser) makeProjection(s *Projection, q string, proj parse.Fi
 		// specific file keys.
 		if proj.Order == "fixed" {
 			// Fixed orders don't make sense for a whole tuple.
-			return nil, &parse.SyntaxError{q, proj.OrderOff, "fixed order not allowed for .config"}
+			return nil, &parse.SyntaxError{Query: q, Off: proj.OrderOff, Msg: "fixed order not allowed for .config"}
 		}
 
 		p.haveConfig = true
@@ -242,7 +242,7 @@ func (p *ProjectionParser) makeProjection(s *Projection, q string, proj parse.Fi
 		}
 
 	case ".unit":
-		return nil, &parse.SyntaxError{q, proj.KeyOff, ".unit is only allowed in filters"}
+		return nil, &parse.SyntaxError{Query: q, Off: proj.KeyOff, Msg: ".unit is only allowed in filters"}
 
 	default:
 		// This is a specific sub-name or file key. Add it
@@ -254,7 +254,7 @@ func (p *ProjectionParser) makeProjection(s *Projection, q string, proj parse.Fi
 		}
 		ext, err := newExtractor(proj.Key)
 		if err != nil {
-			return nil, &parse.SyntaxError{q, proj.KeyOff, err.Error()}
+			return nil, &parse.SyntaxError{Query: q, Off: proj.KeyOff, Msg: err.Error()}
 		}
 		field := s.addField(s.root, proj.Key)
 		initField(field)

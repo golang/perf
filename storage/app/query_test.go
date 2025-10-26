@@ -135,10 +135,10 @@ func TestUploads(t *testing.T) {
 		want        []storage.UploadInfo
 	}{
 		{"", nil, []storage.UploadInfo{
-			{9, uploadIDs[8], nil}, {8, uploadIDs[7], nil}, {7, uploadIDs[6], nil}, {6, uploadIDs[5], nil}, {5, uploadIDs[4], nil}, {4, uploadIDs[3], nil}, {3, uploadIDs[2], nil}, {2, uploadIDs[1], nil}, {1, uploadIDs[0], nil},
+			{Count: 9, UploadID: uploadIDs[8], LabelValues: nil}, {Count: 8, UploadID: uploadIDs[7], LabelValues: nil}, {Count: 7, UploadID: uploadIDs[6], LabelValues: nil}, {Count: 6, UploadID: uploadIDs[5], LabelValues: nil}, {Count: 5, UploadID: uploadIDs[4], LabelValues: nil}, {Count: 4, UploadID: uploadIDs[3], LabelValues: nil}, {Count: 3, UploadID: uploadIDs[2], LabelValues: nil}, {Count: 2, UploadID: uploadIDs[1], LabelValues: nil}, {Count: 1, UploadID: uploadIDs[0], LabelValues: nil},
 		}},
-		{"j:5", nil, []storage.UploadInfo{{1, uploadIDs[8], nil}, {1, uploadIDs[7], nil}, {1, uploadIDs[6], nil}, {1, uploadIDs[5], nil}}},
-		{"i:5", []string{"i"}, []storage.UploadInfo{{6, uploadIDs[5], benchfmt.Labels{"i": "5"}}}},
+		{"j:5", nil, []storage.UploadInfo{{Count: 1, UploadID: uploadIDs[8], LabelValues: nil}, {Count: 1, UploadID: uploadIDs[7], LabelValues: nil}, {Count: 1, UploadID: uploadIDs[6], LabelValues: nil}, {Count: 1, UploadID: uploadIDs[5], LabelValues: nil}}},
+		{"i:5", []string{"i"}, []storage.UploadInfo{{Count: 6, UploadID: uploadIDs[5], LabelValues: benchfmt.Labels{"i": "5"}}}},
 		{"not:found", nil, nil},
 	}
 	for _, test := range tests {

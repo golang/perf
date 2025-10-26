@@ -14,8 +14,8 @@ import (
 func TestFilter(t *testing.T) {
 	res := r(t, "Name/n1=v3", "f1", "v1", "f2", "v2")
 	res.Values = []benchfmt.Value{
-		{100, "ns/op", 100e-9, "sec/op"},
-		{100, "B/op", 0, ""},
+		{Value: 100, Unit: "ns/op", OrigValue: 100e-9, OrigUnit: "sec/op"},
+		{Value: 100, Unit: "B/op", OrigValue: 0, OrigUnit: ""},
 	}
 	const ALL = 0b11
 	const NONE = 0

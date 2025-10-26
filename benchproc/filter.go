@@ -70,7 +70,7 @@ func NewFilter(query string) (*Filter, error) {
 			}
 
 			if q.Key == ".config" {
-				return nil, &parse.SyntaxError{query, q.Off, ".config is only allowed in projections"}
+				return nil, &parse.SyntaxError{Query: query, Off: q.Off, Msg: ".config is only allowed in projections"}
 			}
 
 			// Construct the extractor.
@@ -78,7 +78,7 @@ func NewFilter(query string) (*Filter, error) {
 			if ext == nil {
 				ext, err = newExtractor(q.Key)
 				if err != nil {
-					return nil, &parse.SyntaxError{query, q.Off, err.Error()}
+					return nil, &parse.SyntaxError{Query: query, Off: q.Off, Msg: err.Error()}
 				}
 				extractors[q.Key] = ext
 			}
