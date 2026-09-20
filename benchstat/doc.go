@@ -8,6 +8,6 @@
 // version of the benchstat command.
 //
 // Deprecated: The latest version of benchstat can be found at
-// golang.org/x/perf/cmd/benchstat. To work with benchmark data, see
-// golang.org/x/perf/benchproc and golang.org/x/perf/benchmath.
+// [golang.org/x/perf/cmd/benchstat]. To work with benchmark data, see
+// [golang.org/x/perf/benchproc] and [golang.org/x/perf/benchmath].
 package benchstat
