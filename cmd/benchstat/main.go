@@ -195,6 +195,7 @@
 //	-table KEYS   - Group results into tables by KEYS
 //	-row KEYS     - Group results into table rows by KEYS
 //	-col KEYS     - Compare across results with different values of KEYS
+//	-ignore KEYS  - Ignore variations in KEYS when grouping results
 //
 // Using these flags, benchstat "projects" each result into a
 // particular table cell. Each KEYS argument is a comma- or
@@ -217,7 +218,7 @@
 // full file-level configuration ".config", and -col is the specific
 // file key "goos", benchstat will omit "goos" from ".config".
 //
-// Finally, the -ignore flag can list keys that benchstat should
+// The -ignore flag can list keys that benchstat should
 // ignore when grouping results. Continuing the previous example, if
 // -table is ".config" and -ignore is "goos", benchstat will omit
 // "goos" from ".config", but also not use it for any grouping.
