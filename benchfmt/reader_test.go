@@ -207,6 +207,26 @@ Unit ns/op a=2
 			},
 		},
 		{
+			"panic output",
+			`goos: linux
+panic-count: 2
+panic: test timed out after 10m0s
+BenchmarkOne 100 1 ns/op
+panic: benchmark failed [recovered]
+	panic: benchmark failed
+goroutine 1 [running]:
+BenchmarkTwo 200 2 ns/op
+`,
+			[]Record{
+				r("One", 100).
+					config("goos", "linux", "panic-count", "2").
+					v(1, "ns/op").res,
+				r("Two", 200).
+					config("goos", "linux", "panic-count", "2").
+					v(2, "ns/op").res,
+			},
+		},
+		{
 			"remove existing label",
 			`key: value
 key:

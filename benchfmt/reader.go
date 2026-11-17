@@ -18,6 +18,8 @@ import (
 )
 
 // A Reader reads the Go benchmark format.
+// Lines beginning with "panic: " are ignored rather than treated as
+// file configuration, so panic output does not affect subsequent results.
 //
 // Its API is modeled on bufio.Scanner. To minimize allocation, a
 // Reader retains ownership of everything it creates; a caller should
@@ -167,6 +169,11 @@ func (r *Reader) Scan() bool {
 				r.parseUnitLine(nLine)
 				continue
 			}
+		}
+		// A panic message looks like a configuration line, but should
+		// not change the configuration of subsequent benchmark results.
+		if bytes.HasPrefix(line, []byte("panic: ")) {
+			continue
 		}
 		if key, val, ok := parseKeyValueLine(line); ok {
 			// Intern key, since there tend to be few
